@@ -24,4 +24,4 @@ data/
 
 ## Note
 
-Please follow the original dataset license and attribution requirements.
+The original dataset license and attribution requirements should be followed.

@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+
+data/SCB5_TeacherBehavior/
+data/SCB5_HandriseReadWrite/
+data/SCB_BowTurnHead/
+data/cache/
+
+ckpts/
+logs/
+figures/
+results/*_runtime/

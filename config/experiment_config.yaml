@@ -1,30 +1,121 @@
-seed: 42
+# config/experiment_config.yaml
+# 课堂行为识别升级实验配置
+
+# ─── 硬件 ───────────────────────────────────────────────
 hardware:
-  device: cuda
-  gpu_id: 0
+  gpus: [0, 1, 2, 3]          # 4× V100 32GB
+  mixed_precision: true
+  num_workers: 8
 
-data:
-  scb_root: ../datasets_scb
-  hf_dataset: wintonYF/SCB-Dataset
+# ─── 数据集 ──────────────────────────────────────────────
+dataset:
+  hf_repo: "wintonYF/SCB-Dataset"
+  cache_dir: "./data/cache"
+  subsets:
+    teacher_behavior:
+      name: "SCB5-TeacherBehavior"
+      num_classes: 8
+      multilabel: true
+      classes:
+        - "guide"
+        - "answer"
+        - "on-stage interaction"
+        - "blackboard-writing"
+        - "teacher"
+        - "stand"
+        - "screen"
+        - "blackboard"
+    handrise_readwrite:
+      name: "SCB5-HandriseReadWrite"
+      num_classes: 3
+      multilabel: false
+      classes:
+        - "hand-raise"
+        - "read"
+        - "write"
+    bow_turnhead:
+      name: "SCB-BowTurnHead"
+      num_classes: 2
+      multilabel: false
+      classes:
+        - "bow-head"
+        - "turn-head"
 
-models:
-  backbones:
-    - clip_openai_vitl14
-    - openclip_laion_vitl14
-    - siglip2_vitl16
-    - eva02_clip_l14
-    - dfn_clip_vitl14
+# ─── 视频采样参数 ────────────────────────────────────────
+video:
+  clip_duration: 2.0           # 秒，每个片段时长
+  num_frames: 8                # 每片段采样帧数
+  stride: 1.0                  # 片段采样步长（秒）
+  # 注：SCB是图像数据集，视频实验通过时序增强模拟
 
-prompts:
-  sets:
-    - A
-    - B
-    - C
-  use_cape: true
+# ─── CLIP 模型 ───────────────────────────────────────────
+clip_models:
+  - name: "openai-clip-vit-l14"
+    hf_id: "openai/clip-vit-large-patch14"
+    input_size: 224
+  - name: "laion-clip-vit-l14"
+    hf_id: "laion/CLIP-ViT-L-14-laion2B-s32B-b82K"
+    input_size: 224
+  - name: "siglip2-vit-l16"
+    hf_id: "google/siglip2-large-patch16-256"
+    input_size: 256
+  - name: "eva02-clip-vit-l14"
+    hf_id: "QuanSun/EVA-CLIP-8B"          # fallback to L/14
+    input_size: 224
+  - name: "dfn-clip-vit-l14"
+    hf_id: "apple/DFN2B-CLIP-ViT-L-14"
+    input_size: 224
 
-experiments:
-  run_e1_table3: true
-  run_e11_table7: true
+# ─── 视频 CLIP 模型（新增） ──────────────────────────────
+video_models:
+  - name: "languagebind-video"
+    hf_id: "LanguageBind/LanguageBind_Video_FT"
+    input_size: 224
+    num_frames: 8
+  - name: "internvideo2"
+    hf_id: "OpenGVLab/InternVideo2-CLIP-1B-224p-f8"
+    input_size: 224
+    num_frames: 8
 
+# ─── TFVA 适配器 ─────────────────────────────────────────
+tfva:
+  # Training-Free Visual Adapter 超参
+  alpha: 1.0                   # 缓存特征融合权重
+  beta: 5.5                    # logit放大系数
+  few_shot_k: [1, 2, 4, 8, 16] # few-shot样本数消融
+  cache_epochs: 20             # 特征缓存构建轮数（有监督版）
+  learning_rate: 0.001
+  batch_size: 256
+
+# ─── MLLM 基线 ───────────────────────────────────────────
+mllm:
+  models:
+    - name: "llava-1.6-mistral-7b"
+      hf_id: "llava-hf/llava-v1.6-mistral-7b-hf"
+      quantization: "int4"     # V100可跑
+    - name: "qwen-vl-chat"
+      hf_id: "Qwen/Qwen-VL-Chat"
+      quantization: "int8"
+  batch_size: 4                # MLLM推理batch较小
+  max_new_tokens: 64
+
+# ─── 评估 ────────────────────────────────────────────────
+evaluation:
+  metrics:
+    - "hit_at_1"
+    - "hit_at_3"
+    - "macro_f1"
+    - "micro_f1"
+    - "sample_f1"
+    - "per_class_recall"
+  bootstrap:
+    n_resamples: 1000
+    confidence_level: 0.95
+  multilabel_thresholds: [0.10, 0.15, 0.20, 0.25, 0.30]
+
+# ─── 输出 ────────────────────────────────────────────────
 output:
-  results_dir: ../results
+  results_dir: "./results"
+  figures_dir: "./figures"
+  save_predictions: true
+  save_embeddings: true        # 保存特征用于后续分析

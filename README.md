@@ -3,14 +3,14 @@
 Reproducibility package for the paper:
 Zero-Shot Classroom Activity Recognition: Benchmarking CLIP-Family Models with Class-Aware Prompt Ensemble.
 
-This repository is organized for reviewer-friendly verification:
-- One-command experiment entrypoint.
-- Precomputed baseline results for direct checking.
-- Clear mapping from scripts/results to paper experiments.
+This repository is structured to support transparent verification and reproducibility:
+- Public experiment code for the CLIP-family baseline and MLLM comparison.
+- Selected paper-aligned result JSON files for direct reference.
+- Download instructions for the third-party SCB subsets used in the paper.
 
 ## Paper Summary
 
-We benchmark five CLIP-family backbones (CLIP, OpenCLIP, SigLIP2, EVA02-CLIP, DFN-CLIP) on three public SCB subsets under multiple prompt strategies, including CAPE (Class-Aware Prompt Ensemble).
+Five CLIP-family backbones (CLIP, OpenCLIP, SigLIP2, EVA02-CLIP, DFN-CLIP) are benchmarked on three public SCB subsets under multiple prompt strategies, including CAPE (Class-Aware Prompt Ensemble).
 
 ## Quick Start
 
@@ -19,13 +19,18 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Run all reproduction scripts
+# Place the SCB subsets under ./data or export SCB_DATA_DIR=/path/to/SCB
+# Optional: export CKPTS_DIR=/path/to/local/checkpoints
+
+# Run the CLIP-family baseline pipeline
 bash experiments/run_all.sh
 ```
 
-## Reviewer-Friendly Core Numbers (Paper Table 3 / E1)
+For the cross-family MLLM rerun, `experiments/main_mllm.py` is included, but the default paper results are already provided under `results/mllm/` because rerunning the Ollama- or API-based models requires additional runtime services.
 
-The table below exposes core headline values so reviewers can verify claims without rerunning all experiments.
+## Core Results (Paper Table 3 / E1)
+
+The main reported values are listed below so that the core claims can be checked without rerunning all experiments.
 
 | Paper Experiment | Sub-dataset | Best Model + Prompt | Hit@1 (%) | Macro-F1 (%) |
 |---|---|---|---:|---:|
@@ -35,7 +40,17 @@ The table below exposes core headline values so reviewers can verify claims with
 
 Source of these values in this repo:
 - `results/baseline_results.json`
+- `results/paper/benchmark_final_merged.json`
 - `experiments/main_clip.py`
+
+## Included Assets
+
+- `experiments/main_clip.py` contains the full CLIP-family baseline runner used to regenerate baseline JSON outputs.
+- `experiments/main_mllm.py` and `models/mllm_baseline.py` contain the cross-family MLLM evaluation code.
+- `results/paper/benchmark_final_merged.json` stores the merged paper benchmark outputs.
+- `results/paper/cape_robustness_summary.json` stores the CAPE robustness summary used for the robustness section.
+- `results/mllm/mllm_merged_summary.json` and companion files store the released cross-family summary metrics.
+- Raw SCB images are not redistributed here because the datasets are third-party public releases.
 
 ## Repository Layout
 
@@ -46,20 +61,27 @@ scb-clip-benchmark/
 ├── config/
 │   └── experiment_config.yaml
 ├── data/
-│   └── README.md
+│   ├── README.md
+│   └── scb_dataset.py
 ├── prompts/
 │   ├── cape_prompts.py
+│   ├── llm_prompt_gen.py
 │   └── prompt_sets.json
 ├── models/
-│   └── clip_zoo.py
+│   ├── clip_zoo.py
+│   └── mllm_baseline.py
 ├── evaluation/
 │   └── metrics.py
 ├── experiments/
 │   ├── main_clip.py
 │   ├── main_mllm.py
+│   ├── merge_mllm_results.py
 │   └── run_all.sh
 ├── results/
-│   └── baseline_results.json
+│   ├── baseline_results.json
+│   ├── baseline_eva02_fix_allstrat/
+│   ├── mllm/
+│   └── paper/
 └── notebooks/
     └── reproduce_figures.ipynb
 ```
@@ -67,8 +89,8 @@ scb-clip-benchmark/
 ## Data Availability
 
 SCB data are third-party public datasets and are not redistributed in this repository.
-Please follow instructions in `data/README.md` to download from the official source.
+Download instructions are provided in `data/README.md`.
 
 ## Citation
 
-If you use this repository, please cite the paper and repository release.
+The associated paper and repository release should be cited when this repository is used.
