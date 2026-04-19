@@ -1,0 +1,30 @@
+seed: 42
+hardware:
+  device: cuda
+  gpu_id: 0
+
+data:
+  scb_root: ../datasets_scb
+  hf_dataset: wintonYF/SCB-Dataset
+
+models:
+  backbones:
+    - clip_openai_vitl14
+    - openclip_laion_vitl14
+    - siglip2_vitl16
+    - eva02_clip_l14
+    - dfn_clip_vitl14
+
+prompts:
+  sets:
+    - A
+    - B
+    - C
+  use_cape: true
+
+experiments:
+  run_e1_table3: true
+  run_e11_table7: true
+
+output:
+  results_dir: ../results

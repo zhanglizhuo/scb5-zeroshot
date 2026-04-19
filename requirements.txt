@@ -1,0 +1,14 @@
+torch
+torchvision
+open-clip-torch
+numpy
+Pillow
+tqdm
+scikit-learn
+matplotlib
+scipy
+pandas
+seaborn
+jupyter
+huggingface-hub
+git+https://github.com/openai/CLIP.git

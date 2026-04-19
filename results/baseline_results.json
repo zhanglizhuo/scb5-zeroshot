@@ -1,0 +1,43 @@
+{
+  "paper": "Zero-Shot Classroom Activity Recognition: Benchmarking CLIP-Family Models with Class-Aware Prompt Ensemble",
+  "table3_core": [
+    {
+      "experiment": "E1",
+      "subset": "TeacherBehavior",
+      "best_model_prompt": "SigLIP2 + CAPE",
+      "hit_at_1": 85.56,
+      "macro_f1": 10.07
+    },
+    {
+      "experiment": "E1",
+      "subset": "HandriseReadWrite",
+      "best_model_prompt": "OpenCLIP + action",
+      "hit_at_1": 84.56,
+      "macro_f1": 55.89
+    },
+    {
+      "experiment": "E1",
+      "subset": "BowTurnHead",
+      "best_model_prompt": "DFN-CLIP + CAPE",
+      "hit_at_1": 93.27,
+      "macro_f1": 53.95
+    }
+  ],
+  "table7_cross_family": [
+    {
+      "model": "Best CLIP reference",
+      "weighted_hit_at_1": 85.97,
+      "weighted_macro_f1": 28.30
+    },
+    {
+      "model": "Qwen3.5-27B",
+      "weighted_hit_at_1": 75.09,
+      "weighted_macro_f1": 31.46
+    },
+    {
+      "model": "Gemma4-26B",
+      "weighted_hit_at_1": 76.55,
+      "weighted_macro_f1": 34.18
+    }
+  ]
+}

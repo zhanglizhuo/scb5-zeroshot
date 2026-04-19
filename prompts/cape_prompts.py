@@ -1,0 +1,177 @@
+"""Prompt sets used for SCB zero-shot benchmarking.
+Set A: original CAPE-style prompts
+Set B: alternate wording prompts
+Set C: blind prompts (no image inspection)
+"""
+
+CLASSES = [
+    "guide",
+    "answer",
+    "on-stage interaction",
+    "blackboard-writing",
+    "teacher",
+    "stand",
+    "screen",
+    "blackboard",
+    "hand-raise",
+    "read",
+    "write",
+    "bow-head",
+    "turn-head",
+]
+
+PROMPT_SETS = {
+    "A": {
+        "guide": [
+            "a teacher guiding students through classwork",
+            "a classroom scene where a teacher gives learning guidance",
+            "a teacher moving among students to guide tasks",
+        ],
+        "answer": [
+            "a teacher answering a student question",
+            "a classroom scene where a teacher responds to questions",
+            "a teacher explaining an answer to the class",
+        ],
+        "on-stage interaction": [
+            "a teacher interacting with students at the front of the classroom",
+            "teacher and students engaged in on-stage interaction",
+            "a classroom scene with teacher-student interaction near the podium",
+        ],
+        "blackboard-writing": [
+            "a teacher writing on the blackboard with chalk",
+            "a classroom scene where the teacher writes blackboard notes",
+            "a teacher facing the blackboard while writing",
+        ],
+        "teacher": [
+            "a teacher explaining concepts while lecturing",
+            "a classroom scene centered on the teacher",
+            "the teacher actively teaching in front of students",
+        ],
+        "stand": [
+            "a teacher standing at the front of the classroom",
+            "a classroom scene where the teacher is standing",
+            "a standing teacher during instruction",
+        ],
+        "screen": [
+            "a teacher pointing at a projection screen",
+            "a classroom scene with the teacher presenting on screen",
+            "a teacher using digital slides on the classroom screen",
+        ],
+        "blackboard": [
+            "a teacher using the blackboard to explain content",
+            "a classroom scene with visible blackboard teaching",
+            "the teacher referencing written content on the blackboard",
+        ],
+        "hand-raise": [
+            "a student raising a hand in class",
+            "a classroom scene with a student hand-raise behavior",
+            "a student signaling to speak by raising a hand",
+        ],
+        "read": [
+            "a student reading textbook or notes",
+            "a classroom scene where a student is reading",
+            "a student focused on reading materials",
+        ],
+        "write": [
+            "a student writing in a notebook",
+            "a classroom scene with student writing behavior",
+            "a student taking written notes during class",
+        ],
+        "bow-head": [
+            "a student bowing head to look down",
+            "a classroom scene with bow-head behavior",
+            "a student looking downward with lowered head posture",
+        ],
+        "turn-head": [
+            "a student turning head sideways",
+            "a classroom scene with turn-head behavior",
+            "a student looking sideways by turning the head",
+        ],
+    },
+    "B": {
+        "guide": [
+            "the instructor is guiding learners",
+            "teacher guidance behavior appears in classroom",
+            "the teacher provides step-by-step guidance",
+        ],
+        "answer": [
+            "the instructor is answering questions",
+            "teacher answer behavior in classroom discussion",
+            "the teacher gives direct responses to students",
+        ],
+        "on-stage interaction": [
+            "teacher and students interact at the front stage",
+            "interactive teacher-student exchange near podium",
+            "front-of-class interaction between teacher and students",
+        ],
+        "blackboard-writing": [
+            "the teacher writes on blackboard",
+            "blackboard writing behavior by the instructor",
+            "teacher is actively writing chalk content",
+        ],
+        "teacher": [
+            "the teacher is lecturing",
+            "a typical teaching posture by instructor",
+            "teacher-centered teaching activity",
+        ],
+        "stand": [
+            "instructor standing posture",
+            "teacher remains standing in front of class",
+            "standing teacher behavior",
+        ],
+        "screen": [
+            "teacher presenting with projection screen",
+            "screen-based teaching behavior",
+            "instructor points to projected material",
+        ],
+        "blackboard": [
+            "teacher teaching with blackboard content",
+            "blackboard-oriented classroom explanation",
+            "instructor points to blackboard area",
+        ],
+        "hand-raise": [
+            "student raises hand to participate",
+            "classroom hand-raising behavior",
+            "learner signals by hand up",
+        ],
+        "read": [
+            "student reading behavior",
+            "learner reads text materials",
+            "in-class reading posture",
+        ],
+        "write": [
+            "student writing behavior",
+            "learner writes notes in class",
+            "in-class notebook writing posture",
+        ],
+        "bow-head": [
+            "student bows head downward",
+            "downward head posture in class",
+            "head-down behavior during class",
+        ],
+        "turn-head": [
+            "student turns head to the side",
+            "side-looking head movement",
+            "turn-head posture in classroom",
+        ],
+    },
+    "C": {
+        "guide": ["a teacher in the role of guidance"],
+        "answer": ["a teacher in the role of answering"],
+        "on-stage interaction": ["a classroom interaction scene"],
+        "blackboard-writing": ["a person writing on a board"],
+        "teacher": ["a person in the role of teacher"],
+        "stand": ["a standing person in a classroom"],
+        "screen": ["a classroom scene with a screen"],
+        "blackboard": ["a classroom scene with a blackboard"],
+        "hand-raise": ["a student with raised hand"],
+        "read": ["a student reading"],
+        "write": ["a student writing"],
+        "bow-head": ["a person looking downward"],
+        "turn-head": ["a person looking sideways"],
+    },
+}
+
+if __name__ == "__main__":
+    for set_name, values in PROMPT_SETS.items():
+        print(f"{set_name}: {len(values)} classes")
