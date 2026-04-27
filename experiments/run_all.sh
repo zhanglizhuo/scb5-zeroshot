@@ -9,10 +9,10 @@ python "$ROOT/experiments/main_clip.py" \
 	--results_dir "$ROOT/results/baseline" \
 	--experiment all_strategies
 
-echo "[2/2] Precomputed paper results available under:"
+echo "[2/2] Top-down workflow artifacts available under:"
 echo "  $ROOT/results/paper"
 echo "  $ROOT/results/mllm"
 echo ""
-echo "Optional cross-family rerun: python $ROOT/experiments/main_mllm.py --results_dir $ROOT/results/mllm_runtime"
+echo "Optional Stage-3 rerun: python $ROOT/experiments/main_mllm.py --results_dir $ROOT/results/mllm_runtime"
 
-echo "Done. Baseline outputs: $ROOT/results/baseline"
+echo "Done. Stage-1 outputs: $ROOT/results/baseline"

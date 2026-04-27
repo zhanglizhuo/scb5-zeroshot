@@ -1,16 +1,30 @@
 # scb-clip-benchmark
 
-Reproducibility package for the paper:
+Top-down reproducibility repository for the paper:
 Zero-Shot Classroom Activity Recognition: Benchmarking CLIP-Family Models with Class-Aware Prompt Ensemble.
 
-This repository is structured to support transparent verification and reproducibility:
-- Public experiment code for the CLIP-family baseline and MLLM comparison.
-- Selected paper-aligned result JSON files for direct reference.
-- Download instructions for the third-party SCB subsets used in the paper.
+This repository is organized as a complete experimental workflow, from dataset preparation to final paper-ready outputs.
 
-## Paper Summary
+## Top-Down Experimental Workflow
 
-Five CLIP-family backbones (CLIP, OpenCLIP, SigLIP2, EVA02-CLIP, DFN-CLIP) are benchmarked on three public SCB subsets under multiple prompt strategies, including CAPE (Class-Aware Prompt Ensemble).
+Stage 0: Environment and data setup
+- Install dependencies from requirements.txt.
+- Download the public SCB subsets using instructions in data/README.md.
+
+Stage 1: CLIP-family benchmark under unified protocols
+- Run experiments/main_clip.py (or experiments/run_all.sh).
+- This stage evaluates five CLIP-family backbones across three SCB subsets with multiple prompt strategies.
+
+Stage 2: Prompt-strategy sensitivity and robustness summaries
+- Use the released baseline outputs and prompt definitions to verify strategy-dependent ranking behavior.
+- Aggregated benchmark artifacts are available in results/paper/.
+
+Stage 3: Cross-family validation with MLLM baselines
+- Run experiments/main_mllm.py when runtime services are available.
+- Released cross-family summaries are available in results/mllm/.
+
+Stage 4: Figure/table reproduction
+- Use notebooks/reproduce_figures.ipynb with released JSON outputs to regenerate paper figures.
 
 ## Quick Start
 
@@ -19,38 +33,32 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Place the SCB subsets under ./data or export SCB_DATA_DIR=/path/to/SCB
+# Place SCB subsets under ./data or export SCB_DATA_DIR=/path/to/SCB
 # Optional: export CKPTS_DIR=/path/to/local/checkpoints
 
-# Run the CLIP-family baseline pipeline
+# Stage-1 benchmark run
 bash experiments/run_all.sh
+
+# Optional Stage-3 rerun (requires extra runtime services)
+python experiments/main_mllm.py --results_dir results/mllm_runtime
 ```
 
-For the cross-family MLLM rerun, `experiments/main_mllm.py` is included, but the default paper results are already provided under `results/mllm/` because rerunning the Ollama- or API-based models requires additional runtime services.
+## Key Outputs and Paper Mapping
 
-## Core Results (Paper Table 3 / E1)
+| Workflow Stage | Output file(s) | Paper usage |
+|---|---|---|
+| Stage 1 | results/baseline_results.json | Main benchmark table values |
+| Stage 1/2 | results/paper/benchmark_final_merged.json | Final merged benchmark summary |
+| Stage 2 | results/paper/cape_robustness_summary.json | Robustness analysis |
+| Stage 3 | results/mllm/mllm_merged_summary.json | Cross-family validation summary |
 
-The main reported values are listed below so that the core claims can be checked without rerunning all experiments.
+Core best-per-subset values (main benchmark):
 
-| Paper Experiment | Sub-dataset | Best Model + Prompt | Hit@1 (%) | Macro-F1 (%) |
-|---|---|---|---:|---:|
-| E1 / Table 3 (best per subset) | TeacherBehavior | SigLIP2 + CAPE | 85.56 | 10.07 |
-| E1 / Table 3 (best per subset) | HandriseReadWrite | OpenCLIP + action | 84.56 | 55.89 |
-| E1 / Table 3 (best per subset) | BowTurnHead | DFN-CLIP + CAPE | 93.27 | 53.95 |
-
-Source of these values in this repo:
-- `results/baseline_results.json`
-- `results/paper/benchmark_final_merged.json`
-- `experiments/main_clip.py`
-
-## Included Assets
-
-- `experiments/main_clip.py` contains the full CLIP-family baseline runner used to regenerate baseline JSON outputs.
-- `experiments/main_mllm.py` and `models/mllm_baseline.py` contain the cross-family MLLM evaluation code.
-- `results/paper/benchmark_final_merged.json` stores the merged paper benchmark outputs.
-- `results/paper/cape_robustness_summary.json` stores the CAPE robustness summary used for the robustness section.
-- `results/mllm/mllm_merged_summary.json` and companion files store the released cross-family summary metrics.
-- Raw SCB images are not redistributed here because the datasets are third-party public releases.
+| Sub-dataset | Best Model + Prompt | Hit@1 (%) | Macro-F1 (%) |
+|---|---|---:|---:|
+| TeacherBehavior | SigLIP2 + CAPE | 85.56 | 10.07 |
+| HandriseReadWrite | OpenCLIP + action | 84.56 | 55.89 |
+| BowTurnHead | DFN-CLIP + CAPE | 93.27 | 53.95 |
 
 ## Repository Layout
 
@@ -89,8 +97,8 @@ scb-clip-benchmark/
 ## Data Availability
 
 SCB data are third-party public datasets and are not redistributed in this repository.
-Download instructions are provided in `data/README.md`.
+Download instructions are provided in data/README.md.
 
 ## Citation
 
-The associated paper and repository release should be cited when this repository is used.
+Please cite the associated paper and this repository release when using these assets.
