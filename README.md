@@ -1,7 +1,7 @@
 # scb-clip-benchmark
 
 Top-down reproducibility repository for the paper:
-Zero-Shot Classroom Activity Recognition: Benchmarking CLIP-Family Models with Class-Aware Prompt Ensemble.
+Benchmarking CLIP-Family Models for Zero-Shot Classroom Activity Recognition: Prompt and Metric Choice Matter.
 
 This repository is organized as a complete experimental workflow, from dataset preparation to final paper-ready outputs.
 
