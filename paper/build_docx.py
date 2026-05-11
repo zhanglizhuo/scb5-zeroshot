@@ -139,6 +139,59 @@ def replace_tikz_figures(body: str) -> str:
     )
 
 
+def replace_algorithms(body: str) -> str:
+    def normalize_line(line: str) -> str:
+        stripped = line.strip()
+        if not stripped or stripped in {"\\DontPrintSemicolon", "\\SetAlgoLined", "\\BlankLine", "}"}:
+            return ""
+
+        indent = len(line) - len(line.lstrip(" "))
+        prefix = r"\quad " * (indent // 4)
+
+        if stripped.startswith(r"\KwIn{") and stripped.endswith("}"):
+            return prefix + r"\textbf{Input:} " + stripped[len(r"\KwIn{") : -1]
+        if stripped.startswith(r"\KwOut{") and stripped.endswith("}"):
+            return prefix + r"\textbf{Output:} " + stripped[len(r"\KwOut{") : -1]
+        if stripped.startswith(r"\Return{") and stripped.endswith("}"):
+            return prefix + r"\textbf{Return:} " + stripped[len(r"\Return{") : -1]
+
+        stripped = re.sub(r"\\tcp\*\{((?:[^{}]|\{[^{}]*\})*)\}", r"(\\textit{\1})", stripped)
+        stripped = re.sub(r"\\tcp\{((?:[^{}]|\{[^{}]*\})*)\}", r"\\textit{\1}", stripped)
+        stripped = re.sub(r"\\For\{((?:[^{}]|\{[^{}]*\})*)\}\{", r"\\textbf{For} \1:", stripped)
+        return prefix + stripped
+
+    def repl(match: re.Match[str]) -> str:
+        block = match.group(0)
+        caption_match = re.search(r"\\caption\{((?:[^{}]|\{[^{}]*\})*)\}", block, flags=re.DOTALL)
+
+        content = re.sub(r"^\\begin\{algorithm\}\[[^\]]*\]\s*", "", block, count=1, flags=re.DOTALL)
+        content = re.sub(r"\\caption\{((?:[^{}]|\{[^{}]*\})*)\}", "", content, flags=re.DOTALL)
+        content = re.sub(r"\\label\{[^}]*\}", "", content, flags=re.DOTALL)
+        content = content.replace(r"\end{algorithm}", "")
+
+        lines = [normalize_line(line) for line in content.splitlines()]
+        lines = [line for line in lines if line]
+
+        caption = caption_match.group(1).strip() if caption_match else f"Algorithm {repl.counter}"
+        algorithm_block = "\\\\\n".join(lines)
+        replacement = (
+            f"\n\\noindent\\textbf{{Algorithm {repl.counter}: {caption}}}\\par\n"
+            "\\begin{quote}\n"
+            f"{algorithm_block}\n"
+            "\\end{quote}\n"
+        )
+        repl.counter += 1
+        return replacement
+
+    repl.counter = 1
+    return re.sub(
+        r"\\begin\{algorithm\}\[[^\]]*\].*?\\end\{algorithm\}",
+        repl,
+        body,
+        flags=re.DOTALL,
+    )
+
+
 def preprocess_tex() -> str:
     text = SRC_TEX.read_text(encoding="utf-8")
 
@@ -183,8 +236,21 @@ def preprocess_tex() -> str:
             flags=re.DOTALL,
         )
 
+    # Keep the algorithm reference text stable in Word export without depending
+    # on pandoc to derive a counter from a non-standard algorithm2e environment.
+    body = body.replace(r"\Cref{alg:cape}", "Algorithm 1")
+    body = body.replace(r"\cref{alg:cape}", "Algorithm 1")
+
     # Replace inline tikz figures with rendered PNGs so docx keeps them.
     body = replace_tikz_figures(body)
+
+    # Convert algorithm2e blocks into plain paragraph + quoted lines so pandoc keeps them.
+    body = replace_algorithms(body)
+
+    # Pandoc fails on the section-sign superscript marker used in one table note.
+    # Normalize it to plain Unicode so the DOCX keeps the marker instead of raw TeX.
+    body = body.replace(r"\rlap{$^{\S}$}", "§")
+    body = body.replace(r"$^{\S}$", "§")
 
     # Replace .pdf includegraphics with .png from figures_png.
     body = re.sub(
@@ -243,6 +309,7 @@ def build_docx() -> None:
         outputfile=str(OUT_DOCX),
         extra_args=[
             f"--resource-path={PAPER_DIR}:{PAPER_DIR / 'figures_png'}:{PAPER_DIR / 'figures'}",
+            "--number-sections",
             "--standalone",
         ],
     )
