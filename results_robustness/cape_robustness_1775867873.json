@@ -1,0 +1,167 @@
+{
+  "timestamp": 1775866282,
+  "experiments": [
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n1",
+      "hit1": 55.03
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n2",
+      "hit1": 64.63
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n3",
+      "hit1": 55.03
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_B_n3",
+      "hit1": 35.43
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 56.27
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 55.93
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 58.12
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 42.59
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 29.23
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n1",
+      "hit1": 67.98
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n2",
+      "hit1": 59.37
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n3",
+      "hit1": 60.8
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_B_n3",
+      "hit1": 63.61
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 62.72
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 57.81
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 61.64
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 72.29
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 54.82
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n1",
+      "hit1": 63.17
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n2",
+      "hit1": 65.35
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n3",
+      "hit1": 67.72
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_B_n3",
+      "hit1": 61.19
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 66.53
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 57.62
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 67.13
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 67.92
+    },
+    {
+      "model": "laion",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 70.3
+    }
+  ]
+}

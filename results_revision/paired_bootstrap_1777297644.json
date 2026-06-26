@@ -1,0 +1,105 @@
+{
+  "n_bootstrap": 5000,
+  "seed": 42,
+  "rows": [
+    {
+      "dataset": "TeacherBehavior",
+      "model_a": "openai",
+      "model_b": "dfn",
+      "acc_a_pct": 84.32,
+      "acc_b_pct": 45.9,
+      "delta_pp": 38.43,
+      "ci_low_pp": 36.57,
+      "ci_high_pp": 40.31,
+      "p_value": 0.0
+    },
+    {
+      "dataset": "TeacherBehavior",
+      "model_a": "openai",
+      "model_b": "siglip2",
+      "acc_a_pct": 84.32,
+      "acc_b_pct": 85.49,
+      "delta_pp": -1.17,
+      "ci_low_pp": -2.53,
+      "ci_high_pp": 0.15,
+      "p_value": 0.0892
+    },
+    {
+      "dataset": "TeacherBehavior",
+      "model_a": "dfn",
+      "model_b": "siglip2",
+      "acc_a_pct": 45.9,
+      "acc_b_pct": 85.49,
+      "delta_pp": -39.6,
+      "ci_low_pp": -41.39,
+      "ci_high_pp": -37.96,
+      "p_value": 0.0
+    },
+    {
+      "dataset": "HandriseReadWrite",
+      "model_a": "openai",
+      "model_b": "dfn",
+      "acc_a_pct": 57.99,
+      "acc_b_pct": 56.91,
+      "delta_pp": 1.08,
+      "ci_low_pp": -0.12,
+      "ci_high_pp": 2.33,
+      "p_value": 0.0888
+    },
+    {
+      "dataset": "HandriseReadWrite",
+      "model_a": "openai",
+      "model_b": "siglip2",
+      "acc_a_pct": 57.99,
+      "acc_b_pct": 56.25,
+      "delta_pp": 1.74,
+      "ci_low_pp": 0.48,
+      "ci_high_pp": 2.99,
+      "p_value": 0.0056
+    },
+    {
+      "dataset": "HandriseReadWrite",
+      "model_a": "dfn",
+      "model_b": "siglip2",
+      "acc_a_pct": 56.91,
+      "acc_b_pct": 56.25,
+      "delta_pp": 0.66,
+      "ci_low_pp": -0.54,
+      "ci_high_pp": 1.86,
+      "p_value": 0.306
+    },
+    {
+      "dataset": "BowTurnHead",
+      "model_a": "openai",
+      "model_b": "dfn",
+      "acc_a_pct": 63.56,
+      "acc_b_pct": 68.32,
+      "delta_pp": -4.75,
+      "ci_low_pp": -7.52,
+      "ci_high_pp": -2.18,
+      "p_value": 0.0
+    },
+    {
+      "dataset": "BowTurnHead",
+      "model_a": "openai",
+      "model_b": "siglip2",
+      "acc_a_pct": 63.56,
+      "acc_b_pct": 64.75,
+      "delta_pp": -1.19,
+      "ci_low_pp": -5.74,
+      "ci_high_pp": 3.37,
+      "p_value": 0.6352
+    },
+    {
+      "dataset": "BowTurnHead",
+      "model_a": "dfn",
+      "model_b": "siglip2",
+      "acc_a_pct": 68.32,
+      "acc_b_pct": 64.75,
+      "delta_pp": 3.56,
+      "ci_low_pp": -0.59,
+      "ci_high_pp": 7.72,
+      "p_value": 0.1036
+    }
+  ]
+}

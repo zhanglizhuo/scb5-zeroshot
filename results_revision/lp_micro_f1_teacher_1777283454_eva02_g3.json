@@ -1,0 +1,7 @@
+{
+  "eva02": {
+    "ml_sample_f1": 89.62,
+    "ml_macro_f1": 77.31,
+    "ml_micro_f1": 91.02
+  }
+}

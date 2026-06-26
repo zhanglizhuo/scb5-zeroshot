@@ -1,0 +1,274 @@
+{
+  "fs_tfva": {
+    "teacher_behavior": {
+      "openai": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      },
+      "dfn": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      }
+    },
+    "handrise_readwrite": {
+      "openai": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      },
+      "dfn": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      }
+    },
+    "bow_turnhead": {
+      "openai": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      },
+      "dfn": {
+        "k_shot_results": {
+          "1": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "2": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "4": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "8": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          },
+          "16": {
+            "hit_at_1": 1.0,
+            "best_params": {
+              "alpha": 0.5,
+              "beta": 1.0,
+              "shot_alpha": 0.1
+            }
+          }
+        }
+      }
+    }
+  }
+}

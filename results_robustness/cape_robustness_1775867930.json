@@ -1,0 +1,167 @@
+{
+  "timestamp": 1775866246,
+  "experiments": [
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n1",
+      "hit1": 46.05
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n2",
+      "hit1": 66.3
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_A_n3",
+      "hit1": 64.35
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_B_n3",
+      "hit1": 39.23
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 47.04
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 39.51
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 73.09
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 54.94
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 34.04
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n1",
+      "hit1": 55.77
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n2",
+      "hit1": 58.35
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_A_n3",
+      "hit1": 60.62
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_B_n3",
+      "hit1": 71.15
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 72.59
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 63.08
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 65.83
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 69.42
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 61.52
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n1",
+      "hit1": 55.84
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n2",
+      "hit1": 64.36
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_A_n3",
+      "hit1": 65.35
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_B_n3",
+      "hit1": 53.66
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t0",
+      "hit1": 62.97
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t1",
+      "hit1": 60.4
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t2",
+      "hit1": 67.33
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t3",
+      "hit1": 57.23
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "variant": "CAPE_Mix_t4",
+      "hit1": 61.58
+    }
+  ]
+}

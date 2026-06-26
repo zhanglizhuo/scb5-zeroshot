@@ -1,0 +1,2686 @@
+{
+  "model": "qwen35_ollama",
+  "subset": "bow_turnhead",
+  "hit_at_1": 0.5267326732673268,
+  "hit_at_3": 1.0,
+  "num_samples": 505,
+  "raw_preds": [
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them are looking down at their desks, likely writing or reading. Their heads are lowered towards the work surface. This posture corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of the students have their heads tilted downwards, looking at papers or books on their desks. This posture is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The vast majority of the students have their heads lowered towards their desks, appearing to be writing or reading. This specific posture of lowering the head is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. The majority of the students have their heads lowered, looking down at their desks or papers, which is characteristic of writing or reading. This aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. The vast majority of the students have their heads lowered, looking down at their desks, likely reading or writing. This posture corresponds to the action of 'bowing the head'. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are seated at their desks with their heads lowered, looking down at their papers or desks. This posture is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The vast majority of the students have their heads lowered towards their desks, appearing to be writing or reading. This posture corresponds to the 'bow-head' activity. There are very few students turning their heads significantly to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all the visible students have their heads tilted downwards, looking at their desks, likely writing or reading. This posture corresponds to the action of 'bowing' the head. There is no evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows several children in a classroom sitting at their desks. Most of the children have their heads lowered and resting on their desks or looking down at their workbooks. This posture corresponds to the action of bowing the head.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks in a classroom. Several students, particularly those in the foreground, have their heads bowed down, looking at books or papers on their desks. This posture is characteristic of reading or writing activities. There is no clear evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are seated at their desks and are looking down at their papers or work. This downward gaze corresponds to the action of bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all the visible students have their heads lowered towards their desks, which is characteristic of reading or writing. This action corresponds to 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are seated at their desks and are looking down at their papers or books. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are seated at desks and are looking down at their work, likely writing or reading. Their heads are tilted downwards in a posture consistent with studying or taking notes. There is no significant turning of heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are looking down at their desks, reading, or writing. Specifically, the student in the foreground with the black jacket has their head bowed down on the desk, and the student in the pink jacket is looking down at a book. This posture corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at desks. Most of the students, including those in the foreground and background, have their heads bent downwards, looking at their desks or papers. This posture is best described as 'bow-head'. While the teacher and one student on the right are looking up/forward, the dominant activity of the group involves looking down at their work.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing and interacting with students. Several students are visible. The student in the foreground (with a ponytail) has their head turned to the right. The student in the back right is looking towards the front/left (turning head). The student in the back left is looking towards the front/right (turning head). Only the student on the far left appears to be bowing their head down to work. Since the majority of visible students have their heads turned to look at the teacher or the front of the class, 'turn-head' is the most appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where almost all students are looking down at their desks, likely writing or reading. This action of lowering the head is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all students have their heads lowered, looking down at their desks, likely writing or reading. This posture corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting where the majority of students are seated at their desks with their heads lowered, looking down at books or papers. This posture is characteristic of studying or writing, which aligns with the 'bow-head' category. While one student is looking up, the dominant activity of the group is bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking down at their desks, papers, or books. Their heads are tilted downwards in a posture of studying or writing, which corresponds to the 'bow-head' action. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are looking down at their desks, likely writing or reading. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking down at their desks or papers. This posture involves lowering the head, which corresponds to the 'bow-head' category. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is speaking at the front. Several students are seated and facing the teacher. The students in the foreground have their hands raised and are looking up at the teacher. The student on the right is also looking towards the teacher. The primary action involving the students' heads is turning them to face the teacher or the board, which aligns with the 'turn-head' category. There is no clear evidence of bowing heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom are seated at their desks and are looking down at their work (books or papers). This posture of tilting the head down towards the desk is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a student standing in a classroom holding a paper. His head is turned to the side, looking towards the left of the frame, rather than bowing his head down. This action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene. The teacher is standing and looking down at a book/paper, which involves bowing the head. The student on the far left is looking down. The student in the bottom left corner (with the pink bow in hair) has their head bowed down. While the student on the right is turning their head, the majority of the visible people (teacher, student left, student bottom left) are bowing their heads or looking down. Thus, 'bow-head' is the most prevalent action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene. The teacher standing at the front is looking down, and the student on the far left is also looking down at their desk or materials. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a student sitting at a desk with their head bowed down, likely writing or reading. This posture corresponds directly to the 'bow-head' category. There is no indication of turning the head to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all students have their heads bowed down, looking at papers or books on their desks, likely writing or reading. This posture aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Most of the students appear to be looking down at their desks or papers, likely reading or writing. This posture corresponds to the 'bow-head' category. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom, particularly those in the front rows, are looking down at their desks and books. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom of students sitting at desks. The vast majority of students have their heads lowered, looking at papers or books on their desks. This posture corresponds to the 'bow-head' action, indicating they are reading or writing. There is no significant group of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While some students in the back rows are looking sideways (turn-head), a significant number of students, particularly in the middle and front rows, have their heads bowed down towards their desks, likely reading or writing. The action of bowing the head is more prevalent and characteristic of the studying activity shown.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students have their heads bowed down onto their desks or are looking down at their papers. This posture is characteristic of resting or sleeping in class, which aligns with the 'bow-head' category. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are looking down at their desks or papers. Their heads are bowed in concentration on their work. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with several students having their heads bowed down on their desks, likely sleeping or resting. This specific posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with several students sitting at desks. Notably, multiple students (specifically in the left columns) have their heads bowed down, either resting on their desks or looking down. This action corresponds to the 'bow-head' category. There is no prominent action of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at desks. The student in the foreground and others in the background have their heads lowered towards their desks, likely reading or writing. This posture corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the image are seated at desks and are looking down at their papers or books, appearing to write or read. This posture of lowering the head towards the desk is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are seated at desks and are looking down at papers or books on their desks. This posture of looking down is best described as 'bow-head'. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks in a classroom. Almost all visible students are leaning forward with their heads down, focused on papers or books on their desks. This posture corresponds to the action of 'bowing the head' over a task. There is no significant evidence of students turning their heads to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The most prominent action is that the majority of the students have their heads lowered towards their desks, likely writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The students in the foreground, particularly the girl on the left and the girl on the right, are looking down at their desks or books, which corresponds to the 'bow-head' action. The student in the middle is looking slightly to the side, but the dominant posture of the group, especially the prominent foreground students, is looking down at their work. The students in the background are also facing forward or slightly down. Therefore, 'bow-head' is the most appropriate category describing the general activity of studying/reading.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at desks facing a teacher standing on the right side. The students are oriented towards the teacher, meaning their heads are turned to the right. This aligns with the 'turn-head' category. While one student in the foreground has a book, the primary orientation of the group is towards the teacher, not bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks in a classroom. They are all looking down at their papers and writing. Their heads are bowed towards the desk surface, which corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a group of students sitting at desks in a classroom. They are all looking down at their desks, likely writing or reading. This posture of lowering the head to focus on a task on the desk corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Most of the students have their heads bowed down, looking at their desks or papers, which is consistent with the activity of reading or writing. There is very little evidence of students turning their heads to the side to look at others. Therefore, 'bow-head' is the most accurate description of the collective activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are primarily looking down at their desks or papers. The student in the foreground has his head bowed down towards the desk, and others are similarly focused downwards. This aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks in a classroom. They are all looking down at papers on their desks, likely taking a test or writing. Their heads are tilted downwards towards the work, which corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the image are looking down at their desks or papers, which is characteristic of reading or writing. This action corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks, leaning forward with their heads down, focused on writing or reading. This posture of looking down at the desk surface corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students in a classroom. The boy in the brown jacket and the girl next to him are both looking towards the left side of the frame. Their heads are turned to the side to look at something or someone off-camera. This action corresponds to 'turn-head'. While one child in the foreground has their head down, the primary visible action of the main subjects is turning their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all visible students have their heads bent down towards their desks, likely writing or reading. There is no evidence of students turning their heads to the side. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. The vast majority of students have their heads bowed down towards their desks, appearing to be writing or reading. This posture aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Several students, particularly those in the foreground, have their heads bowed down, looking at papers on their desks. This posture aligns with the 'bow-head' category. There is no clear evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The majority of the students have their heads bowed down, resting on their desks or looking at their papers, which is characteristic of writing or reading. This aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. The majority of the students have their heads bowed down, looking at their desks or papers, which is consistent with writing or reading. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are sitting at their desks with their heads bowed down, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The majority of the students have their heads tilted downwards towards their desks or books, which is the defining characteristic of the 'bow-head' action. There is no significant evidence of the 'turn-head' action as the primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The main subject, the teacher standing at the front, has his head turned slightly to the side rather than bowing down. The student in the foreground also has their head turned towards the teacher. Neither person is performing a bowing action.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where many students are sitting at their desks with their heads bowed down, either studying or resting. This posture corresponds to the 'bow-head' activity. While some students are looking up, the dominant and defining activity for the group is bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting where the vast majority of students are seated at their desks with their heads bowed down, likely writing or reading. This posture corresponds directly to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing and interacting with students. The students are seated at their desks and are turning their heads to look towards the teacher or the front of the class. There is no clear evidence of students bowing their heads down (bow-head). The primary head movement observed is turning.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students in the foreground, particularly the one in the front center and the one to the right, have their heads bowed down towards their desks, likely writing or reading. This action corresponds to 'bow-head'. There is no clear evidence of a 'turn-head' action as the primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with many students seated at desks. The vast majority of students have their heads bent downwards, looking at books or papers on their desks. This posture corresponds to the 'bow-head' action. While some students might be looking forward or slightly to the side, the dominant activity is looking down at work, which fits 'bow-head' better than 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Most of the students, particularly those in the foreground and middle ground, have their heads tilted downwards, looking at books or papers on their desks. This posture corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks with their heads tilted downwards, looking at their work or papers. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are seated at their desks with their heads bowed down, likely reading or writing. The posture of the students in the foreground and background clearly indicates heads lowered towards their work surfaces.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. While most are facing forward, several students have their heads turned to the side (e.g., the student in the bottom right foreground, the student in the middle row on the right). There is no clear indication of bowing heads (heads down). Therefore, the activity is best described as turning heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are looking down at their desks, likely reading or writing. This posture of lowering the head to focus on work corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing and addressing the class. The students are seated at their desks and are looking towards the teacher. This action of orienting their faces and heads towards the speaker is best described as 'turn-head'. There is no widespread action of bowing heads (heads down) visible as the primary activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with many students sitting at their desks. The majority of the students have their heads tilted downwards, looking at their desks or papers. This posture corresponds to the 'bow-head' category. While a few students are looking up or forward, the dominant activity depicted is students bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most of the students are looking towards the front or left side of the room where the teacher is standing. Their heads are turned in that direction to pay attention. They are not bowing their heads down. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher writing on a board and students seated at desks. The students are facing the front of the room, looking at the teacher and the projection screen. This orientation typically involves turning their heads to focus on the lesson. There is no evidence of bowing heads. Therefore, 'turn-head' is the most appropriate description of the students' activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. A significant number of students, particularly in the left and middle sections, have their heads bowed down, looking at their desks or books. This posture corresponds to the 'bow-head' category. While some students are facing forward, the distinct action of bowing the head is clearly visible and prevalent among the students.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. The vast majority of students have their heads bowed down, looking at their desks or papers. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting where the majority of students are seated at their desks with their heads bowed down, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing and addressing the students. The students are seated at their desks and are looking towards the teacher. This action of directing their gaze towards the teacher involves turning their heads. While some students have their heads down looking at books, the primary interaction is the students attending to the teacher, which fits the 'turn-head' category better than 'bow-head' which implies a specific bowing motion or looking down in submission.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing and addressing the students. The students are seated at their desks and are generally facing forward or turning their heads towards the teacher to listen. The action of students orienting their heads towards the teacher or front of the class fits the category 'turn-head'. There is no widespread action of bowing heads (looking down), which would correspond to 'bow-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing at the front addressing the students. The students are seated at their desks and are looking towards the teacher. Their heads are oriented towards the front of the class, indicating they are turning their heads to pay attention to the speaker. There is no evidence of students bowing their heads (looking down). Therefore, the action is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing and addressing the students. The students are seated at their desks and are looking towards the teacher. This action of directing their gaze towards the teacher involves turning their heads. While some students might be looking down at books, the dominant activity related to the teacher's presence is the students turning their heads to listen. Therefore, 'turn-head' is the most appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing and addressing students. Several students are looking towards the teacher, which involves turning their heads. The teacher is also facing the class. There is no clear evidence of bowing heads (bowing down). Therefore, 'turn-head' is the most appropriate description of the visible activity involving head orientation.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks with their heads bowed down, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing at the front and students seated at desks. The students are generally facing the teacher, indicating they are paying attention to the lesson. The action of students orienting their faces towards the teacher or turning their heads to look at the board/teacher fits the category 'turn-head'. While some students might be looking down at books, the primary focus and orientation of the class is towards the front, making 'turn-head' the most appropriate description of the collective activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The main subject is a man standing in a classroom. He is facing forward but his head is turned to his left (viewer's right), looking towards something or someone off-camera. He is not bowing his head down. Therefore, the action is best described as turning his head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The main subject is a teacher standing in a classroom. He is facing towards the students (to the right of the frame) rather than the camera. His head is turned to the side to address the class or look at something in that direction. He is not bowing his head forward. Therefore, the action corresponds to turning the head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The main subject is a teacher standing in front of a class. He is facing somewhat towards the camera but has turned his head to the right to look at the projection screen behind him. He is gesturing towards the screen. This action of turning the head to look at something corresponds to the 'turn-head' category. The student in the foreground has their head down, but the teacher is the primary subject and his action is clearly turning his head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The man in the image is standing and looking towards the projection screen, turning his head away from the camera's direct line of sight to view the content displayed.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The main subject is a teacher standing in front of a class. He is gesturing with his hands and looking slightly to his right (viewer's left), indicating he is turning his head to address someone or look at something off-camera. He is not bowing his head. Therefore, the action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While they are generally facing forward, many students have their heads turned to the side (specifically towards the right), rather than bowing their heads down. The teacher is standing at the front. The primary action visible among the students is turning their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing and addressing the students. The students are seated at their desks and are looking towards the teacher. This action of orienting their gaze towards the teacher involves turning their heads. Therefore, 'turn-head' is the most appropriate description of the activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front and students seated at desks. The students are facing the teacher, and their heads are oriented towards him, indicating they are turning their heads to listen or pay attention. There is no clear indication of bowing heads (lowering the chin towards the chest). Therefore, the action of turning heads to face the teacher is the most prominent activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks with their heads bowed down, looking at books or papers. This posture is characteristic of reading or writing activities.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. In the foreground, two students are looking at each other, which involves turning their heads. Other students in the middle and back rows are also seen turning their heads to look at neighbors or the front of the class. There is no clear evidence of a 'bow-head' action (like bowing in respect or prayer), although some students might have their heads down reading. The prominent interaction involves turning heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The vast majority of the students have their heads tilted downwards, looking at their desks or papers. This posture is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The majority of the students have their heads lowered, looking down at their desks, books, or papers. This posture of looking down is best described as 'bow-head'. There is no significant activity of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the foreground and middle rows are predominantly looking down at their desks, books, or papers. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking down at their desks or papers, which corresponds to the 'bow-head' action. While some might be looking around, the primary posture is heads bowed.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are sitting at their desks with their heads bowed down, likely reading or writing. While a few students are looking forward or to the side, the dominant posture is bowing the head towards the desk materials.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students. Several students are turning their heads to look at each other or around the room. Specifically, the two students in the front right are looking at each other, and the standing student is looking forward/left. This active turning of heads matches the 'turn-head' category better than 'bow-head', although some students have their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly facing towards the right side of the image, indicating they are turning their heads to look at something or someone in that direction. They are not bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. The vast majority of students have their heads bowed down, looking at papers or books on their desks, indicating they are writing or reading. This aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The vast majority of the students have their heads bowed down towards their desks, appearing to be writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Many students have their heads lowered, either looking down at papers or resting their heads on their desks, which corresponds to the 'bow-head' action. There is no significant movement of turning heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most students are looking down at their papers or desks, or facing forward towards the teacher. The teacher is standing at the front facing the class. The action of students looking down at their work corresponds to 'bow-head'. There is no significant turning of heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most of the students are looking down at their desks or papers, which corresponds to the action of bowing their heads. There is no clear evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. In the foreground, several students are looking down at their desks, likely writing or reading, which corresponds to the 'bow-head' action. While students in the back are facing forward, the prominent action in the foreground is bowing the head. There is no clear evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them are looking down at their papers or notebooks, writing or reading. Their heads are bowed towards the desk surface. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Most students are looking down at their desks, writing or reading. This posture of looking down is best described as 'bow-head'. There is no clear evidence of students turning their heads to the side, which would be 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most of the students have their heads bowed down, likely writing or reading on their desks. The teacher is standing at the front facing the class. There is no significant turning of heads to the side. The posture of the students is best described as 'bow-head' (heads bowed down).",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are seated at their desks with their heads lowered, looking down at their papers or desks. This posture is characteristic of studying or writing, which corresponds to the 'bow-head' category. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them have their heads bowed down, looking at papers on their desks, likely writing or taking a test. They are not turning their heads to look at others. Therefore, the activity is 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing at the front and students seated. The students in the foreground, particularly the one in the center and the one to the right, have their heads bowed down, likely looking at their desks or books. This action corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them have their heads bowed down towards their desks, appearing to be writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. The vast majority of students have their heads lowered towards their desks, a posture often associated with sleeping or resting. This action corresponds to 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Almost all students have their heads bowed down towards their desks, appearing to be writing or reading papers. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads bowed down towards their desks, appearing to be writing or reading. There is no significant turning of heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks with their heads bowed down, looking at papers or writing. This posture aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads lowered, looking down at papers or books on their desks, which is characteristic of the 'bow-head' action (looking down). There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads bowed down, looking at papers or books on their desks, which is characteristic of taking a test or studying. There are very few students looking up or turning their heads significantly. This aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads bowed down towards their desks, likely writing or reading. This posture corresponds directly to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the front left, are looking down at their papers or desks. This action of looking down is best described as 'bow-head'. While some students are looking forward, the distinct action of looking down is present. 'Turn-head' would imply looking sideways, which is not the primary action observed.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The vast majority of students have their heads bowed down, looking at their desks or papers, which is characteristic of reading or writing. This aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Almost all students have their heads lowered, looking down at their papers or notebooks, likely writing or reading. This posture corresponds to the 'bow-head' category. There is no significant evidence of students turning their heads to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all students have their heads lowered, looking down at their papers or notebooks, which is the definition of 'bow-head'. They are not turning their heads to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Most of the students, particularly in the foreground and middle rows, have their heads bowed down towards their desks, appearing to be writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads tilted downwards, looking at papers or books on their desks. This posture corresponds to the 'bow-head' action, likely studying or taking a test.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all students have their heads bowed down, looking at papers or books on their desks, likely writing or reading. There is no significant turning of heads to the side. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Most of the students have their heads bowed down, looking at their desks or books, rather than turning their heads to the side. This posture is consistent with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads bowed down, looking at papers or books on their desks, likely taking a test or doing homework. The teacher is also looking down at the students. There is very little evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most students are facing forward or looking down at their desks/papers, which aligns with the 'bow-head' category (looking down/forward). There is little evidence of students turning their heads to the side, which would be 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the front rows, have their heads turned to the side, likely interacting with neighbors or looking at something off-camera. The teacher is standing and facing the students. The action of turning heads is clearly visible, whereas bowing heads is not evident.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them have their heads lowered, looking down at papers or books on their desks, likely writing or reading. This posture corresponds to the action of 'bowing the head'. There is no significant activity of turning heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students sitting at desks with their heads bowed down, likely reading or writing. The teacher is standing at the front. The primary posture of the students is bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated. Most of the students, particularly those in the front and middle rows wearing red uniforms, have their heads lowered or are facing forward in a manner consistent with bowing their heads. There is no clear evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front and students seated at desks. The students are wearing red uniforms and hats. They are facing the teacher, and their heads are turned towards her to listen or look at her. There is no clear indication of bowing (lowering the head significantly). The action of turning their heads to face the teacher is the primary visible activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows students in a classroom facing the front where a teacher is standing. The students are orienting their heads towards the teacher and the screen. This action of orienting the head towards a point of interest corresponds to 'turn-head'. There is no evidence of students bowing their heads downwards, which would be required for 'bow-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing at the front and students seated at desks. The students are looking towards the teacher who is standing to the side of the screen. Their heads are oriented towards the teacher, indicating they are turning their heads to pay attention. There is no indication of bowing heads (bowing down). Therefore, the action is 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher at the front and students seated. The students are facing the teacher and the screen. While most are facing forward, several students have their heads turned slightly towards the teacher or to the side to listen. There is no evidence of anyone bowing their head. Therefore, 'turn-head' is the appropriate category describing the orientation of the students' heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher at the front and students seated at desks. The students are facing forward towards the teacher and the screen, indicating they are listening or paying attention. Their heads are oriented forward, not turned to the side. This posture aligns with 'bow-head' (heads bowed forward in attention) rather than 'turn-head' (turning the head to the side).",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are facing the teacher and the screen at the front. Their heads are upright and oriented towards the front, indicating they are turning their heads to look at the lesson. None of the students are bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students wearing traditional red hats. They are seated and facing the front where a teacher is presenting. The students appear to be listening attentively, with their heads slightly bowed or forward, which aligns with the 'bow-head' action often associated with respect or listening in such contexts. There is no clear indication of them turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks facing a teacher and a screen. The students are wearing red hats. Their heads are generally upright and facing forward or slightly turned towards the teacher/screen, which aligns with the action of turning one's head to look at something. There is no visual evidence of students bowing their heads (lowering them significantly). Therefore, 'turn-head' is the most appropriate description of the visible activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a teacher standing in front of a class of students wearing traditional-style uniforms. The students are facing the teacher but have their heads bowed down, which is a common gesture of respect or attentiveness in this context. This aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students wearing red uniforms and hats. The students in the foreground and middle rows have their heads tilted downwards, appearing to bow or look down at their desks. The students in the back row are facing forward. Since a significant number of students are bowing their heads, this matches the 'bow-head' category better than 'turn-head', which would imply looking sideways.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly seen with their heads bowed down towards their desks, likely reading or writing. This aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The woman in the center is looking to her right side, engaging with someone off-camera or partially visible. Her head is turned away from the camera, which fits the 'turn-head' category. She is not looking down or bowing her head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom of students sitting at desks. Most of the students have their heads bowed down, looking at their desks or papers, which is a common posture for listening or reading in a classroom setting. This aligns with the 'bow-head' category. There is no significant turning of heads to look at others or other objects, which would characterize 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom are facing towards the left side of the room where the teacher is standing. Their heads are turned in that direction rather than being bowed down or facing straight forward. This indicates the 'turn-head' activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where several students, particularly those seated on the right side, are turning their heads to look towards the left side of the room. This specific action of turning the head to the side corresponds to the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front left. The students are seated at their desks. Most of the students have turned their heads to the left to look towards the teacher or the front of the class. While some students might have their heads slightly down, the predominant action involving head orientation is turning towards the teacher. Therefore, 'turn-head' is the most appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The students are facing the teacher at the front of the room. Their heads are turned towards the teacher to listen or watch, rather than being bowed down. Therefore, the action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks facing the front where a teacher is standing. The students are looking towards the teacher or the blackboard. Their heads are upright and oriented towards the front, which involves turning their heads to pay attention. There is no evidence of students bowing their heads down (e.g., to read or sleep). Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking towards the left side of the room rather than straight ahead at the blackboard, indicating they are turning their heads to look at something or someone on that side.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Several students, particularly in the front right, have their heads turned to the side, looking towards the left. They are not bowing their heads down. Therefore, the activity is 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing on the left. The students are seated at their desks. Most of the students, particularly those on the right side of the image, are turning their heads to the left to look towards the teacher or the front of the class. This action of turning the head to face a specific direction (the teacher) is the dominant head movement visible.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing and students seated at desks. The students are facing the teacher, indicating they are paying attention to her. This action of orienting their heads towards the teacher or the front of the class is best described as 'turn-head'. There is no clear evidence of bowing (bow-head).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing in the aisle and students seated at desks. The students are looking towards the teacher, indicating they have turned their heads to pay attention to her. They are not bowing their heads down to read or write. Therefore, the action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. While most students are facing forward, there is a distinct group of students, particularly in the front right, who have turned their heads to the left. None of the students appear to be bowing their heads (looking down at desks/books). Therefore, the action 'turn-head' is the most accurate description of the visible activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front and students seated at desks. The students are looking towards the teacher, who is positioned slightly to the left. Consequently, many students, particularly those on the right side of the image, have turned their heads to the left to face the teacher. This action of turning the head to look at someone or something is best described as 'turn-head'. There is no clear evidence of bowing heads (bow-head).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the foreground and on the right side, are looking towards the left side of the room. Their heads are turned to the side rather than bowed down. This action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Most students are facing forward towards the front of the class (where the blackboard is), but many have their heads turned slightly to the side, looking around or at neighbors. None of the students are bowing their heads (looking down). Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks facing the front. They appear to be listening to the teacher or reading. Their heads are generally upright but slightly forward or down, consistent with listening or reading, rather than turning to the side. The action of 'bow-head' (bowing the head, often to listen or read) fits the scene better than 'turn-head', as there is no clear action of turning heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at their desks facing the front. Most students are looking forward or slightly down at their desks/papers, which aligns with the posture of 'bow-head' (attentive listening or looking down). There is no significant action of students turning their heads to the side, which would be required for 'turn-head'. The teacher is standing at the front facing the class.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated at desks. While the teacher is facing the class, a significant number of students, particularly in the foreground and middle rows, have their heads turned to the side (towards the right), rather than looking straight ahead at the board or teacher. This action corresponds to 'turn-head'. There is no clear evidence of students bowing their heads (looking down).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them have their heads bowed down, looking at papers or books on their desks, which is characteristic of studying or writing. There is no significant turning of heads towards the sides.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are seated at their desks. The majority of the students have their heads lowered, looking down at papers or books on their desks, which is characteristic of the 'bow-head' action (often associated with reading or writing). Very few students are distinctly turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Several students, particularly in the front right section, have their heads bowed down, looking at their desks or books. This posture corresponds to the 'bow-head' action. While some students are looking forward, the distinct action of bowing the head is clearly visible and matches the category 'bow-head'. The category 'turn-head' would imply a distinct turning motion which is not the primary activity observed.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Observing the students, particularly in the front rows, their heads are lowered or bowed forward. This posture is consistent with the action of bowing heads, often done as a sign of respect or attention in a classroom setting. There is no clear evidence of students turning their heads sideways to look at something else.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of them have their heads bowed down, looking at papers or books on their desks, which is characteristic of writing or reading activities. There is no significant movement of turning heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. The vast majority of students have their heads lowered, looking down at their desks, notebooks, or papers, likely writing or reading. This posture corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are seated at their desks with their heads lowered, looking down at their papers or desks. This posture is characteristic of studying or writing, which aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. While students on the left are facing forward or looking down, a significant group of students on the right side of the image are clearly turning their heads to the left, looking towards the other students or the front left. This distinct action of turning heads makes 'turn-head' the most appropriate category compared to 'bow-head', which implies looking down, an action not uniformly present across the class.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most students are looking down at their desks or papers, which corresponds to the 'bow-head' activity (reading or writing). There is no clear evidence of a group turning their heads to the side, which would characterize 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at their desks. Most students are facing forward towards the front of the class, likely listening to a teacher. Their heads are upright but slightly inclined forward, which is characteristic of the 'bow-head' action (listening attentively). There is no significant turning of heads to the side, which would characterize 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most of the students appear to be looking down at their desks or papers, which corresponds to the action of bowing their heads. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most students are facing forward, there is a distinct group of students on the right side of the image (front row and subsequent rows) who are clearly turning their heads to the left, looking towards the center or left side of the room. This specific action matches the 'turn-head' category. There is no prominent evidence of students bowing their heads significantly (bow-head).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom, including the standing boy in the center and the girl in the front right, are looking towards the left side of the frame. Their heads are turned in that direction, rather than bowed down. This collective action of looking sideways fits the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students. The most prominent action is the boy standing in the center who is looking to his left, turning his head away from the front. None of the students appear to be bowing their heads. Therefore, the activity is best described as turn-head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students. The most prominent action is the boy standing in the center who is looking to his left, turning his head away from the camera. This fits the 'turn-head' category. The other students are seated and looking forward or slightly to the side, but the standing boy's action is the most distinct.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a boy is standing while other students are seated. The standing boy and several seated students (particularly the girl in the front right and the girl in the back right) are looking towards the left side of the frame. This action of directing their gaze sideways corresponds to turning their heads. There is no clear indication of bowing heads (bowing down in respect or looking down at a book as a primary action for the group). Therefore, 'turn-head' is the most appropriate description.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. Many of the students have their heads bowed down, looking at papers or books on their desks, which is characteristic of the 'bow-head' activity. There is no significant evidence of students turning their heads to look at others or away from their work.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are seated at their desks. Most of them are facing forward but have their heads turned slightly towards the front right, where the teacher appears to be standing. They are looking attentively at the teacher or the board, rather than bowing their heads down. Therefore, the action corresponds to turning their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows students in a classroom. Most students are sitting upright and looking in various directions, often turning their heads to look at neighbors or the front. There is no clear indication of bowing heads (looking down). Therefore, 'turn-head' is the most appropriate description of the visible activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Several students, particularly in the back left and front right sections, are turning their heads to look at each other or towards the side. This action corresponds to the 'turn-head' category. There are no clear instances of students bowing their heads (looking down) as a primary activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks and a teacher standing at the front. The students are generally facing towards the teacher who is standing to the right side of the front area. Their heads are oriented towards the teacher, indicating a turning motion rather than bowing their heads down. Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks and a teacher at the front. The students are generally facing forward towards the teacher and whiteboard. They are upright and not bowing their heads (which would imply sleeping or reading). While they are facing forward, the act of orienting their heads towards the teacher or board fits the 'turn-head' category better than 'bow-head', which implies a downward bowing motion. In action recognition datasets, 'turn-head' often captures the action of looking around or orienting attention, which is happening here as students look at the teacher.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks facing the front where a teacher is standing. The students are looking towards the teacher and the whiteboard/screen. They are not bowing their heads (which would imply 'bow-head'). Instead, they are attentively looking forward, which involves turning their heads to face the front/teacher. Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated. Several students are clearly turning their heads to the left, looking towards each other or something off-camera to the side, rather than bowing their heads down or facing strictly forward. This collective action of looking sideways aligns best with the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks with their heads bowed down, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are sitting upright at their desks. Instead of bowing their heads down (which would suggest sleeping or reading), many of them are turning their heads to look at their classmates or something to the side. For example, the students in the front row are looking towards the right side of the image.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of the students have their heads lowered, looking down at their desks or papers. This action corresponds to 'bow-head'. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at their desks facing the teacher at the front. The students appear to be listening attentively, with their heads facing forward or slightly bowed towards the teacher or their desks. They are not turning their heads to look at other students or objects to the side. This attentive, forward-facing posture is best described as 'bow-head' in the context of classroom activity recognition datasets, distinguishing it from 'turn-head' which would involve looking around.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students. Most of the students are seated with their heads bowed down towards their desks, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all students have their heads bowed down, looking at papers or books on their desks. This posture corresponds to the 'bow-head' activity. There is no significant turning of heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most are facing forward, a significant number of students, particularly in the foreground and middle rows, have turned their heads to the right side. This indicates the activity is 'turn-head' rather than 'bow-head', which would imply looking down or bowing.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Instead of facing forward towards the teacher, most of the students have their heads turned to the side, looking towards their neighbors or to the side. This behavior corresponds to the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students are seen with their heads turned to the side, looking at classmates or the front of the class, rather than bowing their heads down. The teacher is standing at the front. The predominant action involving the students' heads is turning them.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students. A significant number of students, particularly in the front and middle rows, have their heads tilted downwards towards their desks or papers. This posture is characteristic of writing, reading, or taking a test. The action of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher at the front and students seated. The students in the foreground have their heads turned towards the teacher and the blackboard, indicating they are paying attention to the lesson. This action of orienting their heads towards the front is best described as 'turn-head'. There is no clear evidence of bowing or nodding ('bow-head').",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The students in the foreground have their heads turned slightly to the side (left or right) rather than facing perfectly straight forward or bowing. This action of turning the head to look at something or someone corresponds to the 'turn-head' category. There is no clear evidence of bowing the head (nodding or looking down).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the front and middle rows, are turning their heads to the right side, likely towards the teacher or a specific point of interest. This action corresponds to the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are facing forward but have their heads turned slightly towards the teacher or the front of the room, rather than bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Most of the students have turned their heads to the right side of the frame to look at the teacher who is standing there. They are not bowing their heads down. Therefore, the activity is best described as turn-head.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. A teacher is standing on the right side. Several students in the foreground and middle ground have their heads turned to the right, looking towards the teacher or the front right area of the room. They are not bowing their heads down to their desks. Therefore, the activity is 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom of students. Most of the students, particularly those in the front and middle rows, have their heads turned towards the right side of the image, looking at something or someone off-camera. They are not bowing their heads down to read or write. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. In the foreground, several students (a girl on the left and two boys in the center) are looking down at their desks or hands, which is characteristic of the 'bow-head' action (often associated with reading or writing). While some students in the back are looking forward, the prominent action in the foreground fits the 'bow-head' category better than 'turn-head', which would imply looking sideways.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing on the right side. The students in the front rows are facing towards the teacher, turning their heads slightly to the right to look at her. This action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks. Most of them have their heads tilted downwards, looking at their notebooks or desks, which is consistent with the action of 'bow-head' (lowering the head). While a few students might be looking sideways, the dominant posture is heads bowed down.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The students in the front row are clearly looking down at their desks or papers, which corresponds to the 'bow-head' action. While students in the back are looking forward, the distinct action of looking down is prominent in the foreground. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly those in the foreground, have their heads turned to the side rather than looking straight ahead or bowing down. For instance, the student in the front right is looking towards the left, and the student next to him is also turned. This indicates the 'turn-head' activity is present.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most are facing forward, several students in the foreground and middle ground have their heads turned to the side, looking towards the right or towards a neighbor. This action corresponds to 'turn-head'. There is no clear evidence of students bowing their heads down (reading/sleeping).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated. While they are generally facing the front, a significant number of students in the foreground and middle rows have their heads turned to the right side. This collective action of looking away from the front board towards the right fits the description of 'turn-head' better than 'bow-head', which would imply looking down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most students are facing forward but many have their heads turned to the side, looking at neighbors or around the room. None of the students appear to be bowing their heads down (e.g., sleeping). Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom setting with students seated at desks in the foreground. Their heads are clearly bowed down, likely looking at papers or writing on their desks. The teacher is standing and facing them. The primary action visible for the group of students is bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are seated at their desks looking down at their papers or books. This posture of looking down is best described as 'bow-head'. While some students might be glancing up, the dominant activity is focused desk work with heads bowed.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. Almost all of the students have their heads bowed down, looking at papers or books on their desks, likely taking a test or doing homework. There is no significant activity of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at desks. The vast majority of students have their heads bowed down, looking at their desks, likely writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are seated at their desks with their heads bowed down, likely writing or reading. This aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. The vast majority of students have their heads bowed down, looking at papers or books on their desks. They are focused on their individual work rather than turning their heads to look at others or the teacher. This behavior aligns perfectly with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a teacher leaning over a student who has their head bowed down on the desk. This primary action of having the head down corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. The vast majority of students have their heads bowed down, looking at papers or books on their desks. This posture is characteristic of reading or writing. There is no significant evidence of students turning their heads to the side to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking down at their desks and books, which corresponds to the 'bow-head' activity. Very few students are looking to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. Almost all students have their heads bowed down, looking at books or papers on their desks. This posture is characteristic of reading or writing. There is no significant turning of heads to the side. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. The vast majority of students have their heads lowered, looking down at their desks, likely writing or reading. This posture corresponds to the 'bow-head' action.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students who are predominantly looking down at their desks, books, or papers. Their heads are bowed in concentration on their work. There is no significant group of students turning their heads to the side or looking away from their desks.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where several students, particularly in the front and left sections, have their heads bowed down towards their desks, likely reading or writing. While some students are looking forward, the distinct action of bowing heads is prominent among the students engaged in desk work. There is no significant evidence of students turning their heads to the side as a primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Most of the students, particularly in the foreground and middle ground, have their heads lowered, looking down at their books or papers. This action of looking down is best described as 'bow-head'. There is no significant activity of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows students seated at desks, looking down at their papers or books, which is a typical posture for writing or reading. The teachers standing nearby are also looking down. This collective action of looking down corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are looking down at their desks, likely writing or reading. Their heads are tilted downwards towards their work, which corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. Almost all students have their heads lowered, looking down at their books or papers on the desks. This posture corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where almost all students are seated at their desks with their heads bowed down, looking at books or papers. This posture is characteristic of studying or writing. There is no significant turning of heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are seated at their desks with their heads lowered, looking down at their workbooks or papers. This posture corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. The vast majority of students have their heads lowered, looking down at their books or papers on the desks. This posture is characteristic of reading or writing. There is no significant evidence of students turning their heads to look at others or the side. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. Almost all students have their heads lowered, looking down at their books, papers, or desks, indicating they are studying or writing. This action corresponds to 'bow-head'. There is no significant evidence of students turning their heads to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students facing a projector screen. While most students are facing forward, there are subtle indications of head movement. Specifically, the student in the white shirt (second from right) appears to be turning their head slightly to the right, and the student in the black shirt on the far right has their head turned slightly left. The students are upright and not bowing their heads. Therefore, 'turn-head' is the most appropriate description of the visible activity among the students.",
+      "predicted_label": 1,
+      "confidence": "medium"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks facing the front. The students' heads are oriented forward and slightly downward, consistent with a posture of listening attentively or bowing their heads. There is no evidence of students turning their heads to the side. The teacher is standing at the front. The posture of the students aligns best with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. While they are generally facing the front, many students have their heads turned to the side, either towards a neighbor or slightly off-center. There is no evidence of students bowing their heads down. Therefore, the activity 'turn-head' is the best fit.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where the majority of students are sitting at their desks with their heads bowed down, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. The majority of the students have their heads lowered, looking down at papers or books on their desks. This posture is characteristic of studying or taking an exam, which aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. Almost all of them are looking down at their desks, writing or reading. This posture of looking down is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. Almost all of them have their heads lowered, looking down at books, papers, or notebooks on their desks. This posture is characteristic of reading or writing. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most of the students visible in the foreground and middle ground have their heads turned to the side, either towards the teacher or towards each other, rather than bowing their heads down. The student standing near the teacher is also facing the class. The predominant action is turning heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher at the front and students seated at desks. While most students are facing forward, several students in the foreground and middle ground have their heads turned to the side, particularly to the right. There is no indication of bowing heads. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image displays a classroom setting where the vast majority of students are seated at their desks with their heads tilted downwards, looking at papers or books. This posture is characteristic of reading or writing, which aligns with the 'bow-head' category. Very few students are looking sideways, making 'turn-head' a poor fit.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks facing the front of the room (towards the chalkboard and screen). Most students have their heads facing forward, some slightly tilted down, which is consistent with listening to a teacher or reading. There are no students clearly turning their heads to the side to talk to neighbors. This posture corresponds to the 'bow-head' category (listening/reading posture).",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at their desks. Most of the students visible have their heads bowed down, looking towards their desks or papers, rather than turning their heads to the side. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated. The students are facing the teacher but their heads are slightly turned, indicating they are looking at the teacher or listening. The action of looking towards the teacher involves turning the head from a resting position. There is no evidence of bowing (bending the head forward). Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom are facing towards the right side of the frame rather than straight ahead at the board, indicating they are turning their heads to look at something or someone in that direction.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated at desks. Several students are visible with their heads turned to the side, looking towards each other or away from the front, rather than bowing. The action of turning heads is clearly visible among the students.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The students in the classroom, particularly those in the foreground, are looking down at their desks and papers. This downward gaze is best described as bowing the head. There is no clear evidence of students turning their heads to the side to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated at desks. The students are facing towards the teacher and the chalkboard/screen. Several students, particularly those on the right side, have their heads turned slightly towards the teacher or the board to pay attention. This action of looking towards the front is best described as 'turn-head'. There is no evidence of students bowing their heads (looking down).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated and facing the front. The students in the front rows appear to have their heads bowed down, likely listening attentively or showing respect. The two students standing at the front are facing the chalkboard. The posture of the seated students aligns with the 'bow-head' category rather than 'turn-head', which would imply looking sideways.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated and standing. The students seated are facing forward towards the front of the class, but many have their heads turned slightly to the side, likely looking at the board or the standing students. The standing students are facing the whiteboard. There is no clear indication of bowing heads (looking down). Therefore, 'turn-head' is the most appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the front and middle rows, are turning their heads to the side (mostly to the left), rather than bowing their heads down. This action corresponds to the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are facing sideways towards each other or to the side rather than looking straight ahead at the front board or screen. This indicates the action of turning their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the classroom are predominantly looking towards the left side of the room, turning their heads away from the front or center. They are not bowing their heads down to their desks. Therefore, the action is turning heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is interacting with a student standing at the front. The teacher and the standing student are facing each other, which implies they have turned their heads away from the front of the class to look at one another. The seated students are also looking towards the front. There is no clear indication of bowing (lowering the head significantly), making 'turn-head' the most appropriate description of the visible activity involving head orientation.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a student is standing at the front facing the teacher, and the teacher is facing the student. This interaction involves turning their heads towards each other. The students in the audience are facing forward. There is no evidence of bowing heads. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a student standing at the front facing the teacher, while the teacher faces the student. This posture is characteristic of a bowing interaction, which is a common cultural practice in classrooms (especially in East Asia) where students bow to teachers. The seated students are facing forward, but the primary interaction at the front suggests a bowing activity. The 'turn-head' category would imply looking around, which is not the primary action here.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is interacting with a student standing at the front. The teacher is facing the student, and the student is facing the teacher, indicating a head turn interaction. The other students are facing the screen. There is no evidence of bowing heads (bow-head). Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students facing the front. Most of the students have their heads tilted downwards, looking at their desks or papers, which is characteristic of the 'bow-head' activity. There are no students clearly turning their heads to the side, which would be required for the 'turn-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated. Instead of facing the front screen directly, many students have their heads turned to the side, likely looking at classmates or something off-camera. This matches the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated at desks. Several students are visible with their heads turned to the side, looking at neighbors or something off-camera, rather than bowing their heads down. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher at the front and students seated. While many students are facing forward, a significant number of students, particularly in the middle and right sections, have their heads turned to the side (towards the right). There is no evidence of students bowing their heads. Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom of students sitting at desks. Most of the students have their heads tilted downwards, looking at their desks, papers, or hands. This posture corresponds to the 'bow-head' category rather than 'turn-head', which would imply looking sideways.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher and several students. The students in the front row are leaning forward and looking down at their books or desks, which corresponds to the 'bow-head' action. While some students are looking at the teacher, the distinct action of bowing heads to read or listen is prominent in the foreground.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at desks. Several students, particularly those in the front row, have their heads bowed down towards their desks, likely reading or writing. This specific posture aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher standing and a student standing up, while others are seated. The teacher and the standing student are facing each other or the class, indicating head orientation and interaction. There is no bowing motion visible. The action of looking at each other or the class involves turning the head. Therefore, 'turn-head' is the most appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where students are seated at desks. Several students are looking towards the standing figures (likely teachers or instructors) who are positioned to their left. The students have turned their heads to face these standing figures. There is no indication of bowing heads. Therefore, the action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students are looking in directions other than straight forward. For instance, the student in the front row (second from the left) is looking to her right, and the student standing in the front right is looking towards the camera. This behavior of looking around and changing gaze direction corresponds to the 'turn-head' activity. There is no clear evidence of students bowing their heads (looking down or praying).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students, particularly in the front and middle rows, have their heads bowed down towards their desks, likely reading or writing. This posture corresponds to the 'bow-head' category. While one student is standing and looking to the side, the predominant activity involving multiple students is bowing their heads.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most students are facing forward, there are distinct instances of students turning their heads to the side. Specifically, the student in the front center (blue jacket) is looking to her right, and the student standing on the right is looking to her left. There are no students bowing their heads down. Therefore, 'turn-head' is the correct category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom of students, likely in an East Asian setting given the uniforms. Most of the students have their heads bowed forward slightly, which is a common gesture of respect or attention in these cultures. This matches the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where a significant number of students, particularly in the right-hand rows, have turned their heads to the left, likely looking at something or someone off-camera. While some students are looking down at their desks, the distinct collective action is turning their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. Almost all of them are looking down at their desks, likely writing or reading. This posture corresponds to the action of bowing the head.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Several students, particularly in the front and middle rows, have their heads bowed down towards their desks or papers, indicating they are reading or writing. This action corresponds to 'bow-head'. There is no significant evidence of students turning their heads to the side, which would correspond to 'turn-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows students sitting in a classroom facing the front projection screen. Their heads are oriented forward towards the screen, which aligns with the 'bow-head' category (likely meaning head forward/down towards the object of interest) rather than 'turn-head' (which would imply looking sideways at a peer).",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students in a classroom facing a projection screen at the front. The students are looking towards the screen. The student on the right has their head turned slightly towards the screen, and the student on the left is also oriented towards the front. This orientation of the head towards a point of interest (the screen) fits the category 'turn-head' better than 'bow-head', which would imply looking down.",
+      "predicted_label": 1,
+      "confidence": "medium"
+    },
+    {
+      "reasoning": "The image shows students in a classroom looking at a projection screen. The students are facing forward towards the screen, and their heads are oriented towards it. The student on the right and the student in the center have their heads turned slightly to the left to look at the screen. There is no indication of bowing the head (looking down). Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students in a classroom looking towards a presentation screen or each other. The students are oriented towards the front or side, which involves turning their heads. There is no evidence of bowing heads (bending forward in a bowing motion). Therefore, the activity corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students in a classroom setting. The girl in the white jacket and the boy on the right are facing each other or looking sideways, indicating they are turning their heads to interact or listen. There is no evidence of anyone bowing their head. Therefore, the action 'turn-head' is the best fit.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated. The student in the blue jacket in the bottom left corner is looking down at his desk or materials, which corresponds to the 'bow-head' action. The other students are facing forward towards the screen. There is no clear evidence of students turning their heads to the side to interact with neighbors.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with students sitting at desks. The slide on the screen instructs them to 'Work in group'. The students in the foreground are not looking down (bowing their heads) but rather have their heads turned slightly, likely towards the teacher or classmates as part of the group discussion. This aligns with the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students facing a projector screen. Several students are turning their heads to look at the screen or towards each other. Specifically, the student on the left (blue/orange shirt) has their head turned to the right, and the student on the right (white/orange shirt) has their head turned to the left. This action corresponds to 'turn-head'. There is no clear evidence of bowing heads (looking down).",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the slide instructs students to 'Work in group and discuss'. This activity implies interaction among students, which typically involves turning their heads to look at each other. While most students are facing forward, the context of group discussion and the subtle turns of some heads towards neighbors or the front suggests 'turn-head' is the appropriate category over 'bow-head', which would imply bowing or looking down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting where a large number of students have their heads bowed down on their desks or are looking down at their materials. This posture is characteristic of the 'bow-head' activity, often associated with sleeping or resting in class.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks facing the front. Most students have their heads upright but slightly forward, which is a common posture for listening attentively in a classroom setting. This posture is best described as 'bow-head' (bowing the head slightly forward) rather than 'turn-head' (turning the head to the side), as no students are looking significantly to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The majority of students in the classroom are looking down at their desks and papers, which corresponds to the 'bow-head' action. While some students are looking up, the dominant posture is heads bowed in study or writing.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a screen displaying the text 'turn left' and 'turn right'. One of the students is looking to the side, consistent with the instruction to turn their head. The teacher is facing the class. The activity aligns with the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing at the front and students seated at desks. The students are looking towards the teacher and the screen. The action of students orienting their heads to look at the teacher or the front of the class fits the category 'turn-head'. There is no one bowing, so 'bow-head' is incorrect.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher at the front and students seated at desks. The students are facing the front of the class, looking towards the teacher and the whiteboard. Their heads are oriented towards the front, which can be described as turning their heads to look at the teacher or the lesson content. There is no evidence of bowing heads. Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher presenting and students seated at desks. The students are facing the teacher, which involves turning their heads to look at her. There is no one bowing their head. Therefore, 'turn-head' is the appropriate category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows students seated at desks with their heads tilted downwards, likely writing or reading. This action corresponds to the 'bow-head' category. There is no evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is interacting with two standing students. The students are facing the teacher, which implies they have turned their heads and bodies from the standard front-facing position. There is no evidence of bowing (bowing head). Therefore, the action of turning heads to face the teacher is the most relevant activity described by the options.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher at the front and students standing and sitting. The students are facing the teacher or the board. The action of students looking at the teacher or turning their attention involves head movement. 'Bow-head' would imply bowing or looking down, which is not happening. 'Turn-head' describes the action of students turning their heads to look at the teacher or board, which is the primary activity.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front and students seated at desks. The students are facing the teacher, indicating they are turning their heads to listen to the lesson or look at the teacher. There is no evidence of anyone bowing their head. Therefore, the action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. The students in the front row are clearly turning their heads to look at each other or towards the center of the class, rather than bowing their heads down. The girl on the left looks right, the girl in the middle looks right, and the girl on the right looks left. This action corresponds to 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Most students are facing forward, but the student in the front left row is clearly turning her head to look at the student next to her. There are no students clearly bowing their heads down (e.g., sleeping or reading intently with head down). Therefore, the action 'turn-head' is present and best describes the scene.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with a teacher standing at the front and students seated at desks. The students are looking towards the teacher, which involves turning their heads from a forward-facing position. There is no evidence of students bowing their heads down (e.g., to read or sleep). Therefore, the activity is best described as 'turn-head'.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing and speaking to the class. The students are seated and looking towards the teacher. Several students have their heads turned slightly to face the teacher, indicating the action of turning their heads to listen. They are not bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most students are facing forward, the students in the front row are distinctly turning their heads to the side (looking at each other or towards the center). There are no students bowing their heads down to read or write. Therefore, the action 'turn-head' is the most appropriate description among the choices.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Several students in the foreground, particularly the girls in the front row, are looking down at their desks or papers. This posture of looking down is best described as 'bow-head'. While some students are looking forward, the specific action of bowing the head to read or write is prominent in the foreground.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at desks. Almost all visible students have their heads lowered, looking down at their desks or papers, which is characteristic of studying or writing. There is no significant turning of heads to the side. Therefore, the activity is best described as 'bow-head'.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students sitting at desks. Most students are facing forward, but there are slight variations in their head orientation, with some looking slightly to the side. None of the students are bowing their heads down (e.g., reading or sleeping). The slight variations in gaze direction and head position align with the 'turn-head' category, which typically involves looking around or shifting attention, rather than the 'bow-head' category which implies looking down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with students seated at desks. Several students, particularly those in the front rows, have their heads turned towards the front of the class or towards the standing individuals (likely a teacher or presenter). There is no one bowing. Therefore, the action 'turn-head' best describes the visible activity of the students orienting their heads.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with a teacher standing at the front right and students seated at desks. The students are facing the teacher, who is positioned to the side of the central podium. This implies that the students are turning their heads to look at the teacher rather than staring straight ahead at the board or center. There is no evidence of anyone bowing their heads. Therefore, the activity best fits the 'turn-head' category.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. While most students are facing forward towards the teacher and board, several students (particularly those on the sides) have their heads turned slightly to the side, looking at neighbors or elsewhere. There is no evidence of students bowing their heads. Therefore, 'turn-head' is the appropriate description.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The students in the image, particularly those standing in the foreground, are upright and looking towards the right side of the frame. Their heads are turned in that direction, indicating they are looking at something or someone off-camera. They are not bowing their heads down.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene where a teacher is standing on the left side, addressing the students. The students are seated at their desks, which are arranged facing somewhat towards the right (where the blackboard is). To listen to the teacher, the students have turned their heads to the left. This action of turning their heads to look at the teacher is the primary activity visible. 'Bow-head' would imply bowing down, which is not happening.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students seated at their desks. Almost all students are looking down at their desks, likely writing or reading. Their heads are lowered towards the desk surface. This posture corresponds to the 'bow-head' action. There is no significant turning of heads to the side as the primary activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom scene with a teacher standing at the front and students sitting at desks. The students are facing the teacher, which implies they have turned their heads from the board to look at her. The teacher is also facing the students. Neither the teacher nor the students appear to be bowing their heads; their heads are upright. Therefore, the action of turning heads to look at the teacher is the most appropriate description among the choices.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are seated at their desks with their heads tilted downwards, likely reading or writing. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at their desks. The majority of the students have their heads tilted downwards, looking at their desks, papers, or books, which is consistent with the action of bowing their head. There is no significant evidence of students turning their heads to look at others.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. Most of the students have their heads bowed down, looking at their desks or papers, which is consistent with the 'bow-head' activity. There is no clear evidence of students turning their heads to look at something else.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with many students sitting at their desks. The majority of the students have their heads bowed down, looking at their desks or papers, which is characteristic of the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom full of students sitting at their desks. The vast majority of students have their heads lowered, looking down at their desks or papers, which is characteristic of studying or writing. This posture corresponds to the 'bow-head' activity.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where the vast majority of students are seated at their desks with their heads bowed down, likely writing or reading. This posture corresponds to the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where most students are seated at their desks with their heads lowered, looking down at their papers or desks, which aligns with the 'bow-head' category.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom scene with students seated at desks facing the front, where a teacher is writing on a chalkboard. The students are generally facing forward and appear to be listening attentively. In the context of the given categories, 'bow-head' typically refers to the posture of listening attentively or bowing one's head, which fits the attentive classroom setting better than 'turn-head', which would imply looking sideways or away from the front. The students are not turning their heads to look at each other or off-screen.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom setting with students seated at desks. Several students in the foreground are turning their heads to look at each other or towards the side (e.g., the boy on the left looking right, the girl on the right looking left). This action corresponds to 'turn-head'. There are no students clearly bowing their heads down to their desks.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where most students have their heads lowered, looking down at their desks or papers. This posture corresponds to the 'bow-head' action, which is distinct from turning the head to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. A significant number of students, especially those on the right side of the aisle, are turning their heads to look towards the left side of the room. This action of looking sideways corresponds to the 'turn-head' category, whereas 'bow-head' would imply looking down, which is not the primary activity observed.",
+      "predicted_label": 1,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom with students seated at desks. Most students are facing forward or looking down at their desks/papers, which is a posture associated with reading or writing. The term 'bow-head' typically describes the action of bowing one's head, often to look down. 'Turn-head' would imply looking sideways, which is not the dominant action here. Therefore, 'bow-head' is the more appropriate description for the students looking down at their work.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "reasoning": "The image shows a classroom where students are seated at desks. Most of the students, particularly in the foreground and middle rows, have their heads tilted downwards, looking at their desks or notebooks. This posture corresponds to the 'bow-head' category, indicating they are looking down. There is no significant evidence of students turning their heads to the side.",
+      "predicted_label": 0,
+      "confidence": "high"
+    },
+    {
+      "predicted_label": 0
+    }
+  ],
+  "labels": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "macro_f1": 0.5212586619279755,
+  "micro_f1": 0.5267326732673268,
+  "accuracy": 0.5267326732673268
+}

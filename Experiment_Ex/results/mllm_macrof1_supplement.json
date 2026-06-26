@@ -1,0 +1,42 @@
+{
+  "qwen35_ollama": {
+    "teacher_behavior": {
+      "hit_at_1": 0.8777777777777778,
+      "hit_at_3": 0.9888888888888889,
+      "macro_f1": 0.18504498114703533,
+      "num_samples": 3240
+    },
+    "handrise_readwrite": {
+      "hit_at_1": 0.5409934171154998,
+      "hit_at_3": 1.0,
+      "macro_f1": 0.47238066807390905,
+      "num_samples": 1671
+    },
+    "bow_turnhead": {
+      "hit_at_1": 0.6316831683168317,
+      "hit_at_3": 1.0,
+      "macro_f1": 0.6233761026463512,
+      "num_samples": 505
+    }
+  },
+  "gemma4_ollama": {
+    "teacher_behavior": {
+      "hit_at_1": 0.8540123456790123,
+      "hit_at_3": 0.9827160493827161,
+      "macro_f1": 0.2005099012636484,
+      "num_samples": 3240
+    },
+    "handrise_readwrite": {
+      "hit_at_1": 0.6337522441651705,
+      "hit_at_3": 1.0,
+      "macro_f1": 0.5284634362512329,
+      "num_samples": 1671
+    },
+    "bow_turnhead": {
+      "hit_at_1": 0.6336633663366337,
+      "hit_at_3": 1.0,
+      "macro_f1": 0.631111777968183,
+      "num_samples": 505
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "siglip": {
+    "ml_sample_f1": 87.53,
+    "ml_macro_f1": 68.02,
+    "ml_micro_f1": 89.5
+  }
+}

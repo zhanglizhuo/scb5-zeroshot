@@ -1,0 +1,304 @@
+{
+  "config": {
+    "n_cupl": 50,
+    "n_waffle": 16,
+    "seed": 42,
+    "ollama_model": "gemma4:26b",
+    "backbones": [
+      "openai",
+      "dfn",
+      "siglip2"
+    ]
+  },
+  "rows": [
+    {
+      "backbone": "openai",
+      "dataset": "TeacherBehavior",
+      "strategy": "plain",
+      "hit_at_1": 72.41,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "TeacherBehavior",
+      "strategy": "cape",
+      "hit_at_1": 84.17,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "TeacherBehavior",
+      "strategy": "waffleclip",
+      "hit_at_1": 57.93,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "TeacherBehavior",
+      "strategy": "cupl",
+      "hit_at_1": 36.64,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "HandriseReadWrite",
+      "strategy": "plain",
+      "hit_at_1": 55.06,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cape",
+      "hit_at_1": 57.99,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "HandriseReadWrite",
+      "strategy": "waffleclip",
+      "hit_at_1": 55.48,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cupl",
+      "hit_at_1": 57.93,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "BowTurnHead",
+      "strategy": "plain",
+      "hit_at_1": 60.59,
+      "n_samples": 505,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "BowTurnHead",
+      "strategy": "cape",
+      "hit_at_1": 63.76,
+      "n_samples": 505,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "BowTurnHead",
+      "strategy": "waffleclip",
+      "hit_at_1": 60.2,
+      "n_samples": 505,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "openai",
+      "dataset": "BowTurnHead",
+      "strategy": "cupl",
+      "hit_at_1": 63.76,
+      "n_samples": 505,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "TeacherBehavior",
+      "strategy": "plain",
+      "hit_at_1": 68.61,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "TeacherBehavior",
+      "strategy": "cape",
+      "hit_at_1": 45.9,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "TeacherBehavior",
+      "strategy": "waffleclip",
+      "hit_at_1": 63.89,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "TeacherBehavior",
+      "strategy": "cupl",
+      "hit_at_1": 42.65,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "HandriseReadWrite",
+      "strategy": "plain",
+      "hit_at_1": 56.49,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cape",
+      "hit_at_1": 56.91,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "HandriseReadWrite",
+      "strategy": "waffleclip",
+      "hit_at_1": 58.65,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cupl",
+      "hit_at_1": 55.6,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "BowTurnHead",
+      "strategy": "plain",
+      "hit_at_1": 64.55,
+      "n_samples": 505,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "BowTurnHead",
+      "strategy": "cape",
+      "hit_at_1": 68.32,
+      "n_samples": 505,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "BowTurnHead",
+      "strategy": "waffleclip",
+      "hit_at_1": 66.34,
+      "n_samples": 505,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "dfn",
+      "dataset": "BowTurnHead",
+      "strategy": "cupl",
+      "hit_at_1": 63.37,
+      "n_samples": 505,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "TeacherBehavior",
+      "strategy": "plain",
+      "hit_at_1": 82.87,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "TeacherBehavior",
+      "strategy": "cape",
+      "hit_at_1": 85.49,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "TeacherBehavior",
+      "strategy": "waffleclip",
+      "hit_at_1": 72.87,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "TeacherBehavior",
+      "strategy": "cupl",
+      "hit_at_1": 72.41,
+      "n_samples": 3240,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "HandriseReadWrite",
+      "strategy": "plain",
+      "hit_at_1": 55.72,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cape",
+      "hit_at_1": 56.25,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "HandriseReadWrite",
+      "strategy": "waffleclip",
+      "hit_at_1": 55.06,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "HandriseReadWrite",
+      "strategy": "cupl",
+      "hit_at_1": 61.82,
+      "n_samples": 1671,
+      "avg_prompts_per_class": 25.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "BowTurnHead",
+      "strategy": "plain",
+      "hit_at_1": 56.44,
+      "n_samples": 505,
+      "avg_prompts_per_class": 1.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "BowTurnHead",
+      "strategy": "cape",
+      "hit_at_1": 64.75,
+      "n_samples": 505,
+      "avg_prompts_per_class": 3.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "BowTurnHead",
+      "strategy": "waffleclip",
+      "hit_at_1": 41.98,
+      "n_samples": 505,
+      "avg_prompts_per_class": 16.0
+    },
+    {
+      "backbone": "siglip2",
+      "dataset": "BowTurnHead",
+      "strategy": "cupl",
+      "hit_at_1": 62.18,
+      "n_samples": 505,
+      "avg_prompts_per_class": 25.0
+    }
+  ],
+  "timestamp": 1777299451
+}

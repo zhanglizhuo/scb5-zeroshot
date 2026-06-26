@@ -1,0 +1,7 @@
+{
+  "qwen35_ollama": {
+    "teacher_behavior": 0.879320987654321,
+    "handrise_readwrite": 0.5409934171154998,
+    "bow_turnhead": 0.6316831683168317
+  }
+}

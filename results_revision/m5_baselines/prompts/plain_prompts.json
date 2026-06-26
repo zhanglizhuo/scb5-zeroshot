@@ -1,0 +1,47 @@
+{
+  "teacher_behavior": {
+    "guide": [
+      "a photo of a teacher guiding a student"
+    ],
+    "answer": [
+      "a photo of a teacher answering a student's question"
+    ],
+    "On-stage interaction": [
+      "a photo of a teacher interacting with students on stage"
+    ],
+    "blackboard-writing": [
+      "a photo of a teacher writing on the blackboard"
+    ],
+    "teacher": [
+      "a photo of a teacher lecturing"
+    ],
+    "stand": [
+      "a photo of a teacher standing still"
+    ],
+    "screen": [
+      "a photo of a teacher pointing at a projection screen"
+    ],
+    "blackBoard": [
+      "a photo of a teacher pointing at the blackboard"
+    ]
+  },
+  "handrise_readwrite": {
+    "hand-raise": [
+      "a photo of a student raising their hand"
+    ],
+    "read": [
+      "a photo of a student reading a book"
+    ],
+    "write": [
+      "a photo of a student writing in a notebook"
+    ]
+  },
+  "bow_turnhead": {
+    "bow-head": [
+      "a photo of a student with their head bowed down"
+    ],
+    "turn-head": [
+      "a photo of a student turning their head sideways"
+    ]
+  }
+}

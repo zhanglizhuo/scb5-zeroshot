@@ -1,0 +1,17 @@
+# Reproducibility dependencies for SCB5 zero-shot experiments
+# Python 3.11+ recommended
+
+torch
+torchvision
+open-clip-torch
+numpy
+Pillow
+tqdm
+scikit-learn
+matplotlib
+scipy
+huggingface-hub
+
+# OpenAI CLIP package
+# Installed from source because no official pip wheel is provided.
+git+https://github.com/openai/CLIP.git

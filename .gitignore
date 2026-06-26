@@ -22,5 +22,9 @@ results/*_runtime/
 paper/submission*.zip
 results/paper/*.zip
 
-# Feature cache (binary model outputs, too large for GitHub)
+# Model checkpoints (too large for GitHub)
+ckpts/
+logs/
+
+# Feature cache (uncompressed numpy)
 data/feature_cache/*.npy
