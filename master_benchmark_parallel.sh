@@ -13,7 +13,7 @@
 
 set -euo pipefail
 
-ROOT="/home/broadsense/works/lizhuo/AutoResearchClaw"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
 EVAL_DIR="$ROOT/scb5_zeroshot"
 PYTHON_BIN="${PYTHON_BIN:-/usr/bin/python3.8}"
 RESULTS_ROOT="$EVAL_DIR/results_parallel"

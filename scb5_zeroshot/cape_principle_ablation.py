@@ -42,16 +42,16 @@ logging.basicConfig(level=logging.INFO,
                     handlers=[logging.StreamHandler(sys.stdout)])
 log = logging.getLogger(__name__)
 
-ROOT = Path("/home/broadsense/works/lizhuo/AutoResearchClaw")
+ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = ROOT / "data" / "feature_cache"
-OUT_DIR = ROOT / "scb5_zeroshot" / "results_revision"
+OUT_DIR = ROOT / "results_revision"
 OUT_DIR.mkdir(exist_ok=True, parents=True)
 
 # Backbones with cached multi-label features (3240 samples)
 MODEL_SPECS = {
     "openai":  ("ViT-L-14", "openai", "clip"),
-    "dfn":     ("ViT-L-14", "dfn2b", str(ROOT / "scb5_zeroshot/ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin")),
-    "siglip2": ("ViT-L-16-SigLIP2-256", "webli", str(ROOT / "scb5_zeroshot/ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin")),
+    "dfn":     ("ViT-L-14", "dfn2b", str(ROOT / "ckpts" / "dfn_clip_vitl14" / "open_clip_pytorch_model.bin")),
+    "siglip2": ("ViT-L-16-SigLIP2-256", "webli", str(ROOT / "ckpts" / "siglip_vitl16_256" / "open_clip_pytorch_model.bin")),
 }
 
 DATASETS = {
