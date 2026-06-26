@@ -25,7 +25,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     *)
       echo "Unknown argument: $1" >&2
-      echo "Usage: bash scb5_zeroshot/reproduce_paper.sh [--mode quick|full] [--gpu 0] [--python python]" >&2
+      echo "Usage: bash reproduce_paper.sh [--mode quick|full] [--gpu 0] [--python python]" >&2
       exit 1
       ;;
   esac
