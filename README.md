@@ -1,7 +1,10 @@
 # scb-clip-benchmark
 
 Top-down reproducibility repository for the paper:
-Benchmarking CLIP-Family Models for Zero-Shot Classroom Activity Recognition: Prompt and Metric Choice Matter.
+
+**Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
+
+Yan Ma, Lizhuo Zhang, and Xinjie Wu. Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning), 2026.
 
 This repository is organized as a complete experimental workflow, from dataset preparation to final paper-ready outputs.
 
@@ -70,11 +73,17 @@ scb-clip-benchmark/
 │   └── experiment_config.yaml
 ├── data/
 │   ├── README.md
-│   └── scb_dataset.py
+│   ├── scb_dataset.py
+│   └── feature_cache/        # Precomputed model features (see README)
 ├── prompts/
 │   ├── cape_prompts.py
 │   ├── llm_prompt_gen.py
-│   └── prompt_sets.json
+│   └── prompt_sets.json       # Set A / B / C prompt templates
+├── scb5_zeroshot/             # Paper-specific analysis scripts
+│   ├── paired_bootstrap.py    # Paired-bootstrap significance test (Tab. 9)
+│   ├── cape_principle_ablation.py  # CAPE three-principle ablation (Tab. 5)
+│   └── prompts/
+│       └── setAB_examples.json # Verbatim Set A & B prompts
 ├── models/
 │   ├── clip_zoo.py
 │   └── mllm_baseline.py
@@ -101,4 +110,16 @@ Download instructions are provided in data/README.md.
 
 ## Citation
 
-Please cite the associated paper and this repository release when using these assets.
+Please cite the associated paper and this repository when using these assets:
+
+```bibtex
+@article{ma2026prompt,
+  title     = {Prompt Sensitivity as an Adversarial Vulnerability in {CLIP}-Family
+               Models for Zero-Shot Classroom Behavior Analysis},
+  author    = {Ma, Yan and Zhang, Lizhuo and Wu, Xinjie},
+  journal   = {Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning)},
+  year      = {2026},
+  note      = {Code and data: \url{https://github.com/zhanglizhuo/scb-clip-benchmark}}
+}
+```
+

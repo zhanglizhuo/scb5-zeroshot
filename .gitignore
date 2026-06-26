@@ -20,3 +20,7 @@ results/*_runtime/
 
 # Submission archives
 paper/submission*.zip
+results/paper/*.zip
+
+# Feature cache (binary model outputs, too large for GitHub)
+data/feature_cache/*.npy
