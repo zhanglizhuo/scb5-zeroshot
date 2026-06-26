@@ -1,6 +1,6 @@
 # SCB5 Zero-Shot — Experiment Pipeline & Reproduction
 
-Supplementary notes for the experiment pipeline. See REPRODUCIBILITY.md and README.md for canonical instructions.
+Supplementary notes for the experiment pipeline. See README.md for canonical instructions.
 
 ## 一键复现入口（审稿友好）
 - 复现指南：`REPRODUCIBILITY.md`

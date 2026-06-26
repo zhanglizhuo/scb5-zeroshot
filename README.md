@@ -31,30 +31,51 @@ Stage 4: Figure/table reproduction
 
 ## Quick Start
 
+### Environment
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
-# Place SCB subsets under ./data or export SCB_DATA_DIR=/path/to/SCB
+### Data
 
-# Quick reproduction (figure/PDF regeneration from precomputed results)
+Download SCB subsets from Hugging Face (`wintonYF/SCB-Dataset`). Expected layout:
+
+```
+data/
+  SCB5_TeacherBehavior/
+  SCB5_HandriseReadWrite/
+  SCB_BowTurnHead/
+```
+
+### Reproduction
+
+```bash
+# Quick: regenerate figures and PDF from precomputed results (reviewer-friendly)
 bash reproduce_paper.sh --mode quick
 
-# Full end-to-end rerun
+# Full: end-to-end rerun
 bash reproduce_paper.sh --mode full
 ```
 
-### Entry points
+### Manual analysis
+
+```bash
+python scb5_zeroshot/paired_bootstrap.py
+python scb5_zeroshot/cape_principle_ablation.py
+```
+
+### All entry points
 
 | Command | Purpose |
 |---------|---------|
-| `bash reproduce_paper.sh --mode quick` | Figure/PDF regeneration (reviewer-friendly) |
-| `bash reproduce_paper.sh --mode full` | Full experiment rerun |
+| `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
 | `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
 | `python experiments/main_mllm.py` | MLLM evaluation |
-| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
-| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
+| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test (Tab. 9) |
+| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation (Tab. 5) |
 
 ## Key Outputs and Paper Mapping
 
