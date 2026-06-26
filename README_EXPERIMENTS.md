@@ -1,18 +1,17 @@
 # SCB5 Zero-Shot — Experiment Pipeline & Reproduction
 
-简短说明项目中论文级实验的脚本、数据流与结果产出，便于复现与定位产物。
+Supplementary notes for the experiment pipeline. See REPRODUCIBILITY.md and README.md for canonical instructions.
 
 ## 一键复现入口（审稿友好）
-- 复现指南：`scb5_zeroshot/REPRODUCIBILITY.md`
-- 一键脚本：`bash scb5_zeroshot/reproduce_paper.sh --mode quick --gpu 0`
-- 复现依赖：`scb5_zeroshot/requirements.repro.txt`
-- 引用模板：`scb5_zeroshot/CITATION.cff`
+- 复现指南：`REPRODUCIBILITY.md`
+- 一键脚本：`bash reproduce_paper.sh --mode quick --gpu 0`
+- 引用模板：`CITATION.cff`
 
 ## 主要脚本与职责
 - `run_experiment.py` — 底层可复用函数：模型加载、单次零样本评估、`run_single_experiment` API。
-- `exp_runner.py` — 论文主流水线（E1/E2 主表格、E4 CAPE 主协议），调用 `run_experiment.run_single_experiment`，输出到 `scb5_zeroshot/results/`。
-- `master_benchmark.sh` / `master_benchmark_parallel.sh` — 并行化大规模基准（shard），每个 shard 生成 `results_parallel/<shard>/benchmark_*.json`，最终合并为 `results_parallel/benchmark_final_*.json`（供绘图使用）。
-- `cape_robustness.py` — CAPE 的提示词变体鲁棒性探针（A/B/Mix），输出到 `scb5_zeroshot/results_robustness/`；并定义 `CAPE_A`/`CAPE_B`。
+- `exp_runner.py` — 论文主流水线（E1/E2 主表格、E4 CAPE 主协议），调用 `run_experiment.run_single_experiment`，输出到 `results/`。
+- `master_benchmark.sh` / `master_benchmark_parallel.sh` — [LEGACY] 并行化大规模基准（shard），每个 shard 生成 `results_parallel/<shard>/benchmark_*.json`，最终合并为 `results_parallel/benchmark_final_*.json`（供绘图使用）。
+- `cape_robustness.py` — CAPE 的提示词变体鲁棒性探针（A/B/Mix），输出到 `results_robustness/`；并定义 `CAPE_A`/`CAPE_B`。
 - `run_revision_experiments.py` — 修订/答审实验（R1–R4，对应论文 E7–E10）：线性探针、bootstrap CI、盲提示、严格多标签评估，输出到 `scb5_zeroshot/results_revision/`。
 - `paper/generate_paper_figures.py` — 读取合并基准（`results_parallel/benchmark_final_*.json`）并生成论文图表到 `scb5_zeroshot/paper/figures/`。
 

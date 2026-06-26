@@ -1,81 +1,71 @@
 # SCB5 Zero-Shot Reproducibility Guide
 
-This guide is intended for reviewers and researchers who want to reproduce the paper results quickly and reliably.
+This guide is intended for reviewers and researchers who want to reproduce the paper results.
 
-## 1. Scope
-
-This package reproduces the SCB zero-shot evaluation pipeline and manuscript artifacts in `scb5_zeroshot/paper/`.
-
-Main goals:
-- Re-run key experiments from scripts in `scb5_zeroshot/`.
-- Regenerate paper figures in `scb5_zeroshot/paper/figures/`.
-- Rebuild the manuscript PDF from `scb5_zeroshot/paper/scb5_zeroshot_paper.tex`.
-
-## 2. Environment
-
-Recommended:
-- Linux + CUDA GPU
-- Python 3.11+
-- PyTorch with matching CUDA build
-
-Install dependencies:
+## 1. Environment
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r scb5_zeroshot/requirements.repro.txt
+pip install -r requirements.txt
 ```
 
-## 3. Data and checkpoints
+## 2. Data
 
-Expected paths:
-- Datasets: `datasets_scb/`
-- Model checkpoints: `scb5_zeroshot/ckpts/`
+Download SCB subsets from Hugging Face (`wintonYF/SCB-Dataset`). Expected layout:
 
-Notes:
-- SCB datasets are third-party public resources. See manuscript Data Availability section.
-- If paths differ on your machine, adapt the environment variables in the run commands.
+```
+data/
+  SCB5_TeacherBehavior/
+  SCB5_HandriseReadWrite/
+  SCB_BowTurnHead/
+```
 
-## 4. Quick start (reviewer-friendly)
+## 3. Quick start (reviewer-friendly)
 
-Fast validation from existing result JSON files:
+Fast validation from existing precomputed results:
 
 ```bash
-bash scb5_zeroshot/reproduce_paper.sh --mode quick --gpu 0
+bash reproduce_paper.sh --mode quick
 ```
 
-What this does:
-- Validates Python/runtime imports.
-- Regenerates paper figures.
-- Rebuilds the manuscript PDF.
+Regenerates paper figures and rebuilds the PDF.
 
-## 5. Full rerun
-
-Run a heavier reproducibility pass:
+## 4. Full rerun
 
 ```bash
-bash scb5_zeroshot/reproduce_paper.sh --mode full --gpu 0
+bash reproduce_paper.sh --mode full
 ```
 
-This runs:
-- Main experiment pipeline (`exp_runner.py`)
-- CAPE robustness (`cape_robustness.py`)
-- Revision experiments (`run_revision_experiments.py`)
-- Figure regeneration and paper PDF build
+Runs experiments end-to-end: main benchmark, CAPE robustness, revision
+experiments, figure regeneration, and paper PDF build.
+
+## 5. Manual analysis scripts
+
+After experiments complete, run paper-specific analyses:
+
+```bash
+python scb5_zeroshot/paired_bootstrap.py
+python scb5_zeroshot/cape_principle_ablation.py
+```
 
 ## 6. Expected outputs
 
-- Main results: `scb5_zeroshot/results/`
-- Revision results: `scb5_zeroshot/results_revision/`
-- Robustness results: `scb5_zeroshot/results_robustness/`
-- Figures: `scb5_zeroshot/paper/figures/`
-- Paper PDF: `scb5_zeroshot/paper/scb5_zeroshot_paper.pdf`
+| Output | Location |
+|--------|----------|
+| Main results | `results/` |
+| Revision results | `results_revision/` |
+| Robustness results | `results_robustness/` |
+| Analysis scripts | `scb5_zeroshot/` |
+| Feature caches | `data/feature_cache/` |
+| Paper figures | `paper/figures/` |
+| Paper PDF | `paper/scb5_zeroshot_paper.pdf` |
 
-## 7. Reproducibility checklist (for GitHub release)
+## 7. Entry points
 
-- Pin code with a git tag (e.g., `v1.0.0-paper`).
-- Record exact commit hash in release notes.
-- Include environment details (Python, torch, CUDA, GPU).
-- Keep random seeds fixed in scripts where available.
-- Provide one command for quick verification and one for full rerun.
-- Keep generated results and manuscript artifacts versioned.
+| Script | Purpose |
+|--------|---------|
+| `reproduce_paper.sh` | **Canonical entry point** (quick or full) |
+| `experiments/main_clip.py` | Programmatic API for CLIP experiments |
+| `experiments/main_mllm.py` | MLLM evaluation |
+| `exp_runner.py` | Original full pipeline (legacy; use `reproduce_paper.sh` instead) |

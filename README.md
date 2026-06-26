@@ -37,14 +37,24 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Place SCB subsets under ./data or export SCB_DATA_DIR=/path/to/SCB
-# Optional: export CKPTS_DIR=/path/to/local/checkpoints
 
-# Stage-1 benchmark run
-bash experiments/run_all.sh
+# Quick reproduction (figure/PDF regeneration from precomputed results)
+bash reproduce_paper.sh --mode quick
 
-# Optional Stage-3 rerun (requires extra runtime services)
-python experiments/main_mllm.py --results_dir results/mllm_runtime
+# Full end-to-end rerun
+bash reproduce_paper.sh --mode full
 ```
+
+### Entry points
+
+| Command | Purpose |
+|---------|---------|
+| `bash reproduce_paper.sh --mode quick` | Figure/PDF regeneration (reviewer-friendly) |
+| `bash reproduce_paper.sh --mode full` | Full experiment rerun |
+| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
+| `python experiments/main_mllm.py` | MLLM evaluation |
+| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
+| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
 
 ## Key Outputs and Paper Mapping
 

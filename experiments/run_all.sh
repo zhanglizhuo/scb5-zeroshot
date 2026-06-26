@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# [LEGACY] Use reproduce_paper.sh instead. This script runs only Stage 1 (CLIP benchmark).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

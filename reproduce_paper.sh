@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-SCB_DIR="$ROOT/scb5_zeroshot"
-PAPER_DIR="$SCB_DIR/paper"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+SCB_DIR="$ROOT"
+PAPER_DIR="$ROOT/paper"
 
 MODE="quick"
 GPU="0"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 ##############################################################################
+# [LEGACY] Use reproduce_paper.sh instead for canonical entry.
 # master_benchmark.sh — Full pipeline: download datasets + models + run all
 #
 # Usage:  nohup bash master_benchmark.sh &> master_benchmark.log &

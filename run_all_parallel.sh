@@ -1,5 +1,5 @@
 #!/bin/bash
-# =====================================================
+# [LEGACY] Use reproduce_paper.sh instead.
 # Parallel runner for four models across four GPUs
 # - Uses system `python3` (/usr/bin/python3) to avoid virtualenv-specific interpreters
 # - For offline-first behavior set `CKPTS_DIR` to a local checkpoints directory
