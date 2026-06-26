@@ -1,4 +1,4 @@
-# scb-clip-benchmark
+# scb5-zeroshot
 
 Top-down reproducibility repository for the paper:
 
@@ -66,7 +66,7 @@ Core best-per-subset values (main benchmark):
 ## Repository Layout
 
 ```text
-scb-clip-benchmark/
+scb5-zeroshot/
 ├── README.md
 ├── requirements.txt
 ├── config/
@@ -119,7 +119,7 @@ Please cite the associated paper and this repository when using these assets:
   author    = {Ma, Yan and Zhang, Lizhuo and Wu, Xinjie},
   journal   = {Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning)},
   year      = {2026},
-  note      = {Code and data: \url{https://github.com/zhanglizhuo/scb-clip-benchmark}}
+  note      = {Code and data: \url{https://github.com/zhanglizhuo/scb5-zeroshot}}
 }
 ```
 
