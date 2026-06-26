@@ -5,35 +5,35 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
 
-\date{April 27, 2026}
+\date{May 28, 2026}
 
-\signature{Yan Ma$^{1,3}$ \\ Lizhuo Zhang$^{2}$ \\ $^{1}$Hunan Agricultural University, Changsha 410128, China \\ $^{2}$School of Information and Intelligence, Hunan Agricultural University \\ $^{3}$Changsha University of Science and Technology, Changsha 410114, China \\ Corresponding author e-mail: zhanglizhuo@hunau.edu.cn}
+\signature{Yan Ma$^{1,2}$ \\ Lizhuo Zhang$^{3}$ \\ Xinjie Wu$^{4}$ \\ $^{1}$Changsha University of Science and Technology, Changsha 410114, China \\ $^{2}$Hunan Agricultural University, Changsha 410128, China \\ $^{3}$School of Information and Intelligence, Hunan Agricultural University \\ $^{4}$College of Liberal Arts and Social Sciences, City University of Hong Kong, Hong Kong, China \\ Corresponding author e-mail: zhanglizhuo@hunau.edu.cn}
 
 \address{Hunan Agricultural University \\ Changsha 410128, China}
 
 \begin{document}
 
-\begin{letter}{Editorial Office \\ \textit{Electronics} \\ MDPI}
+\begin{letter}{Guest Editors \\ Special Issue: ``Applications Based on Symmetry in Adversarial Machine Learning'' \\ \textit{Symmetry} \\ MDPI}
 
-\opening{Dear Editor,}
+\opening{Dear Guest Editors,}
 
-We would like to submit the enclosed manuscript, ``Benchmarking CLIP-Family Models for Zero-Shot Classroom Activity Recognition: Prompt and Metric Choice Matter,'' for consideration as an original research article in \textit{Electronics}.
+We would like to submit the enclosed manuscript, ``Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis,'' for consideration as an original research article in the Special Issue on \textit{Applications Based on Symmetry in Adversarial Machine Learning} in \textit{Symmetry}.
 
 \textbf{Background and motivation.}
-Zero-shot vision--language models are increasingly used as practical baselines for domain transfer, yet their behavior on classroom activity recognition remains underexplored. Existing evaluations typically emphasize headline top-1 scores without testing whether prompt choice and metric choice materially change the conclusions drawn from benchmark results, especially under class imbalance and multi-label structure.
+Adversarial robustness research has predominantly focused on pixel-space perturbations of image inputs. However, vision--language foundation models such as CLIP introduce a second attack surface: the text prompt. In zero-shot recognition, users craft natural language descriptions of target categories without access to the test distribution. We demonstrate empirically that minor rephrasing of these descriptions---perturbations of a few words that carry no semantic intent to deceive---can silently and catastrophically degrade recognition performance. This form of \emph{text-domain adversarial-like perturbation} is practically relevant for any behavior analysis deployment built on foundation models, and it breaks the implicit assumption that a well-trained model will behave symmetrically under semantically equivalent inputs.
 
 \textbf{Summary of contributions.}
-This study makes four main contributions. First, it constructs a multi-scene classroom benchmark from three public SCB subsets covering teacher behavior, student learning actions, and subtle micro-actions. Second, it provides a unified probe-based evaluation of five CLIP-family backbones under four uniform prompt strategies and a training-free class-aware prompt ensemble (CAPE), showing that prompt design is often more consequential than backbone choice and that CAPE is task-dependent rather than universally optimal; a three-principle ablation further attributes CAPE's gains to visual grounding and class-discriminative contrast rather than to averaging more prompts. Third, it demonstrates that evaluation protocol matters: a supervised linear-probe baseline reaches Sample-F1 of 88--90\%, Macro-F1 of 68--78\%, and Micro-F1 of 89--91\% on the multi-label TeacherBehavior subset, while zero-shot CAPE only reaches 60--66\%, 49--61\%, and 61--70\%, exposing the headline Hit@1 advantage as a lenient-metric artifact; the same lenient-metric caveat applies to BowTurnHead, where the multi-label majority floor is already 90.69\% so the nominal 93.27\% headline reflects a $\sim$2.6~pp effect on top of a near-saturated metric, and the stricter single-label primary-accuracy view (68.3\% [64.6, 72.1]) is the more reliable evidence of CAPE's benefit on micro-actions. Fourth, additional cross-family checks against three Ollama-deployed MLLMs and a direct comparison between EVA02 under fixed CAPE and EVA02 under its best prompt strategy show that benchmark conclusions in classroom zero-shot recognition should rely on multiple metrics and explicitly disclosed prompt strategies rather than isolated headline numbers.
+This study makes three main contributions. First, using five CLIP-family ViT-Large backbones evaluated on a multi-scene classroom behavior benchmark (three public SCB subsets), we show that prompt-space perturbations can produce performance swings comparable to or exceeding backbone-level differences: on SigLIP2, an alternate-wording CAPE variant drops Hit@1 from 95.5\% to 31.4\% on the TeacherBehavior subset---a 64.1 percentage-point collapse triggered solely by text rewording. Second, we show that metric asymmetry compounds this vulnerability: the apparent zero-shot advantage over supervised baselines (favoring CAPE on lenient Hit@1) is reversed on class-discriminative multi-label metrics (Macro-F1, Sample-F1), revealing that standard reporting conventions can conceal rather than surface the model's fragility. Third, bootstrap confidence intervals and paired significance tests provide formal uncertainty quantification, showing that several widely cited headline gaps lack statistical support.
 
-\textbf{Relevance to \textit{Electronics}.}
-The manuscript fits the journal's interests in intelligent sensing, computer vision, and AI-enabled educational systems. Beyond reporting benchmark scores, it addresses a practical methodological issue relevant to deployable vision systems: how prompt design and metric choice affect the reliability of zero-shot conclusions in complex real-world scenes.
+\textbf{Relevance to the Special Issue.}
+The Special Issue calls for work on the robustness, security, and interpretability of modern learning systems under adversarial conditions, explicitly including behavior analysis and foundation models as target domains. Our work contributes a concrete empirical study of \emph{text-domain adversarial fragility} in vision--language foundation models applied to a real behavior analysis scenario, complementing existing pixel-space adversarial attack studies. The symmetry angle is direct: two prompts that are semantically near-equivalent to a human produce radically asymmetric model outputs, exposing a fundamental asymmetry in the model's prompt manifold that has direct implications for trustworthy deployment.
 
 \textbf{Statements.}
 This manuscript has not been published previously and is not under consideration by any other journal. All authors have read and approved the manuscript. The study reuses only existing public dataset releases and does not involve new human-subject data collection. The authors declare no conflicts of interest. This work was funded by the Education Department of Hunan Province, China (Project Number: HNJG-2022-0608).
 
-The SCB datasets analyzed in this study are publicly available from their original maintainers at \url{https://huggingface.co/datasets/wintonYF/SCB-Dataset}. The reproducibility package, including experiment code, prompt templates, and released summary result files, is available at \url{https://github.com/zhanglizhuo/scb-clip-benchmark}.
+The SCB datasets are publicly available at \url{https://huggingface.co/datasets/wintonYF/SCB-Dataset}. The reproducibility package (code, prompt templates, significance scripts) is available at \url{https://github.com/zhanglizhuo/scb-clip-benchmark}.
 
-We believe the manuscript will be of interest to readers working on vision--language models, zero-shot learning, classroom analytics, and trustworthy evaluation of domain-specific AI systems. We appreciate your consideration.
+We believe this manuscript will be of interest to readers working on adversarial machine learning, foundation model robustness, behavior analysis, and trustworthy AI. We appreciate your consideration.
 
 \closing{Sincerely,}
 
