@@ -10,8 +10,10 @@ data/cache/
 # Model checkpoints and logs (too large for GitHub)
 ckpts/
 logs/
-figures/
-results/*_runtime/
+/results/*_runtime/
+
+# Generated experiment figures (not paper figures)
+/figures/
 
 # LaTeX build artifacts
 *.aux

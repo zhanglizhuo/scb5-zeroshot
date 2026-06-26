@@ -1,120 +1,87 @@
 # scb5-zeroshot
 
-Top-down reproducibility repository for the paper:
+[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
+[![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
+[![HuggingFace Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-SCB--Dataset-yellow)](https://huggingface.co/datasets/wintonYF/SCB-Dataset)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
 **Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
 
 Yan Ma, Lizhuo Zhang, and Xinjie Wu. Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning), 2026.
 
-This repository is organized as a complete experimental workflow, from dataset preparation to final paper-ready outputs.
+---
 
-## Top-Down Experimental Workflow
+## Overview
 
-Stage 0: Environment and data setup
-- Install dependencies from requirements.txt.
-- Download the public SCB subsets using instructions in data/README.md.
+CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 95.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings.
 
-Stage 1: CLIP-family benchmark under unified protocols
-- Run experiments/main_clip.py (or experiments/run_all.sh).
-- This stage evaluates five CLIP-family backbones across three SCB subsets with multiple prompt strategies.
+<p align="center">
+  <img src="paper/figures/fig1_prompt_ablation.png" width="80%" alt="Prompt ablation analysis showing sensitivity across models and prompt strategies">
+  <br>
+  <em>Figure 1: Prompt ablation analysis across three SCB subsets. CAPE (Context-Aware Prompt Ensemble) stabilizes predictions compared to single-prompt strategies, though sensitivity varies strongly by subset.</em>
+</p>
 
-Stage 2: Prompt-strategy sensitivity and robustness summaries
-- Use the released baseline outputs and prompt definitions to verify strategy-dependent ranking behavior.
-- Aggregated benchmark artifacts are available in results/paper/.
+## Key Results
 
-Stage 3: Cross-family validation with MLLM baselines
-- Run experiments/main_mllm.py when runtime services are available.
-- Released cross-family summaries are available in results/mllm/.
+### Best-performing configuration per subset (Hit@1)
 
-Stage 4: Figure/table reproduction
-- Use notebooks/reproduce_figures.ipynb with released JSON outputs to regenerate paper figures.
+| Sub-dataset | Best Model + Prompt Strategy | Hit@1 (%) | Macro-F1 (%) |
+|---|---|---|---:|---:|
+| **TeacherBehavior** | SigLIP2 + CAPE | 85.56 | 10.07 |
+| **HandriseReadWrite** | OpenCLIP + Action prompt | 84.56 | 55.89 |
+| **BowTurnHead** | DFN-CLIP + CAPE | 93.27 | 53.95 |
 
-## Quick Start
+### Model comparison across subsets
 
-### Environment
+<p align="center">
+  <img src="paper/figures/fig2_model_comparison.png" width="80%" alt="Model comparison bar chart">
+  <br>
+  <em>Figure 2: Five CLIP-family backbones compared across three SCB subsets. TeacherBehavior (multi-label) shows highest variance and lowest absolute performance; BowTurnHead is near-saturated.</em>
+</p>
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+### Prompt sensitivity leads to inconsistent model rankings
 
-### Data
+A core finding: **the choice of prompt strategy changes which model appears "best"** on a given subset. For example, on TeacherBehavior, SigLIP2 ranks first under CAPE but drops below CLIP and DFN-CLIP under simpler prompt strategies. No single model dominates across all conditions.
 
-Download SCB subsets from Hugging Face (`wintonYF/SCB-Dataset`). Expected layout:
+### Misleading leniency of multi-label Hit@1
 
-```
-data/
-  SCB5_TeacherBehavior/
-  SCB5_HandriseReadWrite/
-  SCB_BowTurnHead/
-```
+On multi-label subsets (TeacherBehavior), the lenient Hit@1 metric can saturate above 85% even when Macro-F1 is below 15%, because models collapse predictions into the majority class. This is revealed by confusion matrix and per-class recall analyses:
 
-### Reproduction
+<p align="center">
+  <img src="paper/figures/fig3_confusion_matrices.png" width="80%" alt="Confusion matrices">
+  <br>
+  <em>Figure 3: Confusion matrices for CLIP and SigLIP2 on TeacherBehavior. Both models show strong class-collapse toward "guide" and "answer", inflating Hit@1 while Macro-F1 remains below 12%.</em>
+</p>
 
-```bash
-# Quick: regenerate figures and PDF from precomputed results (reviewer-friendly)
-bash reproduce_paper.sh --mode quick
+<p align="center">
+  <img src="paper/figures/fig4_perclass_recall.png" width="80%" alt="Per-class recall">
+  <br>
+  <em>Figure 4: Per-class recall across three prompt strategies. CAPE partially mitigates class collapse on the minority classes ("blackboard-writing", "teacher", "stand"), but no strategy fully addresses the imbalance.</em>
+</p>
 
-# Full: end-to-end rerun
-bash reproduce_paper.sh --mode full
-```
-
-### Manual analysis
-
-```bash
-python scb5_zeroshot/paired_bootstrap.py
-python scb5_zeroshot/cape_principle_ablation.py
-```
-
-### All entry points
-
-| Command | Purpose |
-|---------|---------|
-| `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
-| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
-| `python experiments/main_mllm.py` | MLLM evaluation |
-| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test (Tab. 9) |
-| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation (Tab. 5) |
-
-## Key Outputs and Paper Mapping
-
-| Workflow Stage | Output file(s) | Paper usage |
-|---|---|---|
-| Stage 1 | results/baseline_results.json | Main benchmark table values |
-| Stage 1/2 | results/paper/benchmark_final_merged.json | Final merged benchmark summary |
-| Stage 2 | results/paper/cape_robustness_summary.json | Robustness analysis |
-| Stage 3 | results/mllm/mllm_merged_summary.json | Cross-family validation summary |
-
-Core best-per-subset values (main benchmark):
-
-| Sub-dataset | Best Model + Prompt | Hit@1 (%) | Macro-F1 (%) |
-|---|---|---:|---:|
-| TeacherBehavior | SigLIP2 + CAPE | 85.56 | 10.07 |
-| HandriseReadWrite | OpenCLIP + action | 84.56 | 55.89 |
-| BowTurnHead | DFN-CLIP + CAPE | 93.27 | 53.95 |
-
-## Repository Layout
+## Repository Structure
 
 ```text
 scb5-zeroshot/
-├── README.md
-├── requirements.txt
+├── README.md                   # This file
+├── CITATION.cff                # Citation metadata
+├── requirements.txt            # Python dependencies
+├── reproduce_paper.sh          # Canonical entry point
 ├── config/
 │   └── experiment_config.yaml
 ├── data/
-│   ├── README.md
+│   ├── README.md               # Download instructions
 │   ├── scb_dataset.py
-│   └── feature_cache/        # Precomputed model features (see README)
-├── prompts/
+│   └── feature_cache/          # Precomputed features (9 npz files, 3 backbones × 3 subsets)
+│── prompts/
 │   ├── cape_prompts.py
 │   ├── llm_prompt_gen.py
-│   └── prompt_sets.json       # Set A / B / C prompt templates
-├── scb5_zeroshot/             # Paper-specific analysis scripts
-│   ├── paired_bootstrap.py    # Paired-bootstrap significance test (Tab. 9)
-│   ├── cape_principle_ablation.py  # CAPE three-principle ablation (Tab. 5)
+│   └── prompt_sets.json        # Set A / B / C prompt templates
+├── scb5_zeroshot/              # Paper-specific analysis scripts
+│   ├── paired_bootstrap.py     # Bootstrap significance test
+│   ├── cape_principle_ablation.py  # CAPE three-principle ablation
 │   └── prompts/
-│       └── setAB_examples.json # Verbatim Set A & B prompts
+│       └── setAB_examples.json  # Verbatim Set A & B prompts
 ├── models/
 │   ├── clip_zoo.py
 │   └── mllm_baseline.py
@@ -128,20 +95,76 @@ scb5-zeroshot/
 ├── results/
 │   ├── baseline_results.json
 │   ├── baseline_eva02_fix_allstrat/
-│   ├── mllm/
-│   └── paper/
+│   ├── mllm/                   # Cross-family validation
+│   └── paper/                  # Merged summary outputs
+├── results_revision/           # Revision experiment outputs
+├── results_robustness/         # Robustness analysis outputs
+├── results_parallel/           # Parallel benchmark shards
+├── paper/
+│   ├── scb5_zeroshot_paper.pdf
+│   ├── cover_letter.pdf
+│   └── figures/                # Publication-quality figures
 └── notebooks/
     └── reproduce_figures.ipynb
 ```
 
+## Quick Start
+
+### Environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Data
+
+Download SCB subsets from [HuggingFace `wintonYF/SCB-Dataset`](https://huggingface.co/datasets/wintonYF/SCB-Dataset). Expected layout:
+
+```
+data/
+  SCB5_TeacherBehavior/
+  SCB5_HandriseReadWrite/
+  SCB_BowTurnHead/
+```
+
+### Reproduce
+
+```bash
+# Quick: regenerate figures and tables from precomputed results
+bash reproduce_paper.sh --mode quick
+
+# Full: end-to-end rerun (requires model checkpoints and data)
+bash reproduce_paper.sh --mode full
+```
+
+### Entry Points
+
+| Command | Purpose |
+|---------|---------|
+| `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
+| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
+| `python experiments/main_mllm.py` | MLLM evaluation |
+| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
+| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
+
+## Key Outputs
+
+| File | Contents |
+|------|----------|
+| `results/baseline_results.json` | Main benchmark table values |
+| `results/paper/benchmark_final_merged.json` | Final merged benchmark summary |
+| `results/paper/cape_robustness_summary.json` | Robustness analysis across prompt sets |
+| `results/mllm/mllm_merged_summary.json` | Cross-family validation summary |
+| `paper/figures/` | Publication-quality PDF and PNG figures |
+| `paper/scb5_zeroshot_paper.pdf` | Full manuscript |
+
 ## Data Availability
 
-SCB data are third-party public datasets and are not redistributed in this repository.
-Download instructions are provided in data/README.md.
+SCB data are third-party public datasets available at [HuggingFace](https://huggingface.co/datasets/wintonYF/SCB-Dataset) and are not redistributed in this repository. All experiment code, prompt templates, precomputed features, and result files are provided here for full reproducibility.
 
 ## Citation
-
-Please cite the associated paper and this repository when using these assets:
 
 ```bibtex
 @article{ma2026prompt,
@@ -153,4 +176,3 @@ Please cite the associated paper and this repository when using these assets:
   note      = {Code and data: \url{https://github.com/zhanglizhuo/scb5-zeroshot}}
 }
 ```
-
