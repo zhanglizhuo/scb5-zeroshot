@@ -14,7 +14,7 @@ set -euo pipefail
 export HF_ENDPOINT="https://hf-mirror.com"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-3}"
 
-ROOT="/home/broadsense/works/lizhuo/AutoResearchClaw"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
 EVAL_DIR="$ROOT/scb5_zeroshot"
 CKPT_DIR="$EVAL_DIR/ckpts"
 DATA_DIR="$ROOT/datasets_scb"
@@ -298,7 +298,7 @@ import os, sys
 from pathlib import Path
 from collections import Counter
 
-DATA_DIR = Path(os.environ.get("DATA_DIR", "/home/broadsense/works/lizhuo/AutoResearchClaw/datasets_scb"))
+DATA_DIR = Path(os.environ.get("DATA_DIR", str(Path("$ROOT").parent / "datasets_scb")))
 
 for ds_name in sorted(os.listdir(DATA_DIR)):
     ds_path = DATA_DIR / ds_name

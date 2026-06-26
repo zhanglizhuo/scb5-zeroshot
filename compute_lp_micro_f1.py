@@ -30,8 +30,8 @@ logging.basicConfig(level=logging.INFO,
                     handlers=[logging.StreamHandler(sys.stdout)])
 log = logging.getLogger(__name__)
 
-ROOT = Path("/home/broadsense/works/lizhuo/AutoResearchClaw")
-DATA_DIR = ROOT / "datasets_scb"
+ROOT = Path(__file__).resolve().parent
+DATA_DIR = ROOT.parent / "datasets_scb"
 
 MODEL_SPECS = {
     "clip":   ("ViT-L-14", "openai"),
@@ -42,11 +42,11 @@ MODEL_SPECS = {
 }
 
 CKPT_PATHS = {
-    "clip":   ROOT / "scb5_zeroshot/ckpts/clip_openai_vitl14/ViT-L-14.pt",
-    "laion":  ROOT / "scb5_zeroshot/ckpts/laion_vitl14/open_clip_pytorch_model.bin",
-    "siglip": ROOT / "scb5_zeroshot/ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin",
-    "eva02":  ROOT / "scb5_zeroshot/ckpts/eva02_clip_vitl14/open_clip_pytorch_model.bin",
-    "dfn":    ROOT / "scb5_zeroshot/ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin",
+    "clip":   ROOT / "ckpts" / "clip_openai_vitl14" / "ViT-L-14.pt",
+    "laion":  ROOT / "ckpts" / "laion_vitl14" / "open_clip_pytorch_model.bin",
+    "siglip": ROOT / "ckpts" / "siglip_vitl16_256" / "open_clip_pytorch_model.bin",
+    "eva02":  ROOT / "ckpts" / "eva02_clip_vitl14" / "open_clip_pytorch_model.bin",
+    "dfn":    ROOT / "ckpts" / "dfn_clip_vitl14" / "open_clip_pytorch_model.bin",
 }
 
 TEACHER_DS = {
