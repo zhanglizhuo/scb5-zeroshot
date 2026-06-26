@@ -1,32 +1,153 @@
 {
-  "A": {
-    "guide": ["a teacher guiding students through classwork", "a classroom scene where a teacher gives learning guidance", "a teacher moving among students to guide tasks"],
-    "answer": ["a teacher answering a student question", "a classroom scene where a teacher responds to questions", "a teacher explaining an answer to the class"],
-    "on-stage interaction": ["a teacher interacting with students at the front of the classroom", "teacher and students engaged in on-stage interaction", "a classroom scene with teacher-student interaction near the podium"],
-    "blackboard-writing": ["a teacher writing on the blackboard with chalk", "a classroom scene where the teacher writes blackboard notes", "a teacher facing the blackboard while writing"],
-    "teacher": ["a teacher explaining concepts while lecturing", "a classroom scene centered on the teacher", "the teacher actively teaching in front of students"],
-    "stand": ["a teacher standing at the front of the classroom", "a classroom scene where the teacher is standing", "a standing teacher during instruction"],
-    "screen": ["a teacher pointing at a projection screen", "a classroom scene with the teacher presenting on screen", "a teacher using digital slides on the classroom screen"],
-    "blackboard": ["a teacher using the blackboard to explain content", "a classroom scene with visible blackboard teaching", "the teacher referencing written content on the blackboard"],
-    "hand-raise": ["a student raising a hand in class", "a classroom scene with a student hand-raise behavior", "a student signaling to speak by raising a hand"],
-    "read": ["a student reading textbook or notes", "a classroom scene where a student is reading", "a student focused on reading materials"],
-    "write": ["a student writing in a notebook", "a classroom scene with student writing behavior", "a student taking written notes during class"],
-    "bow-head": ["a student bowing head to look down", "a classroom scene with bow-head behavior", "a student looking downward with lowered head posture"],
-    "turn-head": ["a student turning head sideways", "a classroom scene with turn-head behavior", "a student looking sideways by turning the head"]
+  "_comment": "CAPE prompt sets used in the SCB5 zero-shot paper (Reviewer M3). Set A is the original (used as the 'CAPE' column in main tables); Set B is independently authored alternate wording used in the Section E4 robustness experiment. Each class has K=3 prompts. The three CAPE design principles are: (1) visual grounding (concrete physical descriptions), (2) semantic diversity (multiple viewpoints), (3) discriminative contrast (class-specific distinguishing features).",
+  "_source_files": [
+    "scb5_zeroshot/cape_robustness.py (CAPE_A, CAPE_B)",
+    "scb5_zeroshot/cape_principle_ablation.py (CAPE_FULL = Set A, plus three degraded ablation sets)"
+  ],
+  "set_A_original": {
+    "TeacherBehavior": {
+      "guide": [
+        "a teacher guiding a student one-on-one",
+        "a teacher helping a student at their desk",
+        "a teacher walking among students and offering guidance"
+      ],
+      "answer": [
+        "a teacher answering a student's question",
+        "a teacher responding to a raised hand in class",
+        "a student asking a question and the teacher replying"
+      ],
+      "On-stage interaction": [
+        "a teacher interacting with students at the front of the classroom",
+        "a teacher engaging with students on the podium",
+        "a teacher and students having a discussion in front of the class"
+      ],
+      "blackboard-writing": [
+        "a teacher writing on a blackboard with chalk",
+        "a hand writing equations on a chalkboard",
+        "a teacher's back while writing on the blackboard"
+      ],
+      "teacher": [
+        "a teacher standing and explaining a concept",
+        "a teacher giving a lecture at the podium",
+        "a teacher talking to the class while standing"
+      ],
+      "stand": [
+        "a person standing still in a classroom",
+        "a teacher standing at the front without interacting",
+        "a teacher standing idle near the podium"
+      ],
+      "screen": [
+        "a teacher pointing at a projection screen",
+        "a teacher presenting slides on a screen",
+        "a screen displaying a presentation in a classroom"
+      ],
+      "blackBoard": [
+        "a teacher pointing at the blackboard",
+        "a teacher referring to content on the blackboard",
+        "a blackboard with writing visible in a classroom"
+      ]
+    },
+    "HandriseReadWrite": {
+      "hand-raise": [
+        "a student raising their hand in a classroom",
+        "a student with arm raised to ask a question",
+        "a student raising hand to participate in class"
+      ],
+      "read": [
+        "a student reading a textbook at their desk",
+        "a student looking down at a book while reading",
+        "a student engaged in reading study materials"
+      ],
+      "write": [
+        "a student writing in a notebook",
+        "a student taking notes with a pen",
+        "a student writing at their desk in class"
+      ]
+    },
+    "BowTurnHead": {
+      "bow-head": [
+        "a student with their head bowed down",
+        "a student looking down at their phone or desk",
+        "a student with lowered head not paying attention"
+      ],
+      "turn-head": [
+        "a student turning their head to look sideways",
+        "a student looking away from the teacher",
+        "a student turning around in their seat"
+      ]
+    }
   },
-  "B": {
-    "guide": ["the instructor is guiding learners", "teacher guidance behavior appears in classroom", "the teacher provides step-by-step guidance"],
-    "answer": ["the instructor is answering questions", "teacher answer behavior in classroom discussion", "the teacher gives direct responses to students"],
-    "on-stage interaction": ["teacher and students interact at the front stage", "interactive teacher-student exchange near podium", "front-of-class interaction between teacher and students"],
-    "blackboard-writing": ["the teacher writes on blackboard", "blackboard writing behavior by the instructor", "teacher is actively writing chalk content"],
-    "teacher": ["the teacher is lecturing", "a typical teaching posture by instructor", "teacher-centered teaching activity"],
-    "stand": ["instructor standing posture", "teacher remains standing in front of class", "standing teacher behavior"],
-    "screen": ["teacher presenting with projection screen", "screen-based teaching behavior", "instructor points to projected material"],
-    "blackboard": ["teacher teaching with blackboard content", "blackboard-oriented classroom explanation", "instructor points to blackboard area"],
-    "hand-raise": ["student raises hand to participate", "classroom hand-raising behavior", "learner signals by hand up"],
-    "read": ["student reading behavior", "learner reads text materials", "in-class reading posture"],
-    "write": ["student writing behavior", "learner writes notes in class", "in-class notebook writing posture"],
-    "bow-head": ["student bows head downward", "downward head posture in class", "head-down behavior during class"],
-    "turn-head": ["student turns head to the side", "side-looking head movement", "turn-head posture in classroom"]
+  "set_B_alternate": {
+    "TeacherBehavior": {
+      "guide": [
+        "a teacher leaning over a student's desk to help",
+        "individual tutoring in a classroom setting",
+        "a teacher assisting a single student with their work"
+      ],
+      "answer": [
+        "a teacher explaining something to a student who asked a question",
+        "a dialogue between teacher and student in a classroom",
+        "a teacher addressing a student's raised hand"
+      ],
+      "On-stage interaction": [
+        "a lively discussion between a teacher and students at the podium",
+        "a teacher calling on students from the front of the room",
+        "interactive teaching at the front of a classroom"
+      ],
+      "blackboard-writing": [
+        "chalk writing on a green or black chalkboard",
+        "a teacher facing the blackboard writing notes",
+        "handwritten text being written on a classroom board"
+      ],
+      "teacher": [
+        "a teacher delivering a lecture to students",
+        "a teacher speaking in front of the classroom",
+        "a professor explaining a topic while standing"
+      ],
+      "stand": [
+        "a teacher standing motionless in a classroom",
+        "a person standing at the front of a classroom doing nothing",
+        "an idle teacher standing near a desk"
+      ],
+      "screen": [
+        "a projection screen showing slides in a classroom",
+        "a teacher using a projector for a presentation",
+        "a digital display showing educational content"
+      ],
+      "blackBoard": [
+        "a chalkboard with written content visible",
+        "a teacher gesturing toward a blackboard",
+        "educational content displayed on a classroom blackboard"
+      ]
+    },
+    "HandriseReadWrite": {
+      "hand-raise": [
+        "a child with their arm stretched high in a classroom",
+        "a student eagerly putting up their hand to answer",
+        "students with hands up during class discussion"
+      ],
+      "read": [
+        "a student silently reading at their desk",
+        "a student's eyes focused on a textbook page",
+        "students reading books in a quiet classroom"
+      ],
+      "write": [
+        "a student's hand holding a pen writing on paper",
+        "a student copying notes from the board",
+        "a student doing written exercises in class"
+      ]
+    },
+    "BowTurnHead": {
+      "bow-head": [
+        "a student slouching with head down on desk",
+        "a student looking at something under their desk",
+        "a student with drooped head during class"
+      ],
+      "turn-head": [
+        "a student whose face is turned to the side",
+        "a student gazing sideways instead of forward",
+        "a student looking at another student during class"
+      ]
+    }
   }
 }
