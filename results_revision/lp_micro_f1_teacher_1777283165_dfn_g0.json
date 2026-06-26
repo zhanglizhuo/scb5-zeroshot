@@ -1,0 +1,7 @@
+{
+  "dfn": {
+    "ml_sample_f1": 88.52,
+    "ml_macro_f1": 73.6,
+    "ml_micro_f1": 90.42
+  }
+}

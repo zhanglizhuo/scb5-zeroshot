@@ -1,0 +1,81 @@
+{
+  "models": {
+    "qwen35_ollama_9b": {
+      "teacher_behavior": {
+        "hit_at_1": 0.7438271604938271,
+        "hit_at_3": 0.9820987654320987,
+        "macro_f1": 0.1589110073018052,
+        "num_samples": 3240
+      },
+      "handrise_readwrite": {
+        "hit_at_1": 0.5032914422501497,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.4351856073556735,
+        "num_samples": 1671
+      },
+      "bow_turnhead": {
+        "hit_at_1": 0.5267326732673268,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.5212586619279755,
+        "num_samples": 505
+      }
+    },
+    "qwen35_ollama_27b": {
+      "teacher_behavior": {
+        "hit_at_1": 0.8777777777777778,
+        "hit_at_3": 0.9888888888888889,
+        "macro_f1": 0.18504498114703533,
+        "num_samples": 3240
+      },
+      "handrise_readwrite": {
+        "hit_at_1": 0.5409934171154998,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.47238066807390905,
+        "num_samples": 1671
+      },
+      "bow_turnhead": {
+        "hit_at_1": 0.6316831683168317,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.6233761026463512,
+        "num_samples": 505
+      }
+    },
+    "gemma4_ollama_26b": {
+      "teacher_behavior": {
+        "hit_at_1": 0.8540123456790123,
+        "hit_at_3": 0.9827160493827161,
+        "macro_f1": 0.2005099012636484,
+        "num_samples": 3240
+      },
+      "handrise_readwrite": {
+        "hit_at_1": 0.6337522441651705,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.5284634362512329,
+        "num_samples": 1671
+      },
+      "bow_turnhead": {
+        "hit_at_1": 0.6336633663366337,
+        "hit_at_3": 1.0,
+        "macro_f1": 0.631111777968183,
+        "num_samples": 505
+      }
+    }
+  },
+  "weighted": {
+    "qwen35_ollama_9b": {
+      "weighted_hit_at_1": 0.6493722304283605,
+      "weighted_macro_f1": 0.2779361960529555,
+      "total_samples": 5416
+    },
+    "qwen35_ollama_27b": {
+      "weighted_hit_at_1": 0.7509231905465288,
+      "weighted_macro_f1": 0.31456771918469423,
+      "total_samples": 5416
+    },
+    "gemma4_ollama_26b": {
+      "weighted_hit_at_1": 0.7655096011816839,
+      "weighted_macro_f1": 0.3418437832245132,
+      "total_samples": 5416
+    }
+  }
+}

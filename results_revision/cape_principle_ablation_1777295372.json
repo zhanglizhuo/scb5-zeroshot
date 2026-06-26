@@ -1,0 +1,351 @@
+{
+  "timestamp": 1777295334,
+  "device": "cuda",
+  "experiments": [
+    {
+      "model": "openai",
+      "dataset": "teacher_behavior",
+      "condition": "C4_PhotoOf",
+      "hit1": 81.67,
+      "sample_f1": 51.46,
+      "macro_f1": 39.83,
+      "micro_f1": 56.12
+    },
+    {
+      "model": "openai",
+      "dataset": "teacher_behavior",
+      "condition": "C0_CAPE_Full",
+      "hit1": 84.32,
+      "sample_f1": 66.57,
+      "macro_f1": 54.19,
+      "micro_f1": 69.63
+    },
+    {
+      "model": "openai",
+      "dataset": "teacher_behavior",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 7.59,
+      "sample_f1": 48.94,
+      "macro_f1": 40.95,
+      "micro_f1": 53.66
+    },
+    {
+      "model": "openai",
+      "dataset": "teacher_behavior",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 85.8,
+      "sample_f1": 68.89,
+      "macro_f1": 54.79,
+      "micro_f1": 72.23
+    },
+    {
+      "model": "openai",
+      "dataset": "teacher_behavior",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 56.82,
+      "sample_f1": 49.85,
+      "macro_f1": 48.06,
+      "micro_f1": 54.63
+    },
+    {
+      "model": "openai",
+      "dataset": "handrise_readwrite",
+      "condition": "C4_PhotoOf",
+      "hit1": 53.92,
+      "macro_f1": 27.09
+    },
+    {
+      "model": "openai",
+      "dataset": "handrise_readwrite",
+      "condition": "C0_CAPE_Full",
+      "hit1": 57.99,
+      "macro_f1": 38.74
+    },
+    {
+      "model": "openai",
+      "dataset": "handrise_readwrite",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 46.68,
+      "macro_f1": 30.31
+    },
+    {
+      "model": "openai",
+      "dataset": "handrise_readwrite",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 56.85,
+      "macro_f1": 32.37
+    },
+    {
+      "model": "openai",
+      "dataset": "handrise_readwrite",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 56.25,
+      "macro_f1": 38.31
+    },
+    {
+      "model": "openai",
+      "dataset": "bow_turnhead",
+      "condition": "C4_PhotoOf",
+      "hit1": 61.98,
+      "macro_f1": 38.26
+    },
+    {
+      "model": "openai",
+      "dataset": "bow_turnhead",
+      "condition": "C0_CAPE_Full",
+      "hit1": 63.56,
+      "macro_f1": 43.9
+    },
+    {
+      "model": "openai",
+      "dataset": "bow_turnhead",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 44.16,
+      "macro_f1": 40.64
+    },
+    {
+      "model": "openai",
+      "dataset": "bow_turnhead",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 45.94,
+      "macro_f1": 43.64
+    },
+    {
+      "model": "openai",
+      "dataset": "bow_turnhead",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 36.63,
+      "macro_f1": 26.81
+    },
+    {
+      "model": "dfn",
+      "dataset": "teacher_behavior",
+      "condition": "C4_PhotoOf",
+      "hit1": 90.25,
+      "sample_f1": 51.08,
+      "macro_f1": 42.39,
+      "micro_f1": 54.32
+    },
+    {
+      "model": "dfn",
+      "dataset": "teacher_behavior",
+      "condition": "C0_CAPE_Full",
+      "hit1": 45.9,
+      "sample_f1": 49.92,
+      "macro_f1": 52.72,
+      "micro_f1": 56.26
+    },
+    {
+      "model": "dfn",
+      "dataset": "teacher_behavior",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 5.68,
+      "sample_f1": 50.23,
+      "macro_f1": 38.97,
+      "micro_f1": 54.53
+    },
+    {
+      "model": "dfn",
+      "dataset": "teacher_behavior",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 37.62,
+      "sample_f1": 51.05,
+      "macro_f1": 48.39,
+      "micro_f1": 56.17
+    },
+    {
+      "model": "dfn",
+      "dataset": "teacher_behavior",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 68.02,
+      "sample_f1": 54.94,
+      "macro_f1": 51.52,
+      "micro_f1": 59.44
+    },
+    {
+      "model": "dfn",
+      "dataset": "handrise_readwrite",
+      "condition": "C4_PhotoOf",
+      "hit1": 66.61,
+      "macro_f1": 50.18
+    },
+    {
+      "model": "dfn",
+      "dataset": "handrise_readwrite",
+      "condition": "C0_CAPE_Full",
+      "hit1": 56.91,
+      "macro_f1": 38.16
+    },
+    {
+      "model": "dfn",
+      "dataset": "handrise_readwrite",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 41.77,
+      "macro_f1": 23.19
+    },
+    {
+      "model": "dfn",
+      "dataset": "handrise_readwrite",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 59.07,
+      "macro_f1": 40.04
+    },
+    {
+      "model": "dfn",
+      "dataset": "handrise_readwrite",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 59.9,
+      "macro_f1": 40.79
+    },
+    {
+      "model": "dfn",
+      "dataset": "bow_turnhead",
+      "condition": "C4_PhotoOf",
+      "hit1": 55.25,
+      "macro_f1": 47.41
+    },
+    {
+      "model": "dfn",
+      "dataset": "bow_turnhead",
+      "condition": "C0_CAPE_Full",
+      "hit1": 68.32,
+      "macro_f1": 53.51
+    },
+    {
+      "model": "dfn",
+      "dataset": "bow_turnhead",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 40.2,
+      "macro_f1": 39.06
+    },
+    {
+      "model": "dfn",
+      "dataset": "bow_turnhead",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 41.78,
+      "macro_f1": 38.24
+    },
+    {
+      "model": "dfn",
+      "dataset": "bow_turnhead",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 36.63,
+      "macro_f1": 26.81
+    },
+    {
+      "model": "siglip2",
+      "dataset": "teacher_behavior",
+      "condition": "C4_PhotoOf",
+      "hit1": 88.27,
+      "sample_f1": 45.65,
+      "macro_f1": 33.92,
+      "micro_f1": 49.1
+    },
+    {
+      "model": "siglip2",
+      "dataset": "teacher_behavior",
+      "condition": "C0_CAPE_Full",
+      "hit1": 85.49,
+      "sample_f1": 64.97,
+      "macro_f1": 56.67,
+      "micro_f1": 68.55
+    },
+    {
+      "model": "siglip2",
+      "dataset": "teacher_behavior",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 7.13,
+      "sample_f1": 50.39,
+      "macro_f1": 42.57,
+      "micro_f1": 55.58
+    },
+    {
+      "model": "siglip2",
+      "dataset": "teacher_behavior",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 79.38,
+      "sample_f1": 60.76,
+      "macro_f1": 56.11,
+      "micro_f1": 64.33
+    },
+    {
+      "model": "siglip2",
+      "dataset": "teacher_behavior",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 68.64,
+      "sample_f1": 54.32,
+      "macro_f1": 51.42,
+      "micro_f1": 58.57
+    },
+    {
+      "model": "siglip2",
+      "dataset": "handrise_readwrite",
+      "condition": "C4_PhotoOf",
+      "hit1": 59.61,
+      "macro_f1": 44.43
+    },
+    {
+      "model": "siglip2",
+      "dataset": "handrise_readwrite",
+      "condition": "C0_CAPE_Full",
+      "hit1": 56.25,
+      "macro_f1": 34.83
+    },
+    {
+      "model": "siglip2",
+      "dataset": "handrise_readwrite",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 36.27,
+      "macro_f1": 29.51
+    },
+    {
+      "model": "siglip2",
+      "dataset": "handrise_readwrite",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 56.79,
+      "macro_f1": 36.17
+    },
+    {
+      "model": "siglip2",
+      "dataset": "handrise_readwrite",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 56.97,
+      "macro_f1": 38.74
+    },
+    {
+      "model": "siglip2",
+      "dataset": "bow_turnhead",
+      "condition": "C4_PhotoOf",
+      "hit1": 63.37,
+      "macro_f1": 38.79
+    },
+    {
+      "model": "siglip2",
+      "dataset": "bow_turnhead",
+      "condition": "C0_CAPE_Full",
+      "hit1": 64.75,
+      "macro_f1": 59.82
+    },
+    {
+      "model": "siglip2",
+      "dataset": "bow_turnhead",
+      "condition": "C1_NoVisualGrounding",
+      "hit1": 40.2,
+      "macro_f1": 35.14
+    },
+    {
+      "model": "siglip2",
+      "dataset": "bow_turnhead",
+      "condition": "C2_NoSemanticDiversity",
+      "hit1": 56.24,
+      "macro_f1": 55.65
+    },
+    {
+      "model": "siglip2",
+      "dataset": "bow_turnhead",
+      "condition": "C3_NoDiscrimContrast",
+      "hit1": 36.63,
+      "macro_f1": 26.81
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "gemma4_ollama": {
+    "teacher_behavior": 0.925
+  }
+}

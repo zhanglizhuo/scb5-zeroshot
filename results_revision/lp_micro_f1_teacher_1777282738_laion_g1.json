@@ -1,0 +1,7 @@
+{
+  "laion": {
+    "ml_sample_f1": 88.83,
+    "ml_macro_f1": 75.74,
+    "ml_micro_f1": 90.55
+  }
+}

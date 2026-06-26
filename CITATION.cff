@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this reproducibility package, please cite the manuscript and this repository release."
+title: "SCB5 Zero-Shot Classroom Activity Recognition: Reproducibility Package"
+type: software
+license: MIT
+authors:
+  - family-names: Mu
+    given-names: Yifeng
+  - family-names: Li
+    given-names: Zhuo
+repository-code: "https://github.com/<your-org>/<your-repo>"
+abstract: "Code, scripts, and manuscript artifacts for reproducing SCB5 zero-shot classroom activity recognition experiments."
+keywords:
+  - zero-shot learning
+  - classroom activity recognition
+  - vision-language models
+  - CLIP
+  - reproducibility

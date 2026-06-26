@@ -1,0 +1,7 @@
+{
+  "clip": {
+    "ml_sample_f1": 88.61,
+    "ml_macro_f1": 78.42,
+    "ml_micro_f1": 90.64
+  }
+}

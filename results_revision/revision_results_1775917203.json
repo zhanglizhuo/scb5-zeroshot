@@ -1,0 +1,532 @@
+{
+  "timestamp": 1775913434,
+  "models": [
+    "siglip",
+    "eva02"
+  ],
+  "device": "cuda:0",
+  "r1_linear_probe": [
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "n_train": 8984,
+      "n_val": 3240,
+      "sl_accuracy": 59.14,
+      "sl_macro_f1": 37.82,
+      "sl_weighted_f1": 58.41,
+      "ml_sample_f1": 87.53,
+      "ml_macro_f1": 68.02,
+      "hit1_supervised": 76.33,
+      "per_class_f1": {
+        "guide": 49.35,
+        "answer": 60.56,
+        "On-stage interaction": 24.18,
+        "blackboard-writing": 30.22,
+        "teacher": 94.84,
+        "stand": 97.7,
+        "screen": 93.69,
+        "blackBoard": 93.63
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_HandriseReadWrite",
+      "n_train": 5193,
+      "n_val": 1671,
+      "sl_accuracy": 73.19,
+      "sl_macro_f1": 51.45,
+      "sl_weighted_f1": 71.77,
+      "hit1_supervised": 73.19
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB_BowTurnHead",
+      "n_train": 1905,
+      "n_val": 505,
+      "sl_accuracy": 67.33,
+      "sl_macro_f1": 63.88,
+      "sl_weighted_f1": 66.86,
+      "hit1_supervised": 67.33
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "n_train": 8984,
+      "n_val": 3240,
+      "sl_accuracy": 64.81,
+      "sl_macro_f1": 48.79,
+      "sl_weighted_f1": 64.89,
+      "ml_sample_f1": 89.62,
+      "ml_macro_f1": 77.31,
+      "hit1_supervised": 75.77,
+      "per_class_f1": {
+        "guide": 73.6,
+        "answer": 57.42,
+        "On-stage interaction": 49.29,
+        "blackboard-writing": 56.36,
+        "teacher": 96.97,
+        "stand": 97.78,
+        "screen": 93.43,
+        "blackBoard": 93.65
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "n_train": 5193,
+      "n_val": 1671,
+      "sl_accuracy": 76.78,
+      "sl_macro_f1": 54.0,
+      "sl_weighted_f1": 75.17,
+      "hit1_supervised": 76.78
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "n_train": 1905,
+      "n_val": 505,
+      "sl_accuracy": 59.21,
+      "sl_macro_f1": 57.78,
+      "sl_weighted_f1": 59.85,
+      "hit1_supervised": 59.21
+    }
+  ],
+  "r2_bootstrap_ci": [
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "n_val": 3240,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 85.54,
+      "hit1_ci_lo": 84.35,
+      "hit1_ci_hi": 86.7,
+      "macro_f1_mean": 10.03,
+      "macro_f1_ci_lo": 9.13,
+      "macro_f1_ci_hi": 10.98
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_HandriseReadWrite",
+      "n_val": 1671,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 56.28,
+      "hit1_ci_lo": 53.86,
+      "hit1_ci_hi": 58.65,
+      "macro_f1_mean": 34.84,
+      "macro_f1_ci_lo": 32.49,
+      "macro_f1_ci_hi": 37.24
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB_BowTurnHead",
+      "n_val": 505,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 64.69,
+      "hit1_ci_lo": 60.59,
+      "hit1_ci_hi": 68.91,
+      "macro_f1_mean": 59.65,
+      "macro_f1_ci_lo": 55.17,
+      "macro_f1_ci_hi": 64.29
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "n_val": 3240,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 64.41,
+      "hit1_ci_lo": 62.78,
+      "hit1_ci_hi": 66.14,
+      "macro_f1_mean": 14.48,
+      "macro_f1_ci_lo": 13.35,
+      "macro_f1_ci_hi": 15.63
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "n_val": 1671,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 60.69,
+      "hit1_ci_lo": 58.29,
+      "hit1_ci_hi": 63.02,
+      "macro_f1_mean": 43.74,
+      "macro_f1_ci_lo": 41.24,
+      "macro_f1_ci_hi": 46.2
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "n_val": 505,
+      "prompt_set": "CAPE_A",
+      "hit1_mean": 65.32,
+      "hit1_ci_lo": 61.19,
+      "hit1_ci_hi": 69.31,
+      "macro_f1_mean": 47.79,
+      "macro_f1_ci_lo": 43.6,
+      "macro_f1_ci_hi": 51.98
+    }
+  ],
+  "r3_blind_prompts": [
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_A",
+      "hit1": 85.49,
+      "hit3": 97.22,
+      "macro_f1": 10.01
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_B",
+      "hit1": 31.36,
+      "hit3": 93.92,
+      "macro_f1": 10.57
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_C",
+      "hit1": 91.7,
+      "hit3": 96.64,
+      "macro_f1": 11.89
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_A",
+      "hit1": 56.25,
+      "hit3": 100.0,
+      "macro_f1": 34.83
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_B",
+      "hit1": 70.2,
+      "hit3": 100.0,
+      "macro_f1": 51.91
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_C",
+      "hit1": 65.11,
+      "hit3": 100.0,
+      "macro_f1": 54.23
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_A",
+      "hit1": 64.75,
+      "hit3": 100.0,
+      "macro_f1": 59.82
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_B",
+      "hit1": 48.32,
+      "hit3": 100.0,
+      "macro_f1": 48.24
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_C",
+      "hit1": 67.13,
+      "hit3": 100.0,
+      "macro_f1": 51.77
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_A",
+      "hit1": 64.35,
+      "hit3": 96.7,
+      "macro_f1": 14.43
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_B",
+      "hit1": 39.23,
+      "hit3": 93.98,
+      "macro_f1": 13.55
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "prompt_set": "Set_C",
+      "hit1": 92.13,
+      "hit3": 94.41,
+      "macro_f1": 10.93
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_A",
+      "hit1": 60.62,
+      "hit3": 100.0,
+      "macro_f1": 43.68
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_B",
+      "hit1": 71.15,
+      "hit3": 100.0,
+      "macro_f1": 50.95
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_HandriseReadWrite",
+      "prompt_set": "Set_C",
+      "hit1": 56.85,
+      "hit3": 100.0,
+      "macro_f1": 47.27
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_A",
+      "hit1": 65.35,
+      "hit3": 100.0,
+      "macro_f1": 47.94
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_B",
+      "hit1": 53.66,
+      "hit3": 100.0,
+      "macro_f1": 53.55
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB_BowTurnHead",
+      "prompt_set": "Set_C",
+      "hit1": 53.66,
+      "hit3": 100.0,
+      "macro_f1": 53.49
+    }
+  ],
+  "r4_multilabel": [
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.15,
+      "sample_f1": 38.35,
+      "macro_f1": 27.15,
+      "micro_f1": 38.24,
+      "per_class_f1": {
+        "guide": 52.55,
+        "answer": 10.2,
+        "On-stage interaction": 5.41,
+        "blackboard-writing": 0.81,
+        "teacher": 1.78,
+        "stand": 57.86,
+        "screen": 77.84,
+        "blackBoard": 10.77
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.2,
+      "sample_f1": 37.53,
+      "macro_f1": 26.44,
+      "micro_f1": 37.11,
+      "per_class_f1": {
+        "guide": 52.55,
+        "answer": 10.21,
+        "On-stage interaction": 5.49,
+        "blackboard-writing": 0.0,
+        "teacher": 0.2,
+        "stand": 56.23,
+        "screen": 77.12,
+        "blackBoard": 9.74
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.25,
+      "sample_f1": 37.53,
+      "macro_f1": 26.44,
+      "micro_f1": 37.11,
+      "per_class_f1": {
+        "guide": 52.55,
+        "answer": 10.21,
+        "On-stage interaction": 5.49,
+        "blackboard-writing": 0.0,
+        "teacher": 0.2,
+        "stand": 56.23,
+        "screen": 77.12,
+        "blackBoard": 9.74
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.3,
+      "sample_f1": 37.53,
+      "macro_f1": 26.44,
+      "micro_f1": 37.11,
+      "per_class_f1": {
+        "guide": 52.55,
+        "answer": 10.21,
+        "On-stage interaction": 5.49,
+        "blackboard-writing": 0.0,
+        "teacher": 0.2,
+        "stand": 56.23,
+        "screen": 77.12,
+        "blackBoard": 9.74
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": "top-2",
+      "sample_f1": 53.18,
+      "macro_f1": 40.62,
+      "micro_f1": 53.79,
+      "per_class_f1": {
+        "guide": 55.14,
+        "answer": 33.45,
+        "On-stage interaction": 7.18,
+        "blackboard-writing": 18.98,
+        "teacher": 13.89,
+        "stand": 82.58,
+        "screen": 88.57,
+        "blackBoard": 25.13
+      }
+    },
+    {
+      "model": "siglip",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": "top-3",
+      "sample_f1": 59.94,
+      "macro_f1": 49.03,
+      "micro_f1": 61.19,
+      "per_class_f1": {
+        "guide": 52.09,
+        "answer": 35.63,
+        "On-stage interaction": 8.19,
+        "blackboard-writing": 26.99,
+        "teacher": 41.52,
+        "stand": 91.15,
+        "screen": 90.91,
+        "blackBoard": 45.79
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.15,
+      "sample_f1": 61.52,
+      "macro_f1": 54.0,
+      "micro_f1": 62.91,
+      "per_class_f1": {
+        "guide": 20.62,
+        "answer": 39.6,
+        "On-stage interaction": 8.8,
+        "blackboard-writing": 16.0,
+        "teacher": 96.15,
+        "stand": 98.54,
+        "screen": 73.66,
+        "blackBoard": 78.66
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.2,
+      "sample_f1": 66.46,
+      "macro_f1": 60.5,
+      "micro_f1": 69.99,
+      "per_class_f1": {
+        "guide": 23.82,
+        "answer": 39.99,
+        "On-stage interaction": 9.41,
+        "blackboard-writing": 44.57,
+        "teacher": 91.22,
+        "stand": 95.95,
+        "screen": 88.39,
+        "blackBoard": 90.64
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.25,
+      "sample_f1": 32.71,
+      "macro_f1": 32.74,
+      "micro_f1": 36.44,
+      "per_class_f1": {
+        "guide": 52.82,
+        "answer": 18.46,
+        "On-stage interaction": 7.76,
+        "blackboard-writing": 25.96,
+        "teacher": 31.58,
+        "stand": 35.23,
+        "screen": 73.07,
+        "blackBoard": 17.07
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": 0.3,
+      "sample_f1": 27.06,
+      "macro_f1": 24.78,
+      "micro_f1": 27.93,
+      "per_class_f1": {
+        "guide": 52.65,
+        "answer": 15.26,
+        "On-stage interaction": 6.55,
+        "blackboard-writing": 6.3,
+        "teacher": 17.01,
+        "stand": 24.55,
+        "screen": 67.57,
+        "blackBoard": 8.34
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": "top-2",
+      "sample_f1": 45.08,
+      "macro_f1": 40.08,
+      "micro_f1": 46.29,
+      "per_class_f1": {
+        "guide": 59.94,
+        "answer": 26.92,
+        "On-stage interaction": 5.98,
+        "blackboard-writing": 25.96,
+        "teacher": 49.57,
+        "stand": 51.05,
+        "screen": 78.68,
+        "blackBoard": 22.57
+      }
+    },
+    {
+      "model": "eva02",
+      "dataset": "SCB5_TeacherBehavior",
+      "threshold": "top-3",
+      "sample_f1": 56.88,
+      "macro_f1": 49.23,
+      "micro_f1": 58.09,
+      "per_class_f1": {
+        "guide": 64.93,
+        "answer": 34.49,
+        "On-stage interaction": 5.04,
+        "blackboard-writing": 31.23,
+        "teacher": 67.41,
+        "stand": 76.91,
+        "screen": 84.36,
+        "blackBoard": 29.45
+      }
+    }
+  ]
+}
