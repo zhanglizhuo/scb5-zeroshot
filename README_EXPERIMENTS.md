@@ -3,7 +3,7 @@
 Supplementary notes for the experiment pipeline. See README.md for canonical instructions.
 
 ## 一键复现入口（审稿友好）
-- 复现指南：`REPRODUCIBILITY.md`
+- 复现指南：`README.md`
 - 一键脚本：`bash reproduce_paper.sh --mode quick --gpu 0`
 - 引用模板：`CITATION.cff`
 

@@ -7,6 +7,7 @@ data/SCB5_HandriseReadWrite/
 data/SCB_BowTurnHead/
 data/cache/
 
+# Model checkpoints and logs (too large for GitHub)
 ckpts/
 logs/
 figures/
@@ -22,9 +23,5 @@ results/*_runtime/
 paper/submission*.zip
 results/paper/*.zip
 
-# Model checkpoints (too large for GitHub)
-ckpts/
-logs/
-
-# Feature cache (uncompressed numpy)
+# Feature cache (uncompressed numpy, we use .npz)
 data/feature_cache/*.npy
