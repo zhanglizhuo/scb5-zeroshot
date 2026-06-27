@@ -33,7 +33,7 @@ CLIP-family models exhibit **instability under prompt variation** in zero-shot c
 ### Best-performing configuration per subset (Hit@1)
 
 | Sub-dataset | Best Model + Prompt Strategy | Hit@1 (%) | Macro-F1 (%) |
-|---|---|---|---:|---:|
+| --- | --- | ---: | ---: |
 | **TeacherBehavior** | SigLIP2 + CAPE | 85.56 | 10.07 |
 | **HandriseReadWrite** | OpenCLIP + Action prompt | 84.56 | 55.89 |
 | **BowTurnHead** | DFN-CLIP + CAPE | 93.27 | 53.95 |
@@ -91,99 +91,18 @@ bash reproduce_paper.sh --mode full
 
 ```text
 scb5-zeroshot/
-
-├── README.md                       # This file
-├── CITATION.cff                    # Citation metadata
-├── requirements.txt                # Python dependencies
-├── requirements.repro.txt          # Reproduce-specific deps
-
-├── reproduce_paper.sh              # ★ Canonical entry point
-├── pipeline.py                     # Full experiment pipeline (E1–E4)
-├── run_experiment.py               # Core experiment library
-
-├── analysis/                       # Python package — core analysis code
-│   ├── __init__.py
-│   ├── paired_bootstrap.py
-│   ├── cape_principle_ablation.py
-│   ├── cape_robustness.py
-│   ├── prompt_data.py
-│   ├── run_revision_experiments.py
-│   ├── linear_probe.py
-│   ├── llm_baselines.py
-│   └── prompts/
-│       └── setAB_examples.json
-
-├── config/                         # Experiment configuration
-│   └── experiment_config.yaml
-
-├── data/                           # Data loading & precomputed features
-│   ├── README.md
-│   ├── scb_dataset.py
-│   └── feature_cache/
-
-├── evaluation/                     # Metrics computation
-│   └── metrics.py
-
-├── experiments/                    # Experiment runners
-│   ├── main_clip.py
-│   ├── main_mllm.py
-│   ├── run_benchmark_parallel.sh
-│   ├── run_linear_probe_parallel.sh
-│   ├── legacy/                     # [LEGACY] superseded scripts
-│   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
-
-├── models/                         # Model loading
-│   ├── clip_zoo.py
-│   └── mllm_baseline.py
-
-├── paper/                          # Manuscript, figures, and build scripts
-│   ├── scb5_zeroshot_paper.pdf
-│   ├── cover_letter.pdf
-│   ├── generate_paper_figures.py
-│   ├── submission_manifest.txt
-│   └── figures/
-
-├── prompts/                        # Prompt definitions (A/B/C)
-│   ├── cape_prompts.py
-│   ├── llm_prompt_gen.py
-│   └── prompt_sets.json
-
-├── scripts/                        # Utility scripts
-│   ├── download_models.py
-│   ├── download_scb5_data.py
-│   ├── merge_mllm_results.py
-│   ├── setup.sh
-│   └── summarize_results.py
-
-├── results/                        # All experiment outputs
-│   ├── baseline_results.json
-│   ├── baseline_eva02_fix_allstrat/
-│   ├── mllm/
-│   │   ├── mllm_macrof1_all_models.json
-│   │   └── mllm_macrof1_supplement.json
-│   ├── paper/
-│   ├── revision/
-│   ├── robustness/
-│   └── parallel/
-
+├── README.md | CITATION.cff | requirements*.txt   # Project metadata
+├── reproduce_paper.sh  | pipeline.py              # ★ Canonical entry points
+├── analysis/                                      # Core analysis (bootstrap, ablation, linear_probe, ...)
+├── config/ | data/ | evaluation/ | models/        # Experiment components
+├── experiments/                                   # Runners (main_clip.py, main_mllm.py, .sh)
+├── paper/                                         # Manuscript + figures (PDF)
+├── prompts/                                       # Prompt definitions (A/B/C)
+├── scripts/                                       # Utilities (download, merge, summarize)
+└── results/                                       # All outputs (baseline, mllm, revision, ...)
 ```
 
-Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
-`run_experiment.py` (core experiment library), `pipeline.py` (full pipeline).
-Analysis scripts reside in `analysis/`. Utility scripts live in `scripts/`
-(`download_models.py`, `download_scb5_data.py`, `setup.sh`, `summarize_results.py`).
-Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
-
-## Key Outputs
-
-| File | Contents |
-|------|----------|
-| `results/baseline_results.json` | Main benchmark table values |
-| `results/paper/benchmark_final_merged.json` | Final merged benchmark summary |
-| `results/paper/cape_robustness_summary.json` | Robustness analysis across prompt sets |
-| `results/mllm/mllm_macrof1_all_models.json` | Cross-family validation summary (all models) |
-| `paper/figures/` | Publication-quality PDF figures |
-| `paper/scb5_zeroshot_paper.pdf` | Full manuscript |
+Key outputs: `results/baseline_results.json` (main table), `results/mllm/mllm_macrof1_all_models.json` (MLLM validation), `paper/figures/` (PDF figures), `paper/scb5_zeroshot_paper.pdf` (manuscript).
 
 ## Data Availability
 
