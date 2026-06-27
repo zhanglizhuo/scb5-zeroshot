@@ -57,7 +57,7 @@ for i in "${!MODELS[@]}"; do
     esac
 
     echo "Starting $MODEL on GPU $GPU"
-    CUDA_VISIBLE_DEVICES=$GPU $PYTHON scb5_zeroshot/run_experiment.py \
+    CUDA_VISIBLE_DEVICES=$GPU $PYTHON ../../run_experiment.py \
         --mode e1e2 \
         --model $MODEL \
         $CKPT_ARG \

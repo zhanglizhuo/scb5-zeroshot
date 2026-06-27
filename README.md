@@ -157,7 +157,15 @@ scb5-zeroshot/
 │   ├── main_mllm.py
 │   ├── merge_mllm_results.py
 │   ├── run_all.sh
+│   ├── master_benchmark_parallel.sh
+│   ├── run_lp_micro_f1_parallel.sh
+│   ├── legacy/                     # [LEGACY] superseded scripts
 │   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
+
+├── scripts/                        # Utility scripts
+│   ├── download_models.py
+│   ├── download_scb5_data.py
+│   └── setup.sh
 
 ├── results/                        # All experiment outputs
 │   ├── baseline_results.json
@@ -176,14 +184,13 @@ scb5-zeroshot/
 └── notebooks/
     └── reproduce_figures.ipynb
 
-Additional top-level scripts: `run_experiment.py` (core library), `exp_runner.py` (legacy pipeline),
-`reproduce_paper.sh` (★ canonical entry), `master_benchmark.sh` (legacy runner),
-`master_benchmark_parallel.sh` (parallel runner), `run_all_parallel.sh` (legacy parallel runner),
-`run_lp_micro_f1_parallel.sh` (parallel linear-probe), `run_revision_experiments.py` (revision experiments),
-`compute_lp_micro_f1.py` (linear probe), `m5_prompt_baselines.py` (m5 prompt baseline),
-`download_models.py` / `download_scb5_hf_proxy.py` (checkpoint download),
-`summarize_results.py` (output aggregation), `setup.sh` (environment setup).
-Files marked `[LEGACY]` in their headers are superseded by `reproduce_paper.sh`.
+Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
+`run_experiment.py` (core experiment library), `exp_runner.py` (full pipeline),
+`run_revision_experiments.py` (revision experiments), `compute_lp_micro_f1.py`
+(linear probe), `m5_prompt_baselines.py` (M5 prompt baselines).
+Utility scripts live in `scripts/` (`download_models.py`, `download_scb5_data.py`,
+`setup.sh`, `summarize_results.py`). Files marked `[LEGACY]` are superseded
+by `reproduce_paper.sh`.
 ```
 
 ## Key Outputs
