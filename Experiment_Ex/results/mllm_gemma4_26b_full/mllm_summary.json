@@ -1,7 +1,0 @@
-{
-  "gemma4_ollama": {
-    "teacher_behavior": 0.8546296296296296,
-    "handrise_readwrite": 0.6337522441651705,
-    "bow_turnhead": 0.6336633663366337
-  }
-}
