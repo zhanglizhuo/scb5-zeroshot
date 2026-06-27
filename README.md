@@ -135,6 +135,8 @@ scb5-zeroshot/
 ├── scb5_zeroshot/                  # Paper-specific analysis scripts
 │   ├── paired_bootstrap.py
 │   ├── cape_principle_ablation.py
+│   ├── cape_robustness.py
+│   ├── prompts.py
 │   └── prompts/
 │       └── setAB_examples.json
 
