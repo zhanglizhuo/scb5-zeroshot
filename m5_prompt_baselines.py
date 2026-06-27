@@ -21,7 +21,7 @@ vector, matching tab:main_results semantics).
 
 Outputs
 -------
-results_revision/m5_baselines/m5_prompt_baselines.json
+results/revision/m5_baselines/m5_prompt_baselines.json
 """
 import argparse
 import json

@@ -37,4 +37,4 @@ run 0 dfn
 # Wait for all remaining
 wait
 echo "All done. Logs in ${LOGDIR}/lp_micro_*_${TS}.log"
-echo "Result JSONs in results_revision/lp_micro_f1_teacher_*.json"
+echo "Result JSONs in results/revision/lp_micro_f1_teacher_*.json"
