@@ -390,8 +390,8 @@ from sklearn.metrics import (
 # ─────────────────────────────────────────────────────────
 # CONFIG
 # ─────────────────────────────────────────────────────────
-ROOT = Path("/home/broadsense/works/lizhuo/AutoResearchClaw")
-DATA_DIR = ROOT / "datasets_scb"
+ROOT = Path(os.getcwd()).parent
+DATA_DIR = ROOT.parent / "datasets_scb"
 CKPT_DIR = Path("ckpts")
 RESULTS_DIR = Path(os.environ.get("RESULTS_DIR", "results"))
 RESULTS_DIR.mkdir(exist_ok=True)
