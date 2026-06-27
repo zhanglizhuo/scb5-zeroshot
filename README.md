@@ -139,17 +139,32 @@ scb5-zeroshot/
 │   ├── run_revision_experiments.py
 │   ├── linear_probe.py
 │   ├── llm_baselines.py
-│   ├── experiment_config.yaml
-│   ├── prompts/
-│   │   ├── setAB_examples.json
-│   │   ├── cape_prompts.py
-│   │   ├── llm_prompt_gen.py
-│   │   └── prompt_sets.json
-│   ├── evaluation/
-│   │   └── metrics.py
-│   └── models/
-│       ├── clip_zoo.py
-│       └── mllm_baseline.py
+│   └── prompts/
+│       └── setAB_examples.json
+
+├── config/                         # Experiment configuration
+│   └── experiment_config.yaml
+
+├── data/                           # Data loading & precomputed features
+│   ├── README.md
+│   ├── scb_dataset.py
+│   └── feature_cache/
+
+├── evaluation/                     # Metrics computation
+│   └── metrics.py
+
+├── experiments/                    # Experiment runners
+
+├── models/                         # Model loading
+│   ├── clip_zoo.py
+│   └── mllm_baseline.py
+
+├── paper/                          # Manuscript, figures, and notebooks
+
+├── prompts/                        # Prompt definitions (A/B/C)
+│   ├── cape_prompts.py
+│   ├── llm_prompt_gen.py
+│   └── prompt_sets.json
 
 ├── experiments/                    # Experiment runners
 │   ├── main_clip.py
