@@ -63,7 +63,7 @@ def collect_mix(results: dict[tuple[str, str, str], float], model: str, dataset:
 def main() -> None:
     results = load_latest_results()
     if not results:
-        print("No completed robustness experiments found in results_robustness/.")
+        print("No completed robustness experiments found in results/robustness/.")
         return
 
     print("Coverage")
