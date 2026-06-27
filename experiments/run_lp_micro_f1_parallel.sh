@@ -3,7 +3,7 @@
 # clip,laion -> GPU0,1; siglip,eva02 -> GPU2,3; dfn -> GPU0 (after clip).
 # Logs in scb5_zeroshot/logs/lp_micro_*.log.
 set -e
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/.."
 mkdir -p logs
 
 PY=python3

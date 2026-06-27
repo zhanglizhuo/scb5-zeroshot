@@ -13,8 +13,8 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
-EVAL_DIR="$ROOT/scb5_zeroshot"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+EVAL_DIR="$ROOT"
 PYTHON_BIN="${PYTHON_BIN:-/usr/bin/python3.8}"
 RESULTS_ROOT="$EVAL_DIR/results/parallel"
 LOG_DIR="$EVAL_DIR/logs"
@@ -63,7 +63,7 @@ for idx in "${!SHARD_NAMES[@]}"; do
             MODEL_KEYS="$shard_models" \
             BATCH_SIZE="$BATCH_SIZE" \
             RESULTS_DIR="$shard_results" \
-            bash "$EVAL_DIR/master_benchmark.sh" > "$shard_log" 2>&1
+            bash "$EVAL_DIR/experiments/legacy/master_benchmark.sh" > "$shard_log" 2>&1
     ) &
     pids+=("$!")
 done
