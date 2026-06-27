@@ -125,15 +125,12 @@ scb5-zeroshot/
 
 ├── reproduce_paper.sh              # ★ Canonical entry point
 
-├── config/                         # Experiment configuration
-│   └── experiment_config.yaml
-
 ├── data/                           # Data loading & precomputed features
 │   ├── README.md
 │   ├── scb_dataset.py
 │   └── feature_cache/
 
-├── analysis/                  # Python package — core analysis code
+├── analysis/                       # Python package — core analysis code
 │   ├── __init__.py
 │   ├── paired_bootstrap.py
 │   ├── cape_principle_ablation.py
@@ -142,20 +139,17 @@ scb5-zeroshot/
 │   ├── run_revision_experiments.py
 │   ├── linear_probe.py
 │   ├── llm_baselines.py
-│   └── prompts/
-│       └── setAB_examples.json
-
-├── prompts/                        # Prompt definitions (A/B/C)
-│   ├── cape_prompts.py
-│   ├── llm_prompt_gen.py
-│   └── prompt_sets.json
-
-├── models/                         # Model loading
-│   ├── clip_zoo.py
-│   └── mllm_baseline.py
-
-├── evaluation/                     # Metrics computation
-│   └── metrics.py
+│   ├── experiment_config.yaml
+│   ├── prompts/
+│   │   ├── setAB_examples.json
+│   │   ├── cape_prompts.py
+│   │   ├── llm_prompt_gen.py
+│   │   └── prompt_sets.json
+│   ├── evaluation/
+│   │   └── metrics.py
+│   └── models/
+│       ├── clip_zoo.py
+│       └── mllm_baseline.py
 
 ├── experiments/                    # Experiment runners
 │   ├── main_clip.py
