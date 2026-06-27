@@ -124,8 +124,6 @@ scb5-zeroshot/
 
 ├── reproduce_paper.sh              # ★ Canonical entry point
 
-├── Experiment_Ex/                   # Deprecated experiments (preserved for reference)
-
 ├── config/                         # Experiment configuration
 │   └── experiment_config.yaml
 
@@ -158,7 +156,8 @@ scb5-zeroshot/
 │   ├── main_clip.py
 │   ├── main_mllm.py
 │   ├── merge_mllm_results.py
-│   └── run_all.sh
+│   ├── run_all.sh
+│   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
 
 ├── results/                        # Main benchmark outputs
 │   ├── baseline_results.json
