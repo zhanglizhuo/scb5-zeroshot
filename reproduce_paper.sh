@@ -68,7 +68,7 @@ run_full() {
   "$PYTHON_BIN" "$SCB_DIR/cape_robustness.py" --gpu "$GPU"
 
   echo "[STEP] Revision experiments (R1-R4)"
-  "$PYTHON_BIN" "$SCB_DIR/run_revision_experiments.py" --gpu "$GPU" --exp r1 r2 r3 r4
+  "$PYTHON_BIN" "$SCB_DIR/scb5_zeroshot/run_revision_experiments.py" --gpu "$GPU" --exp r1 r2 r3 r4
 
   echo "[STEP] Regenerate figures"
   "$PYTHON_BIN" "$PAPER_DIR/generate_paper_figures.py"

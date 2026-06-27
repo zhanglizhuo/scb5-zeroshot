@@ -30,8 +30,8 @@ logging.basicConfig(level=logging.INFO,
                     handlers=[logging.StreamHandler(sys.stdout)])
 log = logging.getLogger(__name__)
 
-ROOT = Path(__file__).resolve().parent
-DATA_DIR = ROOT.parent / "datasets_scb"
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "datasets_scb"
 
 MODEL_SPECS = {
     "clip":   ("ViT-L-14", "openai"),

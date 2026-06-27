@@ -36,37 +36,9 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scb5_zeroshot"))
+ROOT = Path(__file__).resolve().parent.parent
 
-
-def _load_cape_a():
-    """Extract the CAPE_A dict directly from cape_robustness.py without
-    importing the whole module (which has heavy side-effect imports)."""
-    src = (ROOT / "scb5_zeroshot" / "cape_robustness.py").read_text()
-    ns = {}
-    # Locate the assignment "CAPE_A = {" and slice until matching closing brace
-    start = src.find("CAPE_A = {")
-    assert start != -1, "CAPE_A definition not found in cape_robustness.py"
-    depth = 0
-    i = src.find("{", start)
-    end = i
-    while end < len(src):
-        c = src[end]
-        if c == "{":
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0:
-                end += 1
-                break
-        end += 1
-    snippet = src[start:end]
-    exec(snippet, ns)
-    return ns["CAPE_A"]
-
-
-CAPE_A = _load_cape_a()
+from cape_robustness import CAPE_A
 
 CACHE = ROOT / "data" / "feature_cache"
 OUT_DIR = ROOT / "results" / "revision" / "m5_baselines"
