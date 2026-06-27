@@ -183,13 +183,13 @@ scb5-zeroshot/
 │   ├── robustness/
 │   └── parallel/
 
-├── paper/                          # Manuscript and figures
+├── paper/                          # Manuscript, figures, and notebooks
 │   ├── scb5_zeroshot_paper.pdf
 │   ├── cover_letter.pdf
-│   └── figures/
-
-└── notebooks/
-    └── reproduce_figures.ipynb
+│   ├── generate_paper_figures.py
+│   ├── figures/
+│   └── notebooks/
+│       └── reproduce_figures.ipynb
 
 Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
 `run_experiment.py` (core experiment library), `pipeline.py` (full pipeline).
