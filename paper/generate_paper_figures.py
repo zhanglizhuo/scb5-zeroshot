@@ -19,7 +19,7 @@ import matplotlib.colors as mcolors
 from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────
-JSON_PATH = Path(__file__).parent.parent / "results_parallel/benchmark_final_merged_1775830149.json"
+JSON_PATH = Path(__file__).parent.parent / "results" / "parallel" / "benchmark_final_merged_1775830149.json"
 OUT_DIR = Path(__file__).parent / "figures"
 OUT_DIR.mkdir(exist_ok=True)
 

@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-RESULTS_DIR = ROOT / "results_robustness"
+RESULTS_DIR = ROOT / "results" / "robustness"
 
 MODEL_ORDER = ["clip", "laion", "siglip", "eva02", "dfn"]
 MODEL_LABELS = {

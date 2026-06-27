@@ -714,7 +714,7 @@ def main():
     log.info(f"Models: {args.models}")
     log.info(f"Experiments: {args.exp}")
 
-    out_dir = Path(__file__).parent / "results_revision"
+    out_dir = Path(__file__).parent / "results" / "revision"
     out_dir.mkdir(exist_ok=True)
 
     all_results = {

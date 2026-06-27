@@ -44,7 +44,7 @@ log = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = ROOT / "data" / "feature_cache"
-OUT_DIR = ROOT / "results_revision"
+OUT_DIR = ROOT / "results" / "revision"
 OUT_DIR.mkdir(exist_ok=True, parents=True)
 
 # Backbones with cached multi-label features (3240 samples)

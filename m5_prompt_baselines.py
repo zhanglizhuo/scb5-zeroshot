@@ -69,7 +69,7 @@ def _load_cape_a():
 CAPE_A = _load_cape_a()
 
 CACHE = ROOT / "data" / "feature_cache"
-OUT_DIR = ROOT / "scb5_zeroshot" / "results_revision" / "m5_baselines"
+OUT_DIR = ROOT / "results" / "revision" / "m5_baselines"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 PROMPTS_DIR = OUT_DIR / "prompts"
 PROMPTS_DIR.mkdir(exist_ok=True)

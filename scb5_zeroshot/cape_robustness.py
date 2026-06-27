@@ -454,7 +454,7 @@ def main():
         torch.cuda.empty_cache()
 
     # Save results
-    out_dir = Path(__file__).parent / "results_robustness"
+    out_dir = Path(__file__).parent / "results" / "robustness"
     out_dir.mkdir(exist_ok=True)
     out_path = out_dir / f"cape_robustness_{int(time.time())}.json"
     with open(out_path, "w") as f:

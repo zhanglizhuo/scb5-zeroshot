@@ -72,7 +72,7 @@ def main():
                     "ci_high_pp": round(hi, 2),
                     "p_value": round(p, 4),
                 })
-    out_dir = Path(__file__).resolve().parent.parent / "results_revision"
+    out_dir = Path(__file__).resolve().parent.parent / "results" / "revision"
     out_dir.mkdir(exist_ok=True)
     out_path = out_dir / f"paired_bootstrap_{int(time.time())}.json"
     with open(out_path, "w") as f:

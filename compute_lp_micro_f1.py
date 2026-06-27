@@ -56,7 +56,7 @@ TEACHER_DS = {
                 "teacher", "stand", "screen", "blackBoard"],
 }
 
-OUT_DIR = ROOT / "scb5_zeroshot/results_revision"
+OUT_DIR = ROOT / "results" / "revision"
 OUT_DIR.mkdir(exist_ok=True, parents=True)
 
 
