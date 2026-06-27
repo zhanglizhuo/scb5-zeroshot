@@ -124,11 +124,8 @@ scb5-zeroshot/
 ├── requirements.repro.txt          # Reproduce-specific deps
 
 ├── reproduce_paper.sh              # ★ Canonical entry point
-
-├── data/                           # Data loading & precomputed features
-│   ├── README.md
-│   ├── scb_dataset.py
-│   └── feature_cache/
+├── pipeline.py                     # Full experiment pipeline (E1–E4)
+├── run_experiment.py               # Core experiment library
 
 ├── analysis/                       # Python package — core analysis code
 │   ├── __init__.py
@@ -154,25 +151,28 @@ scb5-zeroshot/
 │   └── metrics.py
 
 ├── experiments/                    # Experiment runners
-
-├── models/                         # Model loading
-│   ├── clip_zoo.py
-│   └── mllm_baseline.py
-
-├── paper/                          # Manuscript, figures, and notebooks
-
-├── prompts/                        # Prompt definitions (A/B/C)
-│   ├── cape_prompts.py
-│   ├── llm_prompt_gen.py
-│   └── prompt_sets.json
-
-├── experiments/                    # Experiment runners
 │   ├── main_clip.py
 │   ├── main_mllm.py
 │   ├── run_benchmark_parallel.sh
 │   ├── run_linear_probe_parallel.sh
 │   ├── legacy/                     # [LEGACY] superseded scripts
 │   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
+
+├── models/                         # Model loading
+│   ├── clip_zoo.py
+│   └── mllm_baseline.py
+
+├── paper/                          # Manuscript, figures, and build scripts
+│   ├── scb5_zeroshot_paper.pdf
+│   ├── cover_letter.pdf
+│   ├── generate_paper_figures.py
+│   ├── submission_manifest.txt
+│   └── figures/
+
+├── prompts/                        # Prompt definitions (A/B/C)
+│   ├── cape_prompts.py
+│   ├── llm_prompt_gen.py
+│   └── prompt_sets.json
 
 ├── scripts/                        # Utility scripts
 │   ├── download_models.py
@@ -192,13 +192,8 @@ scb5-zeroshot/
 │   ├── robustness/
 │   └── parallel/
 
-├── paper/                          # Manuscript, figures, and notebooks
-│   ├── scb5_zeroshot_paper.pdf
-│   ├── cover_letter.pdf
-│   ├── generate_paper_figures.py
-│   ├── figures/
-│   └── notebooks/
-│       └── reproduce_figures.ipynb
+└── notebooks/                      # (removed — was empty scaffold)
+```
 
 Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
 `run_experiment.py` (core experiment library), `pipeline.py` (full pipeline).
