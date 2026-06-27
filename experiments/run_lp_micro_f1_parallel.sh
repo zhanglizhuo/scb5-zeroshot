@@ -15,7 +15,7 @@ run() {
     local model=$2
     local logf="${LOGDIR}/lp_micro_${model}_${TS}.log"
     echo "Launch $model on GPU $gpu -> $logf"
-    CUDA_VISIBLE_DEVICES=$gpu nohup $PY compute_lp_micro_f1.py \
+    CUDA_VISIBLE_DEVICES=$gpu nohup $PY scb5_zeroshot/compute_lp_micro_f1.py \
         --models "$model" --tag "${model}_g${gpu}" > "$logf" 2>&1 &
 }
 

@@ -132,11 +132,15 @@ scb5-zeroshot/
 │   ├── scb_dataset.py
 │   └── feature_cache/
 
-├── scb5_zeroshot/                  # Paper-specific analysis scripts
+├── scb5_zeroshot/                  # Python package — core analysis code
+│   ├── __init__.py
 │   ├── paired_bootstrap.py
 │   ├── cape_principle_ablation.py
 │   ├── cape_robustness.py
 │   ├── prompts.py
+│   ├── run_revision_experiments.py
+│   ├── compute_lp_micro_f1.py
+│   ├── m5_prompt_baselines.py
 │   └── prompts/
 │       └── setAB_examples.json
 
@@ -185,12 +189,10 @@ scb5-zeroshot/
     └── reproduce_figures.ipynb
 
 Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
-`run_experiment.py` (core experiment library), `exp_runner.py` (full pipeline),
-`run_revision_experiments.py` (revision experiments), `compute_lp_micro_f1.py`
-(linear probe), `m5_prompt_baselines.py` (M5 prompt baselines).
-Utility scripts live in `scripts/` (`download_models.py`, `download_scb5_data.py`,
-`setup.sh`, `summarize_results.py`). Files marked `[LEGACY]` are superseded
-by `reproduce_paper.sh`.
+`run_experiment.py` (core experiment library), `exp_runner.py` (full pipeline).
+Analysis scripts reside in `scb5_zeroshot/`. Utility scripts live in `scripts/`
+(`download_models.py`, `download_scb5_data.py`, `setup.sh`, `summarize_results.py`).
+Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
 ```
 
 ## Key Outputs

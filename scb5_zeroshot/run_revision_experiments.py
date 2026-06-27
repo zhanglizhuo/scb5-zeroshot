@@ -57,8 +57,8 @@ from sklearn.metrics import (
 # =====================================================================
 # Config: paths, models, datasets (same as cape_robustness.py)
 # =====================================================================
-ROOT = Path(__file__).resolve().parent
-DATA_DIR = ROOT.parent / "datasets_scb"
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "datasets_scb"
 
 MODEL_SPECS = {
     "clip":   ("ViT-L-14", "openai"),
@@ -714,7 +714,7 @@ def main():
     log.info(f"Models: {args.models}")
     log.info(f"Experiments: {args.exp}")
 
-    out_dir = Path(__file__).parent / "results" / "revision"
+    out_dir = Path(__file__).resolve().parent.parent / "results" / "revision"
     out_dir.mkdir(exist_ok=True)
 
     all_results = {
