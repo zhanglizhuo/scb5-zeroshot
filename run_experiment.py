@@ -62,11 +62,7 @@ if _local_datasets.exists():
     else:
         DATASET_ROOT = _local_datasets
 else:
-    DATASET_ROOT = Path(
-        "/home/broadsense/works/lizhuo/AutoResearchClaw"
-        "/SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406"
-        "/SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406-2"
-    )
+    DATASET_ROOT = Path(__file__).resolve().parent / "data"
 
 CLASS_NAMES = [
     "guide", "answer", "On-stage interaction", "blackboard-writing",
