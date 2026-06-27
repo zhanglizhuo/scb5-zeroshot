@@ -18,9 +18,9 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from data.scb_dataset import build_dataloader, SUBSET_CONFIG, SUBSET_LOCAL_DIRS
-from models.clip_zoo import CLIPModel, build_cape_text_features, batch_inference
-from prompts.cape_prompts import get_all_class_prompts, ALL_STRATEGIES
-from evaluation.metrics import full_evaluation
+from analysis.models.clip_zoo import CLIPModel, build_cape_text_features, batch_inference
+from analysis.prompts.cape_prompts import get_all_class_prompts, ALL_STRATEGIES
+from analysis.evaluation.metrics import full_evaluation
 
 GPU_ASSIGNMENT = {
     "openai": "cuda:0",
@@ -77,7 +77,7 @@ def run_single(model_key, subset, strategy, cape_set="A", device=None):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str, default="config/experiment_config.yaml")
+    parser.add_argument("--config", type=str, default="analysis/experiment_config.yaml")
     parser.add_argument("--results_dir", type=str, default="./results/baseline")
     parser.add_argument("--experiment", type=str, default="all",
                         choices=["all", "cape_only", "all_strategies"])
