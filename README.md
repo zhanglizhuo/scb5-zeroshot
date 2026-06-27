@@ -3,11 +3,24 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
 [![HuggingFace Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-SCB--Dataset-yellow)](https://huggingface.co/datasets/wintonYF/SCB-Dataset)
+[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper.pdf)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
 **Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
 
 Yan Ma, Lizhuo Zhang, and Xinjie Wu. Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning), 2026.
+
+---
+
+## For Reviewers
+
+```bash
+# Quick reproduction from precomputed results:
+bash reproduce_paper.sh --mode quick
+```
+
+Everything needed is committed in this repository — no external downloads required for the quick path.
+See [Quick Start](#quick-start) below for full details.
 
 ---
 
@@ -59,6 +72,47 @@ On multi-label subsets (TeacherBehavior), the lenient Hit@1 metric can saturate 
   <em>Figure 4: Per-class recall across three prompt strategies. CAPE partially mitigates class collapse on the minority classes ("blackboard-writing", "teacher", "stand"), but no strategy fully addresses the imbalance.</em>
 </p>
 
+## Quick Start
+
+### Environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Data
+
+Download SCB subsets from [HuggingFace `wintonYF/SCB-Dataset`](https://huggingface.co/datasets/wintonYF/SCB-Dataset). Expected layout:
+
+```
+data/
+  SCB5_TeacherBehavior/
+  SCB5_HandriseReadWrite/
+  SCB_BowTurnHead/
+```
+
+### Reproduce
+
+```bash
+# Quick: regenerate figures and tables from precomputed results
+bash reproduce_paper.sh --mode quick
+
+# Full: end-to-end rerun (requires model checkpoints and data)
+bash reproduce_paper.sh --mode full
+```
+
+### Entry Points
+
+| Command | Purpose |
+|---------|---------|
+| `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
+| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
+| `python experiments/main_mllm.py` | MLLM evaluation |
+| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
+| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
+
 ## Repository Structure
 
 ```text
@@ -107,47 +161,6 @@ scb5-zeroshot/
 └── notebooks/
     └── reproduce_figures.ipynb
 ```
-
-## Quick Start
-
-### Environment
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### Data
-
-Download SCB subsets from [HuggingFace `wintonYF/SCB-Dataset`](https://huggingface.co/datasets/wintonYF/SCB-Dataset). Expected layout:
-
-```
-data/
-  SCB5_TeacherBehavior/
-  SCB5_HandriseReadWrite/
-  SCB_BowTurnHead/
-```
-
-### Reproduce
-
-```bash
-# Quick: regenerate figures and tables from precomputed results
-bash reproduce_paper.sh --mode quick
-
-# Full: end-to-end rerun (requires model checkpoints and data)
-bash reproduce_paper.sh --mode full
-```
-
-### Entry Points
-
-| Command | Purpose |
-|---------|---------|
-| `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
-| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
-| `python experiments/main_mllm.py` | MLLM evaluation |
-| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
-| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
 
 ## Key Outputs
 
