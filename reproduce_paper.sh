@@ -62,13 +62,13 @@ run_quick() {
 
 run_full() {
   echo "[STEP] Main experiment pipeline"
-  "$PYTHON_BIN" "$SCB_DIR/exp_runner.py" --gpu "$GPU"
+  "$PYTHON_BIN" "$SCB_DIR/pipeline.py" --gpu "$GPU"
 
   echo "[STEP] CAPE robustness"
-  "$PYTHON_BIN" "$SCB_DIR/cape_robustness.py" --gpu "$GPU"
+  "$PYTHON_BIN" "$SCB_DIR/analysis/cape_robustness.py" --gpu "$GPU"
 
   echo "[STEP] Revision experiments (R1-R4)"
-  "$PYTHON_BIN" "$SCB_DIR/scb5_zeroshot/run_revision_experiments.py" --gpu "$GPU" --exp r1 r2 r3 r4
+  "$PYTHON_BIN" "$SCB_DIR/analysis/run_revision_experiments.py" --gpu "$GPU" --exp r1 r2 r3 r4
 
   echo "[STEP] Regenerate figures"
   "$PYTHON_BIN" "$PAPER_DIR/generate_paper_figures.py"

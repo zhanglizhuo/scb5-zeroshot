@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # [LEGACY] MLLM evaluation: Qwen 2.5-27B via Ollama (3-GPU staged orchestration).
 # See experiments/main_mllm.py for the canonical MLLM entry point.
-# Internal paths reference the old Experiment_Ex/ structure; review before reuse.
+# Internal paths updated from Experiment_Ex/ to experiments/; review before reuse.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -15,11 +15,11 @@ PORT0=11460
 PORT1=11461
 PORT2=11462
 
-TB_SHARDS_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_tb_shards"
-TB_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_tb"
-HR_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_hr"
-BT_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_bt"
-FINAL_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_full"
+TB_SHARDS_DIR="results/mllm/mllm_qwen35_27b_tb_shards"
+TB_DIR="results/mllm/mllm_qwen35_27b_tb"
+HR_DIR="results/mllm/mllm_qwen35_27b_hr"
+BT_DIR="results/mllm/mllm_qwen35_27b_bt"
+FINAL_DIR="results/mllm/mllm_qwen35_27b_full"
 
 mkdir -p "$TB_SHARDS_DIR" "$TB_DIR" "$HR_DIR" "$BT_DIR" "$FINAL_DIR"
 
@@ -31,7 +31,7 @@ CUDA_VISIBLE_DEVICES=2 OLLAMA_HOST=127.0.0.1:${PORT2} OLLAMA_MODELS="$OLLAMA_MOD
 sleep 4
 
 echo "[Stage 1/3] teacher_behavior split into 3 shards"
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models qwen35_ollama \
   --qwen35_model qwen3.5:27b \
   --ollama_host http://127.0.0.1:${PORT0} \
@@ -40,7 +40,7 @@ echo "[Stage 1/3] teacher_behavior split into 3 shards"
   --results_dir "$TB_SHARDS_DIR" > /tmp/qwen35_27b_tb_s0.log 2>&1 &
 PID_TB0=$!
 
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models qwen35_ollama \
   --qwen35_model qwen3.5:27b \
   --ollama_host http://127.0.0.1:${PORT1} \
@@ -49,7 +49,7 @@ PID_TB0=$!
   --results_dir "$TB_SHARDS_DIR" > /tmp/qwen35_27b_tb_s1.log 2>&1 &
 PID_TB1=$!
 
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models qwen35_ollama \
   --qwen35_model qwen3.5:27b \
   --ollama_host http://127.0.0.1:${PORT2} \
@@ -66,8 +66,8 @@ import json
 from pathlib import Path
 
 root = Path('/home/broadsense/works/lizhuo/AutoResearchClaw')
-shards_dir = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_tb_shards'
-out_dir = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_qwen35_27b_tb'
+shards_dir = root / 'results/mllm/mllm_qwen35_27b_tb_shards'
+out_dir = root / 'results/mllm/mllm_qwen35_27b_tb'
 out_dir.mkdir(parents=True, exist_ok=True)
 
 files = sorted(shards_dir.glob('qwen35_ollama_teacher_behavior_s*_e*.json'))
@@ -83,7 +83,7 @@ print(f'Merged {len(files)} shards -> {out_path} ({len(combined)} samples)')
 PY
 
 echo "[Stage 3/3] evaluate all subsets"
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models qwen35_ollama \
   --qwen35_model qwen3.5:27b \
   --ollama_host http://127.0.0.1:${PORT0} \

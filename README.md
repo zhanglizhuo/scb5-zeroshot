@@ -110,8 +110,8 @@ bash reproduce_paper.sh --mode full
 | `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
 | `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
 | `python experiments/main_mllm.py` | MLLM evaluation |
-| `python scb5_zeroshot/paired_bootstrap.py` | Bootstrap significance test |
-| `python scb5_zeroshot/cape_principle_ablation.py` | CAPE three-principle ablation |
+| `python analysis/paired_bootstrap.py` | Bootstrap significance test |
+| `python analysis/cape_principle_ablation.py` | CAPE three-principle ablation |
 
 ## Repository Structure
 
@@ -121,6 +121,7 @@ scb5-zeroshot/
 ├── README.md                       # This file
 ├── CITATION.cff                    # Citation metadata
 ├── requirements.txt                # Python dependencies
+├── requirements.repro.txt          # Reproduce-specific deps
 
 ├── reproduce_paper.sh              # ★ Canonical entry point
 
@@ -132,15 +133,15 @@ scb5-zeroshot/
 │   ├── scb_dataset.py
 │   └── feature_cache/
 
-├── scb5_zeroshot/                  # Python package — core analysis code
+├── analysis/                  # Python package — core analysis code
 │   ├── __init__.py
 │   ├── paired_bootstrap.py
 │   ├── cape_principle_ablation.py
 │   ├── cape_robustness.py
 │   ├── prompts.py
 │   ├── run_revision_experiments.py
-│   ├── compute_lp_micro_f1.py
-│   ├── m5_prompt_baselines.py
+│   ├── linear_probe.py
+│   ├── llm_baselines.py
 │   └── prompts/
 │       └── setAB_examples.json
 
@@ -159,22 +160,24 @@ scb5-zeroshot/
 ├── experiments/                    # Experiment runners
 │   ├── main_clip.py
 │   ├── main_mllm.py
-│   ├── merge_mllm_results.py
-│   ├── run_all.sh
-│   ├── master_benchmark_parallel.sh
-│   ├── run_lp_micro_f1_parallel.sh
+│   ├── run_benchmark_parallel.sh
+│   ├── run_linear_probe_parallel.sh
 │   ├── legacy/                     # [LEGACY] superseded scripts
 │   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
 
 ├── scripts/                        # Utility scripts
 │   ├── download_models.py
 │   ├── download_scb5_data.py
-│   └── setup.sh
+│   ├── merge_mllm_results.py
+│   ├── setup.sh
+│   └── summarize_results.py
 
 ├── results/                        # All experiment outputs
 │   ├── baseline_results.json
 │   ├── baseline_eva02_fix_allstrat/
 │   ├── mllm/
+│   │   ├── mllm_macrof1_all_models.json
+│   │   └── mllm_macrof1_supplement.json
 │   ├── paper/
 │   ├── revision/
 │   ├── robustness/
@@ -189,8 +192,8 @@ scb5-zeroshot/
     └── reproduce_figures.ipynb
 
 Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
-`run_experiment.py` (core experiment library), `exp_runner.py` (full pipeline).
-Analysis scripts reside in `scb5_zeroshot/`. Utility scripts live in `scripts/`
+`run_experiment.py` (core experiment library), `pipeline.py` (full pipeline).
+Analysis scripts reside in `analysis/`. Utility scripts live in `scripts/`
 (`download_models.py`, `download_scb5_data.py`, `setup.sh`, `summarize_results.py`).
 Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
 ```
@@ -202,7 +205,7 @@ Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
 | `results/baseline_results.json` | Main benchmark table values |
 | `results/paper/benchmark_final_merged.json` | Final merged benchmark summary |
 | `results/paper/cape_robustness_summary.json` | Robustness analysis across prompt sets |
-| `results/mllm/mllm_merged_summary.json` | Cross-family validation summary |
+| `results/mllm/mllm_macrof1_all_models.json` | Cross-family validation summary (all models) |
 | `paper/figures/` | Publication-quality PDF and PNG figures |
 | `paper/scb5_zeroshot_paper.pdf` | Full manuscript |
 

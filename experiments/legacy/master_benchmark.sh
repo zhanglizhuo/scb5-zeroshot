@@ -15,7 +15,7 @@ export HF_ENDPOINT="https://hf-mirror.com"
 export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-3}"
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-EVAL_DIR="$ROOT/scb5_zeroshot"
+EVAL_DIR="$ROOT/analysis"
 CKPT_DIR="$EVAL_DIR/ckpts"
 DATA_DIR="$ROOT/datasets_scb"
 DEFAULT_PYTHON_BIN="/usr/bin/python3.8"

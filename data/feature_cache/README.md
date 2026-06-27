@@ -2,8 +2,8 @@
 
 Precomputed CAPE logits for the three backbones with full-coverage feature
 caches (CLIP/OpenAI, DFN-CLIP, SigLIP2), used by the paired-bootstrap
-significance test (`scb5_zeroshot/paired_bootstrap.py`) and the
-three-principle ablation (`scb5_zeroshot/cape_principle_ablation.py`).
+significance test (`analysis/paired_bootstrap.py`) and the
+three-principle ablation (`analysis/cape_principle_ablation.py`).
 
 ## Contents
 
@@ -19,6 +19,6 @@ Subsets: `teacher_behavior`, `handrise_readwrite`, `bow_turnhead`.
 These files are loaded automatically by the analysis scripts:
 
 ```bash
-python scb5_zeroshot/paired_bootstrap.py
-python scb5_zeroshot/cape_principle_ablation.py
+python analysis/paired_bootstrap.py
+python analysis/cape_principle_ablation.py
 ```

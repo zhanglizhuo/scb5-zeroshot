@@ -1,8 +1,8 @@
 {
   "_comment": "CAPE prompt sets used in the SCB5 zero-shot paper (Reviewer M3). Set A is the original (used as the 'CAPE' column in main tables); Set B is independently authored alternate wording used in the Section E4 robustness experiment. Each class has K=3 prompts. The three CAPE design principles are: (1) visual grounding (concrete physical descriptions), (2) semantic diversity (multiple viewpoints), (3) discriminative contrast (class-specific distinguishing features).",
   "_source_files": [
-    "scb5_zeroshot/cape_robustness.py (CAPE_A, CAPE_B)",
-    "scb5_zeroshot/cape_principle_ablation.py (CAPE_FULL = Set A, plus three degraded ablation sets)"
+    "analysis/cape_robustness.py (CAPE_A, CAPE_B)",
+    "analysis/cape_principle_ablation.py (CAPE_FULL = Set A, plus three degraded ablation sets)"
   ],
   "set_A_original": {
     "TeacherBehavior": {
