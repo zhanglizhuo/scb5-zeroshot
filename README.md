@@ -159,14 +159,13 @@ scb5-zeroshot/
 │   ├── run_all.sh
 │   └── mllm_ollama/                # Legacy Ollama MLLM orchestration scripts
 
-├── results/                        # Main benchmark outputs
+├── results/                        # All experiment outputs
 │   ├── baseline_results.json
 │   ├── mllm/
-│   └── paper/
-
-├── results_revision/               # Revision experiment outputs
-├── results_robustness/             # Robustness analysis outputs
-├── results_parallel/               # Parallel benchmark shards
+│   ├── paper/
+│   ├── revision/
+│   ├── robustness/
+│   └── parallel/
 
 ├── paper/                          # Manuscript and figures
 │   ├── scb5_zeroshot_paper.pdf
