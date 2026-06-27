@@ -26,13 +26,7 @@ See [Quick Start](#quick-start) below for full details.
 
 ## Overview
 
-CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 95.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings.
-
-<p align="center">
-  <img src="paper/figures/fig1_prompt_ablation.png" width="80%" alt="Prompt ablation analysis showing sensitivity across models and prompt strategies">
-  <br>
-  <em>Figure 1: Prompt ablation analysis across three SCB subsets. CAPE (Context-Aware Prompt Ensemble) stabilizes predictions compared to single-prompt strategies, though sensitivity varies strongly by subset.</em>
-</p>
+CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 95.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings. (Figures are available as PDFs in `paper/figures/`.)
 
 ## Key Results
 
@@ -44,33 +38,13 @@ CLIP-family models exhibit **instability under prompt variation** in zero-shot c
 | **HandriseReadWrite** | OpenCLIP + Action prompt | 84.56 | 55.89 |
 | **BowTurnHead** | DFN-CLIP + CAPE | 93.27 | 53.95 |
 
-### Model comparison across subsets
-
-<p align="center">
-  <img src="paper/figures/fig2_model_comparison.png" width="80%" alt="Model comparison bar chart">
-  <br>
-  <em>Figure 2: Five CLIP-family backbones compared across three SCB subsets. TeacherBehavior (multi-label) shows highest variance and lowest absolute performance; BowTurnHead is near-saturated.</em>
-</p>
-
 ### Prompt sensitivity leads to inconsistent model rankings
 
 A core finding: **the choice of prompt strategy changes which model appears "best"** on a given subset. For example, on TeacherBehavior, SigLIP2 ranks first under CAPE but drops below CLIP and DFN-CLIP under simpler prompt strategies. No single model dominates across all conditions.
 
 ### Misleading leniency of multi-label Hit@1
 
-On multi-label subsets (TeacherBehavior), the lenient Hit@1 metric can saturate above 85% even when Macro-F1 is below 15%, because models collapse predictions into the majority class. This is revealed by confusion matrix and per-class recall analyses:
-
-<p align="center">
-  <img src="paper/figures/fig3_confusion_matrices.png" width="80%" alt="Confusion matrices">
-  <br>
-  <em>Figure 3: Confusion matrices for CLIP and SigLIP2 on TeacherBehavior. Both models show strong class-collapse toward "guide" and "answer", inflating Hit@1 while Macro-F1 remains below 12%.</em>
-</p>
-
-<p align="center">
-  <img src="paper/figures/fig4_perclass_recall.png" width="80%" alt="Per-class recall">
-  <br>
-  <em>Figure 4: Per-class recall across three prompt strategies. CAPE partially mitigates class collapse on the minority classes ("blackboard-writing", "teacher", "stand"), but no strategy fully addresses the imbalance.</em>
-</p>
+On multi-label subsets (TeacherBehavior), the lenient Hit@1 metric can saturate above 85% even when Macro-F1 is below 15%, because models collapse predictions into the majority class. (See confusion matrix and per-class recall figures in `paper/figures/`.)
 
 ## Quick Start
 
@@ -192,7 +166,6 @@ scb5-zeroshot/
 │   ├── robustness/
 │   └── parallel/
 
-└── notebooks/                      # (removed — was empty scaffold)
 ```
 
 Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
@@ -200,7 +173,6 @@ Additional top-level scripts: `reproduce_paper.sh` (★ canonical entry),
 Analysis scripts reside in `analysis/`. Utility scripts live in `scripts/`
 (`download_models.py`, `download_scb5_data.py`, `setup.sh`, `summarize_results.py`).
 Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
-```
 
 ## Key Outputs
 
@@ -210,7 +182,7 @@ Files marked `[LEGACY]` are superseded by `reproduce_paper.sh`.
 | `results/paper/benchmark_final_merged.json` | Final merged benchmark summary |
 | `results/paper/cape_robustness_summary.json` | Robustness analysis across prompt sets |
 | `results/mllm/mllm_macrof1_all_models.json` | Cross-family validation summary (all models) |
-| `paper/figures/` | Publication-quality PDF and PNG figures |
+| `paper/figures/` | Publication-quality PDF figures |
 | `paper/scb5_zeroshot_paper.pdf` | Full manuscript |
 
 ## Data Availability
