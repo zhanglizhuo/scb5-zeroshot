@@ -332,22 +332,16 @@ if __name__ == "__main__":
     print("Loading benchmark data...")
     data = load_data()
 
-    print("\n[1/6] Confusion matrices — TeacherBehavior")
+    print("\n[1/4] Confusion matrices — TeacherBehavior")
     plot_confusion_matrices(data, "SCB5_TeacherBehavior", "fig_confusion_matrix_teacher.pdf")
 
-    print("[2/6] Confusion matrices — HandriseReadWrite")
-    plot_confusion_matrices(data, "SCB5_HandriseReadWrite", "fig_confusion_matrix_handrise.pdf")
-
-    print("[3/6] Confusion matrices — BowTurnHead")
-    plot_confusion_matrices(data, "SCB_BowTurnHead", "fig_confusion_matrix_bowturn.pdf")
-
-    print("[4/6] Per-class recall — TeacherBehavior")
+    print("[2/4] Per-class recall — TeacherBehavior")
     plot_per_class_hit1(data)
 
-    print("[5/6] Prediction distribution — TeacherBehavior")
+    print("[3/4] Prediction distribution — TeacherBehavior")
     plot_prediction_distribution(data)
 
-    print("[6/6] Prompt ablation heatmap")
+    print("[4/4] Prompt ablation heatmap")
     plot_prompt_ablation_heatmap(data)
 
     print("[Bonus] CAPE gain visualization")
