@@ -117,47 +117,59 @@ bash reproduce_paper.sh --mode full
 
 ```text
 scb5-zeroshot/
-├── README.md                   # This file
-├── CITATION.cff                # Citation metadata
-├── requirements.txt            # Python dependencies
-├── reproduce_paper.sh          # Canonical entry point
-├── config/
+
+├── README.md                       # This file
+├── CITATION.cff                    # Citation metadata
+├── requirements.txt                # Python dependencies
+
+├── reproduce_paper.sh              # ★ Canonical entry point
+
+├── config/                         # Experiment configuration
 │   └── experiment_config.yaml
-├── data/
-│   ├── README.md               # Download instructions
+
+├── data/                           # Data loading & precomputed features
+│   ├── README.md
 │   ├── scb_dataset.py
-│   └── feature_cache/          # Precomputed features (9 npz files, 3 backbones × 3 subsets)
-│── prompts/
+│   └── feature_cache/
+
+├── scb5_zeroshot/                  # Paper-specific analysis scripts
+│   ├── paired_bootstrap.py
+│   ├── cape_principle_ablation.py
+│   └── prompts/
+│       └── setAB_examples.json
+
+├── prompts/                        # Prompt definitions (A/B/C)
 │   ├── cape_prompts.py
 │   ├── llm_prompt_gen.py
-│   └── prompt_sets.json        # Set A / B / C prompt templates
-├── scb5_zeroshot/              # Paper-specific analysis scripts
-│   ├── paired_bootstrap.py     # Bootstrap significance test
-│   ├── cape_principle_ablation.py  # CAPE three-principle ablation
-│   └── prompts/
-│       └── setAB_examples.json  # Verbatim Set A & B prompts
-├── models/
+│   └── prompt_sets.json
+
+├── models/                         # Model loading
 │   ├── clip_zoo.py
 │   └── mllm_baseline.py
-├── evaluation/
+
+├── evaluation/                     # Metrics computation
 │   └── metrics.py
-├── experiments/
+
+├── experiments/                    # Experiment runners
 │   ├── main_clip.py
 │   ├── main_mllm.py
 │   ├── merge_mllm_results.py
 │   └── run_all.sh
-├── results/
+
+├── results/                        # Main benchmark outputs
 │   ├── baseline_results.json
-│   ├── baseline_eva02_fix_allstrat/
-│   ├── mllm/                   # Cross-family validation
-│   └── paper/                  # Merged summary outputs
-├── results_revision/           # Revision experiment outputs
-├── results_robustness/         # Robustness analysis outputs
-├── results_parallel/           # Parallel benchmark shards
-├── paper/
+│   ├── mllm/
+│   └── paper/
+
+├── results_revision/               # Revision experiment outputs
+├── results_robustness/             # Robustness analysis outputs
+├── results_parallel/               # Parallel benchmark shards
+
+├── paper/                          # Manuscript and figures
 │   ├── scb5_zeroshot_paper.pdf
 │   ├── cover_letter.pdf
-│   └── figures/                # Publication-quality figures
+│   └── figures/
+
 └── notebooks/
     └── reproduce_figures.ipynb
 ```
