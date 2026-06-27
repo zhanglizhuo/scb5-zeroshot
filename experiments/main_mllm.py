@@ -28,13 +28,13 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from data.scb_dataset import build_dataloader, SUBSET_CONFIG
-from models.mllm_baseline import (
+from analysis.models.mllm_baseline import (
     LLaVAInferencer,
     QwenVLInferencer,
     OllamaVisionInferencer,
     mllm_preds_to_logits,
 )
-from evaluation.metrics import full_evaluation, compute_hit_at_k
+from analysis.evaluation.metrics import full_evaluation, compute_hit_at_k
 
 
 # ─── 数据集原始图像恢复 ──────────────────────────────────────────────────────
@@ -337,7 +337,7 @@ def main():
 
     # ── GPT-4V（可选）────────────────────────────────────────────────────────
     if "gpt4v" in args.models and args.openai_api_key:
-        from models.mllm_baseline import GPT4VInferencer
+        from analysis.models.mllm_baseline import GPT4VInferencer
         print("\nRunning GPT-4V (API)...")
         gpt4v = GPT4VInferencer(args.openai_api_key)
         all_results["gpt4v"] = {}
