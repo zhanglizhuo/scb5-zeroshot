@@ -124,6 +124,8 @@ scb5-zeroshot/
 
 ├── reproduce_paper.sh              # ★ Canonical entry point
 
+├── Experiment_Ex/                   # Deprecated experiments (preserved for reference)
+
 ├── config/                         # Experiment configuration
 │   └── experiment_config.yaml
 
@@ -174,6 +176,12 @@ scb5-zeroshot/
 
 └── notebooks/
     └── reproduce_figures.ipynb
+
+Additional top-level scripts: `run_experiment.py` (core library), `exp_runner.py` (legacy pipeline),
+`run_revision_experiments.py` (revision experiments), `compute_lp_micro_f1.py` (linear probe),
+`download_models.py` (checkpoint download), `summarize_results.py` (output aggregation),
+`setup.sh` (environment setup). Files marked `[LEGACY]` in their headers are superseded by
+`reproduce_paper.sh`.
 ```
 
 ## Key Outputs
