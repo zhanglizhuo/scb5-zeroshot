@@ -1,6 +1,6 @@
 """
-download_scb5_hf_proxy.py — 下载 SCB 数据集（通过代理）
-=====================================================
+download_scb5_data.py — 下载 SCB 数据集（通过代理）
+===================================================
 轻量脚本：在能访问外网的机器上通过 HTTP 代理下载训练/验证数据集
 并把文件保存到 `datasets_scb/` 目录下。适用于在受限网络环境下先
 下载数据然后传输到离线服务器。
@@ -8,7 +8,7 @@ download_scb5_hf_proxy.py — 下载 SCB 数据集（通过代理）
 注意：脚本内 `proxies` 配置为示例，请根据实际代理服务修改或移除。
 
 Usage:
-    python3 download_scb5_hf_proxy.py
+    python3 scripts/download_scb5_data.py
 """
 
 import os

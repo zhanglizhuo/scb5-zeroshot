@@ -1,6 +1,6 @@
 """
 汇总所有模型的结果，输出对比表格
-python summarize_results.py
+python scripts/summarize_results.py
 """
 import json
 import os
