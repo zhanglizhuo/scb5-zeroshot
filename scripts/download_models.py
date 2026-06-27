@@ -4,7 +4,7 @@
 然后把 ckpts/ 文件夹传到服务器。
 
 用法：
-  python download_models.py
+  python scripts/download_models.py
   tar czf ckpts.tar.gz ckpts/
     scp ckpts.tar.gz broadsense@服务器IP:~/works/lizhuo/AutoResearchClaw/scb5_zeroshot/
   # 服务器上：
