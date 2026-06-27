@@ -12,11 +12,11 @@ PORT0=11470
 PORT1=11471
 PORT2=11472
 
-TB_SHARDS_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_tb_shards"
-TB_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_tb"
-HR_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_hr"
-BT_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_bt"
-FINAL_DIR="scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_full"
+TB_SHARDS_DIR="results/mllm/mllm_gemma4_26b_tb_shards"
+TB_DIR="results/mllm/mllm_gemma4_26b_tb"
+HR_DIR="results/mllm/mllm_gemma4_26b_hr"
+BT_DIR="results/mllm/mllm_gemma4_26b_bt"
+FINAL_DIR="results/mllm/mllm_gemma4_26b_full"
 
 mkdir -p "$TB_SHARDS_DIR" "$TB_DIR" "$HR_DIR" "$BT_DIR" "$FINAL_DIR"
 
@@ -28,7 +28,7 @@ CUDA_VISIBLE_DEVICES=2 OLLAMA_HOST=127.0.0.1:${PORT2} OLLAMA_MODELS="$OLLAMA_MOD
 sleep 4
 
 echo "[Stage 1/3] teacher_behavior split into 3 shards"
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models gemma4_ollama \
   --gemma4_model gemma4:26b \
   --ollama_host http://127.0.0.1:${PORT0} \
@@ -37,7 +37,7 @@ echo "[Stage 1/3] teacher_behavior split into 3 shards"
   --results_dir "$TB_SHARDS_DIR" > /tmp/gemma4_26b_tb_s0.log 2>&1 &
 PID_TB0=$!
 
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models gemma4_ollama \
   --gemma4_model gemma4:26b \
   --ollama_host http://127.0.0.1:${PORT1} \
@@ -46,7 +46,7 @@ PID_TB0=$!
   --results_dir "$TB_SHARDS_DIR" > /tmp/gemma4_26b_tb_s1.log 2>&1 &
 PID_TB1=$!
 
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models gemma4_ollama \
   --gemma4_model gemma4:26b \
   --ollama_host http://127.0.0.1:${PORT2} \
@@ -63,8 +63,8 @@ import json
 from pathlib import Path
 
 root = Path('/home/broadsense/works/lizhuo/AutoResearchClaw')
-shards_dir = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_tb_shards'
-out_dir = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_tb'
+shards_dir = root / 'results/mllm/mllm_gemma4_26b_tb_shards'
+out_dir = root / 'results/mllm/mllm_gemma4_26b_tb'
 out_dir.mkdir(parents=True, exist_ok=True)
 
 files = sorted(shards_dir.glob('gemma4_ollama_teacher_behavior_s*_e*.json'))
@@ -121,7 +121,7 @@ with open(out_dir / 'mllm_summary.json', 'w') as f:
 PY
 
 echo "[Stage 3/3] run remaining two subsets"
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models gemma4_ollama \
   --gemma4_model gemma4:26b \
   --ollama_host http://127.0.0.1:${PORT0} \
@@ -129,7 +129,7 @@ echo "[Stage 3/3] run remaining two subsets"
   --results_dir "$HR_DIR" > /tmp/gemma4_26b_hr.log 2>&1 &
 PID_HR=$!
 
-"$PY" scb5_zeroshot/Experiment_Ex/main_mllm.py \
+"$PY" experiments/main_mllm.py \
   --models gemma4_ollama \
   --gemma4_model gemma4:26b \
   --ollama_host http://127.0.0.1:${PORT1} \
@@ -145,10 +145,10 @@ import json
 from pathlib import Path
 
 root = Path('/home/broadsense/works/lizhuo/AutoResearchClaw')
-summary_tb = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_tb/mllm_summary.json'
-summary_hr = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_hr/mllm_summary.json'
-summary_bt = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_bt/mllm_summary.json'
-out_dir = root / 'scb5_zeroshot/Experiment_Ex/results/mllm_gemma4_26b_full'
+summary_tb = root / 'results/mllm/mllm_gemma4_26b_tb/mllm_summary.json'
+summary_hr = root / 'results/mllm/mllm_gemma4_26b_hr/mllm_summary.json'
+summary_bt = root / 'results/mllm/mllm_gemma4_26b_bt/mllm_summary.json'
+out_dir = root / 'results/mllm/mllm_gemma4_26b_full'
 out_dir.mkdir(parents=True, exist_ok=True)
 
 with open(summary_tb) as f:

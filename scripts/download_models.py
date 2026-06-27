@@ -6,7 +6,7 @@
 用法：
   python scripts/download_models.py
   tar czf ckpts.tar.gz ckpts/
-    scp ckpts.tar.gz broadsense@服务器IP:~/works/lizhuo/AutoResearchClaw/scb5_zeroshot/
+    scp ckpts.tar.gz broadsense@服务器IP:~/works/lizhuo/AutoResearchClaw/analysis/
   # 服务器上：
   tar xzf ckpts.tar.gz
 """

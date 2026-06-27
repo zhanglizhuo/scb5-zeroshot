@@ -2,7 +2,7 @@
 Merge MLLM result caches from one or more directories.
 
 Usage:
-    python3 experiments/merge_mllm_results.py \
+    python3 scripts/merge_mllm_results.py \
         --input_glob 'results/mllm*' \
         --out results/mllm/mllm_merged_summary.json
 """
@@ -20,7 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Merge Experiment_Ex MLLM result caches")
+    p = argparse.ArgumentParser(description="Merge MLLM result caches")
     p.add_argument(
         "--input_glob",
         type=str,

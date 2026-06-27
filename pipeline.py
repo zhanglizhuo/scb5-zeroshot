@@ -1,20 +1,20 @@
 """
-exp_runner.py — 论文完整实验流水线
-===================================
+pipeline.py — 论文完整实验流水线
+==================================
 自动运行 E1(模型对比) + E2(Prompt消融) + E3(混淆矩阵) + E4(CAPE)
 
 Usage:
   # 全部实验（所有模型 × 所有 prompt × CAPE）
-  CUDA_VISIBLE_DEVICES=3 python exp_runner.py --gpu 0
+  CUDA_VISIBLE_DEVICES=3 python pipeline.py --gpu 0
 
   # 只跑单模型
-  CUDA_VISIBLE_DEVICES=3 python exp_runner.py --gpu 0 --models siglip
+  CUDA_VISIBLE_DEVICES=3 python pipeline.py --gpu 0 --models siglip
 
   # 只跑 CAPE
-  CUDA_VISIBLE_DEVICES=3 python exp_runner.py --gpu 0 --only cape
+  CUDA_VISIBLE_DEVICES=3 python pipeline.py --gpu 0 --only cape
 
   # 指定 checkpoint
-  CUDA_VISIBLE_DEVICES=3 python exp_runner.py --gpu 0 \
+  CUDA_VISIBLE_DEVICES=3 python pipeline.py --gpu 0 \
       --ckpt_siglip ./ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin
 """
 

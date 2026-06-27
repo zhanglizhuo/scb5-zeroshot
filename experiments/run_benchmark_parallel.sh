@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-# master_benchmark_parallel.sh — Launch benchmark shards in parallel
-# ================================================================
+# run_benchmark_parallel.sh — Launch benchmark shards in parallel
+# ===============================================================
 # Thin wrapper that partitions the model list into shards and runs
-# `master_benchmark.sh` for each shard on separate GPUs in parallel.
+# `run_benchmark.sh` for each shard on separate GPUs in parallel.
 # Designed for offline-first runs: configure `PYTHON_BIN`, `MODEL_SHARDS`,
 # and `GPU_SHARDS` via environment variables as needed.
 #
 # Usage:
 #   MODEL_SHARDS="clip;laion;siglip;eva02,dfn" GPU_SHARDS="0;1;2;3" \
-#     PYTHON_BIN=/usr/bin/python3 bash master_benchmark_parallel.sh
+#     PYTHON_BIN=/usr/bin/python3 bash run_benchmark_parallel.sh
 
 set -euo pipefail
 

@@ -620,9 +620,9 @@ def print_summary(results, model_name):
 
 
 # ─────────────────────────────────────────────
-# API: run_single_experiment（供 exp_runner.py 调用）
+# API: run_single_experiment（供 pipeline.py 调用）
 # ─────────────────────────────────────────────
-# 模型缓存：避免 exp_runner 多次加载同一模型
+# 模型缓存：避免 pipeline 多次加载同一模型
 _model_cache = {}
 
 def run_single_experiment(model_type, prompts_dict,

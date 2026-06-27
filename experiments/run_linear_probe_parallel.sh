@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Launch 5 backbones across 4 GPUs in parallel.
 # clip,laion -> GPU0,1; siglip,eva02 -> GPU2,3; dfn -> GPU0 (after clip).
-# Logs in scb5_zeroshot/logs/lp_micro_*.log.
+# Logs in analysis/logs/lp_micro_*.log.
 set -e
 cd "$(dirname "$0")/.."
 mkdir -p logs
@@ -15,7 +15,7 @@ run() {
     local model=$2
     local logf="${LOGDIR}/lp_micro_${model}_${TS}.log"
     echo "Launch $model on GPU $gpu -> $logf"
-    CUDA_VISIBLE_DEVICES=$gpu nohup $PY scb5_zeroshot/compute_lp_micro_f1.py \
+    CUDA_VISIBLE_DEVICES=$gpu nohup $PY analysis/linear_probe.py \
         --models "$model" --tag "${model}_g${gpu}" > "$logf" 2>&1 &
 }
 

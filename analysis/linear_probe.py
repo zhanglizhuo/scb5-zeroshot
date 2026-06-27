@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-compute_lp_micro_f1.py — Re-run only the TeacherBehavior multi-label linear probe
+linear_probe.py — Re-run only the TeacherBehavior multi-label linear probe
 to fill in the missing Micro-F1 column in tab:linear_probe_ml.
 
 Self-contained: avoids importing cape_robustness (broken import chain).
 
 Usage:
-    CUDA_VISIBLE_DEVICES=0 python3 compute_lp_micro_f1.py --models clip
-    CUDA_VISIBLE_DEVICES=0 python3 compute_lp_micro_f1.py            # all 5 sequentially
+    CUDA_VISIBLE_DEVICES=0 python3 analysis/linear_probe.py --models clip
+    CUDA_VISIBLE_DEVICES=0 python3 analysis/linear_probe.py            # all 5 sequentially
 
 Multi-GPU: launch 5 processes in parallel, one per backbone.
-See run_lp_micro_f1_parallel.sh.
+See experiments/run_linear_probe_parallel.sh.
 """
 import argparse, json, time, sys, logging
 from pathlib import Path

@@ -9,7 +9,7 @@ Baselines
 ---------
 - plain        : single template "a photo of a {cls}" (sanity check, not new)
 - cape         : 3 hand-crafted spatial/action/context prompts per class
-                 (already in scb5_zeroshot/cape_robustness.py CAPE_A)
+                 (already in analysis/cape_robustness.py CAPE_A)
 - cupl         : 50 LLM-generated descriptive sentences per class
                  (Pratt et al. ICCV 2023). LLM = local ollama gemma4:26b.
 - waffleclip   : 16 random-token-suffix variants per class, ensembled
@@ -51,11 +51,11 @@ PROMPTS_DIR.mkdir(exist_ok=True)
 # ──────────────────────────────────────────────────────────────────
 BACKBONES = {
     "openai":  ("ViT-L-14", "openai",
-                ROOT / "scb5_zeroshot/ckpts/clip_openai_vitl14/ViT-L-14.pt", 224),
+                ROOT / "analysis/ckpts/clip_openai_vitl14/ViT-L-14.pt", 224),
     "dfn":     ("ViT-L-14", "dfn2b",
-                ROOT / "scb5_zeroshot/ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin", 224),
+                ROOT / "analysis/ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin", 224),
     "siglip2": ("ViT-L-16-SigLIP2-256", "webli",
-                ROOT / "scb5_zeroshot/ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin", 256),
+                ROOT / "analysis/ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin", 256),
 }
 
 # ──────────────────────────────────────────────────────────────────
