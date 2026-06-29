@@ -93,7 +93,7 @@ def main():
 
     all_results = {}
     for subset in subsets:
-        all_results[subset] = {}
+        all_results[subset] = {"class_names": SUBSET_CONFIG[subset]["classes"]}
         for model_key in MODEL_KEYS:
             all_results[subset][model_key] = {}
             for strategy in strategies:
@@ -103,6 +103,9 @@ def main():
                     "hit_at_1": result["hit_at_1"],
                     "hit_at_3": result["hit_at_3"],
                     "macro_f1": result["single_label"]["macro_f1"],
+                    "confusion_matrix": result["single_label"]["confusion_matrix"],
+                    "per_class_recall": result["single_label"]["per_class_recall"],
+                    "per_class_f1": result["single_label"]["per_class_f1"],
                 }
                 print(f"    Hit@1={result['hit_at_1']*100:.2f}%  "
                       f"Macro-F1={result['single_label']['macro_f1']*100:.2f}%")

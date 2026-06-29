@@ -20,15 +20,31 @@ from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────
 import glob as _glob
-# Use the latest merged benchmark results if available; fall back to hardcoded.
-_results_dir = Path(__file__).parent.parent / "results" / "parallel"
-_merged_files = sorted(_results_dir.glob("benchmark_final_merged_*.json"))
-if _merged_files:
-    JSON_PATH = _merged_files[-1]
+# Prefer main_clip.py output; fall back to legacy merged JSON.
+_clip_out = Path(__file__).parent.parent / "results" / "baseline" / "baseline_results.json"
+_legacy_dir = Path(__file__).parent.parent / "results" / "parallel"
+_legacy_files = sorted(_legacy_dir.glob("benchmark_final_merged_*.json"))
+if _clip_out.exists():
+    JSON_PATH = _clip_out
+    IS_LEGACY = False
+elif _legacy_files:
+    JSON_PATH = _legacy_files[-1]
+    IS_LEGACY = True
 else:
-    JSON_PATH = _results_dir / "benchmark_final_merged_1775830149.json"
+    JSON_PATH = _legacy_dir / "benchmark_final_merged_1775830149.json"
+    IS_LEGACY = True
 OUT_DIR = Path(__file__).parent / "figures"
 OUT_DIR.mkdir(exist_ok=True)
+
+# Map new model keys to legacy ones for display
+_MODEL_KEY_LEGACY = {"openai": "clip", "siglip2": "siglip"}
+_MODEL_KEY_NEW = {"clip": "openai", "siglip": "siglip2"}
+_DATASET_KEY_LEGACY = {
+    "teacher_behavior": "SCB5_TeacherBehavior",
+    "handrise_readwrite": "SCB5_HandriseReadWrite",
+    "bow_turnhead": "SCB_BowTurnHead",
+}
+_DATASET_KEY_NEW = {v: k for k, v in _DATASET_KEY_LEGACY.items()}
 
 MODEL_DISPLAY = {
     "clip": "CLIP (OpenAI)",
@@ -53,15 +69,17 @@ DATASET_DISPLAY = {
     "SCB_BowTurnHead": "BowTurnHead (2 classes)",
 }
 
-# Shorter class names for TeacherBehavior
+# Shorter class names for TeacherBehavior (handle both old/new case)
 TB_SHORT = {
     "guide": "Guide",
     "answer": "Answer",
+    "on-stage interaction": "On-stage",
     "On-stage interaction": "On-stage",
     "blackboard-writing": "BB-write",
     "teacher": "Teacher",
     "stand": "Stand",
     "screen": "Screen",
+    "blackboard": "Blackboard",
     "blackBoard": "Blackboard",
 }
 
@@ -83,26 +101,47 @@ def load_data():
         return json.load(f)
 
 
+def _get_ds(data, ds_key_legacy):
+    """Get dataset dict from data (handling both legacy and new format)."""
+    if IS_LEGACY:
+        return data["datasets"][ds_key_legacy]
+    new_key = _DATASET_KEY_NEW.get(ds_key_legacy, ds_key_legacy)
+    return data.get(new_key, {})
+
+
 def get_experiment(ds_data, model, prompt):
-    for exp in ds_data["experiments"]:
-        if exp["model"] == model and exp["prompt"] == prompt:
-            return exp
-    return None
+    """Get experiment dict for a model+prompt (handling both formats)."""
+    if IS_LEGACY:
+        for exp in ds_data["experiments"]:
+            if exp["model"] == model and exp["prompt"] == prompt:
+                return exp
+        return None
+    model_key = _MODEL_KEY_NEW.get(model, model)
+    exp = ds_data.get(model_key, {}).get(prompt)
+    if exp is None:
+        return None
+    return {
+        "model": model,
+        "prompt": prompt,
+        "hit1": exp["hit_at_1"] * 100,
+        "confusion_matrix": exp["confusion_matrix"],
+        "macro_f1": exp["macro_f1"],
+    }
 
 
 def best_prompt_for_model(ds_data, model):
     """Return the experiment with highest hit1 for a given model."""
     best = None
-    for exp in ds_data["experiments"]:
-        if exp["model"] == model:
-            if best is None or exp["hit1"] > best["hit1"]:
-                best = exp
+    for p in PROMPT_ORDER:
+        exp = get_experiment(ds_data, model, p)
+        if exp and (best is None or exp["hit1"] > best["hit1"]):
+            best = exp
     return best
 
 
 # ── Figure 1: Confusion Matrices (5 models, best prompt) ──────
 def plot_confusion_matrices(data, ds_key, filename):
-    ds = data["datasets"][ds_key]
+    ds = _get_ds(data, ds_key)
     class_names = ds["class_names"]
     n_classes = len(class_names)
 
@@ -153,7 +192,7 @@ def plot_confusion_matrices(data, ds_key, filename):
 
 # ── Figure 2: Per-class Hit@1 for TeacherBehavior ─────────────
 def plot_per_class_hit1(data, filename="fig_per_class_teacher.pdf"):
-    ds = data["datasets"]["SCB5_TeacherBehavior"]
+    ds = _get_ds(data, "SCB5_TeacherBehavior")
     class_names = ds["class_names"]
     short_names = [TB_SHORT.get(c, c) for c in class_names]
     n_classes = len(class_names)
@@ -194,7 +233,7 @@ def plot_per_class_hit1(data, filename="fig_per_class_teacher.pdf"):
 # ── Figure 3: Prediction Distribution vs Ground Truth ─────────
 def plot_prediction_distribution(data, filename="fig_prediction_distribution.pdf"):
     """Show how each model's predictions distribute across classes vs ground truth."""
-    ds = data["datasets"]["SCB5_TeacherBehavior"]
+    ds = _get_ds(data, "SCB5_TeacherBehavior")
     class_names = ds["class_names"]
     short_names = [TB_SHORT.get(c, c) for c in class_names]
     n_classes = len(class_names)
@@ -253,7 +292,7 @@ def plot_prompt_ablation_heatmap(data, filename="fig_prompt_ablation_heatmap.pdf
     fig, axes = plt.subplots(1, 3, figsize=(14.8, 5.1), constrained_layout=False)
 
     for ax, ds_key in zip(axes, datasets_to_plot):
-        ds = data["datasets"][ds_key]
+        ds = _get_ds(data, ds_key)
         matrix = np.zeros((5, 5))
         for i, model_key in enumerate(MODEL_ORDER):
             for j, prompt_key in enumerate(PROMPT_ORDER):
@@ -298,7 +337,7 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
     colors = ["#3498db", "#e74c3c", "#2ecc71"]
 
     for idx, (ds_key, ds_label) in enumerate(zip(datasets_to_plot, ds_short)):
-        ds = data["datasets"][ds_key]
+        ds = _get_ds(data, ds_key)
         gains = []
         for model_key in MODEL_ORDER:
             cape_exp = get_experiment(ds, model_key, "cape")
@@ -342,8 +381,9 @@ if __name__ == "__main__":
     _args = _ap.parse_args()
     if _args.json_path:
         JSON_PATH = Path(_args.json_path)
+        IS_LEGACY = "benchmark_final_merged" in JSON_PATH.name
 
-    print(f"Loading: {JSON_PATH}")
+    print(f"Loading: {JSON_PATH}  (legacy={IS_LEGACY})")
     data = load_data()
 
     print("\n[1/4] Confusion matrices — TeacherBehavior")

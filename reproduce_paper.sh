@@ -88,6 +88,7 @@ run_full() {
   "$PYTHON_BIN" "$SCB_DIR/analysis/linear_probe.py"
 
   echo "[STEP] Regenerate figures"
+  # After --mode full, the new baseline_results.json exists and is preferred
   "$PYTHON_BIN" "$PAPER_DIR/generate_paper_figures.py"
 
   echo "[STEP] Build manuscript PDF"
