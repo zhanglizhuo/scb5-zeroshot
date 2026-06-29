@@ -74,6 +74,7 @@ Thumbs.db
 # Runtime result directories (not the committed paper results)
 results/*_runtime/
 results/__pycache__/
+results/parallel/
 
 # Experimental upgrades (not part of current paper)
 Experiment_Ex/
