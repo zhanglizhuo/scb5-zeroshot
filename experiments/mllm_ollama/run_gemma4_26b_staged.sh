@@ -3,8 +3,10 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT_DIR"
+export ROOT_DIR  # make available to inline Python
 
-PY="/home/broadsense/works/lizhuo/AutoResearchClaw/.venv/bin/python"
+PY="${ROOT_DIR}/.venv/bin/python"
+[ -x "$PY" ] || PY="$(command -v python3)"
 OLLAMA_MODELS_DIR="${OLLAMA_MODELS_DIR:-/usr/share/ollama/.ollama/models}"
 
 # Dedicated ports for this staged run.
@@ -59,10 +61,10 @@ wait "$PID_TB0" "$PID_TB1" "$PID_TB2"
 
 echo "[Stage 2/3] merge teacher_behavior shards"
 "$PY" - <<'PY'
-import json
+import json, os
 from pathlib import Path
 
-root = Path('/home/broadsense/works/lizhuo/AutoResearchClaw')
+root = Path(os.environ['ROOT_DIR'])
 shards_dir = root / 'results/mllm/mllm_gemma4_26b_tb_shards'
 out_dir = root / 'results/mllm/mllm_gemma4_26b_tb'
 out_dir.mkdir(parents=True, exist_ok=True)
@@ -141,10 +143,10 @@ wait "$PID_HR" "$PID_BT"
 
 echo "[Final] build consolidated summary"
 "$PY" - <<'PY'
-import json
+import json, os
 from pathlib import Path
 
-root = Path('/home/broadsense/works/lizhuo/AutoResearchClaw')
+root = Path(os.environ['ROOT_DIR'])
 summary_tb = root / 'results/mllm/mllm_gemma4_26b_tb/mllm_summary.json'
 summary_hr = root / 'results/mllm/mllm_gemma4_26b_hr/mllm_summary.json'
 summary_bt = root / 'results/mllm/mllm_gemma4_26b_bt/mllm_summary.json'

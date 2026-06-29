@@ -78,10 +78,10 @@ CKPT_PATHS = {
 
 DATASETS = {
     "SCB5_TeacherBehavior": {
-        "path": ROOT / "SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406"
+        "path": DATA_DIR / "SCB5_TeacherBehavior"
                      / "SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406-2",
-        "classes": ["guide", "answer", "On-stage interaction", "blackboard-writing",
-                    "teacher", "stand", "screen", "blackBoard"],
+        "classes": ["guide", "answer", "on-stage interaction", "blackboard-writing",
+                    "teacher", "stand", "screen", "blackboard"],
         "multi_label": True,
     },
     "SCB5_HandriseReadWrite": {
@@ -113,7 +113,7 @@ CAPE_C = {
         "someone responding verbally to a question",
         "a conversation where one person explains something",
     ],
-    "On-stage interaction": [
+    "on-stage interaction": [
         "people interacting on a stage or platform",
         "a speaker engaging with an audience from a raised platform",
         "a person standing on stage communicating with others",
@@ -138,7 +138,7 @@ CAPE_C = {
         "a monitor or screen showing digital content",
         "a flat display surface mounted in a room",
     ],
-    "blackBoard": [
+    "blackboard": [
         "a dark-colored board mounted on a wall",
         "a chalkboard visible in a room",
         "a traditional writing board with content on it",

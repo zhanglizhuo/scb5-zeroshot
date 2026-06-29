@@ -51,11 +51,11 @@ PROMPTS_DIR.mkdir(exist_ok=True)
 # ──────────────────────────────────────────────────────────────────
 BACKBONES = {
     "openai":  ("ViT-L-14", "openai",
-                ROOT / "analysis/ckpts/clip_openai_vitl14/ViT-L-14.pt", 224),
+                ROOT / "ckpts/clip_openai_vitl14/ViT-L-14.pt", 224),
     "dfn":     ("ViT-L-14", "dfn2b",
-                ROOT / "analysis/ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin", 224),
+                ROOT / "ckpts/dfn_clip_vitl14/open_clip_pytorch_model.bin", 224),
     "siglip2": ("ViT-L-16-SigLIP2-256", "webli",
-                ROOT / "analysis/ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin", 256),
+                ROOT / "ckpts/siglip_vitl16_256/open_clip_pytorch_model.bin", 256),
 }
 
 # ──────────────────────────────────────────────────────────────────
@@ -64,8 +64,8 @@ BACKBONES = {
 DATASETS = {
     "teacher_behavior": {
         "name": "TeacherBehavior",
-        "classes": ["guide", "answer", "On-stage interaction",
-                    "blackboard-writing", "teacher", "stand", "screen", "blackBoard"],
+        "classes": ["guide", "answer", "on-stage interaction",
+                    "blackboard-writing", "teacher", "stand", "screen", "blackboard"],
         "multi_label": True,
     },
     "handrise_readwrite": {
@@ -84,12 +84,12 @@ DATASETS = {
 PLAIN_NAME = {
     "guide": "a teacher guiding a student",
     "answer": "a teacher answering a student's question",
-    "On-stage interaction": "a teacher interacting with students on stage",
+    "on-stage interaction": "a teacher interacting with students on stage",
     "blackboard-writing": "a teacher writing on the blackboard",
     "teacher": "a teacher lecturing",
     "stand": "a teacher standing still",
     "screen": "a teacher pointing at a projection screen",
-    "blackBoard": "a teacher pointing at the blackboard",
+    "blackboard": "a teacher pointing at the blackboard",
     "hand-raise": "a student raising their hand",
     "read": "a student reading a book",
     "write": "a student writing in a notebook",

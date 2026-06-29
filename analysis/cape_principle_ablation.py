@@ -56,8 +56,8 @@ MODEL_SPECS = {
 
 DATASETS = {
     "teacher_behavior": {
-        "classes": ["guide", "answer", "On-stage interaction", "blackboard-writing",
-                    "teacher", "stand", "screen", "blackBoard"],
+        "classes": ["guide", "answer", "on-stage interaction", "blackboard-writing",
+                    "teacher", "stand", "screen", "blackboard"],
         "multi_label": True,
     },
     "handrise_readwrite": {
@@ -85,7 +85,7 @@ CAPE_FULL = {
         "a teacher responding to a raised hand in class",
         "a student asking a question and the teacher replying",
     ],
-    "On-stage interaction": [
+    "on-stage interaction": [
         "a teacher interacting with students at the front of the classroom",
         "a teacher engaging with students on the podium",
         "a teacher and students having a discussion in front of the class",
@@ -110,7 +110,7 @@ CAPE_FULL = {
         "a teacher presenting slides on a screen",
         "a screen displaying a presentation in a classroom",
     ],
-    "blackBoard": [
+    "blackboard": [
         "a teacher pointing at the blackboard",
         "a teacher referring to content on the blackboard",
         "a blackboard with writing visible in a classroom",
@@ -154,12 +154,12 @@ CAPE_NO_VISUAL = {
     # TeacherBehavior
     "guide":              ["individualized academic guidance", "personalized tutoring", "one-to-one instructional support"],
     "answer":             ["responsive question-answering", "interactive Q&A exchange", "verbal feedback to a query"],
-    "On-stage interaction": ["frontal classroom engagement", "podium-based pedagogical interaction", "interactive frontal teaching"],
+    "on-stage interaction": ["frontal classroom engagement", "podium-based pedagogical interaction", "interactive frontal teaching"],
     "blackboard-writing": ["chalk-mediated content inscription", "didactic note transcription", "written exposition activity"],
     "teacher":            ["lecture-mode delivery", "expository instruction", "pedagogical explanation"],
     "stand":              ["passive non-interactive posture", "stationary idle stance", "non-engaged standing presence"],
     "screen":             ["digital projection display", "slide-based presentation", "screen-mediated presentation"],
-    "blackBoard":         ["chalkboard reference activity", "blackboard-directed attention", "board content reference"],
+    "blackboard":         ["chalkboard reference activity", "blackboard-directed attention", "board content reference"],
     # HandriseReadWrite
     "hand-raise":         ["participation indication gesture", "verbal-turn solicitation", "engagement signaling"],
     "read":               ["textual comprehension activity", "study-material engagement", "academic reading task"],
@@ -182,7 +182,7 @@ CAPE_NO_DIVERSITY = {
     "answer":             ["a teacher answering a student's question",
                            "a teacher responding to a student's question",
                            "a teacher giving an answer to a student's question"],
-    "On-stage interaction": ["a teacher interacting with students at the front",
+    "on-stage interaction": ["a teacher interacting with students at the front",
                              "a teacher interacting with students at the front of the room",
                              "a teacher interacting with students at the front of the class"],
     "blackboard-writing": ["a teacher writing on a blackboard",
@@ -197,7 +197,7 @@ CAPE_NO_DIVERSITY = {
     "screen":             ["a teacher pointing at a screen",
                            "a teacher pointing toward a screen",
                            "a teacher pointing at the screen"],
-    "blackBoard":         ["a teacher pointing at a blackboard",
+    "blackboard":         ["a teacher pointing at a blackboard",
                            "a teacher pointing toward a blackboard",
                            "a teacher pointing at the blackboard"],
     # HandriseReadWrite
@@ -229,12 +229,12 @@ CAPE_NO_DISCRIM = {
     # TeacherBehavior — all teacher classes use generic teacher-related wording
     "guide":              ["a teacher and a student in a classroom", "people interacting in a classroom", "a classroom scene with a teacher"],
     "answer":             ["a teacher and students in a classroom", "people talking in a classroom", "a classroom scene with people"],
-    "On-stage interaction": ["a teacher in front of a classroom", "people gathered in a classroom", "a classroom scene with a teacher"],
+    "on-stage interaction": ["a teacher in front of a classroom", "people gathered in a classroom", "a classroom scene with a teacher"],
     "blackboard-writing": ["a teacher and a board in a classroom", "a person near a board in a classroom", "a classroom with a board visible"],
     "teacher":            ["a teacher in a classroom", "a person teaching in a classroom", "a classroom scene with a teacher"],
     "stand":              ["a teacher in a classroom", "a person in a classroom", "a classroom scene with a person"],
     "screen":             ["a teacher and a screen in a classroom", "a person near a screen in a classroom", "a classroom with a screen visible"],
-    "blackBoard":         ["a teacher and a board in a classroom", "a person near a board in a classroom", "a classroom with a board visible"],
+    "blackboard":         ["a teacher and a board in a classroom", "a person near a board in a classroom", "a classroom with a board visible"],
     # HandriseReadWrite — all use generic student-in-class wording
     "hand-raise":         ["a student in a classroom", "a person in a classroom seat", "a classroom scene with a student"],
     "read":               ["a student in a classroom", "a person at a desk in a classroom", "a classroom scene with a student"],

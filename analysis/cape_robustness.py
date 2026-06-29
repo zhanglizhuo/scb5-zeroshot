@@ -28,7 +28,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
                               logging.FileHandler(str(LOG_DIR / "cape_robustness.log"))])
 log = logging.getLogger(__name__)
 
-# ── Add parent to path for imports from master_benchmark ──
+# ── Add parent to path for cross-script imports ──
 sys.path.insert(0, str(Path(__file__).parent))
 
 import torch
@@ -39,7 +39,7 @@ import open_clip
 
 # ── Config ──
 ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = ROOT.parent / "datasets_scb"
+DATA_DIR = ROOT / "datasets_scb"
 
 MODEL_SPECS = {
     "clip":   ("ViT-L-14", "openai"),
@@ -61,8 +61,8 @@ CKPT_PATHS = {
 DATASETS = {
     "SCB5_TeacherBehavior": {
         "path": DATA_DIR / "SCB5_TeacherBehavior",
-        "classes": ["guide", "answer", "On-stage interaction", "blackboard-writing",
-                    "teacher", "stand", "screen", "blackBoard"],
+        "classes": ["guide", "answer", "on-stage interaction", "blackboard-writing",
+                    "teacher", "stand", "screen", "blackboard"],
         "multi_label": True,
     },
     "SCB5_HandriseReadWrite": {
@@ -90,7 +90,7 @@ CAPE_A = {
         "a teacher responding to a raised hand in class",
         "a student asking a question and the teacher replying",
     ],
-    "On-stage interaction": [
+    "on-stage interaction": [
         "a teacher interacting with students at the front of the classroom",
         "a teacher engaging with students on the podium",
         "a teacher and students having a discussion in front of the class",
@@ -115,7 +115,7 @@ CAPE_A = {
         "a teacher presenting slides on a screen",
         "a screen displaying a presentation in a classroom",
     ],
-    "blackBoard": [
+    "blackboard": [
         "a teacher pointing at the blackboard",
         "a teacher referring to content on the blackboard",
         "a blackboard with writing visible in a classroom",
@@ -162,7 +162,7 @@ CAPE_B = {
         "a dialogue between teacher and student in a classroom",
         "a teacher addressing a student's raised hand",
     ],
-    "On-stage interaction": [
+    "on-stage interaction": [
         "a lively discussion between a teacher and students at the podium",
         "a teacher calling on students from the front of the room",
         "interactive teaching at the front of a classroom",
@@ -187,7 +187,7 @@ CAPE_B = {
         "a teacher using a projector for a presentation",
         "a digital display showing educational content",
     ],
-    "blackBoard": [
+    "blackboard": [
         "a chalkboard with written content visible",
         "a teacher gesturing toward a blackboard",
         "educational content displayed on a classroom blackboard",
@@ -453,7 +453,7 @@ def main():
         torch.cuda.empty_cache()
 
     # Save results
-    out_dir = Path(__file__).parent / "results" / "robustness"
+    out_dir = ROOT / "results" / "robustness"
     out_dir.mkdir(exist_ok=True)
     out_path = out_dir / f"cape_robustness_{int(time.time())}.json"
     with open(out_path, "w") as f:
