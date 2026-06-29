@@ -21,6 +21,8 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage[ruled,lined,linesnumbered]{algorithm2e}
+\crefname{algocf}{algorithm}{algorithms}
+\Crefname{algocf}{Algorithm}{Algorithms}
 \usepackage{tikz}
 \usepackage{changepage}
 \usepackage{mdframed}
@@ -28,7 +30,10 @@
 \graphicspath{{figures/}}
 
 %=================================================================
-\Title{Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis}
+\Title{Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis}
+
+\newcommand{\orcidauthorA}{0009-0002-5071-0054}
+\newcommand{\orcidauthorB}{0009-0004-0749-3239}
 
 \Author{Yan Ma $^{1,2}$, Lizhuo Zhang $^{3}$*, and Xinjie Wu $^{4}$}
 
@@ -46,7 +51,7 @@ $^{4}$ \quad College of Liberal Arts and Social Sciences, City University of Hon
 
 %=================================================================
 \abstract{%
-Vision--language foundation models such as CLIP are increasingly deployed for behavior analysis in safety-critical and domain-specific settings, yet their robustness to textual input perturbations remains poorly understood outside adversarial attack benchmarks. We deploy five ViT-Large backbones (CLIP/OpenAI, OpenCLIP/LAION, SigLIP2, EVA02-CLIP, DFN-CLIP) as probes on three public SCB subsets---TeacherBehavior (8 classes, 3240 images, multi-label), HandriseReadWrite (3 classes, 1671 images), and BowTurnHead (2 classes, 505 images). Prompt wording is treated as a controlled perturbation variable: four uniform prompt strategies and a training-free class-aware prompt ensemble (CAPE) are evaluated under a strict symmetric evaluation protocol. The central finding is that minor wording changes constitute adversarial-level perturbations: on SigLIP2, an alternate-wording variant of CAPE drops Hit@1 from 95.5\% to 31.4\% on TeacherBehavior---a 64.1 percentage-point collapse that no backbone-level change produces. Action prompts improve Hit@1 by up to 54 percentage points over label-only prompts across all five models. Furthermore, metric asymmetry compounds the vulnerability: the zero-shot Hit@1 advantage over supervised linear probes is largely a lenient-metric artifact, as supervised LP substantially outperforms zero-shot CAPE on all multi-label F1 metrics. Bootstrap confidence intervals (1000 resamples) and paired significance tests show that several headline gaps lack statistical support. These findings expose a systematic fragility in deploying foundation models for behavior analysis: prompt-space perturbations of a few words can silently and catastrophically degrade recognition performance, with no indication from standard metrics. Benchmark studies in this area should report multi-label F1, prompt strategy, and uncertainty estimates alongside headline Hit@1 to surface rather than conceal this vulnerability.%
+Vision--language foundation models such as CLIP are increasingly used for zero-shot behavior recognition, yet their robustness to prompt variations remains poorly understood. This paper investigates prompt sensitivity as an adversarial vulnerability in CLIP-family models for zero-shot classroom behavior analysis. Five representative vision--language models (CLIP/OpenAI, OpenCLIP/LAION, SigLIP2, EVA02-CLIP, and DFN-CLIP) are evaluated on three public classroom behavior benchmarks under a strict symmetric protocol. We compare four generic prompt strategies with a training-free Class-Aware Prompt Ensemble (CAPE), treating prompt wording as a controlled perturbation. Results show that minor prompt changes can cause catastrophic performance degradation. On SigLIP2, an alternative wording of CAPE reduces Hit@1 on TeacherBehavior from 95.5\% to 31.4\%, a 64.1 percentage-point drop that exceeds the differences between model backbones. Across all five models, action-oriented prompts improve Hit@1 by up to 54 percentage points compared with label-only prompts. We further demonstrate that the apparent superiority of zero-shot CLIP over supervised linear probes largely arises from metric asymmetry. While zero-shot methods achieve higher Hit@1, they consistently underperform linear probes in multi-label evaluation (Sample-F1: 60--66\% vs.\ 88--90\%; Macro-F1: 49--61\% vs.\ 68--78\%). Bootstrap confidence intervals and paired-bootstrap significance tests further show that several reported performance differences are not statistically significant. These findings reveal prompt sensitivity as a fundamental deployment risk for vision--language foundation models in domain-specific behavior analysis. Prompt variations involving only a few words can silently undermine recognition performance while remaining hidden by conventional evaluation metrics. We therefore recommend that future benchmark studies report prompt configurations, multi-label F1 scores, and uncertainty estimates alongside headline Hit@1 to surface rather than conceal this vulnerability.%
 }
 
 \keyword{prompt sensitivity; adversarial robustness; foundation models; zero-shot classification; CLIP; behavior analysis; vision--language models; prompt engineering; classroom activity recognition}
@@ -63,7 +68,7 @@ Vision--language foundation models such as CLIP are increasingly deployed for be
 Automatic recognition of classroom teaching activities is essential for educational quality assessment, teacher professional development, and intelligent classroom analytics~\cite{brophy2000teaching,anderson2004classroom}.
 In modern smart classrooms, camera systems continuously capture teaching and learning behaviors for downstream analysis~\cite{dillenbourg2011classroom}.
 Developing robust image-based recognition pipelines---especially ones that require no task-specific training data---is a key enabler for scalable educational AI.
-Traditional approaches rely on supervised deep learning models that require large-scale labeled training data, which is expensive and time-consuming to collect in real classroom environments~\cite{liu2023survey_classroom}.
+Traditional approaches rely on supervised deep learning models that require large-scale labeled training data, which is expensive and time-consuming to collect in real classroom environments~\cite{liu2023survey_classroom,ma2026agentic_ai}.
 
 Vision--language foundation models, exemplified by CLIP (Contrastive Language--Image Pretraining)~\cite{radford2021learning}, have recently emerged as powerful tools for zero-shot visual recognition.
 By learning joint image--text representations from web-scale data, CLIP enables classification without any task-specific training---users simply provide natural language descriptions of target categories.
@@ -187,7 +192,7 @@ CLIP~\cite{radford2021learning} pioneered contrastive vision--language pretraini
 OpenCLIP~\cite{cherti2023reproducible} reproduced and extended CLIP training on open datasets such as LAION-2B~\cite{schuhmann2022laion5b} and LAION-400M.
 SigLIP2~\cite{tschannen2025siglip2} builds on the sigmoid contrastive loss introduced by SigLIP~\cite{zhai2023sigmoid}, improving multilingual and dense feature capabilities. It was trained on the WebLI dataset.
 More recently, EVA02-CLIP~\cite{sun2023eva02} introduced masked image modeling as a pre-training auxiliary task and reported strong performance among open-source CLIP models, while DFN-CLIP~\cite{fang2023data} demonstrated that aggressive data filtering on large web-crawled corpora can substantially improve zero-shot transfer.
-These models have been applied to diverse domains including medical imaging~\cite{wang2022medclip}, remote sensing~\cite{liu2024remoteclip}, and action recognition~\cite{wang2021actionclip}, but their application to classroom scenarios remains limited.
+These models have been applied to diverse domains including medical imaging~\cite{wang2022medclip}, remote sensing~\cite{liu2024remoteclip}, and action recognition~\cite{wang2021actionclip}, but their application to classroom scenarios remains limited~\cite{zhou2025security_llm}.
 
 \subsection{Prompt Engineering for CLIP}
 
@@ -195,7 +200,7 @@ The sensitivity of CLIP to prompt design has been widely documented.
 CoOp~\cite{zhou2022learning} and CoCoOp~\cite{zhou2022conditional} learn continuous prompt embeddings to improve few-shot transfer.
 The original CLIP paper~\cite{radford2021learning} also introduced prompt ensembling, which averages predictions across multiple handcrafted prompts to improve zero-shot transfer.
 More recently, CuPL~\cite{pratt2023cupl} generates class-specific descriptions via a large language model (GPT-3) and uses them as zero-shot prompt ensembles, while WaffleCLIP~\cite{roth2023waffleclip} shows that even random descriptors concatenated to class names can match hand-crafted prompts in zero-shot transfer.
-Both methods share CAPE's principle of class-specific prompt aggregation, but differ in prompt source: CuPL relies on LLM-generated text, WaffleCLIP on random strings, and CAPE on manually authored, visually grounded descriptions tailored to a specific domain.
+Both methods share CAPE's principle of class-specific prompt aggregation, but differ in prompt source: CuPL relies on LLM-generated text, WaffleCLIP on random strings, and CAPE on manually authored, visually grounded descriptions tailored to a specific domain~\cite{deng2025ai_agents,deng2025deepseek}.
 This study focuses on the zero-shot setting with manually designed prompts, systematically studying how prompt semantics affect performance in a domain-specific educational context.
 By including a blind-prompt control (Set~C, \Cref{sec:e9_blind}) written without viewing dataset images---analogous to a na\"ive LLM prompt baseline---this study provides an empirical anchor for comparing CAPE against domain-agnostic prompt generation strategies.
 
@@ -353,7 +358,7 @@ CAPE assigns a tailored set of $K=3$ prompts to each class, following three desi
     \item \textbf{Semantic diversity.} The three prompts per class cover complementary perspectives---viewpoint (``standing at the front''), action (``gesturing while talking''), and context (``interacting with students at the podium'')---so that the averaged embedding spans a richer region of the shared feature space.
     \item \textbf{Discriminative contrast.} Prompts are drafted to highlight \emph{between-class} differences rather than within-class variability. For instance, ``screen'' prompts emphasize digital media to distinguish from ``blackboard-writing'' prompts that emphasize chalk.
 \end{enumerate}
-Importantly, CAPE prompts are designed once per class label and reused across all sub-datasets, models, and scene types without per-dataset tuning.
+Importantly, CAPE prompts are designed once per class label and reused across all sub-datasets, models, and scene types without per-dataset tuning~\cite{deng2025hardening_llm}.
 Representative examples include ``a teacher writing on a blackboard with chalk'' (blackboard-writing), ``a teacher pointing at a projection screen'' (screen), and ``a student turning their head to look sideways'' (turn-head). The full prompt lists are provided in the project release package.
 
 For inference, the text embedding for class $c$ is computed as the L2-normalized mean of all prompt embeddings assigned to that class:
@@ -1140,6 +1145,11 @@ Liu, S.; Chen, Y.; Xie, H.; Wang, F.L.
 A Survey of Intelligent Classroom: Concepts, Technologies, and Applications.
 \textit{Educ. Inf. Technol.} \textbf{2023}, \textit{28}, 7127--7155.
 
+\bibitem{ma2026agentic_ai}
+Ma, W.; Guo, Y.; Han, Q.-L.; Zhou, W.; Zhu, X.; Xiong, J.; Wen, S.; Xiang, Y.
+Understanding Agentic AI: Algorithms and Infrastructure.
+\textit{IEEE/CAA J. Autom. Sinica} \textbf{2026}, \textit{13}, 776--795.
+
 \bibitem{radford2021learning}
 Radford, A.; Kim, J.W.; Hallacy, C.; Ramesh, A.; Goh, G.; Agarwal, S.; Sastry, G.; Askell, A.; Mishkin, P.; Clark, J.; et~al.
 Learning Transferable Visual Models From Natural Language Supervision.
@@ -1166,14 +1176,14 @@ Data Filtering Networks.
 \textit{arXiv} \textbf{2023}, arXiv:2309.17425.
 
 \bibitem{zhou2025security_llm}
-W. Zhou, X. Zhu, Q.-L. Han, L. Li, X. Chen, S. Wen, and Y. Xiang,
-``The Security of Using Large Language Models: A Survey with Emphasis on ChatGPT,''
-\emph{IEEE/CAA Journal of Automatica Sinica}, vol.~12, no.~1, pp.~1--26, 2025.
+Zhou, W.; Zhu, X.; Han, Q.-L.; Li, L.; Chen, X.; Wen, S.; Xiang, Y.
+The Security of Using Large Language Models: A Survey with Emphasis on ChatGPT.
+\textit{IEEE/CAA J. Autom. Sinica} \textbf{2025}, \textit{12}, 1--26.
 
 \bibitem{deng2025ai_agents}
-Z. Deng, Y. Guo, C. Han, W. Ma, J. Xiong, S. Wen, and Y. Xiang,
-``AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways,''
-\emph{ACM Computing Surveys}, vol.~57, no.~7, Art.~182, 36~pages, 2025.
+Deng, Z.; Guo, Y.; Han, C.; Ma, W.; Xiong, J.; Wen, S.; Xiang, Y.
+AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways.
+\textit{ACM Comput. Surv.} \textbf{2025}, \textit{57}, 182.
 
 \bibitem{whitehill2014automated}
 Whitehill, J.; Serpell, Z.; Lin, Y.-C.; Foster, A.; Movellan, J.R.
@@ -1240,24 +1250,22 @@ Roth, K.; Kim, J.; Koepke, A.S.; Vinyals, O.; Schmid, C.; Akata, Z.
 Waffling Around for Performance: Visual Classification with Random Words and Broad Concepts.
 In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), Paris, France, 2--6 October 2023; pp.~15700--15711. \url{https://doi.org/10.1109/ICCV51070.2023.01443}.
 
+\bibitem{deng2025deepseek}
+Deng, Z.; Ma, W.; Han, Q.-L.; Zhou, W.; Zhu, X.; Wen, S.; Xiang, Y.
+Exploring DeepSeek: A Survey on Advances, Applications, Challenges and Future Directions.
+\textit{IEEE/CAA J. Autom. Sinica} \textbf{2025}, \textit{12}, 872--893.
+
 \bibitem{scb_dataset}
 SCB-Dataset: Smart Classroom Behavior Dataset.
 Available online: \url{https://huggingface.co/datasets/wintonYF/SCB-Dataset} (accessed on 27 April 2026).
-
-\bibitem{deng2025deepseek}
-Z. Deng, W. Ma, Q.-L. Han, W. Zhou, X. Zhu, S. Wen, and Y. Xiang,
-``Exploring DeepSeek: A Survey on Advances, Applications, Challenges and Future Directions,''
-\emph{IEEE/CAA Journal of Automatica Sinica}, vol.~12, no.~5, pp.~872--893, 2025.
-
-\bibitem{ma2026agentic_ai}
-W. Ma, Y. Guo, Q.-L. Han, W. Zhou, X. Zhu, J. Xiong, S. Wen, and Y. Xiang,
-``Understanding Agentic AI: Algorithms and Infrastructure,''
-\emph{IEEE/CAA Journal of Automatica Sinica}, vol.~13, no.~4, pp.~776--795, 2026.
+Deng, Z.; Ma, W.; Han, Q.-L.; Zhou, W.; Zhu, X.; Wen, S.; Xiang, Y.
+Exploring DeepSeek: A Survey on Advances, Applications, Challenges and Future Directions.
+\textit{IEEE/CAA J. Autom. Sinica} \textbf{2025}, \textit{12}, 872--893.
 
 \bibitem{deng2025hardening_llm}
-Z. Deng, R. Sun, M. Xue, W. Ma, S. Wen, S. Nepal, and Y. Xiang,
-``Hardening LLM Fine-Tuning: From Differentially Private Data Selection to Trustworthy Model Quantization,''
-\emph{IEEE Transactions on Information Forensics and Security}, vol.~20, pp.~7211--7226, 2025.
+Deng, Z.; Sun, R.; Xue, M.; Ma, W.; Wen, S.; Nepal, S.; Xiang, Y.
+Hardening LLM Fine-Tuning: From Differentially Private Data Selection to Trustworthy Model Quantization.
+\textit{IEEE Trans. Inf. Forensics Security} \textbf{2025}, \textit{20}, 7211--7226.
 
 \end{thebibliography}
 
