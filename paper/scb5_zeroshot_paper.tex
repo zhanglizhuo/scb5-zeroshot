@@ -322,7 +322,7 @@ EVA02-CLIP~\cite{sun2023eva02} & EVA02-L/14$^{\dagger}$ & Merged-2B & Masked ima
 DFN-CLIP~\cite{fang2023data} & ViT-L/14 & DFN-2B & Data filtering network & 224 \\
 \bottomrule
 \end{tabular}
-\\[3pt]
+\vspace{3pt}
 {\footnotesize $^{\dagger}$~EVA02-L/14 adopts a masked-image-modeling (MIM) auxiliary pre-training objective and differs internally from standard contrastive ViT-L backbones despite identical input/output dimensions; cross-model comparisons involving EVA02 should be treated as indicative rather than controlled architectural ablations.}
 \end{table}
 
@@ -540,8 +540,9 @@ The corresponding subset-level ordering is summarized in \Cref{fig:difficulty_la
  & CAPE & 45.86 & 73.73 & \textbf{93.27} \\
 \bottomrule
 \end{tabular}
-\noindent\footnotesize $^{\ddagger}$~LAION + action on BowTurnHead collapses to 54.46\%---below the label-only baseline of 90.69\%---because the ``a teacher is \{class\}'' template imposes a teacher subject on student micro-gesture classes (see \Cref{sec:e2}).\\
-$^{\S}$~Equals the multi-label majority floor (16.42\%), indicating degenerate prediction toward the most prevalent class (``teacher'' or ``stand''); label-only prompts provide no discriminative signal for this backbone on TeacherBehavior.
+
+\noindent{\footnotesize $^{\ddagger}$~LAION + action on BowTurnHead collapses to 54.46\%---below the label-only baseline of 90.69\%---because the ``a teacher is \{class\}'' template imposes a teacher subject on student micro-gesture classes (see \Cref{sec:e2}).}\par
+\noindent{\footnotesize $^{\S}$~Equals the multi-label majority floor (16.42\%), indicating degenerate prediction toward the most prevalent class (``teacher'' or ``stand''); label-only prompts provide no discriminative signal for this backbone on TeacherBehavior.}
 \end{table}
 
 \subsubsection{E2: Prompt Ablation}
@@ -774,7 +775,7 @@ EVA02 & 75.77 & \textbf{89.62} & 77.31 & \textbf{91.02} & 64.35 & \textbf{66.46}
 DFN & 71.98 & 88.52 & 73.60 & 90.42 & 45.86 & 63.59 & 57.07 & 66.16 \\
 \bottomrule
 \end{tabular}
-\\[3pt]
+\vspace{3pt}
 {\footnotesize S-F1 = Sample-F1, Ma-F1 = Macro-F1, Mi-F1 = Micro-F1. Bold marks the best backbone per metric column. LP outperforms zero-shot CAPE on every F1 metric for every backbone, while zero-shot Hit@1 occasionally exceeds LP Hit@1 because Hit@1 uses the lenient multi-label criterion ($\hat{y}\in G$) whereas LP is trained against primary labels.}
 \end{table}
 
