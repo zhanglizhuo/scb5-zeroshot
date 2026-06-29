@@ -1,7 +1,7 @@
 #!/bin/bash
 # =====================================================
-# SCB5 CLIP/SLIP/FLIP/TULIP 实验环境安装脚本
-# 在你的服务器上运行：bash setup.sh
+# SCB5 CLIP-Family zero-shot 实验环境安装脚本
+# 在你的服务器上运行：bash scripts/setup.sh
 # =====================================================
 
 set -e
@@ -17,29 +17,13 @@ pip install numpy
 echo "====== 安装 OpenAI CLIP ======"
 pip install git+https://github.com/openai/CLIP.git
 
-echo "====== 尝试安装 TULIP ======"
-# 如果安装失败会自动 fallback 到 SigLIP2，不影响其他模型
-if [ ! -d "tulip" ]; then
-    git clone https://github.com/tulip-berkeley/tulip.git || echo "[WARN] TULIP clone 失败，将使用 SigLIP2 替代"
-    if [ -d "tulip" ]; then
-        pip install -e tulip/ || echo "[WARN] TULIP 安装失败，将使用 SigLIP2 替代"
-    fi
-fi
-
 echo "====== 安装完成 ======"
 echo ""
 echo "运行示例："
-echo "  # CLIP zero-shot（GPU0）"
-echo "  CUDA_VISIBLE_DEVICES=0 python experiments/main_clip.py --model clip --mode zeroshot"
+echo "  # 快速验证（使用预计算特征）"
+echo "  bash reproduce_paper.sh --mode quick"
 echo ""
-echo "  # SLIP zero-shot（GPU1）"
-echo "  CUDA_VISIBLE_DEVICES=1 python experiments/main_clip.py --model slip --mode zeroshot"
+echo "  # 完整复现（需 GPU）"
+echo "  bash reproduce_paper.sh --mode full --gpu 0"
 echo ""
-echo "  # FLIP zero-shot（GPU2）"
-echo "  CUDA_VISIBLE_DEVICES=2 python experiments/main_clip.py --model flip --mode zeroshot"
-echo ""
-echo "  # TULIP zero-shot（GPU3）"
-echo "  CUDA_VISIBLE_DEVICES=3 python experiments/main_clip.py --model tulip --mode zeroshot"
-echo ""
-echo "  # 并行跑 benchmark（推荐）"
-echo "  bash experiments/run_benchmark_parallel.sh"
+echo "更多信息请参考 REPRODUCIBILITY.md"

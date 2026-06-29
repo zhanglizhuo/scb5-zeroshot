@@ -62,7 +62,7 @@ run_quick() {
 
 run_full() {
   echo "[STEP] Download models and data (if missing)"
-  if [ ! -d "data/scb_dataset.py" ]; then
+  if [ ! -d "$SCB_DIR/datasets_scb" ]; then
     "$PYTHON_BIN" "$SCB_DIR/scripts/download_scb5_data.py"
   fi
   if [ ! -d "$SCB_DIR/ckpts" ]; then

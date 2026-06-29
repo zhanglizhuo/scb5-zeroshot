@@ -16,12 +16,15 @@ This repository does not redistribute SCB dataset files.
 ## Expected Local Structure
 
 ```text
-data/
+datasets_scb/
   SCB5_TeacherBehavior/
   SCB5_HandriseReadWrite/
   SCB_BowTurnHead/
 ```
 
+(or equivalently under `data/` for each subset).
+
 ## Note
 
 The original dataset license and attribution requirements should be followed.
+The download script (`scripts/download_scb5_data.py`) places files under `datasets_scb/`.
