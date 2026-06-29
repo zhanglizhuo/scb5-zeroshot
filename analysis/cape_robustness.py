@@ -36,7 +36,6 @@ import torch.nn.functional as F
 from PIL import Image
 from tqdm import tqdm
 import open_clip
-from run_experiment import load_model, evaluate
 
 # ── Config ──
 ROOT = Path(__file__).resolve().parent.parent

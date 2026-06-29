@@ -81,10 +81,5 @@ for f in sorted(CKPT_DIR.rglob("*")):
         size_mb = f.stat().st_size // 1024 // 1024
         print(f"  {f}  ({size_mb} MB)")
 
-print("\n服务器上运行方式：")
-print("  python run_experiment_v3.py --model laion --mode zeroshot --gpu 1 \\")
-print("      --ckpt_laion ./ckpts/laion_vitl14/open_clip_pytorch_model.bin")
-print("  python run_experiment_v3.py --model flip  --mode zeroshot --gpu 2 \\")
-print("      --ckpt_flip  ./ckpts/laion_vitl14/open_clip_pytorch_model.bin")
-print("  python run_experiment_v3.py --model siglip --mode zeroshot --gpu 3 \\")
-print("      --ckpt_siglip ./ckpts/siglip_vitl16_256/")
+print("\n运行方式：")
+print("  python experiments/main_clip.py")
