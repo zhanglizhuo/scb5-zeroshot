@@ -19,7 +19,14 @@ import matplotlib.colors as mcolors
 from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────
-JSON_PATH = Path(__file__).parent.parent / "results" / "parallel" / "benchmark_final_merged_1775830149.json"
+import glob as _glob
+# Use the latest merged benchmark results if available; fall back to hardcoded.
+_results_dir = Path(__file__).parent.parent / "results" / "parallel"
+_merged_files = sorted(_results_dir.glob("benchmark_final_merged_*.json"))
+if _merged_files:
+    JSON_PATH = _merged_files[-1]
+else:
+    JSON_PATH = _results_dir / "benchmark_final_merged_1775830149.json"
 OUT_DIR = Path(__file__).parent / "figures"
 OUT_DIR.mkdir(exist_ok=True)
 
@@ -329,7 +336,14 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
 
 # ── Main ──────────────────────────────────────────────────────
 if __name__ == "__main__":
-    print("Loading benchmark data...")
+    import argparse
+    _ap = argparse.ArgumentParser()
+    _ap.add_argument("--json-path", help="Path to benchmark_final_merged JSON")
+    _args = _ap.parse_args()
+    if _args.json_path:
+        JSON_PATH = Path(_args.json_path)
+
+    print(f"Loading: {JSON_PATH}")
     data = load_data()
 
     print("\n[1/4] Confusion matrices — TeacherBehavior")
