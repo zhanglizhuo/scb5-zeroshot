@@ -1,4 +1,4 @@
-# scb5-zeroshot
+# Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
