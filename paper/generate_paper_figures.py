@@ -355,7 +355,7 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
 if __name__ == "__main__":
     import argparse
     _ap = argparse.ArgumentParser()
-    _ap.add_argument("--json-path", help="Path to benchmark_final_merged JSON")
+    _ap.add_argument("--json-path", help="Path to baseline_results.json")
     _args = _ap.parse_args()
     if _args.json_path:
         JSON_PATH = Path(_args.json_path)

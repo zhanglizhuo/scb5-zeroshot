@@ -16,7 +16,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 EVAL_DIR="$ROOT"
 PYTHON_BIN="${PYTHON_BIN:-$(command -v python3 || echo python3)}"
-RESULTS_ROOT="$EVAL_DIR/results/parallel"
+RESULTS_ROOT="$EVAL_DIR/results/baseline"
 LOG_DIR="$EVAL_DIR/logs"
 BATCH_SIZE="${BATCH_SIZE:-16}"
 
@@ -95,25 +95,28 @@ merged = {
     "datasets": {},
 }
 
-final_files = sorted(results_root.glob("*/benchmark_final_*.json"))
-if not final_files:
-    raise SystemExit("No shard result files found to merge.")
+shard_dirs = sorted(results_root.glob("*"))
+shard_dirs = [d for d in shard_dirs if d.is_dir() and (d / "baseline_results.json").exists()]
+if not shard_dirs:
+    raise SystemExit("No shard baseline_results.json files found to merge.")
 
-for final_file in final_files:
-    with open(final_file, "r", encoding="utf-8") as handle:
-        payload = json.load(handle)
-    merged["timestamp"] = payload.get("timestamp", merged["timestamp"])
-    merged["date"] = payload.get("date", merged["date"])
-    for ds_name, ds_payload in payload.get("datasets", {}).items():
-        if ds_name not in merged["datasets"]:
-            merged["datasets"][ds_name] = ds_payload
-            continue
-        merged_ds = merged["datasets"][ds_name]
-        merged_experiments = merged_ds.setdefault("experiments", [])
-        merged_experiments.extend(ds_payload.get("experiments", []))
+merged_data = {}
+for shard_dir in shard_dirs:
+    with open(shard_dir / "baseline_results.json") as f:
+        payload = json.load(f)
+    for subset, subset_data in payload.items():
+        if subset not in merged_data:
+            merged_data[subset] = {"class_names": subset_data.get("class_names", [])}
+        for model_key, model_data in subset_data.items():
+            if model_key == "class_names":
+                continue
+            if model_key in merged_data[subset]:
+                merged_data[subset][model_key].update(model_data)
+            else:
+                merged_data[subset][model_key] = model_data
 
-with open(merged_path, "w", encoding="utf-8") as handle:
-    json.dump(merged, handle, indent=2, ensure_ascii=False)
+with open(merged_path, "w") as f:
+    json.dump(merged_data, f, indent=2)
 
 print(merged_path)
 PYEOF
