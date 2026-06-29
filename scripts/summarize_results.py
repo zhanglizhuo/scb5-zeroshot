@@ -51,8 +51,8 @@ print(header)
 print("  " + "-" * (30 + len(models_with_zs) * 10 + 4))
 
 from collections import defaultdict
-classes = ['guide','answer','On-stage interaction','blackboard-writing',
-           'teacher','stand','screen','blackBoard']
+classes = ['guide','answer','on-stage interaction','blackboard-writing',
+           'teacher','stand','screen','blackboard']
 
 for cls in classes:
     row = f"  {cls:30s}"

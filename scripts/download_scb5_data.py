@@ -19,6 +19,7 @@ import requests
 #         "http": "http://127.0.0.1:7890",
 #         "https": "http://127.0.0.1:7890",
 # }
+proxies = None  # default: no proxy; uncomment above and remove this line to use proxy
 
 # Define datasets to download: (subfolder, list of (url, filename))
 datasets = {

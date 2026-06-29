@@ -52,8 +52,8 @@ CKPT_PATHS = {
 TEACHER_DS = {
     "path": DATA_DIR / "SCB5_TeacherBehavior"
                      / "SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406-2",
-    "classes": ["guide", "answer", "On-stage interaction", "blackboard-writing",
-                "teacher", "stand", "screen", "blackBoard"],
+    "classes": ["guide", "answer", "on-stage interaction", "blackboard-writing",
+                "teacher", "stand", "screen", "blackboard"],
 }
 
 OUT_DIR = ROOT / "results" / "revision"

@@ -15,7 +15,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 EVAL_DIR="$ROOT"
-PYTHON_BIN="${PYTHON_BIN:-/usr/bin/python3.8}"
+PYTHON_BIN="${PYTHON_BIN:-$(command -v python3 || echo python3)}"
 RESULTS_ROOT="$EVAL_DIR/results/parallel"
 LOG_DIR="$EVAL_DIR/logs"
 BATCH_SIZE="${BATCH_SIZE:-16}"
@@ -49,7 +49,7 @@ for idx in "${!SHARD_NAMES[@]}"; do
     shard_models="${SHARD_MODELS[$idx]}"
     shard_gpu="${SHARD_GPUS[$idx]}"
     shard_results="$RESULTS_ROOT/$shard_name"
-    shard_log="$LOG_DIR/master_benchmark_${shard_name}.log"
+    shard_log="$LOG_DIR/main_clip_${shard_name}.log"
 
     mkdir -p "$shard_results"
 
@@ -63,7 +63,8 @@ for idx in "${!SHARD_NAMES[@]}"; do
             MODEL_KEYS="$shard_models" \
             BATCH_SIZE="$BATCH_SIZE" \
             RESULTS_DIR="$shard_results" \
-            bash "$EVAL_DIR/experiments/legacy/master_benchmark.sh" > "$shard_log" 2>&1
+            SINGLE_MODEL="$shard_models" "$PYTHON_BIN" "$EVAL_DIR/experiments/main_clip.py" \
+                --results_dir "$shard_results" > "$shard_log" 2>&1
     ) &
     pids+=("$!")
 done
