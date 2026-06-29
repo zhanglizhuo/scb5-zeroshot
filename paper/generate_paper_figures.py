@@ -19,32 +19,12 @@ import matplotlib.colors as mcolors
 from pathlib import Path
 
 # ── Configuration ──────────────────────────────────────────────
-import glob as _glob
-# Prefer main_clip.py output; fall back to legacy merged JSON.
-_clip_out = Path(__file__).parent.parent / "results" / "baseline" / "baseline_results.json"
-_legacy_dir = Path(__file__).parent.parent / "results" / "parallel"
-_legacy_files = sorted(_legacy_dir.glob("benchmark_final_merged_*.json"))
-if _clip_out.exists():
-    JSON_PATH = _clip_out
-    IS_LEGACY = False
-elif _legacy_files:
-    JSON_PATH = _legacy_files[-1]
-    IS_LEGACY = True
-else:
-    JSON_PATH = _legacy_dir / "benchmark_final_merged_1775830149.json"
-    IS_LEGACY = True
 OUT_DIR = Path(__file__).parent / "figures"
 OUT_DIR.mkdir(exist_ok=True)
+JSON_PATH = Path(__file__).parent.parent / "results" / "baseline" / "baseline_results.json"
 
 # Map new model keys to legacy ones for display
 _MODEL_KEY_LEGACY = {"openai": "clip", "siglip2": "siglip"}
-_MODEL_KEY_NEW = {"clip": "openai", "siglip": "siglip2"}
-_DATASET_KEY_LEGACY = {
-    "teacher_behavior": "SCB5_TeacherBehavior",
-    "handrise_readwrite": "SCB5_HandriseReadWrite",
-    "bow_turnhead": "SCB_BowTurnHead",
-}
-_DATASET_KEY_NEW = {v: k for k, v in _DATASET_KEY_LEGACY.items()}
 
 MODEL_DISPLAY = {
     "clip": "CLIP (OpenAI)",
@@ -54,6 +34,7 @@ MODEL_DISPLAY = {
     "dfn": "DFN-CLIP",
 }
 MODEL_ORDER = ["clip", "laion", "siglip", "eva02", "dfn"]
+
 PROMPT_ORDER = ["label_only", "simple", "action", "detailed", "cape"]
 PROMPT_DISPLAY = {
     "label_only": "Label-only",
@@ -64,9 +45,9 @@ PROMPT_DISPLAY = {
 }
 
 DATASET_DISPLAY = {
-    "SCB5_TeacherBehavior": "TeacherBehavior (8 classes)",
-    "SCB5_HandriseReadWrite": "HandriseReadWrite (3 classes)",
-    "SCB_BowTurnHead": "BowTurnHead (2 classes)",
+    "teacher_behavior": "TeacherBehavior (8 classes)",
+    "handrise_readwrite": "HandriseReadWrite (3 classes)",
+    "bow_turnhead": "BowTurnHead (2 classes)",
 }
 
 # Shorter class names for TeacherBehavior (handle both old/new case)
@@ -97,27 +78,20 @@ plt.rcParams.update({
 
 
 def load_data():
+    if not JSON_PATH.exists():
+        raise FileNotFoundError(
+            f"Results not found at {JSON_PATH}. "
+            "Run `reproduce_paper.sh --mode full` first, or "
+            "pass --json-path to an alternate results file."
+        )
     with open(JSON_PATH) as f:
         return json.load(f)
 
 
-def _get_ds(data, ds_key_legacy):
-    """Get dataset dict from data (handling both legacy and new format)."""
-    if IS_LEGACY:
-        return data["datasets"][ds_key_legacy]
-    new_key = _DATASET_KEY_NEW.get(ds_key_legacy, ds_key_legacy)
-    return data.get(new_key, {})
-
-
-def get_experiment(ds_data, model, prompt):
-    """Get experiment dict for a model+prompt (handling both formats)."""
-    if IS_LEGACY:
-        for exp in ds_data["experiments"]:
-            if exp["model"] == model and exp["prompt"] == prompt:
-                return exp
-        return None
-    model_key = _MODEL_KEY_NEW.get(model, model)
-    exp = ds_data.get(model_key, {}).get(prompt)
+def _as_legacy_exp(subset_dict, model, prompt):
+    """Convert new-format experiment to legacy-like dict, or None."""
+    m = _MODEL_KEY_LEGACY.get(model, model)
+    exp = subset_dict.get(m, {}).get(prompt)
     if exp is None:
         return None
     return {
@@ -126,26 +100,30 @@ def get_experiment(ds_data, model, prompt):
         "hit1": exp["hit_at_1"] * 100,
         "confusion_matrix": exp["confusion_matrix"],
         "macro_f1": exp["macro_f1"],
+        "per_class_recall": exp.get("per_class_recall", []),
     }
 
 
-def best_prompt_for_model(ds_data, model):
-    """Return the experiment with highest hit1 for a given model."""
+def get_experiment(subset_dict, model, prompt):
+    return _as_legacy_exp(subset_dict, model, prompt)
+
+
+def best_prompt_for_model(subset_dict, model):
     best = None
     for p in PROMPT_ORDER:
-        exp = get_experiment(ds_data, model, p)
+        exp = _as_legacy_exp(subset_dict, model, p)
         if exp and (best is None or exp["hit1"] > best["hit1"]):
             best = exp
     return best
 
 
 # ── Figure 1: Confusion Matrices (5 models, best prompt) ──────
-def plot_confusion_matrices(data, ds_key, filename):
-    ds = _get_ds(data, ds_key)
+def plot_confusion_matrices(data, subset_key, filename):
+    ds = data[subset_key]
     class_names = ds["class_names"]
     n_classes = len(class_names)
 
-    if ds_key == "SCB5_TeacherBehavior":
+    if subset_key == "teacher_behavior":
         short_names = [TB_SHORT.get(c, c) for c in class_names]
     else:
         short_names = class_names
@@ -183,7 +161,7 @@ def plot_confusion_matrices(data, ds_key, filename):
             ax.set_ylabel("True Label")
         ax.set_xlabel("Predicted")
 
-    fig.suptitle(DATASET_DISPLAY.get(ds_key, ds_key), fontsize=12, y=1.02)
+    fig.suptitle(DATASET_DISPLAY.get(subset_key, subset_key), fontsize=12, y=1.02)
     outpath = OUT_DIR / filename
     fig.savefig(outpath, dpi=300)
     plt.close(fig)
@@ -192,7 +170,7 @@ def plot_confusion_matrices(data, ds_key, filename):
 
 # ── Figure 2: Per-class Hit@1 for TeacherBehavior ─────────────
 def plot_per_class_hit1(data, filename="fig_per_class_teacher.pdf"):
-    ds = _get_ds(data, "SCB5_TeacherBehavior")
+    ds = data["teacher_behavior"]
     class_names = ds["class_names"]
     short_names = [TB_SHORT.get(c, c) for c in class_names]
     n_classes = len(class_names)
@@ -233,7 +211,7 @@ def plot_per_class_hit1(data, filename="fig_per_class_teacher.pdf"):
 # ── Figure 3: Prediction Distribution vs Ground Truth ─────────
 def plot_prediction_distribution(data, filename="fig_prediction_distribution.pdf"):
     """Show how each model's predictions distribute across classes vs ground truth."""
-    ds = _get_ds(data, "SCB5_TeacherBehavior")
+    ds = data["teacher_behavior"]
     class_names = ds["class_names"]
     short_names = [TB_SHORT.get(c, c) for c in class_names]
     n_classes = len(class_names)
@@ -287,12 +265,12 @@ def plot_prediction_distribution(data, filename="fig_prediction_distribution.pdf
 
 # ── Figure 4: Prompt Ablation Heatmap ─────────────────────────
 def plot_prompt_ablation_heatmap(data, filename="fig_prompt_ablation_heatmap.pdf"):
-    datasets_to_plot = ["SCB5_TeacherBehavior", "SCB5_HandriseReadWrite", "SCB_BowTurnHead"]
+    datasets_to_plot = ["teacher_behavior", "handrise_readwrite", "bow_turnhead"]
 
     fig, axes = plt.subplots(1, 3, figsize=(14.8, 5.1), constrained_layout=False)
 
-    for ax, ds_key in zip(axes, datasets_to_plot):
-        ds = _get_ds(data, ds_key)
+    for ax, subset_key in zip(axes, datasets_to_plot):
+        ds = data[subset_key]
         matrix = np.zeros((5, 5))
         for i, model_key in enumerate(MODEL_ORDER):
             for j, prompt_key in enumerate(PROMPT_ORDER):
@@ -314,7 +292,7 @@ def plot_prompt_ablation_heatmap(data, filename="fig_prompt_ablation_heatmap.pdf
                 ax.text(j, i, f"{val:.1f}", ha="center", va="center",
                         fontsize=7, fontweight="bold", color=color)
 
-        ax.set_title(DATASET_DISPLAY.get(ds_key, ds_key), fontsize=10, pad=14)
+        ax.set_title(DATASET_DISPLAY.get(subset_key, subset_key), fontsize=10, pad=14)
         cbar = plt.colorbar(im, ax=ax, shrink=0.82, pad=0.02)
         cbar.set_label("Hit@1 (%)")
 
@@ -328,7 +306,7 @@ def plot_prompt_ablation_heatmap(data, filename="fig_prompt_ablation_heatmap.pdf
 
 # ── Figure 5: CAPE Gain Visualization ─────────────────────────
 def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
-    datasets_to_plot = ["SCB5_TeacherBehavior", "SCB5_HandriseReadWrite", "SCB_BowTurnHead"]
+    datasets_to_plot = ["teacher_behavior", "handrise_readwrite", "bow_turnhead"]
     ds_short = ["Teacher", "Handrise", "BowTurn"]
 
     fig, ax = plt.subplots(figsize=(10, 4.5))
@@ -336,8 +314,8 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
     width = 0.25
     colors = ["#3498db", "#e74c3c", "#2ecc71"]
 
-    for idx, (ds_key, ds_label) in enumerate(zip(datasets_to_plot, ds_short)):
-        ds = _get_ds(data, ds_key)
+    for idx, (subset_key, ds_label) in enumerate(zip(datasets_to_plot, ds_short)):
+        ds = data[subset_key]
         gains = []
         for model_key in MODEL_ORDER:
             cape_exp = get_experiment(ds, model_key, "cape")
@@ -381,13 +359,13 @@ if __name__ == "__main__":
     _args = _ap.parse_args()
     if _args.json_path:
         JSON_PATH = Path(_args.json_path)
-        IS_LEGACY = "benchmark_final_merged" in JSON_PATH.name
 
-    print(f"Loading: {JSON_PATH}  (legacy={IS_LEGACY})")
+    print(f"Loading: {JSON_PATH}")
+    data = load_data()
     data = load_data()
 
     print("\n[1/4] Confusion matrices — TeacherBehavior")
-    plot_confusion_matrices(data, "SCB5_TeacherBehavior", "fig_confusion_matrix_teacher.pdf")
+    plot_confusion_matrices(data, "teacher_behavior", "fig_confusion_matrix_teacher.pdf")
 
     print("[2/4] Per-class recall — TeacherBehavior")
     plot_per_class_hit1(data)
