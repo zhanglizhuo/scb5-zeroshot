@@ -20,6 +20,11 @@ data/SCB5_HandriseReadWrite/
 data/SCB_BowTurnHead/
 data/cache/
 datasets_scb/
+paper/main.tex
+paper/main.tex.bak
+paper/For_Bro_Lizhuo.zip
+paper/submission0528.zip
+paper/submission0629.zip
 
 # Feature cache intermediates
 data/feature_cache/*.npy

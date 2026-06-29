@@ -14,11 +14,11 @@ Usage:
 import os
 import requests
 
-# 代理设置（示例）
-proxies = {
-        "http": "http://Clash:meO8PQ5J@192.168.1.234:7890",
-        "https": "http://Clash:meO8PQ5J@192.168.1.234:7890",
-}
+# 代理设置（如需要請取消註釋並填入你的代理）
+# proxies = {
+#         "http": "http://127.0.0.1:7890",
+#         "https": "http://127.0.0.1:7890",
+# }
 
 # Define datasets to download: (subfolder, list of (url, filename))
 datasets = {
