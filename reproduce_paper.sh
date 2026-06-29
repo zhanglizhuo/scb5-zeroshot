@@ -61,14 +61,31 @@ run_quick() {
 }
 
 run_full() {
-  echo "[STEP] Main experiment pipeline"
-  "$PYTHON_BIN" "$SCB_DIR/pipeline.py" --gpu "$GPU"
+  echo "[STEP] Download models and data (if missing)"
+  if [ ! -d "data/scb_dataset.py" ]; then
+    "$PYTHON_BIN" "$SCB_DIR/scripts/download_scb5_data.py"
+  fi
+  if [ ! -d "$SCB_DIR/ckpts" ]; then
+    "$PYTHON_BIN" "$SCB_DIR/scripts/download_models.py"
+  fi
+
+  echo "[STEP] CLIP-family benchmark (all models x prompts x subsets)"
+  "$PYTHON_BIN" "$SCB_DIR/experiments/main_clip.py"
 
   echo "[STEP] CAPE robustness"
   "$PYTHON_BIN" "$SCB_DIR/analysis/cape_robustness.py" --gpu "$GPU"
 
   echo "[STEP] Revision experiments (R1-R4)"
   "$PYTHON_BIN" "$SCB_DIR/analysis/run_revision_experiments.py" --gpu "$GPU" --exp r1 r2 r3 r4
+
+  echo "[STEP] CAPE principle ablation"
+  "$PYTHON_BIN" "$SCB_DIR/analysis/cape_principle_ablation.py"
+
+  echo "[STEP] Paired bootstrap significance test"
+  "$PYTHON_BIN" "$SCB_DIR/analysis/paired_bootstrap.py"
+
+  echo "[STEP] Linear probe supervised baseline"
+  "$PYTHON_BIN" "$SCB_DIR/analysis/linear_probe.py"
 
   echo "[STEP] Regenerate figures"
   "$PYTHON_BIN" "$PAPER_DIR/generate_paper_figures.py"

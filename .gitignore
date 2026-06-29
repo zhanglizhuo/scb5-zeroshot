@@ -1,29 +1,77 @@
-.venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
 
+# Virtual environment
+.venv/
+.venv_*/
+env/
+
+# Model checkpoints (too large for GitHub)
+ckpts/
+checkpoints/
+
+# Data (third-party, not redistributed)
 data/SCB5_TeacherBehavior/
 data/SCB5_HandriseReadWrite/
 data/SCB_BowTurnHead/
 data/cache/
+datasets_scb/
 
-# Model checkpoints and logs (too large for GitHub)
-ckpts/
+# Feature cache intermediates
+data/feature_cache/*.npy
+
+# Experiment logs
 logs/
-/results/*_runtime/
+*.log
 
 # Generated experiment figures (not paper figures)
 /figures/
+/generated/
 
 # LaTeX build artifacts
 *.aux
-*.log
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
 *.out
 *.synctex.gz
+*.xdv
 
 # Submission archives
 paper/submission*.zip
 results/paper/*.zip
 
-# Feature cache (uncompressed numpy, we use .npz)
-data/feature_cache/*.npy
+# Generated documents
+*.docx
+
+# Environment / secrets
+.env
+.envrc
+*.token
+push_instructions.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Runtime result directories (not the committed paper results)
+results/*_runtime/
+results/__pycache__/
+
+# Experimental upgrades (not part of current paper)
+Experiment_Ex/
+
+# Temp files
+tmp/

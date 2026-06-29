@@ -58,7 +58,13 @@ pip install -r requirements.txt
 
 ### Data
 
-Download SCB subsets from [HuggingFace `wintonYF/SCB-Dataset`](https://huggingface.co/datasets/wintonYF/SCB-Dataset). Expected layout:
+Download SCB subsets from [HuggingFace `wintonYF/SCB-Dataset`](https://huggingface.co/datasets/wintonYF/SCB-Dataset):
+
+```bash
+python scripts/download_scb5_data.py
+```
+
+Expected layout:
 
 ```
 data/
@@ -70,6 +76,12 @@ data/
 ### Reproduce
 
 ```bash
+# 数据下载
+python scripts/download_scb5_data.py
+
+# 模型权重下载（需网络）
+python scripts/download_models.py
+
 # Quick: regenerate figures and tables from precomputed results
 bash reproduce_paper.sh --mode quick
 
@@ -82,23 +94,27 @@ bash reproduce_paper.sh --mode full
 | Command | Purpose |
 |---------|---------|
 | `bash reproduce_paper.sh` | Canonical entry point (quick or full) |
-| `python experiments/main_clip.py` | CLIP-family benchmark (programmatic API) |
-| `python experiments/main_mllm.py` | MLLM evaluation |
-| `python analysis/paired_bootstrap.py` | Bootstrap significance test |
+| `python experiments/main_clip.py` | CLIP-family benchmark (5 models × 5 prompt strategies × 3 subsets) |
+| `python experiments/main_mllm.py` | MLLM evaluation (LLaVA, Qwen-VL, GPT-4V) |
+| `python analysis/cape_robustness.py` | CAPE prompt-count / alternate-wording robustness |
 | `python analysis/cape_principle_ablation.py` | CAPE three-principle ablation |
+| `python analysis/paired_bootstrap.py` | Bootstrap significance test |
+| `python analysis/linear_probe.py` | Supervised linear probe baseline |
+| `python analysis/llm_baselines.py` | CuPL + WaffleCLIP literature baselines |
+| `python analysis/run_revision_experiments.py` | Revision experiments R1-R4 |
 
 ## Repository Structure
 
 ```text
 scb5-zeroshot/
 ├── README.md | CITATION.cff | requirements*.txt   # Project metadata
-├── reproduce_paper.sh  | pipeline.py              # ★ Canonical entry points
-├── analysis/                                      # Core analysis (bootstrap, ablation, linear_probe, ...)
+├── reproduce_paper.sh                             # ★ Canonical entry point
+├── analysis/                                      # Core analysis (bootstrap, ablation, robustness, ...)
 ├── config/ | data/ | evaluation/ | models/        # Experiment components
-├── experiments/                                   # Runners (main_clip.py, main_mllm.py, .sh)
-├── paper/                                         # Manuscript + figures (PDF)
-├── prompts/                                       # Prompt definitions (A/B/C)
-├── scripts/                                       # Utilities (download, merge, summarize)
+├── experiments/                                   # Runners (main_clip.py, main_mllm.py, *.sh)
+├── paper/                                         # Manuscript + figures (PDF/LaTeX)
+├── prompts/                                       # Prompt definitions (A/B/C + uniform strategies)
+├── scripts/                                       # Utilities (download, setup, summarize)
 └── results/                                       # All outputs (baseline, mllm, revision, ...)
 ```
 
