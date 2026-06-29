@@ -6,7 +6,7 @@
 [![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper.pdf)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
-**Prompt Sensitivity as an Adversarial Vulnerability in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
+**Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
 
 Yan Ma, Lizhuo Zhang, and Xinjie Wu. Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning), 2026.
 
@@ -128,7 +128,7 @@ SCB data are third-party public datasets available at [HuggingFace](https://hugg
 
 ```bibtex
 @article{ma2026prompt,
-  title     = {Prompt Sensitivity as an Adversarial Vulnerability in {CLIP}-Family
+  title     = {Adversarial Prompt Sensitivity in {CLIP}-Family
                Models for Zero-Shot Classroom Behavior Analysis},
   author    = {Ma, Yan and Zhang, Lizhuo and Wu, Xinjie},
   journal   = {Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning)},
