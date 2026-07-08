@@ -164,8 +164,9 @@ def plot_confusion_matrices(data, subset_key, filename):
     fig.suptitle(DATASET_DISPLAY.get(subset_key, subset_key), fontsize=12, y=1.02)
     outpath = OUT_DIR / filename
     fig.savefig(outpath, dpi=300)
+    fig.savefig(outpath.with_suffix(".png"), dpi=300)
     plt.close(fig)
-    print(f"  Saved {outpath}")
+    print(f"  Saved {outpath} + {outpath.stem}.png")
 
 
 # ── Figure 2: Per-class Hit@1 for TeacherBehavior ─────────────
@@ -204,8 +205,9 @@ def plot_per_class_hit1(data, filename="fig_per_class_teacher.pdf"):
 
     outpath = OUT_DIR / filename
     fig.savefig(outpath, dpi=300)
+    fig.savefig(outpath.with_suffix(".png"), dpi=300)
     plt.close(fig)
-    print(f"  Saved {outpath}")
+    print(f"  Saved {outpath} + {outpath.stem}.png")
 
 
 # ── Figure 3: Prediction Distribution vs Ground Truth ─────────
@@ -259,8 +261,9 @@ def plot_prediction_distribution(data, filename="fig_prediction_distribution.pdf
     fig.suptitle("Prediction Distribution vs. Ground Truth — TeacherBehavior", fontsize=12)
     outpath = OUT_DIR / filename
     fig.savefig(outpath, dpi=300)
+    fig.savefig(outpath.with_suffix(".png"), dpi=300)
     plt.close(fig)
-    print(f"  Saved {outpath}")
+    print(f"  Saved {outpath} + {outpath.stem}.png")
 
 
 # ── Figure 4: Prompt Ablation Heatmap ─────────────────────────
@@ -300,8 +303,9 @@ def plot_prompt_ablation_heatmap(data, filename="fig_prompt_ablation_heatmap.pdf
     fig.suptitle("Prompt Ablation: Hit@1 (%) across Models and Prompt Strategies", fontsize=12, y=0.96)
     outpath = OUT_DIR / filename
     fig.savefig(outpath, dpi=300)
+    fig.savefig(outpath.with_suffix(".png"), dpi=300)
     plt.close(fig)
-    print(f"  Saved {outpath}")
+    print(f"  Saved {outpath} + {outpath.stem}.png")
 
 
 # ── Figure 5: CAPE Gain Visualization ─────────────────────────

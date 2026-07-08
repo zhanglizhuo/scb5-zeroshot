@@ -24,7 +24,7 @@ See [Quick Start](#quick-start) below for full details.
 
 ---
 
-![CAPE Hit@1 gain (pp) over each model's best baseline prompt, by sub-dataset](paper/figures/fig_cape_gain.png)
+![Prompt Ablation: Hit@1 (%) across 5 models × 5 prompt strategies on all 3 sub-datasets](paper/figures/fig_prompt_ablation_heatmap.png)
 
 ## Overview
 
