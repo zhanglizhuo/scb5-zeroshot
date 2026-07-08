@@ -24,6 +24,8 @@ See [Quick Start](#quick-start) below for full details.
 
 ---
 
+![CAPE Hit@1 gain (pp) over each model's best baseline prompt, by sub-dataset](paper/figures/fig_cape_gain-1.png)
+
 ## Overview
 
 CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 95.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings. (Figures are available as PDFs in `paper/figures/`.)

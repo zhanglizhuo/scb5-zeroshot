@@ -24,7 +24,7 @@ OUT_DIR.mkdir(exist_ok=True)
 JSON_PATH = Path(__file__).parent.parent / "results" / "baseline" / "baseline_results.json"
 
 # Map new model keys to legacy ones for display
-_MODEL_KEY_LEGACY = {"openai": "clip", "siglip2": "siglip"}
+_MODEL_KEY_LEGACY = {"clip": "openai", "siglip": "siglip2"}
 
 MODEL_DISPLAY = {
     "clip": "CLIP (OpenAI)",
@@ -345,10 +345,12 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
     ax.legend()
     ax.grid(axis="y", alpha=0.3)
 
-    outpath = OUT_DIR / filename
-    fig.savefig(outpath, dpi=300)
+    outpath_pdf = OUT_DIR / filename
+    outpath_png = OUT_DIR / filename.replace(".pdf", ".png")
+    fig.savefig(outpath_pdf, dpi=300)
+    fig.savefig(outpath_png, dpi=300)
     plt.close(fig)
-    print(f"  Saved {outpath}")
+    print(f"  Saved {outpath_pdf} + {outpath_png.name}")
 
 
 # ── Main ──────────────────────────────────────────────────────

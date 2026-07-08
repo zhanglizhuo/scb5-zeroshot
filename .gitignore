@@ -79,5 +79,10 @@ results/parallel/
 # Experimental upgrades (not part of current paper)
 Experiment_Ex/
 
+# Experiments v2 (MLLM per-image, not for Symmetry)
+experiments_v2/
+results_v2/
+logs_v2/
+
 # Temp files
 tmp/
