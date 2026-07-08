@@ -24,7 +24,7 @@ See [Quick Start](#quick-start) below for full details.
 
 ---
 
-![CAPE Hit@1 gain (pp) over each model's best baseline prompt, by sub-dataset](paper/figures/fig_cape_gain-1.png)
+![CAPE Hit@1 gain (pp) over each model's best baseline prompt, by sub-dataset](paper/figures/fig_cape_gain.png)
 
 ## Overview
 
