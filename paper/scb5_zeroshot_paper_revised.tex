@@ -28,7 +28,7 @@
 \graphicspath{{figures/}}
 
 %=================================================================
-\Title{Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis}
+\Title{Prompt Sensitivity Under Semantic Perturbations in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis}
 
 \newcommand{\orcidauthorA}{0009-0002-5071-0054}
 \newcommand{\orcidauthorB}{0009-0004-0749-3239}
@@ -49,10 +49,10 @@ $^{4}$ \quad College of Liberal Arts and Social Sciences, City University of Hon
 
 %=================================================================
 \abstract{%
-Vision--language foundation models such as CLIP are increasingly used for zero-shot behavior recognition, yet their robustness to prompt variations remains poorly understood. This paper investigates prompt sensitivity as an adversarial vulnerability in CLIP-family models for zero-shot classroom behavior analysis. Five representative vision--language models (CLIP/OpenAI, OpenCLIP/LAION, SigLIP2, EVA02-CLIP, and DFN-CLIP) are evaluated on three public classroom behavior benchmarks under a strict symmetric protocol. We compare four generic prompt strategies with a training-free Class-Aware Prompt Ensemble (CAPE), treating prompt wording as a controlled perturbation. Results show that minor prompt changes can cause catastrophic performance degradation. On SigLIP2, an alternative wording of CAPE reduces Hit@1 on TeacherBehavior from 95.5\% to 31.4\%, a 64.1 percentage-point drop that exceeds the differences between model backbones. Across all five models, action-oriented prompts improve Hit@1 by up to 54 percentage points compared with label-only prompts. We further demonstrate that the apparent superiority of zero-shot CLIP over supervised linear probes largely arises from metric asymmetry. While zero-shot methods achieve higher Hit@1, they consistently underperform linear probes in multi-label evaluation (Sample-F1: 60--66\% vs.\ 88--90\%; Macro-F1: 49--61\% vs.\ 68--78\%). Bootstrap confidence intervals and paired-bootstrap significance tests further show that several reported performance differences are not statistically significant. These findings reveal prompt sensitivity as a fundamental deployment risk for vision--language foundation models in domain-specific behavior analysis. Prompt variations involving only a few words can silently undermine recognition performance while remaining hidden by conventional evaluation metrics. We therefore recommend that future benchmark studies report prompt configurations, multi-label F1 scores, and uncertainty estimates alongside headline Hit@1 to surface rather than conceal this vulnerability.%
+Vision--language foundation models such as CLIP are increasingly used for zero-shot behavior recognition, yet their robustness to prompt variations remains poorly understood. This paper investigates prompt sensitivity as a critical robustness concern in CLIP-family models for zero-shot classroom behavior analysis, treating prompt wording as a controlled semantic perturbation. Five representative vision--language models (CLIP/OpenAI, OpenCLIP/LAION, SigLIP2, EVA02-CLIP, and DFN-CLIP) are evaluated on three public classroom behavior benchmarks under a strict symmetric protocol. We compare four generic prompt strategies with a training-free Class-Aware Prompt Ensemble (CAPE). Results show that minor prompt changes can cause catastrophic performance degradation. On SigLIP2, an alternative wording of CAPE reduces Hit@1 on TeacherBehavior from 85.5\% to 31.4\%, a 54.1 percentage-point drop that exceeds the differences between model backbones. Across all five models, action-oriented prompts improve Hit@1 by up to 54 percentage points compared with label-only prompts. We further demonstrate that the apparent superiority of zero-shot CLIP over supervised linear probes largely arises from metric asymmetry. While zero-shot methods achieve higher Hit@1, they consistently underperform linear probes in multi-label evaluation (Sample-F1: 60--66\% vs.\ 88--90\%; Macro-F1: 49--60\% vs.\ 68--78\%). Bootstrap confidence intervals and paired-bootstrap significance tests further show that several reported performance differences are not statistically significant. These findings reveal prompt sensitivity as a fundamental deployment risk for vision--language foundation models in domain-specific behavior analysis. Prompt variations involving only a few words can silently undermine recognition performance while remaining hidden by conventional evaluation metrics. We therefore recommend that future benchmark studies report prompt configurations, multi-label F1 scores, and uncertainty estimates alongside headline Hit@1 to surface rather than conceal this vulnerability.%
 }
 
-\keyword{prompt sensitivity; adversarial robustness; foundation models; zero-shot classification; CLIP; behavior analysis; vision--language models; prompt engineering; classroom activity recognition}
+\keyword{prompt sensitivity; semantic perturbation; foundation models; zero-shot classification; CLIP; behavior analysis; vision--language models; prompt engineering; classroom activity recognition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -63,23 +63,21 @@ Vision--language foundation models such as CLIP are increasingly used for zero-s
 \section{Introduction}
 \label{sec:intro}
 
-Automatic recognition of classroom teaching activities is essential for educational quality assessment, teacher professional development, and intelligent classroom analytics~\cite{brophy2000teaching,anderson2004classroom}.
-In modern smart classrooms, camera systems continuously capture teaching and learning behaviors for downstream analysis~\cite{dillenbourg2011classroom}.
-Developing robust image-based recognition pipelines---especially ones that require no task-specific training data---is a key enabler for scalable educational AI.
-Traditional approaches rely on supervised deep learning models that require large-scale labeled training data, which is expensive and time-consuming to collect in real classroom environments~\cite{liu2023survey_classroom,ma2026agentic_ai}.
+Automatic recognition of classroom teaching activities is essential for educational quality assessment and intelligent classroom analytics~\cite{brophy2000teaching,anderson2004classroom}.
+Traditional approaches rely on supervised deep learning models requiring large-scale labeled data, which is expensive and time-consuming to collect in real classroom environments~\cite{yang2020classroom,ma2026agentic_ai}.
 
-Vision--language foundation models, exemplified by CLIP (Contrastive Language--Image Pretraining)~\cite{radford2021learning}, have recently emerged as powerful tools for zero-shot visual recognition.
-By learning joint image--text representations from web-scale data, CLIP enables classification without any task-specific training---users simply provide natural language descriptions of target categories.
-Several CLIP variants have since been proposed, including OpenCLIP trained on LAION-2B~\cite{schuhmann2022laion5b}, SigLIP2~\cite{tschannen2025siglip2}, EVA02-CLIP~\cite{sun2023eva02}, and DFN-CLIP~\cite{fang2023data}, each offering different training objectives, data curation strategies, or architectural innovations.
+Vision--language foundation models, exemplified by CLIP~\cite{radford2021learning}, have recently emerged as powerful tools for zero-shot visual recognition.
+By learning joint image--text representations from web-scale data, CLIP enables classification without task-specific training---users simply provide natural language descriptions of target categories.
+Several CLIP variants have since been proposed, including OpenCLIP~\cite{cherti2023reproducible}, SigLIP2~\cite{tschannen2025siglip2}, EVA02-CLIP~\cite{sun2023eva02}, and DFN-CLIP~\cite{fang2023data}.
 
 Despite their success on general benchmarks, the applicability of CLIP-family models to fine-grained classroom activity recognition remains largely unexplored.
 Classroom activities present unique challenges: visually similar actions (e.g., ``standing'' vs.\ ``teaching''), domain-specific semantics, significant class imbalance, and inherent \emph{multi-label} structure---a single classroom image typically contains multiple concurrent activities (e.g., a teacher simultaneously lecturing, standing, and referencing a screen).
 Moreover, different classroom scenes---teacher lecturing, student individual learning, subtle micro-actions, and group discussion---pose qualitatively different recognition demands that a single dataset cannot capture.
 The \emph{prompt design}---how activity categories are described in natural language---can substantially affect zero-shot performance, yet systematic studies of prompt strategies for educational scenarios are scarce.
 
-In this study, CLIP-family models are used primarily as \emph{probes} rather than as the main methodological contribution. The main objective is to determine how prompt choice, metric choice, and backbone family change the conclusions drawn from zero-shot classroom benchmarks. Specifically, the analysis tests whether headline results remain stable once prompt wording is varied, class-balanced multi-label metrics are emphasized alongside lenient Hit@1, and multiple CLIP-family backbones are compared under a common protocol; it also examines whether TeacherBehavior remains the hardest subset because it contains semantically overlapping categories and stronger context dependence, whereas BowTurnHead and HandriseReadWrite are comparatively easier due to clearer visual boundaries.
+In this study, CLIP-family models are used primarily as \emph{probes} rather than as the main methodological contribution. The main objective is to determine how prompt choice, metric choice, and backbone family change the conclusions drawn from zero-shot classroom benchmarks. The analysis tests whether headline results remain stable once prompt wording is varied, class-balanced multi-label metrics are emphasized alongside lenient Hit@1, and multiple CLIP-family backbones are compared under a common protocol. It also examines whether TeacherBehavior remains the hardest subset because it contains semantically overlapping categories and stronger context dependence, whereas BowTurnHead and HandriseReadWrite are comparatively easier due to clearer visual boundaries.
 
-A key observation motivating this study is that prompt-space perturbations expose an \emph{adversarial-like vulnerability} in CLIP-family models. Unlike conventional adversarial attacks that perturb pixel values, the perturbations studied here operate entirely in the text input space: minor rephrasing of category descriptions---without any change to model weights, architecture, or image inputs---can silently collapse recognition performance by tens of percentage points. This form of \emph{semantic perturbation} is particularly relevant to real-world behavior analysis deployments, where practitioners craft prompts without access to the test distribution and where performance degradation may go undetected if only lenient metrics such as Hit@1 are reported. Robustness under controlled input perturbations is a central concern in the security evaluation of LLMs and AI agents~\cite{zhou2025security_llm,deng2025ai_agents}; this work applies the same principle to the prompt space of vision--language models in a behavior analysis context, revealing that current CLIP-family models lack robustness to text-domain perturbations of practically trivial magnitude.
+A key observation motivating this study is that prompt-space perturbations expose a \emph{critical robustness gap} in CLIP-family models. Unlike conventional input perturbations studied in adversarial robustness research, which typically perturb pixel values, the perturbations studied here operate entirely in the text input space: minor rephrasing of category descriptions---without any change to model weights, architecture, or image inputs---can silently collapse recognition performance by tens of percentage points. This form of \emph{semantic perturbation} is particularly relevant to real-world behavior analysis deployments, where practitioners craft prompts without access to the test distribution and where performance degradation may go undetected if only lenient metrics such as Hit@1 are reported. Robustness under controlled input perturbations is a central concern in the evaluation of LLMs and AI agents~\cite{zhou2025security_llm,deng2025ai_agents}; this work applies the same principle to the prompt space of vision--language models in a behavior analysis context, revealing that current CLIP-family models lack robustness to text-domain perturbations of practically trivial magnitude.
 
 This study makes three contributions:
 
@@ -96,6 +94,69 @@ This study makes three contributions:
 \noindent\textit{Metric note.} Throughout this paper, Hit@1 denotes multi-label top-1 accuracy: a prediction $\hat{y}$ is correct if it matches any label in the ground-truth set $G_i$, i.e., $\hat{y}_i \in G_i$. This is a lenient metric on multi-label data; formal definitions of all metrics appear in \Cref{sec:eval_protocol}.
 
 \noindent\textit{Scope note.} This study focuses on culturally grounded classroom scenarios within the SCB5 dataset, which provides a controlled setting for analyzing prompt behavior in vision--language models. The goal is not to claim universal generalization, but to offer an empirical reference point for understanding how prompt design and evaluation protocol interact under structured, domain-specific conditions.
+
+
+%=================================================================
+% 2. Related Work
+%=================================================================
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Classroom Activity Recognition}
+
+Classroom activity recognition has been studied through various modalities including video~\cite{whitehill2014automated}, audio~\cite{donnelly2017automatic}, and sensor data~\cite{dillenbourg2011classroom}.
+Recent deep learning approaches have achieved promising results using convolutional neural networks (CNNs) and transformers for image- and video-based recognition~\cite{zhang2020classroom_cnn,nguyen2023transformer}.
+However, these methods require extensive labeled data and are constrained to predefined category sets, limiting their adaptability to new educational contexts.
+
+Recently, Zhang et al.~\cite{zhang2026silhouette} proposed a multi-scale temporal difference unit for silhouette-based gait recognition on the CASIA-B dataset, achieving Rank-1 accuracies of 97.7\%, 94.6\%, and 80.0\% under normal, bag, and coat conditions, respectively.
+
+\subsection{Vision--Language Models}
+
+CLIP~\cite{radford2021learning} pioneered contrastive vision--language pretraining, enabling zero-shot transfer by matching images to natural language descriptions.
+OpenCLIP~\cite{cherti2023reproducible} reproduced and extended CLIP training on open datasets such as LAION-2B~\cite{schuhmann2022laion5b} and LAION-400M.
+SigLIP2~\cite{tschannen2025siglip2} builds on the sigmoid contrastive loss introduced by SigLIP~\cite{zhai2023sigmoid}, improving multilingual and dense feature capabilities. It was trained on the WebLI dataset.
+More recently, EVA02-CLIP~\cite{sun2023eva02} introduced masked image modeling as a pre-training auxiliary task and reported strong performance among open-source CLIP models, while DFN-CLIP~\cite{fang2023data} demonstrated that aggressive data filtering on large web-crawled corpora can substantially improve zero-shot transfer.
+These models have been applied to diverse domains including medical imaging~\cite{wang2022medclip}, remote sensing~\cite{liu2024remoteclip}, and action recognition~\cite{wang2021actionclip}, but their application to classroom scenarios remains limited~\cite{zhou2025security_llm}. Recent work has also investigated zero-shot generalization and robustness of multi-modal models through prompt self-consistency and label hierarchy augmentation~\cite{ge2023improving}.
+
+\subsection{Prompt Engineering for CLIP}
+
+The sensitivity of CLIP to prompt design has been widely documented.
+CoOp~\cite{zhou2022learning} and CoCoOp~\cite{zhou2022conditional} learn continuous prompt embeddings to improve few-shot transfer.
+The original CLIP paper~\cite{radford2021learning} also introduced prompt ensembling, which averages predictions across multiple handcrafted prompts to improve zero-shot transfer.
+More recently, CuPL~\cite{pratt2023cupl} generates class-specific descriptions via a large language model (GPT-3) and uses them as zero-shot prompt ensembles, while WaffleCLIP~\cite{roth2023waffleclip} shows that even random descriptors concatenated to class names can match hand-crafted prompts in zero-shot transfer.
+Both methods share CAPE's principle of class-specific prompt aggregation, but differ in prompt source: CuPL relies on LLM-generated text, WaffleCLIP on random strings, and CAPE on manually authored, visually grounded descriptions tailored to a specific domain~\cite{deng2025ai_agents,deng2025deepseek}.
+This study focuses on the zero-shot setting with manually designed prompts, systematically studying how prompt semantics affect performance in a domain-specific educational context.
+By including a blind-prompt control (Set~C, \Cref{sec:e9_blind}) written without viewing dataset images---analogous to a na\"ive LLM prompt baseline---this study provides an empirical anchor for comparing CAPE against domain-agnostic prompt generation strategies.
+
+\Cref{tab:prompt_methods_comparison} summarizes the key differences between existing prompt-engineering methods and the present study.
+Unlike the majority of prior work that proposes learnable or generative prompt methods for general-domain zero-shot transfer, the present study focuses on a rigorous empirical characterization of prompt sensitivity in a specific domain (classroom behavior analysis), treating prompt perturbation as the analytical variable rather than proposing a new prompt optimization algorithm.
+
+\begin{table}[H]
+\caption{Comparison of representative prompt-engineering methods for vision--language models. ``Manual'' prompts are handcrafted; ``learned'' prompts are optimized via gradient descent; ``generated'' prompts are produced by an LLM.}
+\label{tab:prompt_methods_comparison}
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{p{2.2cm} p{1.6cm} c c p{2.0cm} p{2.4cm}}
+\toprule
+\textbf{Method} & \textbf{Prompt source} & \textbf{Training required} & \textbf{Zero-shot?} & \textbf{Domain specific?} & \textbf{Key limitation addressed by this study} \\
+\midrule
+CoOp~\cite{zhou2022learning} & Learned & Yes & No & No & Requires few-shot labels; not applicable in fully zero-shot settings \\
+CoCoOp~\cite{zhou2022conditional} & Learned & Yes & Conditional & No & Conditioned on image input; still requires training data \\
+CuPL~\cite{pratt2023cupl} & LLM-generated & No & Yes & No & LLM-generated descriptions may lack domain-specific visual grounding \\
+WaffleCLIP~\cite{roth2023waffleclip} & Random strings & No & Yes & No & Random tokens lack semantic interpretability and may fail on fine-grained categories \\
+CLIP prompt ensemble~\cite{radford2021learning} & Manual & No & Yes & No & Uniform across all classes; does not exploit class-specific semantics \\
+\textbf{CAPE (this study)} & \textbf{Manual + domain knowledge} & \textbf{No} & \textbf{Yes} & \textbf{Yes} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%=================================================================
+% 3. Method
+%=================================================================
+\section{Materials and Methods}
+\label{sec:method}
 
 \begin{figure}[H]
 \centering
@@ -124,27 +185,27 @@ This study makes three contributions:
 \node[stagelabel, anchor=east] at ( 7.90, -3.75) {Class Prototypes \& Similarity};
 \node[stagelabel, anchor=east] at (10.30, -6.70) {Evaluation Outputs};
 
-% Row 1: datasets (centered around x = 2.50)
+% Row 1: datasets
 \node[data] at (-1.00, 0.00) (ds1) {TeacherBehavior\\(8 classes)};
 \node[data] at ( 2.50, 0.00) (ds2) {HandriseReadWrite\\(3 classes)};
 \node[data] at ( 6.00, 0.00) (ds3) {BowTurnHead\\(2 classes)};
 \node[font=\footnotesize\bfseries] at (2.50, 0.95) {Public Multi-Scene SCB Benchmark};
 
-% Row 2: image encoder (right) + prompt strategies (left)
+% Row 2
 \node[model] at ( 2.50, -1.95) (imgenc) {Image Encoder $f_{\text{img}}$\\(ViT-Large backbone)};
 \node[font=\scriptsize, text=black!60] at (2.50, -2.85) (modlabel)
     {CLIP / OpenCLIP / SigLIP2 / EVA02 / DFN};
 \node[proc] at (-2.20, -1.95) (prompts)
     {Prompt strategy\\\textsc{label-only} / \textsc{simple} / \textsc{action} /\\\textsc{detailed} / \textbf{CAPE}};
 
-% Row 3: text encoder, CAPE averaging, cosine similarity
+% Row 3
 \node[model] at (-2.20, -3.85) (txtenc) {Text Encoder $f_{\text{text}}$};
 \node[proc, font=\scriptsize] at (-2.20, -5.40) (capeNode)
     {\textbf{CAPE}: per-class prompt averaging\\$\mathbf{t}_c = \frac{1}{|P_c|}\sum_{p\in P_c} f_{\text{text}}(p)$};
 \node[proc]  at ( 2.50, -4.85) (sim)
     {Cosine similarity\\$\mathrm{sim}(\mathbf{v},\mathbf{t}_c)$};
 
-% Row 4: outputs
+% Row 4
 \node[result] at ( 2.50, -7.10) (pred) {$\hat{y}=\arg\max_{c}\;\mathrm{sim}(\mathbf{v},\mathbf{t}_c)$};
 \node[result] at ( 2.50, -8.50) (metrics) {Hit@1 / Hit@3 / Macro-F1\\Sample-F1 / Micro-F1 (Teacher)};
 \node[result, text width=3.45cm] at ( 8.00, -8.50) (xcf)
@@ -154,60 +215,19 @@ This study makes three contributions:
 \draw[arr] (ds1.south) -- ++(0,-0.30) -| (imgenc.north);
 \draw[arr] (ds2.south) -- (imgenc.north);
 \draw[arr] (ds3.south) -- ++(0,-0.30) -| (imgenc.north);
-
 \draw[arr] (imgenc.south) -- node[right, font=\scriptsize]{$\mathbf{v}$} (sim.north);
-
 \draw[arr] (prompts.south) -- (txtenc.north);
 \draw[arr] (txtenc.east) to[out=0, in=180] (sim.west);
 \draw[arr,dashed] (txtenc.south) -- (capeNode.north);
 \draw[arr,dashed] (capeNode.east) to[out=0, in=205] (sim.west);
-
 \draw[arr] (sim.south) -- (pred.north);
 \draw[arr] (pred.south) -- (metrics.north);
 \draw[arr] (metrics.east) -- (xcf.west);
 \end{tikzpicture}%
 }
-\caption{Overview of the evaluation pipeline. Classroom images from three public SCB sub-datasets are encoded by one of five CLIP-family vision encoders to obtain image features $\mathbf{v}$. On the text side, one of five prompt strategies is applied. For the four single-prompt strategies (\textsc{label-only} / \textsc{simple} / \textsc{action} / \textsc{detailed}), the class prototype $\mathbf{t}_c$ is the text encoding of the single prompt $p_c$. For the \textbf{CAPE} strategy, $\mathbf{t}_c$ is the mean of the text encodings of the three class-aware prompts in $P_c$; the dashed-style branch through the \textbf{CAPE} block is therefore one of the five prompt strategies, not an additional module. Classification uses cosine similarity followed by argmax; evaluation reports Hit@1/Hit@3 and multi-label F1 metrics on TeacherBehavior. Cross-family and cross-prompt validation (\Cref{sec:e11_ex}) extends the analysis with MLLM references and an EVA02 best-prompt comparison.}
+\caption{Overview of the evaluation pipeline. Classroom images from three public SCB sub-datasets are encoded by one of five CLIP-family vision encoders to obtain image features $\mathbf{v}$. On the text side, one of five prompt strategies is applied. For the four single-prompt strategies (\textsc{label-only} / \textsc{simple} / \textsc{action} / \textsc{detailed}), the class prototype $\mathbf{t}_c$ is the text encoding of the single prompt $p_c$. For the \textbf{CAPE} strategy, $\mathbf{t}_c$ is the mean of the text encodings of the three class-aware prompts in $P_c$. Classification uses cosine similarity followed by argmax; evaluation reports Hit@1/Hit@3 and multi-label F1 metrics on TeacherBehavior. Cross-family and cross-prompt validation (\Cref{sec:e11_ex}) extends the analysis with MLLM references and an EVA02 best-prompt comparison.}
 \label{fig:framework}
 \end{figure}
-
-
-%=================================================================
-% 2. Related Work
-%=================================================================
-\section{Related Work}
-\label{sec:related}
-
-\subsection{Classroom Activity Recognition}
-
-Classroom activity recognition has been studied through various modalities including video~\cite{whitehill2014automated}, audio~\cite{donnelly2017automatic}, and sensor data~\cite{dillenbourg2011classroom}.
-Recent deep learning approaches have achieved promising results using convolutional neural networks (CNNs) and transformers for image- and video-based recognition~\cite{zhang2020classroom_cnn,li2022classroom_transformer}.
-However, these methods require extensive labeled data and are constrained to predefined category sets, limiting their adaptability to new educational contexts.
-
-\subsection{Vision--Language Models}
-
-CLIP~\cite{radford2021learning} pioneered contrastive vision--language pretraining, enabling zero-shot transfer by matching images to natural language descriptions.
-OpenCLIP~\cite{cherti2023reproducible} reproduced and extended CLIP training on open datasets such as LAION-2B~\cite{schuhmann2022laion5b} and LAION-400M.
-SigLIP2~\cite{tschannen2025siglip2} builds on the sigmoid contrastive loss introduced by SigLIP~\cite{zhai2023sigmoid}, improving multilingual and dense feature capabilities. It was trained on the WebLI dataset.
-More recently, EVA02-CLIP~\cite{sun2023eva02} introduced masked image modeling as a pre-training auxiliary task and reported strong performance among open-source CLIP models, while DFN-CLIP~\cite{fang2023data} demonstrated that aggressive data filtering on large web-crawled corpora can substantially improve zero-shot transfer.
-These models have been applied to diverse domains including medical imaging~\cite{wang2022medclip}, remote sensing~\cite{liu2024remoteclip}, and action recognition~\cite{wang2021actionclip}, but their application to classroom scenarios remains limited~\cite{zhou2025security_llm}.
-
-\subsection{Prompt Engineering for CLIP}
-
-The sensitivity of CLIP to prompt design has been widely documented.
-CoOp~\cite{zhou2022learning} and CoCoOp~\cite{zhou2022conditional} learn continuous prompt embeddings to improve few-shot transfer.
-The original CLIP paper~\cite{radford2021learning} also introduced prompt ensembling, which averages predictions across multiple handcrafted prompts to improve zero-shot transfer.
-More recently, CuPL~\cite{pratt2023cupl} generates class-specific descriptions via a large language model (GPT-3) and uses them as zero-shot prompt ensembles, while WaffleCLIP~\cite{roth2023waffleclip} shows that even random descriptors concatenated to class names can match hand-crafted prompts in zero-shot transfer.
-Both methods share CAPE's principle of class-specific prompt aggregation, but differ in prompt source: CuPL relies on LLM-generated text, WaffleCLIP on random strings, and CAPE on manually authored, visually grounded descriptions tailored to a specific domain~\cite{deng2025ai_agents,deng2025deepseek}.
-This study focuses on the zero-shot setting with manually designed prompts, systematically studying how prompt semantics affect performance in a domain-specific educational context.
-By including a blind-prompt control (Set~C, \Cref{sec:e9_blind}) written without viewing dataset images---analogous to a na\"ive LLM prompt baseline---this study provides an empirical anchor for comparing CAPE against domain-agnostic prompt generation strategies.
-
-
-%=================================================================
-% 3. Method
-%=================================================================
-\section{Materials and Methods}
-\label{sec:method}
 
 \subsection{Multi-Scene Classroom Activity Benchmark}
 \label{sec:dataset}
@@ -356,7 +376,7 @@ CAPE assigns a tailored set of $K=3$ prompts to each class, following three desi
     \item \textbf{Semantic diversity.} The three prompts per class cover complementary perspectives---viewpoint (``standing at the front''), action (``gesturing while talking''), and context (``interacting with students at the podium'')---so that the averaged embedding spans a richer region of the shared feature space.
     \item \textbf{Discriminative contrast.} Prompts are drafted to highlight \emph{between-class} differences rather than within-class variability. For instance, ``screen'' prompts emphasize digital media to distinguish from ``blackboard-writing'' prompts that emphasize chalk.
 \end{enumerate}
-Importantly, CAPE prompts are designed once per class label and reused across all sub-datasets, models, and scene types without per-dataset tuning~\cite{deng2025hardening_llm}.
+CAPE prompts are designed once per class label and reused across all sub-datasets, models, and scene types without per-dataset tuning.
 Representative examples include ``a teacher writing on a blackboard with chalk'' (blackboard-writing), ``a teacher pointing at a projection screen'' (screen), and ``a student turning their head to look sideways'' (turn-head). The full prompt lists are provided in the project release package.
 
 For inference, the text embedding for class $c$ is computed as the L2-normalized mean of all prompt embeddings assigned to that class:
@@ -371,7 +391,21 @@ The predicted class for an image with L2-normalized feature $\mathbf{v}$ is:
 where the dot product equals cosine similarity because both $\mathbf{v}$ and $\mathbf{t}_c$ are L2-normalized.
 
 CAPE requires no training, no additional data, and no model modification---only carefully designed class-specific prompt sets.
+The supervised linear probe experiments reported in \Cref{sec:e7_linear_probe} are independent baselines that use the SCB training splits for supervised classifier training; they do not modify or supplement the CAPE procedure, which remains fully zero-shot.
 \Cref{alg:cape} summarizes the complete inference procedure.
+
+\subsubsection{Prompt Design Protocol}
+\label{sec:prompt_protocol}
+
+All prompts were designed according to a fixed three-stage protocol to prevent data-dependent overfitting:
+
+\begin{enumerate}
+    \item \textbf{Class-name expansion (Set~C, blind).} Starting from raw category labels (e.g., ``guide,'' ``hand-raise,'' ``bow-head''), a set of generic descriptive prompts was written using only the semantic definition of each class name, without viewing any dataset images or consulting the dataset distribution. This set (Set~C, evaluated in \Cref{sec:e9_blind}) simulates what a third party---or a language model given only the class list---would produce. It provides a baseline for evaluating whether domain-specific prompt design adds measurable value.
+    \item \textbf{Domain-knowledge grounding (Set~A, CAPE).} Using general educational domain knowledge (standard classroom layouts, common teaching activities, typical student postures) rather than dataset-specific image statistics, three prompts per class were written following the CAPE design principles of visual grounding, semantic diversity, and discriminative contrast (\Cref{sec:cape}). For example, the prompts for ``blackboard-writing'' emphasize chalk, hand motion, and board surfaces---visual features that are definitional to the activity in any classroom setting, not features specific to the SCB dataset.
+    \item \textbf{Independent rewording (Set~B).} A second author independently rewrote the full CAPE prompt set (Set~B) following the same three design principles but choosing different phrasings, without cross-referencing Set~A. Set~B is used exclusively as a robustness probe (\Cref{sec:e4_robustness}). Set~A and Set~B are not compared to select a ``better'' prompt; the comparison measures wording-induced variance, not prompt quality.
+\end{enumerate}
+
+\noindent\textbf{No prompt wording was modified after observing any experimental result.} The three prompt sets were frozen before the first model was evaluated. All results reported in this paper are based on these pre-registered prompt sets. The only post-hoc selection is the \emph{choice of which prompt strategy} to report as the best per model--subset combination (e.g., CAPE vs.\ action vs.\ label-only), which is explicitly labeled as an optimistic upper bound (``best prompt selected post hoc'') throughout the paper and discussed as a source of optimistic bias in \Cref{sec:threats_validity}.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -379,16 +413,16 @@ CAPE requires no training, no additional data, and no model modification---only 
 \KwIn{Image set $\mathcal{X}$; class set $\mathcal{C}=\{c_1,\dots,c_K\}$; per-class prompt sets $\{P_{c_1},\dots,P_{c_K}\}$; vision encoder $f_{\text{img}}$; text encoder $f_{\text{text}}$}
 \KwOut{Predicted label $\hat{y}_i$ for each image $x_i$}
 \BlankLine
-\tcp{Stage 1: Compute class-aware text embeddings (offline)}
+\tcp{Stage 1: Precompute class-aware text embeddings (offline, executed once before inference)}
 \For{each class $c \in \mathcal{C}$}{
-    $\tilde{\mathbf{t}}_c \leftarrow \frac{1}{|P_c|} \sum_{p \in P_c} f_{\text{text}}(p)$ \tcp*{mean-pool prompt embeddings}
-    $\mathbf{t}_c \leftarrow \ell_2\!\bigl(\tilde{\mathbf{t}}_c\bigr)$ \tcp*{L2-normalize}
+    $\tilde{\mathbf{t}}_c \leftarrow \frac{1}{|P_c|} \sum_{p \in P_c} f_{\text{text}}(p)$ \tcp*{Step 1 --- mean-pool: average the $|P_c|$ prompt embeddings for class~$c$ to obtain a single class prototype $\tilde{\mathbf{t}}_c$}
+    $\mathbf{t}_c \leftarrow \ell_2\!\bigl(\tilde{\mathbf{t}}_c\bigr)$ \tcp*{Step 2---L2-normalize: project the composite prototype onto the unit hypersphere ($\|\mathbf{t}_c\|=1$), ensuring that subsequent dot products are equivalent to cosine similarities}
 }
 \BlankLine
-\tcp{Stage 2: Zero-shot classification (per image)}
+\tcp{Stage 2: Zero-shot classification (per image, executed at inference time)}
 \For{each image $x_i \in \mathcal{X}$}{
-    $\mathbf{v}_i \leftarrow \ell_2\!\bigl(f_{\text{img}}(x_i)\bigr)$ \tcp*{encode \& normalize}
-    $\hat{y}_i \leftarrow \arg\max_{c \in \mathcal{C}} \; \mathbf{v}_i^{\!\top} \mathbf{t}_c$ \tcp*{cosine similarity}
+    $\mathbf{v}_i \leftarrow \ell_2\!\bigl(f_{\text{img}}(x_i)\bigr)$ \tcp*{Step 3---Encode image: extract the L2-normalized visual feature $\mathbf{v}_i$ via the vision encoder}
+    $\hat{y}_i \leftarrow \arg\max_{c \in \mathcal{C}} \; \mathbf{v}_i^{\!\top} \mathbf{t}_c$ \tcp*{Step 4---Classify: compute cosine similarity $\mathbf{v}_i^{\!\top} \mathbf{t}_c$ between the image feature and each class prototype; select the class $c$ with the highest similarity as the predicted label}
 }
 \Return{$\{\hat{y}_i\}$}
 \caption{CAPE: Class-Aware Prompt Ensemble Inference}
@@ -401,10 +435,13 @@ CAPE requires no training, no additional data, and no model modification---only 
 \subsection{Evaluation Protocol}
 \label{sec:eval_protocol}
 
+\paragraph{Metric selection rationale.}
+We report Hit@1 and multi-label F1 as the primary metrics, rather than a full precision--recall suite (TP/TN/FP/FN per class) or confusion-matrix--based error rates, for three reasons. First, Hit@1 is the most commonly reported metric in the zero-shot CLIP literature~\cite{radford2021learning,cherti2023reproducible}, so reporting it enables direct comparison with prior work. Second, on multi-label data, Hit@1 alone is insufficient because it rewards predicting any high-prevalence co-occurring label; the multi-label Sample-F1 and Macro-F1 metrics provide the class-discriminative view that Hit@1 obscures, and we report both. Third, bootstrap confidence intervals (\Cref{tab:bootstrap_ci}) and paired-bootstrap significance tests (\Cref{tab:paired_bootstrap}) quantify sampling uncertainty rather than relying on point estimates alone. Confusion matrices (\Cref{fig:cm_teacher}) are retained as a visual per-class diagnostic but are not used as the primary evaluation tool, because on multi-label data a forced primary-label confusion matrix reflects the label-assignment rule rather than model quality.
+
 Because the SCB5 dataset is inherently multi-label (each image may contain multiple activity annotations) while CLIP produces a single class prediction, a primary multi-label evaluation and an auxiliary single-label diagnostic evaluation are defined:
 
 \paragraph{Multi-label Hit@1 (Hit@1).}
-The model's top-1 prediction is considered correct if it matches \emph{any} ground-truth label of the image.
+Hit@1 is an evaluation metric, not a loss function; CAPE involves no training and therefore has no loss function. The model's top-1 prediction is considered correct if it matches \emph{any} ground-truth label of the image.
 Formally, for an image with ground-truth label set $G$ and top-1 prediction $\hat{y}$:
 \begin{equation}
 \text{Hit@1} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{1}[\hat{y}_i \in G_i]
@@ -436,7 +473,7 @@ For the Ollama-based models used in the reported comparisons—Ollama supports a
 
 \subsection{Experimental Setup}
 
-All experiments are conducted on four NVIDIA Tesla V100-32GB GPUs using PyTorch 2.0.1 and the OpenCLIP library~\cite{cherti2023reproducible} (version 2.24.0, CUDA 11.8). Exact package versions, model checksum hashes, and the \_V100 FP16 precision configuration are recorded in \texttt{requirements.txt} and \texttt{README.md} of the release package.
+All experiments are conducted on four NVIDIA Tesla V100-32GB GPUs using Python 3.11, PyTorch 2.0.1, and the OpenCLIP library~\cite{cherti2023reproducible} (version 2.24.0, CUDA 11.8). Key additional libraries include: scikit-learn (linear probe classifiers and evaluation metrics), NumPy (numerical operations), Pandas (data processing), Pillow (image I/O), and tqdm (progress tracking). MLLM baselines are evaluated through the Ollama inference server (version 0.5.x). Exact package versions, model checksum hashes, and the V100 FP16 precision configuration are recorded in \texttt{requirements.txt} and \texttt{README.md} of the release package.
 Models are loaded with pretrained weights and evaluated in a fully zero-shot setting (no fine-tuning).
 The five models are distributed across four GPUs and evaluated in parallel on all three benchmark sub-datasets.
 For each image, the model computes cosine similarity between the image embedding and all class text embeddings, and the class with the highest similarity is selected as the prediction.
@@ -686,7 +723,7 @@ To move beyond aggregate Hit@1, per-class prediction patterns are analyzed using
 \label{fig:cm_teacher}
 \end{figure}
 
-The confusion matrices reveal a consistent failure mode: all five models collapse predictions toward the ``teacher'' and ``stand'' classes, which have the highest base rates (45.0\% and 5.2\% of labels, respectively, but appear in $>$97\% of images as co-occurring labels).
+The confusion matrices reveal a consistent failure mode: all five models collapse predictions toward the ``teacher'' and ``stand'' classes, which have the highest base rates (45.0\% and 5.2\% of labels, respectively, but appear in over 92\% of images as co-occurring labels).
 Minority classes such as ``screen'' (0.7\%) and ``blackboard'' (1.2\%) are almost never predicted, explaining the $<$14.5\% macro~F1 despite $>$84\% Hit@1.
 
 \begin{figure}[H]
@@ -785,7 +822,7 @@ To quantify statistical reliability on small datasets, 95\% bootstrap confidence
 
 On BowTurnHead (505 images), the bootstrap intervals are reported on the stricter \emph{single-label primary accuracy} (the majority floor of which is 63.37\%), and the 95\% CI widths range from 7 to 9~pp with substantial overlap between models. For example, CLIP achieves 63.4\% [59.4, 67.3] while DFN-CLIP achieves 68.3\% [64.6, 72.1]---the intervals overlap, indicating \textbf{no statistically significant difference} at the 95\% level. The corresponding multi-label Hit@1 figures in \Cref{tab:main_results} (89.50\% / 93.27\%) sit just $\sim$0--3~pp above the multi-label majority floor of 90.69\%; \textbf{the headline ranking on this subset should therefore be read as a small effect on top of a near-saturated lenient metric}, not as a strong cross-model gap. Similarly, on TeacherBehavior, SigLIP2 (85.5\% [84.4, 86.7]) and CLIP (84.1\% [83.0, 85.4]) show overlapping CIs despite a nominal 1.4~pp gap.
 
-On HandriseReadWrite, CIs are narrower ($\sim$5~pp width) due to the larger sample size, and model differences are somewhat more reliable, though all CAPE Hit@1 values cluster between 56--61\%.
+On HandriseReadWrite, CIs are narrower ($\sim$5~pp width) due to the larger sample size, and model differences are somewhat more reliable, though all CAPE single-label accuracy values cluster between 56--61\%.
 
 \paragraph{Paired-bootstrap significance test.} Marginal CIs are conservative for cross-model comparison because the same images are scored by every backbone. \Cref{tab:paired_bootstrap} therefore reports a \emph{paired} bootstrap (5000 resamples with replacement, two-sided, seed 42) on the per-sample CAPE Hit@1 indicators, computed directly from the released CAPE logits caches (\texttt{data/feature\_cache/}) for the three backbones with full-coverage caches (CLIP/OpenAI, DFN-CLIP, SigLIP2). OpenCLIP (LAION) and EVA02-CLIP are excluded from the paired test because their per-sample CAPE logits caches were not fully cached across all three sub-datasets at the time of this release. Their marginal 95\% CIs are still reported in \Cref{tab:bootstrap_ci} and support the same qualitative conclusions. All five models participate in the marginal bootstrap analysis; the paired test is therefore an illustrative complement to---not a replacement for---the marginal CIs. Three observations follow. (i) On TeacherBehavior, OpenAI vs.\ SigLIP2 is \emph{not} significant ($p=0.089$), confirming the visual CI overlap; both are clearly different from DFN-CLIP ($p<10^{-3}$). (ii) On BowTurnHead, OpenAI vs.\ DFN is paired-significant ($\Delta=-4.75$~pp, 95\% CI $[-7.5,-2.2]$, $p<10^{-3}$) even though the marginal CIs in \Cref{tab:bootstrap_ci} overlap, illustrating that overlapping marginal CIs do not imply paired non-significance. (iii) On HandriseReadWrite, OpenAI vs.\ SigLIP2 is significant ($p=0.006$) but the effect size is small ($\Delta=1.7$~pp). These results refine the conservative ranking statements made elsewhere in the paper without changing any qualitative conclusion.
 
@@ -876,7 +913,7 @@ The data show a methodological issue. On TeacherBehavior, Set~C achieves $\sim$9
 
 Conversely, on HandriseReadWrite and BowTurnHead---where multi-label inflation is absent---Set~C is usually weaker than the domain-aware prompts and does not show a stable advantage across models or metrics, confirming that \textbf{domain-aware prompt design (CAPE) provides genuine value for fine-grained activity discrimination}. The blind set lacks the visual grounding and discriminative contrast that CAPE's design principles provide.
 
-This analysis also serves as a cautionary note: \textbf{Hit@1 alone is insufficient for evaluating prompts on multi-label data.} Future work should pair Hit@1 with class-discriminative metrics (Macro-F1, per-class recall) to avoid rewarding degenerate predictions that exploit label co-occurrence.
+This analysis is also a cautionary note: \textbf{Hit@1 alone is insufficient for evaluating prompts on multi-label data.} Future work should pair Hit@1 with class-discriminative metrics (Macro-F1, per-class recall) to avoid rewarding degenerate predictions that exploit label co-occurrence.
 
 
 \subsubsection{E10: Multi-Label Evaluation}
@@ -1050,7 +1087,7 @@ HandriseReadWrite shows a different pattern: alternate Set~B wording often outpe
 The TeacherBehavior sub-dataset reveals a large evaluation gap: best Hit@1 reaches 85.56\% while single-label macro~F1 stays below 14.5\%.
 This gap arises from the lenient multi-label criterion---any co-occurring label counts as correct---combined with the lossy primary-label reduction that creates severe class imbalance (\Cref{sec:eval_protocol,sec:e10_multilabel}). The metric discrepancy is specific to multi-label scenarios and not an inherent limitation of zero-shot models.
 
-The multi-label evaluation in \Cref{sec:e10_multilabel} offers a more informative alternative: at $\tau=0.20$, Sample-F1 reaches 64--66\% and Macro-F1 reaches 55--60\%, providing a more faithful assessment of class-discriminative ability. Importantly, EVA02-CLIP achieves the highest Macro-F1 (60.50\%) despite ranking third in Hit@1---evidence that Hit@1 rankings can be misleading on multi-label data.
+The multi-label evaluation in \Cref{sec:e10_multilabel} offers a more informative alternative: at $\tau=0.20$, Sample-F1 reaches 64--66\% and Macro-F1 reaches 55--60\%, providing a more faithful assessment of class-discriminative ability. EVA02-CLIP achieves the highest Macro-F1 (60.50\%) despite ranking third in Hit@1---evidence that Hit@1 rankings can be misleading on multi-label data.
 
 \subsection{Supervised Baselines Contextualize Zero-Shot Value}
 \label{sec:discuss_linear_probe}
@@ -1069,7 +1106,7 @@ The bootstrap confidence intervals and paired tests (\Cref{sec:e8_bootstrap}) re
 
 \subsection{Implications for Intelligent Classroom Systems}
 
-The findings carry concrete implications for practitioners deploying activity recognition in real educational environments. Zero-shot CLIP-family models require no annotated classroom data and can be deployed immediately on edge inference hardware~\cite{ma2026agentic_ai} (e.g., campus SoC camera modules), making them attractive for resource-constrained settings. Critically, prompt strategies can be updated at inference time without retraining, which aligns well with the update constraints of low-power embedded systems where re-deploying a fine-tuned model is costly.
+The findings carry concrete implications for practitioners deploying activity recognition in real educational environments. Zero-shot CLIP-family models require no annotated classroom data and can be deployed immediately on edge inference hardware~\cite{ma2026agentic_ai} (e.g., campus SoC camera modules), making them attractive for resource-constrained settings. Prompt strategies can be updated at inference time without retraining, which aligns well with the update constraints of low-power embedded systems where re-deploying a fine-tuned model is costly.
 
 The present finding that richer prompts do not always improve performance provides direct guidance: for well-separated action classes (e.g., hand-raise vs.\ read vs.\ write), a concise action template suffices and avoids the overhead of assembling per-class prompt sets. Conversely, for semantically overlapping teacher-behavior categories, class-aware ensembling is worth the marginal text-encoding cost. Finally, the multi-label F1 and bootstrap methodology introduced here transfers directly to other intelligent classroom monitoring scenarios---such as engagement detection or group activity recognition---wherever single-label accuracy would mask class imbalance or co-occurrence structure. The security and privacy implications of deploying such systems in live educational environments merit further investigation~\cite{deng2025hardening_llm}.
 
@@ -1085,6 +1122,24 @@ This study has several limitations.
 (6)~The excluded Discuss sub-dataset (1 class) is trivially solved; richer group-interaction datasets with multiple sub-categories would provide more meaningful evaluation coverage.
 (7)~The SCB sub-datasets are community Hugging Face releases that, to the best of the authors' knowledge, have not been accompanied by a peer-reviewed publication or formal technical report; researchers reusing this benchmark for publication are advised to verify the current provenance and citation guidance at the repository page.
 (8)~All MLLMs in this study are evaluated as static single-turn classifiers under a constrained output protocol. Real-world deployment of vision--language models in intelligent classrooms could benefit from agentic capabilities such as multi-turn reasoning, tool use, and adaptive prompting; evaluating these capabilities requires protocols beyond the scope of this benchmark~\cite{ma2026agentic_ai}.
+(9)~All zero-shot results are reported on the validation split, as the SCB dataset provides only train/val partitions with no independent test set. Prompt strategy selection (e.g., choosing CAPE over action prompts for a given subset) was performed post hoc by inspecting validation-set performance, which introduces optimistic bias relative to a pre-committed single-protocol deployment. This bias is discussed in detail in \Cref{sec:threats_validity}.
+
+\subsection{Threats to Validity}
+\label{sec:threats_validity}
+
+\paragraph{Internal validity: prompt selection bias.}
+The main internal validity concern is that the ``best prompt'' per model--subset combination is selected post hoc by comparing multiple prompt strategies on the validation set. The resulting best-prompt scores (e.g., \Cref{tab:model_ranking}) are therefore an optimistic upper bound and would likely not be achieved by a deployment that pre-commits to a single prompt strategy. Throughout the paper, we label these scores explicitly as ``best prompt selected post hoc'' to distinguish them from the CAPE-specific results, which follow a fixed pre-registered protocol (\Cref{sec:prompt_protocol}) and are not affected by this selection bias. A strict evaluation protocol would require a nested validation design (holding out a test split for final evaluation after fixing the prompt strategy on a development set), which the SCB dataset's train/val structure does not support. We report the CAPE results as the primary fixed-protocol analysis and present the best-prompt comparisons as exploratory upper-bound references.
+
+\paragraph{Statistical validity: uncertainty estimation and multiple comparisons.}
+Bootstrap confidence intervals are reported for the CAPE configuration (\Cref{tab:bootstrap_ci}), and paired-bootstrap significance tests are reported for three of the five backbones with full feature caches (\Cref{tab:paired_bootstrap}). Two statistical validity concerns merit explicit discussion. First, the reported bootstrap intervals reflect uncertainty for the CAPE configuration only; they do not account for the post hoc selection of the best prompt strategy. Methods such as max--$t$ bootstrap or selective inference would be needed to produce valid confidence intervals after post hoc selection, and we identify this as an important direction for future work. Second, the pairwise significance tests in \Cref{tab:paired_bootstrap} are reported without correction for multiple comparisons (nine pairs across three subsets). Applying a Bonferroni correction ($\alpha' = 0.05/9 \approx 0.0056$) would change the status of the two marginal results: OpenAI vs.\ SigLIP2 on TeacherBehavior ($p = 0.089$) remains non-significant, and OpenAI vs.\ SigLIP2 on HandriseReadWrite ($p = 0.006$) would also fall below the corrected threshold, while all results with $p < 10^{-3}$ would remain significant. The qualitative conclusions of the paper are unchanged under either correction, but we report uncorrected $p$-values for transparency and note that readers should apply their preferred correction when using these values for hypothesis testing.
+
+A further methodological concern is that image-level bootstrap resampling treats each image as independent, whereas images from the same video sequence, classroom, or subject may share non-independent residual structure. If such clustering is present, image-level bootstrap resampling may produce confidence intervals that are narrower than the true sampling uncertainty. A clustered bootstrap---resampling at the cluster (e.g., video or classroom) level rather than the image level---would provide more conservative intervals in the presence of within-cluster dependence. The SCB dataset does not currently provide video- or classroom-level identifiers in its public release, making clustered resampling infeasible without additional metadata. We identify this as a priority for future benchmark releases and recommend that subsequent studies include cluster-level identifiers to support more rigorous uncertainty quantification.
+
+\paragraph{External validity: domain and dataset coverage.}
+All three sub-datasets originate from Chinese K--12 and higher-education classroom settings, which limits generalization to other cultural or educational environments. Classroom layouts, teaching styles, student uniform appearance, and typical teacher--student spatial configurations all vary across regions and may interact with the visual features that CLIP-family models rely on for recognition. Extending the benchmark to include diverse geographic and pedagogical settings is necessary to establish the broader applicability of the findings.
+
+\paragraph{Construct validity: manual prompt design as an analytical tool.}
+CAPE prompts are manually designed, which raises the question of whether the observed results reflect the prompt design principles or the specific wording choices of the authors. We address this concern through three controls: (i) an independently written alternative wording (Set~B, \Cref{sec:e4_robustness}) that shows consistent task-dependent patterns despite different surface forms; (ii) a blind prompt set (Set~C, \Cref{sec:e9_blind}) written without dataset knowledge, which underperforms on class-discriminative metrics and confirms the value of informed prompt design; and (iii) a literature baseline comparison (\Cref{sec:e12_prompt_baselines}) showing that CAPE performs on par with or ahead of established prompt-engineering methods (CuPL, WaffleCLIP). Together, these controls support the interpretation that the observed patterns are driven by the design principles rather than by specific wording choices.
 
 
 %=================================================================
@@ -1139,10 +1194,10 @@ Dillenbourg, P.; Zufferey, G.; Alavi, H.; Jermann, P.; Do-Lenh, S.; Bonnard, Q.;
 Classroom Orchestration: The Third Circle of Usability.
 In \textit{Connecting Computer-Supported Collaborative Learning to Policy and Practice: CSCL2011 Conference Proceedings}; ISLS, 2011; pp.~510--517.
 
-\bibitem{liu2023survey_classroom}
-Liu, S.; Chen, Y.; Xie, H.; Wang, F.L.
-A Survey of Intelligent Classroom: Concepts, Technologies, and Applications.
-\textit{Educ. Inf. Technol.} \textbf{2023}, \textit{28}, 7127--7155.
+\bibitem{yang2020classroom}
+Yang, B.; Yao, Z.; Lu, H.; Zhou, Y.; Xu, J.
+In-classroom learning analytics based on student behavior, topic and teaching characteristic mining.
+\textit{Pattern Recognit. Lett.} \textbf{2020}, \textit{129}, 224--231. \url{https://doi.org/10.1016/j.patrec.2019.11.023}.
 
 \bibitem{ma2026agentic_ai}
 Ma, W.; Guo, Y.; Han, Q.-L.; Zhou, W.; Zhu, X.; Xiong, J.; Wen, S.; Xiang, Y.
@@ -1160,12 +1215,12 @@ LAION-5B: An Open Large-Scale Dataset for Training Next Generation Image--Text M
 \textit{Adv. Neural Inf. Process. Syst.} \textbf{2022}, \textit{35}, 25278--25294.
 
 \bibitem{tschannen2025siglip2}
-Tschannen, M.; Kumar, M.; Steiner, A.; Zhai, X.; Houlsby, N.; Beyer, L.
+Tschannen, M.; Gritsenko, A.; Wang, X.; Naeem, M.F.; Alabdulmohsin, I.; et~al.
 SigLIP 2: Multilingual Vision--Language Encoders with Improved Semantic Understanding, Localization, and Dense Features.
 \textit{arXiv} \textbf{2025}, arXiv:2502.14786.
 
 \bibitem{sun2023eva02}
-Sun, Q.; Fang, Y.; Wu, L.; Wang, X.; Cao, Y.
+Fang, Y.; Sun, Q.; Wang, X.; Huang, T.; Wang, X.; Cao, Y.
 EVA-02: A Visual Representation for Neon Genesis.
 \textit{arXiv} \textbf{2023}, arXiv:2303.11331.
 
@@ -1192,17 +1247,17 @@ The Faces of Engagement: Automatic Recognition of Student Engagement from Facial
 \bibitem{donnelly2017automatic}
 Donnelly, P.J.; Blanchard, N.; Olney, A.M.; Kelly, S.; Nystrand, M.; D'Mello, S.K.
 Words Matter: Automatic Detection of Teacher Questions in Live Classroom Discourse Using Linguistics, Acoustics, and Context.
-In Proceedings of the 7th International Learning Analytics \& Knowledge Conference (LAK), Vancouver, BC, Canada, 13--17 March 2017; pp.~218--227. \url{https://doi.org/10.1145/3027385.3027400}.
+In Proceedings of the 7th International Learning Analytics \& Knowledge Conference (LAK), Vancouver, BC, Canada, 13--17 March 2017; pp.~218--227. \url{https://doi.org/10.1145/3027385.3027417}.
 
 \bibitem{zhang2020classroom_cnn}
 Zhang, Z.; Li, Z.; Liu, H.; Cao, T.; Liu, S.
 Data-Driven Online Learning Engagement Detection via Facial Expression and Mouse Behavior Recognition Technology.
 \textit{J. Educ. Comput. Res.} \textbf{2020}, \textit{58}, 63--86. \url{https://doi.org/10.1177/0735633119825575}.
 
-\bibitem{li2022classroom_transformer}
-Li, X.; Chen, M.; Nie, F.; Wang, Q.
-A Multimodal Data Corpus for Audio-Visual Interest Detection in Classroom.
-\textit{Front. Psychol.} \textbf{2022}, \textit{13}, 903560. \url{https://doi.org/10.3389/fpsyg.2022.903560}.
+\bibitem{nguyen2023transformer}
+Nguyen, H.; Ribeiro, B.
+Video action recognition collaborative learning with dynamics via PSO-ConvNet Transformer.
+\textit{Sci. Rep.} \textbf{2023}, \textit{13}, 14624. \url{https://doi.org/10.1038/s41598-023-39744-9}.
 
 \bibitem{cherti2023reproducible}
 Cherti, M.; Beaumont, R.; Wightman, R.; Wortsman, M.; Ilharco, G.; Gordon, C.; Schuhmann, C.; Schmidt, L.; Jitsev, J.
@@ -1262,6 +1317,16 @@ Available online: \url{https://huggingface.co/datasets/wintonYF/SCB-Dataset} (ac
 Deng, Z.; Sun, R.; Xue, M.; Ma, W.; Wen, S.; Nepal, S.; Xiang, Y.
 Hardening LLM Fine-Tuning: From Differentially Private Data Selection to Trustworthy Model Quantization.
 \textit{IEEE Trans. Inf. Forensics Security} \textbf{2025}, \textit{20}, 7211--7226.
+
+\bibitem{ge2023improving}
+Ge, Y.; Ren, J.; Gallagher, A.; Wang, Y.; Yang, M.-H.; Adam, H.; Itti, L.; Lakshminarayanan, B.; Zhao, J.
+Improving Zero-shot Generalization and Robustness of Multi-modal Models.
+In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Vancouver, Canada, 18--22 June 2023; pp.~11093--11103.
+
+\bibitem{zhang2026silhouette}
+Zhang, B.; Li, Z.; Ma, Q.; Zhang, J.; Xiang, Z.; Jiang, D.
+Silhouette-Based Cross-View Motion Gait Recognition via a Multi-Scale Temporal Difference Unit.
+\textit{Electronics} \textbf{2026}, \textit{15}, 2512.
 
 \end{thebibliography}
 
