@@ -1027,7 +1027,7 @@ Overall, this comparison places CAPE on par with---and sometimes ahead of---two 
 \subsubsection{E13: External Validation on Stanford40}
 \label{sec:e13_stanford40}
 
-To assess whether the prompt-sensitivity phenomenon generalizes beyond classroom-specific datasets, we conducted an external validation on the Stanford40 human action dataset~\cite{yang2020classroom} (9532 images, 40 categories such as reading, writing on a board, waving hands, using a computer). Five CLIP-family models were evaluated in a zero-shot setting using two prompt strategies: label-only (``a photo of \{action\}'') and action-oriented (``a photo of a person \{action\}'').
+To assess whether the prompt-sensitivity phenomenon generalizes beyond classroom-specific datasets, we conducted an external validation on the Stanford40 human action dataset~\cite{yao2011stanford40} (9532 images, 40 categories such as reading, writing on a board, waving hands, using a computer). Five CLIP-family models were evaluated in a zero-shot setting using two prompt strategies: label-only (``a photo of \{action\}'') and action-oriented (``a photo of a person \{action\}'').
 
 \Cref{tab:stanford40} reports the results. All five models achieved 89--95\% Hit@1 on this independent dataset, and action-oriented prompts consistently outperformed label-only prompts by 1.2--3.3~pp across all backbones---the same direction of effect observed on SCB5. This confirms that the prompt-sensitivity finding is not an artifact of the classroom domain and generalizes to broader human action recognition.
 
@@ -1361,6 +1361,11 @@ In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recogni
 Zhang, B.; Li, Z.; Ma, Q.; Zhang, J.; Xiang, Z.; Jiang, D.
 Silhouette-Based Cross-View Motion Gait Recognition via a Multi-Scale Temporal Difference Unit.
 \textit{Electronics} \textbf{2026}, \textit{15}, 2512.
+
+\bibitem{yao2011stanford40}
+Yao, B.; Jiang, X.; Khosla, A.; Lin, A.L.; Guibas, L.; Fei-Fei, L.
+Human Action Recognition by Learning Bases of Action Attributes and Parts.
+In Proceedings of the IEEE International Conference on Computer Vision (ICCV), Barcelona, Spain, 6--13 November 2011; pp.~1331--1338. \url{https://doi.org/10.1109/ICCV.2011.6126386}.
 
 \end{thebibliography}
 
