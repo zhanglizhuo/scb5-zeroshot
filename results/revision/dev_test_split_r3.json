@@ -1,0 +1,440 @@
+{
+  "timestamp": 1785167999,
+  "date": "2026-07-27 23:59:59",
+  "purpose": "R3.1/R3.2: dev/test split to verify no optimistic bias in threshold selection",
+  "dataset": "teacher_behavior",
+  "num_classes": 8,
+  "class_names": [
+    "guide",
+    "answer",
+    "on-stage interaction",
+    "blackboard-writing",
+    "teacher",
+    "stand",
+    "screen",
+    "blackboard"
+  ],
+  "seed": 42,
+  "dev_fraction": 0.5,
+  "tau_grid": [
+    0.08,
+    0.1,
+    0.12,
+    0.14,
+    0.15,
+    0.16,
+    0.18,
+    0.2,
+    0.22,
+    0.24,
+    0.25,
+    0.26,
+    0.28,
+    0.3
+  ],
+  "topk_grid": [
+    2,
+    3
+  ],
+  "models": [
+    {
+      "model": "openai",
+      "dev_best_strategy": "tau=0.20",
+      "dev_best_sample_f1": 64.35,
+      "dev_best_macro_f1": 55.62,
+      "test_sample_f1": 64.07,
+      "test_macro_f1": 55.64,
+      "test_micro_f1": 66.2,
+      "fullval_devtau_sample_f1": 64.21,
+      "fullval_devtau_macro_f1": 55.63,
+      "fullval_devtau_micro_f1": 66.4,
+      "fullval_best_strategy": "tau=0.20",
+      "fullval_paper_sample_f1": 64.21,
+      "fullval_paper_macro_f1": 55.63,
+      "fullval_paper_micro_f1": 66.4,
+      "delta_test_vs_paper": -0.14,
+      "bias_check": "NO_BIAS",
+      "dev_sweep_full": [
+        {
+          "strategy": "tau=0.08",
+          "tau": 0.08,
+          "sample_f1": 60.86,
+          "macro_f1": 53.68,
+          "micro_f1": 62.21
+        },
+        {
+          "strategy": "tau=0.10",
+          "tau": 0.1,
+          "sample_f1": 60.86,
+          "macro_f1": 53.68,
+          "micro_f1": 62.21
+        },
+        {
+          "strategy": "tau=0.12",
+          "tau": 0.12,
+          "sample_f1": 60.86,
+          "macro_f1": 53.68,
+          "micro_f1": 62.21
+        },
+        {
+          "strategy": "tau=0.14",
+          "tau": 0.14,
+          "sample_f1": 60.87,
+          "macro_f1": 53.69,
+          "micro_f1": 62.23
+        },
+        {
+          "strategy": "tau=0.15",
+          "tau": 0.15,
+          "sample_f1": 60.9,
+          "macro_f1": 53.72,
+          "micro_f1": 62.28
+        },
+        {
+          "strategy": "tau=0.16",
+          "tau": 0.16,
+          "sample_f1": 61.12,
+          "macro_f1": 53.87,
+          "micro_f1": 62.54
+        },
+        {
+          "strategy": "tau=0.18",
+          "tau": 0.18,
+          "sample_f1": 62.63,
+          "macro_f1": 54.9,
+          "micro_f1": 64.22
+        },
+        {
+          "strategy": "tau=0.20",
+          "tau": 0.2,
+          "sample_f1": 64.35,
+          "macro_f1": 55.62,
+          "micro_f1": 66.6
+        },
+        {
+          "strategy": "tau=0.22",
+          "tau": 0.22,
+          "sample_f1": 63.03,
+          "macro_f1": 52.21,
+          "micro_f1": 67.14
+        },
+        {
+          "strategy": "tau=0.24",
+          "tau": 0.24,
+          "sample_f1": 53.4,
+          "macro_f1": 43.65,
+          "micro_f1": 58.75
+        },
+        {
+          "strategy": "tau=0.25",
+          "tau": 0.25,
+          "sample_f1": 47.73,
+          "macro_f1": 39.02,
+          "micro_f1": 51.86
+        },
+        {
+          "strategy": "tau=0.26",
+          "tau": 0.26,
+          "sample_f1": 42.98,
+          "macro_f1": 34.69,
+          "micro_f1": 45.2
+        },
+        {
+          "strategy": "tau=0.28",
+          "tau": 0.28,
+          "sample_f1": 38.32,
+          "macro_f1": 29.59,
+          "micro_f1": 38.17
+        },
+        {
+          "strategy": "tau=0.30",
+          "tau": 0.3,
+          "sample_f1": 37.4,
+          "macro_f1": 28.53,
+          "micro_f1": 36.8
+        },
+        {
+          "strategy": "top-2",
+          "topk": 2,
+          "sample_f1": 51.79,
+          "macro_f1": 39.81,
+          "micro_f1": 52.01
+        },
+        {
+          "strategy": "top-3",
+          "topk": 3,
+          "sample_f1": 61.45,
+          "macro_f1": 48.06,
+          "micro_f1": 62.31
+        }
+      ]
+    },
+    {
+      "model": "dfn",
+      "dev_best_strategy": "tau=0.14",
+      "dev_best_sample_f1": 63.52,
+      "dev_best_macro_f1": 56.07,
+      "test_sample_f1": 63.83,
+      "test_macro_f1": 56.31,
+      "test_micro_f1": 65.45,
+      "fullval_devtau_sample_f1": 63.67,
+      "fullval_devtau_macro_f1": 56.19,
+      "fullval_devtau_micro_f1": 65.43,
+      "fullval_best_strategy": "tau=0.14",
+      "fullval_paper_sample_f1": 63.67,
+      "fullval_paper_macro_f1": 56.19,
+      "fullval_paper_micro_f1": 65.43,
+      "delta_test_vs_paper": 0.15,
+      "bias_check": "NO_BIAS",
+      "dev_sweep_full": [
+        {
+          "strategy": "tau=0.08",
+          "tau": 0.08,
+          "sample_f1": 60.87,
+          "macro_f1": 53.68,
+          "micro_f1": 62.22
+        },
+        {
+          "strategy": "tau=0.10",
+          "tau": 0.1,
+          "sample_f1": 60.95,
+          "macro_f1": 53.72,
+          "micro_f1": 62.33
+        },
+        {
+          "strategy": "tau=0.12",
+          "tau": 0.12,
+          "sample_f1": 61.75,
+          "macro_f1": 54.21,
+          "micro_f1": 63.18
+        },
+        {
+          "strategy": "tau=0.14",
+          "tau": 0.14,
+          "sample_f1": 63.52,
+          "macro_f1": 56.07,
+          "micro_f1": 65.41
+        },
+        {
+          "strategy": "tau=0.15",
+          "tau": 0.15,
+          "sample_f1": 63.33,
+          "macro_f1": 56.9,
+          "micro_f1": 66.09
+        },
+        {
+          "strategy": "tau=0.16",
+          "tau": 0.16,
+          "sample_f1": 61.81,
+          "macro_f1": 57.11,
+          "micro_f1": 66.14
+        },
+        {
+          "strategy": "tau=0.18",
+          "tau": 0.18,
+          "sample_f1": 56.77,
+          "macro_f1": 57.05,
+          "micro_f1": 65.56
+        },
+        {
+          "strategy": "tau=0.20",
+          "tau": 0.2,
+          "sample_f1": 48.37,
+          "macro_f1": 51.53,
+          "micro_f1": 60.55
+        },
+        {
+          "strategy": "tau=0.22",
+          "tau": 0.22,
+          "sample_f1": 32.78,
+          "macro_f1": 35.96,
+          "micro_f1": 42.62
+        },
+        {
+          "strategy": "tau=0.24",
+          "tau": 0.24,
+          "sample_f1": 20.49,
+          "macro_f1": 21.37,
+          "micro_f1": 24.13
+        },
+        {
+          "strategy": "tau=0.25",
+          "tau": 0.25,
+          "sample_f1": 18.7,
+          "macro_f1": 18.71,
+          "micro_f1": 21.19
+        },
+        {
+          "strategy": "tau=0.26",
+          "tau": 0.26,
+          "sample_f1": 18.13,
+          "macro_f1": 17.84,
+          "micro_f1": 20.33
+        },
+        {
+          "strategy": "tau=0.28",
+          "tau": 0.28,
+          "sample_f1": 17.94,
+          "macro_f1": 16.42,
+          "micro_f1": 20.08
+        },
+        {
+          "strategy": "tau=0.30",
+          "tau": 0.3,
+          "sample_f1": 17.94,
+          "macro_f1": 16.42,
+          "micro_f1": 20.08
+        },
+        {
+          "strategy": "top-2",
+          "topk": 2,
+          "sample_f1": 36.19,
+          "macro_f1": 38.25,
+          "micro_f1": 38.46
+        },
+        {
+          "strategy": "top-3",
+          "topk": 3,
+          "sample_f1": 44.83,
+          "macro_f1": 43.93,
+          "micro_f1": 47.09
+        }
+      ]
+    },
+    {
+      "model": "siglip2",
+      "dev_best_strategy": "tau=0.08",
+      "dev_best_sample_f1": 64.68,
+      "dev_best_macro_f1": 57.5,
+      "test_sample_f1": 64.59,
+      "test_macro_f1": 58.08,
+      "test_micro_f1": 67.59,
+      "fullval_devtau_sample_f1": 64.64,
+      "fullval_devtau_macro_f1": 57.8,
+      "fullval_devtau_micro_f1": 67.71,
+      "fullval_best_strategy": "tau=0.08",
+      "fullval_paper_sample_f1": 64.64,
+      "fullval_paper_macro_f1": 57.8,
+      "fullval_paper_micro_f1": 67.71,
+      "delta_test_vs_paper": -0.04,
+      "bias_check": "NO_BIAS",
+      "dev_sweep_full": [
+        {
+          "strategy": "tau=0.08",
+          "tau": 0.08,
+          "sample_f1": 64.68,
+          "macro_f1": 57.5,
+          "micro_f1": 67.82
+        },
+        {
+          "strategy": "tau=0.10",
+          "tau": 0.1,
+          "sample_f1": 63.25,
+          "macro_f1": 55.89,
+          "micro_f1": 68.62
+        },
+        {
+          "strategy": "tau=0.12",
+          "tau": 0.12,
+          "sample_f1": 54.56,
+          "macro_f1": 46.67,
+          "micro_f1": 60.31
+        },
+        {
+          "strategy": "tau=0.14",
+          "tau": 0.14,
+          "sample_f1": 40.88,
+          "macro_f1": 31.43,
+          "micro_f1": 42.16
+        },
+        {
+          "strategy": "tau=0.15",
+          "tau": 0.15,
+          "sample_f1": 38.25,
+          "macro_f1": 27.16,
+          "micro_f1": 38.32
+        },
+        {
+          "strategy": "tau=0.16",
+          "tau": 0.16,
+          "sample_f1": 37.46,
+          "macro_f1": 26.59,
+          "micro_f1": 37.21
+        },
+        {
+          "strategy": "tau=0.18",
+          "tau": 0.18,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.20",
+          "tau": 0.2,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.22",
+          "tau": 0.22,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.24",
+          "tau": 0.24,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.25",
+          "tau": 0.25,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.26",
+          "tau": 0.26,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.28",
+          "tau": 0.28,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "tau=0.30",
+          "tau": 0.3,
+          "sample_f1": 37.28,
+          "macro_f1": 26.28,
+          "micro_f1": 36.97
+        },
+        {
+          "strategy": "top-2",
+          "topk": 2,
+          "sample_f1": 53.24,
+          "macro_f1": 40.38,
+          "micro_f1": 53.88
+        },
+        {
+          "strategy": "top-3",
+          "topk": 3,
+          "sample_f1": 60.37,
+          "macro_f1": 48.95,
+          "micro_f1": 61.6
+        }
+      ]
+    }
+  ],
+  "num_total": 3240,
+  "num_dev": 1620,
+  "num_test": 1620
+}
