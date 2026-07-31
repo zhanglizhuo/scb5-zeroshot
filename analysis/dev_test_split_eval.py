@@ -28,7 +28,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 CACHE_DIR = REPO_ROOT / "data" / "feature_cache"
 OUTPUT_DIR = REPO_ROOT / "results" / "revision"
 
-MODELS = ["openai", "dfn", "siglip2"]
+MODELS = ["openai", "laion", "siglip2", "eva02", "dfn"]
 DATASET = "teacher_behavior"
 SPLIT = "validation"
 NUM_CLASSES = 8
