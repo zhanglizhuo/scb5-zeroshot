@@ -1,9 +1,9 @@
-# Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis
+# Prompt Sensitivity Under Semantic Perturbations in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
 [![HuggingFace Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-SCB--Dataset-yellow)](https://huggingface.co/datasets/wintonYF/SCB-Dataset)
-[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper.pdf)
+[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper_revised.pdf)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
 **Adversarial Prompt Sensitivity in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
@@ -26,7 +26,7 @@ See [Quick Start](#quick-start) below for full details.
 
 ## Overview
 
-CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 95.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings. (Figures are available as PDFs in `paper/figures/`.)
+CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 85.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings. (Figures are available as PDFs in `paper/figures/`.)
 
 ## Key Results
 
