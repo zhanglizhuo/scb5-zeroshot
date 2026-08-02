@@ -24,6 +24,8 @@ See [Quick Start](#quick-start) below for full details.
 
 ---
 
+![Prompt Ablation: Hit@1 (%) across 5 models × 5 prompt strategies on all 3 sub-datasets](paper/figures/fig_prompt_ablation_heatmap.png)
+
 ## Overview
 
 CLIP-family models exhibit **instability under prompt variation** in zero-shot classroom behavior analysis. A single model can swing from 85.5% to 31.4% Hit@1 when prompt wording or count changes — without any data or model modification. This repository provides the complete experimental framework to reproduce, verify, and extend these findings. (Figures are available as PDFs in `paper/figures/`.)
