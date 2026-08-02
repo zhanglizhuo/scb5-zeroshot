@@ -59,6 +59,7 @@ results/paper/*.zip
 .envrc
 *.token
 push_instructions.txt
+AGENTS.md
 
 # OS
 .DS_Store

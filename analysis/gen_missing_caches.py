@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Generate missing feature caches for LAION and EVA02 (local YOLO format)."""
-import os, sys, logging, argparse
+"""Generate missing feature caches for LAION and EVA02 (local YOLO format).
+
+IMPORTANT: CAPE prompts are loaded from the canonical source
+`analysis/prompts/setAB_examples.json` (set_A_original). Do NOT inline
+prompt text here: the earlier inline copy (commit 5ca5310) diverged from
+the paper's CAPE Set A and produced invalid logits_cape caches.
+"""
+import os, sys, json, logging, argparse
 import numpy as np
 from pathlib import Path
 
@@ -19,15 +25,19 @@ MODELS = {
 
 DATA_DIR = Path("/home/broadsense/works/lizhuo/AutoResearchClaw/datasets_scb")
 
-SUBSETS = [{"name":"teacher_behavior","local_dir":str(DATA_DIR/"SCB5_TeacherBehavior"/"SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406-2"),"classes":8},{"name":"handrise_readwrite","local_dir":str(DATA_DIR/"SCB5_HandriseReadWrite"),"classes":3},{"name":"bow_turnhead","local_dir":str(DATA_DIR/"SCB_BowTurnHead"),"classes":2}]
+PROMPTS_FILE = Path(__file__).resolve().parents[1] / "analysis" / "prompts" / "setAB_examples.json"
+
+SUBSETS = [{"name":"teacher_behavior","local_dir":str(DATA_DIR/"SCB5_TeacherBehavior"/"SCB5_Teacher_Behavior_Stand_BlackBoard_Sreen_20250406-2"),"classes":8,"classes_key":"TeacherBehavior"},{"name":"handrise_readwrite","local_dir":str(DATA_DIR/"SCB5_HandriseReadWrite"),"classes":3,"classes_key":"HandriseReadWrite"},{"name":"bow_turnhead","local_dir":str(DATA_DIR/"SCB_BowTurnHead"),"classes":2,"classes_key":"BowTurnHead"}]
 
 CACHE_DIR = Path(os.environ.get("CACHE_DIR", "/tmp/caches"))
 
-CAPE_PROMPTS = {
-"teacher_behavior":[["a teacher guiding students through a lesson with verbal instructions","a teacher explaining concepts while walking around the classroom","a teacher providing guidance to a student at their desk"],["a teacher answering a student question at the podium","a teacher responding to a student inquiry during a lecture","a teacher addressing a student query with explanation"],["a teacher interacting with students on the classroom stage","a teacher engaging with students at the front of the room","a teacher facilitating discussion from the podium"],["a teacher writing on a blackboard with chalk","a teacher writing notes on the board during a lesson","a teacher using the blackboard to explain a concept"],["a teacher standing at the front of the classroom","a teacher lecturing from the front of the room","a teacher addressing the class from the podium"],["a teacher standing in front of the classroom observing students","a teacher standing near the desk while students work","a teacher standing at the side of the classroom"],["a teacher pointing at a projection screen displaying slides","a teacher referencing a screen during a presentation","a teacher using a digital screen to show teaching materials"],["a teacher pointing at a blackboard covered in writing","a teacher gesturing toward a blackboard with diagrams","a teacher writing on a large blackboard at the front"]],
-"handrise_readwrite":[["a student raising a hand in class","a student raising hand to ask a question","a student with hand raised seeking attention"],["a student reading a book at their desk","a student reading textbook during class","a student looking down at a book while studying"],["a student writing in a notebook at their desk","a student taking notes during a lecture","a student writing with a pen on paper"]],
-"bow_turnhead":[["a student bowing head looking down at desk","a student looking down at their notebook","a student with head lowered reading"],["a student turning head to look sideways","a student looking to the side at another student","a student turning head to look around the classroom"]],
-}
+
+def load_cape_prompts(subset_name, classes_key):
+    with open(PROMPTS_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+    cape_a = data["set_A_original"][classes_key]
+    class_names = cape_a.keys()
+    return [cape_a[c] for c in class_names]
 
 def load_samples(local_dir, split="val"):
     img_dir = lbl_dir = None
@@ -109,7 +119,7 @@ def main():
         feats = np.concatenate(feats, axis=0)
         labs = np.concatenate(labs, axis=0)
         log.info(f"  feats {feats.shape} labs {labs.shape}")
-        prompts = CAPE_PROMPTS[name]
+        prompts = load_cape_prompts(name, s["classes_key"])
         tembs = np.concatenate([encode_text(model, tokenizer, cp, device).mean(0, keepdims=True) for cp in prompts], axis=0)
         tembs = tembs / np.linalg.norm(tembs, axis=1, keepdims=True)
         logits = feats @ tembs.T

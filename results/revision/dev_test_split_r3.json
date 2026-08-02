@@ -1,6 +1,6 @@
 {
-  "timestamp": 1785513783,
-  "date": "2026-08-01 00:03:03",
+  "timestamp": 1785630309,
+  "date": "2026-08-02 08:25:09",
   "purpose": "R3.1/R3.2: dev/test split to verify no optimistic bias in threshold selection",
   "dataset": "teacher_behavior",
   "num_classes": 8,
@@ -171,133 +171,133 @@
     },
     {
       "model": "laion",
-      "dev_best_strategy": "tau=0.22",
-      "dev_best_sample_f1": 65.85,
-      "dev_best_macro_f1": 55.38,
-      "test_sample_f1": 65.95,
-      "test_macro_f1": 55.77,
-      "test_micro_f1": 66.64,
-      "fullval_devtau_sample_f1": 65.9,
-      "fullval_devtau_macro_f1": 55.58,
-      "fullval_devtau_micro_f1": 66.59,
-      "fullval_best_strategy": "tau=0.22",
-      "fullval_paper_sample_f1": 65.9,
-      "fullval_paper_macro_f1": 55.58,
-      "fullval_paper_micro_f1": 66.59,
-      "delta_test_vs_paper": 0.05,
+      "dev_best_strategy": "tau=0.20",
+      "dev_best_sample_f1": 65.38,
+      "dev_best_macro_f1": 57.08,
+      "test_sample_f1": 65.81,
+      "test_macro_f1": 57.5,
+      "test_micro_f1": 67.82,
+      "fullval_devtau_sample_f1": 65.6,
+      "fullval_devtau_macro_f1": 57.3,
+      "fullval_devtau_micro_f1": 67.79,
+      "fullval_best_strategy": "tau=0.20",
+      "fullval_paper_sample_f1": 65.6,
+      "fullval_paper_macro_f1": 57.3,
+      "fullval_paper_micro_f1": 67.79,
+      "delta_test_vs_paper": 0.22,
       "bias_check": "NO_BIAS",
       "dev_sweep_full": [
         {
           "strategy": "tau=0.08",
           "tau": 0.08,
-          "sample_f1": 60.86,
+          "sample_f1": 60.87,
           "macro_f1": 53.68,
-          "micro_f1": 62.21
+          "micro_f1": 62.22
         },
         {
           "strategy": "tau=0.10",
           "tau": 0.1,
-          "sample_f1": 60.87,
-          "macro_f1": 53.7,
-          "micro_f1": 62.22
+          "sample_f1": 61.01,
+          "macro_f1": 53.73,
+          "micro_f1": 62.38
         },
         {
           "strategy": "tau=0.12",
           "tau": 0.12,
-          "sample_f1": 60.99,
-          "macro_f1": 53.82,
-          "micro_f1": 62.34
+          "sample_f1": 61.41,
+          "macro_f1": 53.89,
+          "micro_f1": 62.8
         },
         {
           "strategy": "tau=0.14",
           "tau": 0.14,
-          "sample_f1": 61.39,
-          "macro_f1": 54.3,
-          "micro_f1": 62.77
+          "sample_f1": 62.15,
+          "macro_f1": 54.21,
+          "micro_f1": 63.57
         },
         {
           "strategy": "tau=0.15",
           "tau": 0.15,
-          "sample_f1": 61.69,
-          "macro_f1": 54.62,
-          "micro_f1": 63.11
+          "sample_f1": 62.69,
+          "macro_f1": 54.44,
+          "micro_f1": 64.15
         },
         {
           "strategy": "tau=0.16",
           "tau": 0.16,
-          "sample_f1": 62.2,
-          "macro_f1": 55.09,
-          "micro_f1": 63.61
+          "sample_f1": 63.26,
+          "macro_f1": 54.76,
+          "micro_f1": 64.75
         },
         {
           "strategy": "tau=0.18",
           "tau": 0.18,
-          "sample_f1": 63.59,
-          "macro_f1": 56.19,
-          "micro_f1": 64.91
+          "sample_f1": 64.61,
+          "macro_f1": 55.73,
+          "micro_f1": 66.27
         },
         {
           "strategy": "tau=0.20",
           "tau": 0.2,
-          "sample_f1": 65.65,
-          "macro_f1": 57.02,
-          "micro_f1": 66.54
+          "sample_f1": 65.38,
+          "macro_f1": 57.08,
+          "micro_f1": 67.77
         },
         {
           "strategy": "tau=0.22",
           "tau": 0.22,
-          "sample_f1": 65.85,
-          "macro_f1": 55.38,
-          "micro_f1": 66.54
+          "sample_f1": 63.69,
+          "macro_f1": 57.67,
+          "micro_f1": 68.12
         },
         {
           "strategy": "tau=0.24",
           "tau": 0.24,
-          "sample_f1": 63.89,
-          "macro_f1": 50.73,
-          "micro_f1": 64.74
+          "sample_f1": 59.64,
+          "macro_f1": 56.63,
+          "micro_f1": 67.43
         },
         {
           "strategy": "tau=0.25",
           "tau": 0.25,
-          "sample_f1": 61.95,
-          "macro_f1": 47.85,
-          "micro_f1": 63.21
+          "sample_f1": 56.31,
+          "macro_f1": 53.42,
+          "micro_f1": 65.43
         },
         {
           "strategy": "tau=0.26",
           "tau": 0.26,
-          "sample_f1": 59.63,
-          "macro_f1": 44.78,
-          "micro_f1": 61.24
+          "sample_f1": 52.51,
+          "macro_f1": 49.86,
+          "micro_f1": 62.23
         },
         {
           "strategy": "tau=0.28",
           "tau": 0.28,
-          "sample_f1": 52.97,
-          "macro_f1": 37.4,
-          "micro_f1": 54.65
+          "sample_f1": 40.97,
+          "macro_f1": 38.38,
+          "micro_f1": 50.05
         },
         {
           "strategy": "tau=0.30",
           "tau": 0.3,
-          "sample_f1": 44.02,
-          "macro_f1": 28.56,
-          "micro_f1": 43.58
+          "sample_f1": 29.24,
+          "macro_f1": 26.19,
+          "micro_f1": 34.34
         },
         {
           "strategy": "top-2",
           "topk": 2,
-          "sample_f1": 59.59,
-          "macro_f1": 38.77,
-          "micro_f1": 58.43
+          "sample_f1": 38.61,
+          "macro_f1": 30.77,
+          "micro_f1": 40.0
         },
         {
           "strategy": "top-3",
           "topk": 3,
-          "sample_f1": 62.88,
-          "macro_f1": 45.01,
-          "micro_f1": 62.89
+          "sample_f1": 51.51,
+          "macro_f1": 44.46,
+          "micro_f1": 52.58
         }
       ]
     },
@@ -435,20 +435,20 @@
     },
     {
       "model": "eva02",
-      "dev_best_strategy": "tau=0.18",
-      "dev_best_sample_f1": 63.84,
-      "dev_best_macro_f1": 56.69,
-      "test_sample_f1": 63.79,
-      "test_macro_f1": 56.83,
-      "test_micro_f1": 65.25,
-      "fullval_devtau_sample_f1": 63.81,
-      "fullval_devtau_macro_f1": 56.76,
-      "fullval_devtau_micro_f1": 65.31,
-      "fullval_best_strategy": "tau=0.18",
-      "fullval_paper_sample_f1": 63.81,
-      "fullval_paper_macro_f1": 56.76,
-      "fullval_paper_micro_f1": 65.31,
-      "delta_test_vs_paper": -0.03,
+      "dev_best_strategy": "tau=0.20",
+      "dev_best_sample_f1": 66.87,
+      "dev_best_macro_f1": 60.64,
+      "test_sample_f1": 66.03,
+      "test_macro_f1": 60.29,
+      "test_micro_f1": 69.55,
+      "fullval_devtau_sample_f1": 66.45,
+      "fullval_devtau_macro_f1": 60.46,
+      "fullval_devtau_micro_f1": 69.99,
+      "fullval_best_strategy": "tau=0.20",
+      "fullval_paper_sample_f1": 66.45,
+      "fullval_paper_macro_f1": 60.46,
+      "fullval_paper_micro_f1": 69.99,
+      "delta_test_vs_paper": -0.42,
       "bias_check": "NO_BIAS",
       "dev_sweep_full": [
         {
@@ -468,100 +468,100 @@
         {
           "strategy": "tau=0.12",
           "tau": 0.12,
-          "sample_f1": 60.92,
-          "macro_f1": 53.75,
-          "micro_f1": 62.28
+          "sample_f1": 60.9,
+          "macro_f1": 53.69,
+          "micro_f1": 62.25
         },
         {
           "strategy": "tau=0.14",
           "tau": 0.14,
-          "sample_f1": 61.29,
-          "macro_f1": 54.19,
-          "micro_f1": 62.69
+          "sample_f1": 61.1,
+          "macro_f1": 53.77,
+          "micro_f1": 62.48
         },
         {
           "strategy": "tau=0.15",
           "tau": 0.15,
-          "sample_f1": 61.64,
-          "macro_f1": 54.68,
-          "micro_f1": 63.12
+          "sample_f1": 61.52,
+          "macro_f1": 53.97,
+          "micro_f1": 62.95
         },
         {
           "strategy": "tau=0.16",
           "tau": 0.16,
-          "sample_f1": 62.27,
-          "macro_f1": 55.44,
-          "micro_f1": 63.82
+          "sample_f1": 62.56,
+          "macro_f1": 54.49,
+          "micro_f1": 64.0
         },
         {
           "strategy": "tau=0.18",
           "tau": 0.18,
-          "sample_f1": 63.84,
-          "macro_f1": 56.69,
-          "micro_f1": 65.37
+          "sample_f1": 65.5,
+          "macro_f1": 57.32,
+          "micro_f1": 67.32
         },
         {
           "strategy": "tau=0.20",
           "tau": 0.2,
-          "sample_f1": 62.77,
-          "macro_f1": 55.0,
-          "micro_f1": 64.82
+          "sample_f1": 66.87,
+          "macro_f1": 60.64,
+          "micro_f1": 70.42
         },
         {
           "strategy": "tau=0.22",
           "tau": 0.22,
-          "sample_f1": 54.25,
-          "macro_f1": 46.91,
-          "micro_f1": 58.56
+          "sample_f1": 59.57,
+          "macro_f1": 57.22,
+          "micro_f1": 67.49
         },
         {
           "strategy": "tau=0.24",
           "tau": 0.24,
-          "sample_f1": 39.67,
-          "macro_f1": 34.33,
-          "micro_f1": 43.34
+          "sample_f1": 42.76,
+          "macro_f1": 42.05,
+          "micro_f1": 50.22
         },
         {
           "strategy": "tau=0.25",
           "tau": 0.25,
-          "sample_f1": 33.59,
-          "macro_f1": 27.39,
-          "micro_f1": 34.62
+          "sample_f1": 32.83,
+          "macro_f1": 31.81,
+          "micro_f1": 36.29
         },
         {
           "strategy": "tau=0.26",
           "tau": 0.26,
-          "sample_f1": 31.49,
-          "macro_f1": 25.56,
-          "micro_f1": 31.41
+          "sample_f1": 28.48,
+          "macro_f1": 26.45,
+          "micro_f1": 29.66
         },
         {
           "strategy": "tau=0.28",
           "tau": 0.28,
-          "sample_f1": 31.23,
-          "macro_f1": 25.15,
-          "micro_f1": 31.0
+          "sample_f1": 27.5,
+          "macro_f1": 24.16,
+          "micro_f1": 28.22
         },
         {
           "strategy": "tau=0.30",
           "tau": 0.3,
-          "sample_f1": 31.23,
-          "macro_f1": 25.15,
-          "micro_f1": 31.0
+          "sample_f1": 27.5,
+          "macro_f1": 24.16,
+          "micro_f1": 28.22
         },
         {
           "strategy": "top-2",
           "topk": 2,
-          "sample_f1": 47.0,
-          "macro_f1": 35.12,
-          "micro_f1": 46.68
+          "sample_f1": 45.64,
+          "macro_f1": 39.58,
+          "micro_f1": 46.75
         },
         {
           "strategy": "top-3",
           "topk": 3,
-          "sample_f1": 54.45,
-          "macro_f1": 40.49,
-          "micro_f1": 54.43
+          "sample_f1": 57.37,
+          "macro_f1": 47.94,
+          "micro_f1": 58.58
         }
       ]
     },

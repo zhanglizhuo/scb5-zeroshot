@@ -1,6 +1,6 @@
 """Paired bootstrap significance test for CAPE Hit@1 between backbone pairs.
 
-Uses cached CAPE logits in data/feature_cache/ (openai, dfn, siglip2 with
+Uses cached CAPE logits in data/feature_cache/ (all five backbones with
 full-coverage caches). For each (dataset, pair) computes:
   - per-sample Hit@1 indicator under each backbone (multi-label argmax for
     Teacher; single-label primary accuracy for Handrise/BowTurn);
@@ -18,7 +18,7 @@ from pathlib import Path
 import numpy as np
 
 CACHE = Path(__file__).resolve().parent.parent / "data" / "feature_cache"
-MODELS = ["openai", "dfn", "siglip2"]
+MODELS = ["openai", "laion", "siglip2", "eva02", "dfn"]
 DATASETS = {
     "teacher_behavior":   {"multi_label": True,  "name": "TeacherBehavior"},
     "handrise_readwrite": {"multi_label": False, "name": "HandriseReadWrite"},
@@ -30,6 +30,8 @@ def hit_indicator(logits, labels, multi_label):
     pred = logits.argmax(axis=1)
     if multi_label:
         return labels[np.arange(len(labels)), pred].astype(float)
+    if labels.ndim == 2:
+        labels = labels.argmax(axis=1)
     return (pred == labels).astype(float)
 
 
