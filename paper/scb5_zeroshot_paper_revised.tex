@@ -1208,7 +1208,51 @@ All three sub-datasets originate from Chinese K--12 and higher-education classro
 \paragraph{Construct validity: manual prompt design as an analytical tool.}
 CAPE prompts are manually designed, which raises the question of whether the observed results reflect the prompt design principles or the specific wording choices of the authors. We address this concern through three controls: (i) an independently written alternative wording (Set~B, \Cref{sec:e4_robustness}) that shows consistent task-dependent patterns despite different surface forms; (ii) a blind prompt set (Set~C, \Cref{sec:e9_blind}) written without dataset knowledge, which underperforms on class-discriminative metrics and confirms the value of informed prompt design; and (iii) a literature baseline comparison (\Cref{sec:e12_prompt_baselines}) showing that CAPE performs on par with or ahead of established prompt-engineering methods (CuPL, WaffleCLIP). Together, these controls support the interpretation that the observed patterns are driven by the design principles rather than by specific wording choices.
 
-\input{/tmp/paired_bootstrap_full.tex}
+\begin{table}[H]
+\caption{Complete 30-pair paired-bootstrap significance test (5000 resamples, seed~42). $\Delta=\text{Acc}_A-\text{Acc}_B$ in percentage points; 95\% CI from paired bootstrap; $p_{\text{adj}}^{\text{Holm}}$ corrected over the full 30-pair family. The 9-pair subset in Table~\ref{tab:paired_bootstrap} is included here for completeness.}
+\label{tab:paired_bootstrap_full}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{l l l c c r r c c}
+\toprule
+\textbf{Subset} & \textbf{A} & \textbf{B} & $\text{Acc}_A$ & $\text{Acc}_B$ & $\Delta$ (pp) & 95\% CI (pp) & $p$ & $p_{\text{adj}}^{\text{Holm}}$ \\
+\midrule
+Teacher & openai & laion & 84.32 & 52.84 & +31.48 & [+29.66, +33.36] & $<0.001$ & $<0.001$ \\
+Teacher & openai & siglip2 & 84.32 & 85.49 & $-$1.17 & [$-$2.53, +0.15] & $0.089$ & $0.799$ \\
+Teacher & openai & eva02 & 84.32 & 64.26 & +20.06 & [+18.36, +21.79] & $<0.001$ & $<0.001$ \\
+Teacher & openai & dfn & 84.32 & 45.90 & +38.43 & [+36.57, +40.31] & $<0.001$ & $<0.001$ \\
+Teacher & laion & siglip2 & 52.84 & 85.49 & $-$32.65 & [$-$34.35, $-$30.99] & $<0.001$ & $<0.001$ \\
+Teacher & laion & eva02 & 52.84 & 64.26 & $-$11.42 & [$-$13.24, $-$9.57] & $<0.001$ & $<0.001$ \\
+Teacher & laion & dfn & 52.84 & 45.90 & +6.94 & [+5.40, +8.46] & $<0.001$ & $<0.001$ \\
+Teacher & siglip2 & eva02 & 85.49 & 64.26 & +21.23 & [+19.66, +22.90] & $<0.001$ & $<0.001$ \\
+Teacher & siglip2 & dfn & 85.49 & 45.90 & +39.60 & [+37.96, +41.39] & $<0.001$ & $<0.001$ \\
+Teacher & eva02 & dfn & 64.26 & 45.90 & +18.36 & [+16.57, +20.15] & $<0.001$ & $<0.001$ \\
+\midrule
+Handrise & openai & laion & 57.99 & 60.08 & $-$2.09 & [$-$3.29, $-$0.90] & $0.002$ & $0.022$ \\
+Handrise & openai & siglip2 & 57.99 & 56.25 & +1.74 & [+0.48, +2.99] & $0.006$ & $0.073$ \\
+Handrise & openai & eva02 & 57.99 & 60.62 & $-$2.63 & [$-$3.89, $-$1.32] & $<0.001$ & $<0.001$ \\
+Handrise & openai & dfn & 57.99 & 56.91 & +1.08 & [$-$0.12, +2.33] & $0.089$ & $0.799$ \\
+Handrise & laion & siglip2 & 60.08 & 56.25 & +3.83 & [+2.51, +5.21] & $<0.001$ & $<0.001$ \\
+Handrise & laion & eva02 & 60.08 & 60.62 & $-$0.54 & [$-$1.92, +0.90] & $0.482$ & $1.000$ \\
+Handrise & laion & dfn & 60.08 & 56.91 & +3.17 & [+1.92, +4.43] & $<0.001$ & $<0.001$ \\
+Handrise & siglip2 & eva02 & 56.25 & 60.62 & $-$4.37 & [$-$5.86, $-$2.93] & $<0.001$ & $<0.001$ \\
+Handrise & siglip2 & dfn & 56.25 & 56.91 & $-$0.66 & [$-$1.86, +0.54] & $0.306$ & $1.000$ \\
+Handrise & eva02 & dfn & 60.62 & 56.91 & +3.71 & [+2.39, +5.03] & $<0.001$ & $<0.001$ \\
+\midrule
+BowTurn & openai & laion & 63.56 & 69.11 & $-$5.54 & [$-$8.32, $-$2.97] & $<0.001$ & $<0.001$ \\
+BowTurn & openai & siglip2 & 63.56 & 64.75 & $-$1.19 & [$-$5.74, +3.37] & $0.635$ & $1.000$ \\
+BowTurn & openai & eva02 & 63.56 & 65.35 & $-$1.78 & [$-$4.16, +0.59] & $0.155$ & $0.929$ \\
+BowTurn & openai & dfn & 63.56 & 68.32 & $-$4.75 & [$-$7.52, $-$2.18] & $<0.001$ & $<0.001$ \\
+BowTurn & laion & siglip2 & 69.11 & 64.75 & +4.36 & [+0.20, +8.51] & $0.047$ & $0.472$ \\
+BowTurn & laion & eva02 & 69.11 & 65.35 & +3.76 & [+0.99, +6.53] & $0.008$ & $0.091$ \\
+BowTurn & laion & dfn & 69.11 & 68.32 & +0.79 & [$-$1.58, +3.17] & $0.578$ & $1.000$ \\
+BowTurn & siglip2 & eva02 & 64.75 & 65.35 & $-$0.59 & [$-$4.96, +3.96] & $0.819$ & $1.000$ \\
+BowTurn & siglip2 & dfn & 64.75 & 68.32 & $-$3.56 & [$-$7.72, +0.59] & $0.104$ & $0.799$ \\
+BowTurn & eva02 & dfn & 65.35 & 68.32 & $-$2.97 & [$-$5.54, $-$0.40] & $0.032$ & $0.352$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \noindent\Cref{tab:paired_bootstrap_full} reports the complete 30-pair paired-bootstrap results, covering all ten model pairs across the five backbones. The 9-pair subset shown in \Cref{tab:paired_bootstrap} (corresponding to the three originally-cached backbones) is included here for completeness. After Holm--Bonferroni correction, 16 of the 30 pairs remain significant at $\alpha=0.05$; no qualitative ranking reversal occurs.
 
