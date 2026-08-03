@@ -57,6 +57,12 @@ On TeacherBehavior, zero-shot Hit@1 (85.56%) exceeds the supervised linear probe
 
 SigLIP2 CAPE Hit@1 on TeacherBehavior drops from 85.5% to 31.4% when the only change is an alternate wording of the same CAPE prompt set (Set B), a 54.1 percentage-point gap that exceeds inter-backbone differences. The 30-pair paired-bootstrap test (5000 iterations, Holm--Bonferroni corrected) shows that 16 of 30 pairs remain significant after correction (see `analysis/paired_bootstrap.py`).
 
+### CAPE gain is task-dependent
+
+![CAPE Hit@1 gain (pp) over each model's best baseline, by sub-dataset. Positive = CAPE helps; negative = simpler prompts win.](paper/figures/fig_cape_gain.png)
+
+CAPE improves performance on semantically overlapping categories (TeacherBehavior, BowTurnHead) but degrades it on well-separated actions (HandriseReadWrite, all five models show negative Δ). Richer prompts are not universally better.
+
 ## Quick Start
 
 ### Environment
