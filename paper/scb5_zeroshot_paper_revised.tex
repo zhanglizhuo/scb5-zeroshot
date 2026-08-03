@@ -86,7 +86,7 @@ This study makes three contributions:
 
     \item \textbf{Prompt choice matters more than backbone choice in several settings.} Across the benchmark, prompt wording produces larger interpretive shifts than model family alone: all five models show negative CAPE delta on HandriseReadWrite, while CAPE benefits semantically overlapping subsets (TeacherBehavior, BowTurnHead). The three-principle ablation (\Cref{tab:cape_ablation}) further shows that gains arise from visual grounding and discriminative contrast, not from prompt count, refuting the intuition that richer prompt ensembles are universally better.
 
-    \item \textbf{Reproducible benchmark release.} Five CLIP-family backbone cached features, prompt templates (Set~A/B/C), the paired-bootstrap significance script, and the three-principle ablation script are released publicly, enabling transparent reproduction of all reported results.
+    \item \textbf{Reproducible benchmark release.} Five CLIP-family backbone cached features, prompt templates (Set~A/B/C), the paired-bootstrap significance script, and the three-principle ablation script are released publicly, together with \texttt{verify\_caches.py} for integrity checks and \texttt{reproduce\_paper.sh} for end-to-end regeneration. The LAION backbone shows a 0.6--2.1~pp drift between the published values and a uniform open\_clip~2.24.0 re-run (documented in Section~\ref{sec:experiments}).
 \end{enumerate}
 
 \noindent This paper is a \emph{benchmarking study}: the models and CAPE are used as probes and analytical tools, not as new methods. No new training protocols, architectures, or algorithms are proposed. CAPE is a domain-specific prompt recipe designed in this study to operationalize three prompt-engineering principles for classroom activity recognition; it is not presented as a novel prompt-engineering method independent of this benchmark context.
@@ -458,6 +458,15 @@ For confusion matrix analysis, auxiliary macro F1, and per-class recall, each im
 This assignment is deterministic but introduces heavy class imbalance (\Cref{tab:dataset_single}), favoring lower-indexed classes (guide, answer) over higher-indexed ones (screen, blackboard). It is therefore treated as an analysis convenience rather than as a canonical target definition for TeacherBehavior.
 
 For TeacherBehavior, the main interpretation relies on multi-label Hit@1/Hit@3 together with proper multi-label F1 metrics reported in \Cref{sec:e10_multilabel}. Primary-label metrics are retained only to expose class-collapse behavior under a forced single-label view. For the near-single-label HandriseReadWrite and BowTurnHead subsets, standard single-label accuracy and Macro-F1 remain directly interpretable.
+
+\paragraph{Multi-label F1 metrics.}
+For multi-label evaluation on TeacherBehavior, let $G_i \subseteq \{1,\dots,C\}$ be the ground-truth label set and $P_i$ the predicted label set for image~$i$ (obtained via cosine-threshold or top-$k$ selection). The per-sample precision, recall, and F1 are
+\begin{equation}
+P_i = \frac{|P_i \cap G_i|}{|P_i|},\quad
+R_i = \frac{|P_i \cap G_i|}{|G_i|},\quad
+\text{Sample-F1} = \frac{1}{N}\sum_{i=1}^{N} \frac{2 P_i R_i}{P_i + R_i + \varepsilon},\quad \varepsilon=10^{-8}.
+\end{equation}
+Per-class F1 is computed analogously for each class $c$ using the binary predictions across all images; Macro-F1 is the unweighted mean over classes, and Micro-F1 aggregates the global true-positive, false-positive, and false-negative counts before computing a single F1.
 
 \subsection{MLLM Evaluation Protocol}
 \label{sec:mllm_protocol}
@@ -1107,7 +1116,7 @@ The broader implication is that CLIP should be read as an analysis probe in this
 \subsection{Scene-Dependent Model--Prompt Interactions}
 
 A central finding enabled by the multi-scene benchmark is that \textbf{no single model--prompt combination is universally best}.
-SigLIP2+CAPE leads on TeacherBehavior (85.56\%), LAION+action leads on HandriseReadWrite (84.56\%), and DFN-CLIP+CAPE leads on BowTurnHead (93.27\%).
+SigLIP2+CAPE leads on TeacherBehavior (85.56\%), LAION+action leads on HandriseReadWrite (84.56\%), and DFN-CLIP+CAPE leads on BowTurnHead (93.27\%). The HandriseReadWrite and BowTurnHead action numbers use a uniform ``a teacher is \{class\}'' template from the original experiment; subject-aware recomputation for BowTurnHead is reported in \Cref{sec:e14_raw_label}, and HandriseReadWrite was not recomputed in this revision (see \Cref{sec:e14_raw_label} and the Table~\ref{tab:main_results} footnote).
 This diversity points to the conclusion that model selection in educational AI should be guided by the specific recognition scenario rather than by general-purpose benchmarks.
 
 DFN-CLIP exhibits a strong model--task interaction: it ranks last on TeacherBehavior (45.86\%) yet first on BowTurnHead (93.27\%), both under CAPE prompts.
@@ -1209,7 +1218,7 @@ All three sub-datasets originate from Chinese K--12 and higher-education classro
 CAPE prompts are manually designed, which raises the question of whether the observed results reflect the prompt design principles or the specific wording choices of the authors. We address this concern through three controls: (i) an independently written alternative wording (Set~B, \Cref{sec:e4_robustness}) that shows consistent task-dependent patterns despite different surface forms; (ii) a blind prompt set (Set~C, \Cref{sec:e9_blind}) written without dataset knowledge, which underperforms on class-discriminative metrics and confirms the value of informed prompt design; and (iii) a literature baseline comparison (\Cref{sec:e12_prompt_baselines}) showing that CAPE performs on par with or ahead of established prompt-engineering methods (CuPL, WaffleCLIP). Together, these controls support the interpretation that the observed patterns are driven by the design principles rather than by specific wording choices.
 
 \begin{table}[H]
-\caption{Complete 30-pair paired-bootstrap significance test (5000 resamples, seed~42). $\Delta=\text{Acc}_A-\text{Acc}_B$ in percentage points; 95\% CI from paired bootstrap; $p_{\text{adj}}^{\text{Holm}}$ corrected over the full 30-pair family. The 9-pair subset in Table~\ref{tab:paired_bootstrap} is included here for completeness.}
+\caption{Complete 30-pair paired-bootstrap significance test (5000 resamples, seed~42). $\Delta=\text{Acc}_A-\text{Acc}_B$ in percentage points; 95\% CI from paired bootstrap; $p_{\text{adj}}^{\text{Holm}}$ corrected over the full 30-pair family. Acc values use the regenerated CAPE caches (open\_clip~2.24.0); for LAION on TeacherBehavior, the regenerated Hit@1 (52.84\%) differs from the published Table~\ref{tab:main_results} value (54.94\%) by 2.1~pp due to environment drift---see Section~\ref{sec:experiments} for provenance details. The 9-pair subset in Table~\ref{tab:paired_bootstrap} is included here for completeness.}
 \label{tab:paired_bootstrap_full}
 \centering
 \footnotesize
