@@ -87,5 +87,8 @@ logs_v2/
 
 # Temp files
 tmp/
-paper/response_to_reviewers.aux paper/response_to_reviewers_final.aux paper/response_to_reviewers_final.log paper/response_to_reviewers_final.out paper/response_to_reviewers_final.pdf paper/response_to_reviewers_final.tex paper/response_to_reviewers.log paper/response_to_reviewers.out paper/response_to_reviewers.pdf paper/response_to_reviewers.tex
 paper/cover_letter*
+
+paper/response_to_reviewers*
+paper/scb5_zeroshot_paper_diff*
+

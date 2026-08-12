@@ -129,3 +129,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# --- EVA02 teacher action diagnostics (added for figure-table consistency) ---
+# Computed on GPU with open_clip 2.24.0, EVA02-L-14 (merged2b_s4b_b131k),
+# action prompts from prompts/cape_prompts.py CLASS_DESCRIPTIONS
+# ("a teacher is {desc}"), caches from /tmp/caches224/. The confusion matrix
+# uses primary labels = min(class_ids). Stored in
+# results/baseline_eva02_fix_allstrat/baseline_results.json under
+# teacher_behavior/eva02/action/confusion_matrix.
+EVA02_TB_ACTION_CM = [
+    [3, 91, 1, 0, 0, 270, 5, 2],
+    [0, 98, 2, 0, 16, 567, 108, 9],
+    [0, 44, 5, 0, 3, 23, 66, 0],
+    [0, 9, 1, 12, 2, 23, 130, 58],
+    [0, 371, 24, 0, 145, 474, 411, 34],
+    [0, 54, 0, 0, 1, 111, 3, 0],
+    [0, 11, 0, 0, 1, 7, 5, 0],
+    [0, 17, 0, 0, 0, 23, 0, 0],
+]

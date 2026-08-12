@@ -1,0 +1,14 @@
+{
+  "purpose": "DFN label-only single-label diagnostics on HandriseReadWrite (Table 6 row for HandriseReadWrite; Hit@1 84.50 from Table 7)",
+  "model": "DFN-CLIP (DFN-2B, ViT-L/14, open_clip 2.24.0)",
+  "dataset": "SCB5_HandriseReadWrite",
+  "n_val": 1671,
+  "prompts": [
+    "raising hand to ask a question",
+    "reading a textbook or study material",
+    "writing in a notebook"
+  ],
+  "sl_accuracy_pct": 78.93,
+  "macro_f1_pct": 55.31,
+  "hit1_single_label_pct": 78.93
+}

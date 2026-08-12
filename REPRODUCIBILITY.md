@@ -59,6 +59,7 @@ This runs:
 - Paired bootstrap test (`analysis/paired_bootstrap.py`)
 - Linear probe supervised baseline (`analysis/linear_probe.py`)
 - Revision experiments R1-R4 (`analysis/run_revision_experiments.py`)
+- DFN label-only single-label diagnostics (`analysis/dfn_labelonly_sl_eval.py`; needs `data/feature_cache/tembs/dfn_handrise_readwrite_labelonly_tembs.npz` which is generated with open_clip 2.24.0 and the apple/DFN2B-CLIP-ViT-L-14 checkpoint on a GPU)
 - Figure regeneration and paper PDF build
 
 ## 5. Expected outputs

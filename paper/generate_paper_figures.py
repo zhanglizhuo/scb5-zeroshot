@@ -1,3 +1,4 @@
+from decimal import Decimal, ROUND_HALF_UP
 #!/usr/bin/env python3
 """Generate all figures for the SCB5 zero-shot paper revision.
 
@@ -85,7 +86,26 @@ def load_data():
             "pass --json-path to an alternate results file."
         )
     with open(JSON_PATH) as f:
-        return json.load(f)
+        data = json.load(f)
+    # EVA02-CLIP results live in a separate file (computed under a different
+    # pipeline); overlay them so figures match the manuscript tables, while
+    # keeping any fields (e.g., confusion matrices) that exist only in the
+    # main results file.
+    eva02_path = Path(__file__).parent.parent / "results" / \
+        "baseline_eva02_fix_allstrat" / "baseline_results.json"
+    if eva02_path.exists():
+        eva02 = json.load(open(eva02_path))
+        for subset in ("teacher_behavior", "handrise_readwrite",
+                       "bow_turnhead"):
+            if subset not in data or subset not in eva02:
+                continue
+            data[subset].setdefault("eva02", {})
+            for prompt, exp_new in eva02[subset].get("eva02", {}).items():
+                exp_old = data[subset]["eva02"].get(prompt, {})
+                merged = dict(exp_old)
+                merged.update(exp_new)
+                data[subset]["eva02"][prompt] = merged
+    return data
 
 
 def _as_legacy_exp(subset_dict, model, prompt):
@@ -98,7 +118,7 @@ def _as_legacy_exp(subset_dict, model, prompt):
         "model": model,
         "prompt": prompt,
         "hit1": exp["hit_at_1"] * 100,
-        "confusion_matrix": exp["confusion_matrix"],
+        "confusion_matrix": exp.get("confusion_matrix", []),
         "macro_f1": exp["macro_f1"],
         "per_class_recall": exp.get("per_class_recall", []),
     }
@@ -323,8 +343,15 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
         gains = []
         for model_key in MODEL_ORDER:
             cape_exp = get_experiment(ds, model_key, "cape")
+            # Exclude the action strategy on student-behavior subsets: the
+            # original action column used a uniform "a teacher is {class}"
+            # template that is semantically mismatched for HandriseReadWrite
+            # and BowTurnHead (see Table 7 footnote and Section 4.5.6/E14).
+            baseline_prompts = ["label_only", "simple", "detailed"]
+            if subset_key == "teacher_behavior":
+                baseline_prompts.append("action")
             best_baseline = None
-            for p in ["label_only", "simple", "action", "detailed"]:
+            for p in baseline_prompts:
                 exp = get_experiment(ds, model_key, p)
                 if exp and (best_baseline is None or exp["hit1"] > best_baseline["hit1"]):
                     best_baseline = exp
@@ -334,11 +361,13 @@ def plot_cape_gain(data, filename="fig_cape_gain.pdf"):
         offset = (idx - 1) * width
         bars = ax.bar(x + offset, gains, width, label=ds_label, color=colors[idx],
                       edgecolor="gray", linewidth=0.5)
-        # Add value labels
+        # Add value labels (round half up to match the manuscript table)
         for bar, g in zip(bars, gains):
             y = bar.get_height()
             va = "bottom" if y >= 0 else "top"
-            ax.text(bar.get_x() + bar.get_width() / 2, y, f"{g:+.1f}",
+            d = Decimal(str(round(g, 2))).quantize(
+                Decimal("0.1"), rounding=ROUND_HALF_UP)
+            ax.text(bar.get_x() + bar.get_width() / 2, y, f"{d:+.1f}",
                     ha="center", va=va, fontsize=7)
 
     ax.set_xticks(x)
