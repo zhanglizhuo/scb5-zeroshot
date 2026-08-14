@@ -3,12 +3,12 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
 [![HuggingFace Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-SCB--Dataset-yellow)](https://huggingface.co/datasets/wintonYF/SCB-Dataset)
-[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper_revised.pdf)
+[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper_final.pdf)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
 **Prompt Sensitivity Under Semantic Perturbations in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
 
-Yan Ma, Lizhuo Zhang, and Xinjie Wu. Submitted to MDPI Symmetry (Special Issue on Vision--Language Models and Their Applications), 2026.
+Yan Ma, Lizhuo Zhang, and Xinjie Wu. Accepted in MDPI *Symmetry* (Special Issue "Applications Based on Symmetry in Adversarial Machine Learning"), 2026. Manuscript ID: symmetry-4436101.
 
 ---
 
@@ -40,7 +40,7 @@ CLIP-family models exhibit **instability under prompt variation** in zero-shot c
 | Sub-dataset | Best Model + Prompt Strategy | Hit@1 (%) | Multi-label S-F1 (%) |
 | --- | --- | ---: | ---: |
 | **TeacherBehavior** | SigLIP2 + CAPE | 85.56 | 59.94 |
-| **HandriseReadWrite** | OpenCLIP + Action prompt | 84.56 | — |
+| **HandriseReadWrite** | DFN-CLIP + label-only | 84.50 | — |
 | **BowTurnHead** | DFN-CLIP + CAPE | 93.27 | — |
 
 TeacherBehavior is multi-label (3--5 labels/image); Hit@1 alone is lenient. The proper multi-label Sample-F1 (59.94%) and Macro-F1 (49--60%) are reported in the paper alongside Hit@1. HandriseReadWrite and BowTurnHead are near-single-label.
@@ -61,7 +61,7 @@ SigLIP2 CAPE Hit@1 on TeacherBehavior drops from 85.5% to 31.4% when the only ch
 
 ![CAPE Hit@1 gain (pp) over each model's best baseline, by sub-dataset. Positive = CAPE helps; negative = simpler prompts win.](paper/figures/fig_cape_gain.png)
 
-CAPE improves performance on semantically overlapping categories (TeacherBehavior, BowTurnHead) but degrades it on well-separated actions (HandriseReadWrite, all five models show negative Δ). Richer prompts are not universally better.
+CAPE provides substantial gains for some backbones on the more semantically ambiguous subsets (TeacherBehavior and BowTurnHead), but degrades performance on well-separated actions (HandriseReadWrite, where all five models show negative Δ). Richer prompts are not universally better.
 
 ## Quick Start
 
@@ -143,7 +143,7 @@ scb5-zeroshot/
 └── results/                                       # All outputs (baseline, bootstrap, revision, ...)
 ```
 
-Key outputs: `results/baseline_results.json` (main Table 7), `results/revision/paired_bootstrap_1785629747.json` (30-pair significance test, Table 13 source), `results/revision/dev_test_split_r3.json` (threshold stability), `results/revision/stanford40_zero_shot_results.json` (external validation), `paper/figures/` (PDF figures), `paper/scb5_zeroshot_paper_revised.pdf` (manuscript).
+Key outputs: `results/baseline_results.json` (main Table 7), `results/revision/paired_bootstrap_1785629747.json` (30-pair significance test, Table 13 source), `results/revision/dev_test_split_r3.json` (threshold stability), `results/revision/stanford40_zero_shot_results.json` (external validation), `results/revision/dfn_labelonly_hrw_sl_diag.json` (DFN label-only single-label diagnostics), `paper/figures/` (PDF figures), `paper/scb5_zeroshot_paper_final.pdf` (manuscript).
 
 ## Data Availability
 
@@ -168,8 +168,10 @@ This repository includes several reproducibility guards:
   title     = {Prompt Sensitivity Under Semantic Perturbations in {CLIP}-Family
                Models for Zero-Shot Classroom Behavior Analysis},
   author    = {Ma, Yan and Zhang, Lizhuo and Wu, Xinjie},
-  journal   = {Submitted to MDPI Symmetry (Special Issue on Adversarial Machine Learning)},
+  journal   = {Symmetry},
   year      = {2026},
-  note      = {Code and data: \url{https://github.com/zhanglizhuo/scb5-zeroshot}}
+  note      = {Special Issue ``Applications Based on Symmetry in Adversarial
+               Machine Learning''. Code and data:
+               \url{https://github.com/zhanglizhuo/scb5-zeroshot}}
 }
 ```
