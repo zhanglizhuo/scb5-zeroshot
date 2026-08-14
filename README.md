@@ -12,21 +12,6 @@ Yan Ma, Lizhuo Zhang, and Xinjie Wu. Accepted in MDPI *Symmetry* (Special Issue 
 
 ---
 
-## For Reviewers
-
-```bash
-# Verify cache integrity (CAPE logits vs. canonical text embeddings)
-python3 analysis/verify_caches.py
-
-# Quick reproduction from precomputed results:
-bash reproduce_paper.sh --mode quick
-```
-
-Everything needed is committed in this repository — no external downloads required for the quick path.
-See [Quick Start](#quick-start) below for full details.
-
----
-
 ![Prompt Ablation: Hit@1 (%) across 5 models × 5 prompt strategies on all 3 sub-datasets](paper/figures/fig_prompt_ablation_heatmap.png)
 
 ## Overview
