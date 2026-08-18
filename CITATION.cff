@@ -3,6 +3,23 @@ message: "Please cite the manuscript and this repository when using these assets
 title: "scb5-zeroshot: Reproducibility Package for CLIP Zero-Shot Classroom Behavior Analysis"
 type: software
 license: MIT
+preferred-citation:
+  type: article
+  title: "Prompt Sensitivity Under Semantic Perturbations in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis"
+  authors:
+    - family-names: Ma
+      given-names: Yan
+    - family-names: Zhang
+      given-names: Lizhuo
+    - family-names: Wu
+      given-names: Xinjie
+  journal: "Symmetry"
+  year: 2026
+  volume: 18
+  issue: 8
+  start: 1386
+  doi: 10.3390/sym18081386
+  url: "https://doi.org/10.3390/sym18081386"
 authors:
   - family-names: Ma
     given-names: Yan

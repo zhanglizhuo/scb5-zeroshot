@@ -3,12 +3,12 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![OpenCLIP](https://img.shields.io/badge/OpenCLIP-MLFoundations-blueviolet)]()
 [![HuggingFace Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-SCB--Dataset-yellow)](https://huggingface.co/datasets/wintonYF/SCB-Dataset)
-[![Paper](https://img.shields.io/badge/PDF-Paper-red)](paper/scb5_zeroshot_paper_final.pdf)
+[![Paper](https://img.shields.io/badge/DOI-10.3390%2Fsym18081386-blue)](https://doi.org/10.3390/sym18081386)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey)]()
 
 **Prompt Sensitivity Under Semantic Perturbations in CLIP-Family Models for Zero-Shot Classroom Behavior Analysis**
 
-Yan Ma, Lizhuo Zhang, and Xinjie Wu. Accepted in MDPI *Symmetry* (Special Issue "Applications Based on Symmetry in Adversarial Machine Learning"), 2026. Manuscript ID: symmetry-4436101.
+Yan Ma, Lizhuo Zhang, and Xinjie Wu. *Symmetry* **2026**, *18*(8), 1386. [https://doi.org/10.3390/sym18081386](https://doi.org/10.3390/sym18081386) (Special Issue "Applications Based on Symmetry in Adversarial Machine Learning"). Manuscript ID: symmetry-4436101.
 
 ---
 
@@ -154,7 +154,11 @@ This repository includes several reproducibility guards:
                Models for Zero-Shot Classroom Behavior Analysis},
   author    = {Ma, Yan and Zhang, Lizhuo and Wu, Xinjie},
   journal   = {Symmetry},
+  volume    = {18},
+  number    = {8},
+  pages     = {1386},
   year      = {2026},
+  doi       = {10.3390/sym18081386},
   note      = {Special Issue ``Applications Based on Symmetry in Adversarial
                Machine Learning''. Code and data:
                \url{https://github.com/zhanglizhuo/scb5-zeroshot}}
